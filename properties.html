@@ -16,24 +16,106 @@
   <link rel="stylesheet" href="assets/css/properties.css">
 </head>
 <body>
+  <div class="page-loader" id="page-loader">
+    <div class="page-loader__spinner"></div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  </div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" id="site-header" role="banner">
     <div class="container header-container">
       <a href="index.html" class="logo" aria-label="Stackly Estates Home">
-        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+        <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="logo__img">
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul class="nav-list" role="menubar">
           <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
           <li role="none"><a href="properties.html" class="nav-link active" role="menuitem" aria-current="page">Properties</a></li>
+          <li role="none"><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
           <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
           <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
-          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
         </ul>
+        <div class="nav-auth-mobile">
+          <a href="login.html" class="btn btn--login">Login</a>
+          <a href="signup.html" class="btn btn--signup">Signup</a>
+        </div>
+
+        <div class="mobile-menu">
+          <div class="mobile-menu__header">
+            <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="mobile-search">
+            <i data-lucide="search" class="mobile-search__icon" aria-hidden="true"></i>
+            <input type="text" class="mobile-search__input" placeholder="Search properties...">
+          </div>
+
+          <ul class="mobile-nav-items">
+            <li><a href="index.html"><i data-lucide="home" aria-hidden="true"></i><span>Home</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="properties.html"><i data-lucide="building-2" aria-hidden="true"></i><span>Properties</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="services.html"><i data-lucide="wrench" aria-hidden="true"></i><span>Services</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="about.html"><i data-lucide="users" aria-hidden="true"></i><span>About</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="contact.html"><i data-lucide="mail" aria-hidden="true"></i><span>Contact</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+
+          <div class="mobile-featured">
+            <div class="mobile-featured__image">
+              <img src="assets/images/properties/featured-villa.webp" alt="Featured Property" loading="lazy">
+            </div>
+            <div class="mobile-featured__body">
+              <p class="mobile-featured__title">Featured Property</p>
+              <p class="mobile-featured__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, CA</p>
+              <p class="mobile-featured__price">$4,250,000</p>
+              <a href="property-details.html" class="btn btn--primary">View Property</a>
+            </div>
+          </div>
+
+          <div class="mobile-quick-features">
+            <div class="mobile-quick-feature">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span>Verified Listings</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="users" aria-hidden="true"></i>
+              <span>Trusted Agents</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="landmark" aria-hidden="true"></i>
+              <span>Easy Financing</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="headset" aria-hidden="true"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+
+          <div class="mobile-social">
+            <span class="mobile-social__label">Follow Us</span>
+            <div class="mobile-social__icons">
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="mobile-auth">
+            <a href="login.html" class="btn btn--login-outline">Login</a>
+            <a href="signup.html" class="btn btn--signup">Signup</a>
+          </div>
+        </div>
       </nav>
+
+      <div class="header-auth">
+        <a href="login.html" class="btn btn--login">Login</a>
+        <a href="signup.html" class="btn btn--signup">Signup</a>
+      </div>
 
       <div class="header-actions">
         <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -378,15 +460,374 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="section cta-section" aria-labelledby="cta-title">
+    <!-- Featured Luxury Collection -->
+    <section class="section featured-collection" id="featured-collection" aria-labelledby="collection-title">
       <div class="container">
-        <div class="cta-card reveal" data-reveal="fade-up">
-          <div class="cta-card__content">
-            <h2 class="cta-card__title" id="cta-title">Can’t Find What You’re Looking For?</h2>
-            <p class="cta-card__text">Our private listings and off-market network include properties not shown online. Speak with a specialist today.</p>
+        <div class="section-header section-header--flex reveal" data-reveal="fade-up">
+          <div>
+            <span class="section-tag">Curated</span>
+            <h2 class="section-title" id="collection-title">Featured Luxury Collection</h2>
+            <p class="section-subtitle">Hand-picked premium estates from our exclusive portfolio.</p>
           </div>
-          <a href="contact.html" class="btn btn--primary">Contact an Agent</a>
+          <a href="#listings" class="btn btn--secondary">View All Properties</a>
+        </div>
+        <div class="collection-grid">
+          <article class="collection-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="collection-card__image">
+              <img src="assets/images/properties/featured-villa-01.webp" alt="Modern luxury villa with infinity pool" width="800" height="600" loading="lazy" decoding="async">
+              <span class="collection-card__badge">Featured</span>
+              <button class="favorite-btn" type="button" aria-label="Add to wishlist"><i data-lucide="heart" aria-hidden="true"></i></button>
+              <div class="collection-card__overlay">
+                <div class="collection-card__info">
+                  <p class="collection-card__price">$8,900,000</p>
+                  <h3 class="collection-card__title">Bel Air Contemporary</h3>
+                  <p class="collection-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Bel Air, California</p>
+                  <ul class="collection-card__meta">
+                    <li><i data-lucide="bed-double" aria-hidden="true"></i> 6 Beds</li>
+                    <li><i data-lucide="bath" aria-hidden="true"></i> 7 Baths</li>
+                    <li><i data-lucide="maximize" aria-hidden="true"></i> 8,200 sqft</li>
+                  </ul>
+                  <p class="collection-card__desc">Architectural masterpiece with panoramic city views, infinity pool, and private wellness suite.</p>
+                  <a href="property-details.html" class="btn btn--outline btn--small collection-card__btn">View Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="collection-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="collection-card__image">
+              <img src="assets/images/properties/featured-penthouse-01.webp" alt="Luxury penthouse with skyline views" width="800" height="600" loading="lazy" decoding="async">
+              <span class="collection-card__badge">Penthouse</span>
+              <button class="favorite-btn" type="button" aria-label="Add to wishlist"><i data-lucide="heart" aria-hidden="true"></i></button>
+              <div class="collection-card__overlay">
+                <div class="collection-card__info">
+                  <p class="collection-card__price">$12,500,000</p>
+                  <h3 class="collection-card__title">One Hyde Park Penthouse</h3>
+                  <p class="collection-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> London, United Kingdom</p>
+                  <ul class="collection-card__meta">
+                    <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                    <li><i data-lucide="bath" aria-hidden="true"></i> 5 Baths</li>
+                    <li><i data-lucide="maximize" aria-hidden="true"></i> 5,400 sqft</li>
+                  </ul>
+                  <p class="collection-card__desc">Iconic penthouse with sweeping skyline views, private terrace, and 24-hour concierge service.</p>
+                  <a href="property-details.html" class="btn btn--outline btn--small collection-card__btn">View Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="collection-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="collection-card__image">
+              <img src="assets/images/properties/featured-waterfront-01.webp" alt="Waterfront estate with pool and ocean" width="800" height="600" loading="lazy" decoding="async">
+              <span class="collection-card__badge">Waterfront</span>
+              <button class="favorite-btn" type="button" aria-label="Add to wishlist"><i data-lucide="heart" aria-hidden="true"></i></button>
+              <div class="collection-card__overlay">
+                <div class="collection-card__info">
+                  <p class="collection-card__price">$6,950,000</p>
+                  <h3 class="collection-card__title">Malibu Beachfront Estate</h3>
+                  <p class="collection-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Malibu, California</p>
+                  <ul class="collection-card__meta">
+                    <li><i data-lucide="bed-double" aria-hidden="true"></i> 5 Beds</li>
+                    <li><i data-lucide="bath" aria-hidden="true"></i> 6 Baths</li>
+                    <li><i data-lucide="maximize" aria-hidden="true"></i> 6,800 sqft</li>
+                  </ul>
+                  <p class="collection-card__desc">Beachfront villa with private beach access, infinity pool, and breathtaking ocean sunsets.</p>
+                  <a href="property-details.html" class="btn btn--outline btn--small collection-card__btn">View Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="collection-card reveal" data-reveal="fade-up" data-delay="300">
+            <div class="collection-card__image">
+              <img src="assets/images/properties/featured-estate-01.webp" alt="Modern glass mansion architectural estate" width="800" height="600" loading="lazy" decoding="async">
+              <span class="collection-card__badge">Mansion</span>
+              <button class="favorite-btn" type="button" aria-label="Add to wishlist"><i data-lucide="heart" aria-hidden="true"></i></button>
+              <div class="collection-card__overlay">
+                <div class="collection-card__info">
+                  <p class="collection-card__price">$15,800,000</p>
+                  <h3 class="collection-card__title">Beverly Hills Glass Estate</h3>
+                  <p class="collection-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, California</p>
+                  <ul class="collection-card__meta">
+                    <li><i data-lucide="bed-double" aria-hidden="true"></i> 7 Beds</li>
+                    <li><i data-lucide="bath" aria-hidden="true"></i> 9 Baths</li>
+                    <li><i data-lucide="maximize" aria-hidden="true"></i> 12,000 sqft</li>
+                  </ul>
+                  <p class="collection-card__desc">Award-winning architectural estate with glass walls, resort pool, and private cinema.</p>
+                  <a href="property-details.html" class="btn btn--outline btn--small collection-card__btn">View Details <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Browse by Lifestyle -->
+    <section class="section lifestyle" id="lifestyle" aria-labelledby="lifestyle-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Lifestyle</span>
+          <h2 class="section-title" id="lifestyle-title">Browse by Lifestyle</h2>
+          <p class="section-subtitle">Find properties that match the way you want to live.</p>
+        </div>
+        <div class="lifestyle-grid">
+          <article class="lifestyle-card reveal" data-reveal="zoom-reveal" data-delay="0">
+            <div class="lifestyle-card__image">
+              <img src="assets/images/properties/lifestyle-villas.webp" alt="Luxury villa estate" width="600" height="400" loading="lazy" decoding="async">
+              <div class="lifestyle-card__overlay">
+                <h3 class="lifestyle-card__title">Luxury Villas</h3>
+                <p class="lifestyle-card__count">38 Properties</p>
+              </div>
+            </div>
+          </article>
+          <article class="lifestyle-card reveal" data-reveal="zoom-reveal" data-delay="100">
+            <div class="lifestyle-card__image">
+              <img src="assets/images/properties/lifestyle-waterfront.webp" alt="Waterfront beach house" width="600" height="400" loading="lazy" decoding="async">
+              <div class="lifestyle-card__overlay">
+                <h3 class="lifestyle-card__title">Waterfront Homes</h3>
+                <p class="lifestyle-card__count">24 Properties</p>
+              </div>
+            </div>
+          </article>
+          <article class="lifestyle-card reveal" data-reveal="zoom-reveal" data-delay="200">
+            <div class="lifestyle-card__image">
+              <img src="assets/images/properties/lifestyle-smart.webp" alt="Smart home modern interior" width="600" height="400" loading="lazy" decoding="async">
+              <div class="lifestyle-card__overlay">
+                <h3 class="lifestyle-card__title">Smart Homes</h3>
+                <p class="lifestyle-card__count">19 Properties</p>
+              </div>
+            </div>
+          </article>
+          <article class="lifestyle-card reveal" data-reveal="zoom-reveal" data-delay="300">
+            <div class="lifestyle-card__image">
+              <img src="assets/images/properties/lifestyle-penthouses.webp" alt="Penthouse with city views" width="600" height="400" loading="lazy" decoding="async">
+              <div class="lifestyle-card__overlay">
+                <h3 class="lifestyle-card__title">Penthouses</h3>
+                <p class="lifestyle-card__count">22 Properties</p>
+              </div>
+            </div>
+          </article>
+          <article class="lifestyle-card reveal" data-reveal="zoom-reveal" data-delay="400">
+            <div class="lifestyle-card__image">
+              <img src="assets/images/properties/lifestyle-commercial.webp" alt="Commercial office space" width="600" height="400" loading="lazy" decoding="async">
+              <div class="lifestyle-card__overlay">
+                <h3 class="lifestyle-card__title">Commercial Spaces</h3>
+                <p class="lifestyle-card__count">16 Properties</p>
+              </div>
+            </div>
+          </article>
+          <article class="lifestyle-card reveal" data-reveal="zoom-reveal" data-delay="500">
+            <div class="lifestyle-card__image">
+              <img src="assets/images/properties/lifestyle-apartments.webp" alt="Modern apartment building" width="600" height="400" loading="lazy" decoding="async">
+              <div class="lifestyle-card__overlay">
+                <h3 class="lifestyle-card__title">Family Apartments</h3>
+                <p class="lifestyle-card__count">41 Properties</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Buying Process -->
+    <section class="section process" id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Process</span>
+          <h2 class="section-title" id="process-title">Your Property Buying Journey</h2>
+          <p class="section-subtitle">A seamless, transparent process from discovery to move-in.</p>
+        </div>
+        <div class="process-steps">
+          <div class="process-step reveal" data-reveal="scale-in" data-delay="0">
+            <div class="process-step__icon" aria-hidden="true">
+              <i data-lucide="search"></i>
+            </div>
+            <h3 class="process-step__title">Discover</h3>
+            <p class="process-step__text">Browse our curated portfolio of premium properties and save your favorites.</p>
+          </div>
+          <div class="process-step reveal" data-reveal="scale-in" data-delay="100">
+            <div class="process-step__icon" aria-hidden="true">
+              <i data-lucide="calendar-check"></i>
+            </div>
+            <h3 class="process-step__title">Schedule Visit</h3>
+            <p class="process-step__text">Book private viewings at your convenience with our dedicated concierge team.</p>
+          </div>
+          <div class="process-step reveal" data-reveal="scale-in" data-delay="200">
+            <div class="process-step__icon" aria-hidden="true">
+              <i data-lucide="clipboard-check"></i>
+            </div>
+            <h3 class="process-step__title">Inspection</h3>
+            <p class="process-step__text">Thorough property evaluation with certified inspectors and expert advisors.</p>
+          </div>
+          <div class="process-step reveal" data-reveal="scale-in" data-delay="300">
+            <div class="process-step__icon" aria-hidden="true">
+              <i data-lucide="file-text"></i>
+            </div>
+            <h3 class="process-step__title">Documentation</h3>
+            <p class="process-step__text">Hassle-free paperwork handled by our legal and transaction specialists.</p>
+          </div>
+          <div class="process-step reveal" data-reveal="scale-in" data-delay="400">
+            <div class="process-step__icon" aria-hidden="true">
+              <i data-lucide="credit-card"></i>
+            </div>
+            <h3 class="process-step__title">Payment</h3>
+            <p class="process-step__text">Secure and transparent payment process with flexible financing options.</p>
+          </div>
+          <div class="process-step reveal" data-reveal="scale-in" data-delay="500">
+            <div class="process-step__icon" aria-hidden="true">
+              <i data-lucide="home"></i>
+            </div>
+            <h3 class="process-step__title">Move In</h3>
+            <p class="process-step__text">Welcome to your new home with our white-glove move-in coordination service.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Invest With Stackly -->
+    <section class="section why-invest" id="why-invest" aria-labelledby="invest-title">
+      <div class="container why-invest__container">
+        <div class="why-invest__media reveal" data-reveal="clip-path">
+          <div class="why-invest__image">
+            <img src="assets/images/properties/investment-home.webp" alt="Luxury real estate investment property" width="800" height="1240" loading="lazy" decoding="async">
+          </div>
+        </div>
+        <div class="why-invest__content reveal" data-reveal="fade-left">
+          <span class="section-tag">Invest</span>
+          <h2 class="section-title" id="invest-title">Why Invest With Stackly</h2>
+          <p class="why-invest__text">Stackly Estates delivers unrivaled market intelligence, premium property access, and white-glove investment management for discerning global investors.</p>
+          <ul class="why-invest__benefits">
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Curated off-market investment opportunities</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Data-driven market analysis & forecasting</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Dedicated portfolio management team</li>
+          </ul>
+          <div class="why-invest__stats">
+            <div class="invest-stat reveal" data-reveal="scale-in" data-delay="100">
+              <span class="invest-stat__value">12<span>%</span></span>
+              <p class="invest-stat__label">Avg. Annual ROI</p>
+            </div>
+            <div class="invest-stat reveal" data-reveal="scale-in" data-delay="200">
+              <span class="invest-stat__value" data-counter="450">0</span>
+              <p class="invest-stat__label">Properties Sold</p>
+            </div>
+            <div class="invest-stat reveal" data-reveal="scale-in" data-delay="300">
+              <span class="invest-stat__value">98<span>%</span></span>
+              <p class="invest-stat__label">Client Satisfaction</p>
+            </div>
+            <div class="invest-stat reveal" data-reveal="scale-in" data-delay="400">
+              <span class="invest-stat__value">150+</span>
+              <p class="invest-stat__label">Projects Delivered</p>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn--primary btn--icon">
+            <span>Schedule Consultation</span>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Luxury Property Gallery -->
+    <section class="section gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Gallery</span>
+          <h2 class="section-title" id="gallery-title">Luxury Property Gallery</h2>
+          <p class="section-subtitle">A visual journey through our most exceptional listings.</p>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="0">
+            <img src="assets/images/properties/gallery-01.webp" alt="Luxury villa exterior" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Villa</span>
+              <p class="gallery-item__title">Bel Air Estate</p>
+              <p class="gallery-item__location">Beverly Hills, CA</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="100">
+            <img src="assets/images/properties/gallery-02.webp" alt="Infinity pool villa" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Waterfront</span>
+              <p class="gallery-item__title">Malibu Retreat</p>
+              <p class="gallery-item__location">Malibu, CA</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="200">
+            <img src="assets/images/properties/gallery-03.webp" alt="Modern apartment building" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Apartment</span>
+              <p class="gallery-item__title">Skyline Tower</p>
+              <p class="gallery-item__location">New York, NY</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="300">
+            <img src="assets/images/properties/gallery-04.webp" alt="Penthouse city view" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Penthouse</span>
+              <p class="gallery-item__title">Penthouse Panorama</p>
+              <p class="gallery-item__location">Manhattan, NY</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="400">
+            <img src="assets/images/properties/gallery-05.webp" alt="Beachfront property" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Beachfront</span>
+              <p class="gallery-item__title">Oceanfront Villa</p>
+              <p class="gallery-item__location">Santorini, Greece</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="500">
+            <img src="assets/images/properties/gallery-06.webp" alt="Modern living room interior" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Interior</span>
+              <p class="gallery-item__title">Designer Interior</p>
+              <p class="gallery-item__location">London, UK</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="600">
+            <img src="assets/images/properties/gallery-07.webp" alt="Luxury home construction" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Estate</span>
+              <p class="gallery-item__title">Custom Estate</p>
+              <p class="gallery-item__location">Dubai, UAE</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+          <div class="gallery-item reveal" data-reveal="fade-up" data-delay="700">
+            <img src="assets/images/properties/gallery-08.webp" alt="Luxury bedroom interior" width="800" height="600" loading="lazy" decoding="async">
+            <div class="gallery-item__overlay">
+              <span class="gallery-item__badge">Suite</span>
+              <p class="gallery-item__title">Master Suite</p>
+              <p class="gallery-item__location">Paris, France</p>
+              <button class="btn btn--outline btn--small gallery-item__btn">View Property</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Call-To-Action -->
+    <section class="section premium-cta" aria-labelledby="premium-cta-title">
+      <div class="premium-cta__bg" aria-hidden="true">
+        <img src="assets/images/properties/cta-luxury-bg.webp" alt="" width="1400" height="800" loading="lazy" decoding="async">
+      </div>
+      <div class="premium-cta__overlay" aria-hidden="true"></div>
+      <div class="container premium-cta__container">
+        <div class="premium-cta__content reveal" data-reveal="fade-up">
+          <span class="premium-cta__tag">Ready to Begin?</span>
+          <h2 class="premium-cta__title" id="premium-cta-title">Find Your Dream Property Today</h2>
+          <p class="premium-cta__text">Our luxury property experts are ready to help you discover the perfect home or investment opportunity.</p>
+          <div class="premium-cta__actions">
+            <a href="#listings" class="btn btn--primary btn--icon">
+              <span>Browse Properties</span>
+              <i data-lucide="search" aria-hidden="true"></i>
+            </a>
+            <a href="contact.html" class="btn btn--outline btn--light">Contact an Expert</a>
+          </div>
         </div>
       </div>
     </section>

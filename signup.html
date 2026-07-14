@@ -3,194 +3,225 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Create your Stackly Estates account to unlock exclusive luxury property listings, saved favorites, and personalized alerts.">
-  <meta name="theme-color" content="#0F172A">
+  <meta name="description" content="Create your Stackly Estates account and unlock exclusive luxury property listings, personalized alerts, and more.">
+  <meta name="theme-color" content="#081120">
 
-  <title>Sign Up | Stackly Estates</title>
+  <title>Create Account | Stackly Estates</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="assets/css/shared.css">
   <link rel="stylesheet" href="assets/css/signup.css">
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="site-header" id="site-header" role="banner">
-    <div class="container header-container">
-      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
-        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
-      </a>
-
-      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
-        <ul class="nav-list" role="menubar">
-          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
-          <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
-          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
-          <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
-          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-actions">
-        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-          <span class="menu-toggle__bar" aria-hidden="true"></span>
-          <span class="menu-toggle__bar" aria-hidden="true"></span>
-          <span class="menu-toggle__bar" aria-hidden="true"></span>
-        </button>
+  <div class="auth-wrapper">
+    <div class="auth-left">
+      <div class="auth-left-bg">
+        <img src="assets/images/properties/luxury-villa.webp" alt="Luxury modern villa with pool" class="auth-left-img">
       </div>
-    </div>
-  </header>
-
-  <main id="main-content">
-    <section class="auth-section" aria-labelledby="signup-title">
-      <div class="auth-section__overlay" aria-hidden="true"></div>
-      <div class="container auth-section__container">
-        <div class="auth-card reveal" data-reveal="fade-up">
-          <div class="auth-card__header">
-            <span class="auth-card__icon" aria-hidden="true"><i data-lucide="user-plus"></i></span>
-            <h1 class="auth-card__title" id="signup-title">Create Your Account</h1>
-            <p class="auth-card__text">Join Stackly Estates to unlock exclusive listings, save favorites, and receive personalized market alerts.</p>
-          </div>
-
-          <form class="auth-form" id="signup-form" novalidate>
-            <div class="form-group">
-              <label for="signup-name" class="form-label">Full Name</label>
-              <div class="form-input-wrap">
-                <i data-lucide="user" aria-hidden="true"></i>
-                <input type="text" id="signup-name" name="name" class="form-input" placeholder="John Doe" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="signup-email" class="form-label">Email Address</label>
-              <div class="form-input-wrap">
-                <i data-lucide="mail" aria-hidden="true"></i>
-                <input type="email" id="signup-email" name="email" class="form-input" placeholder="you@example.com" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="signup-phone" class="form-label">Phone Number</label>
-              <div class="form-input-wrap">
-                <i data-lucide="phone" aria-hidden="true"></i>
-                <input type="tel" id="signup-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="signup-password" class="form-label">Password</label>
-              <div class="form-input-wrap">
-                <i data-lucide="lock" aria-hidden="true"></i>
-                <input type="password" id="signup-password" name="password" class="form-input" placeholder="Create a password" required minlength="8">
-                <button type="button" class="password-toggle" id="password-toggle" aria-label="Show password" aria-pressed="false">
-                  <i data-lucide="eye" aria-hidden="true"></i>
-                </button>
-              </div>
-              <p class="password-hint">Minimum 8 characters with letters and numbers.</p>
-            </div>
-
-            <div class="form-group">
-              <label for="signup-confirm" class="form-label">Confirm Password</label>
-              <div class="form-input-wrap">
-                <i data-lucide="lock" aria-hidden="true"></i>
-                <input type="password" id="signup-confirm" name="confirm-password" class="form-input" placeholder="Confirm your password" required>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label class="checkbox-label checkbox-label--terms">
-                <input type="checkbox" name="terms" id="signup-terms" required>
-                <span class="checkbox-custom" aria-hidden="true"></span>
-                <span>I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#" class="auth-link">Privacy Policy</a>.</span>
-              </label>
-            </div>
-
-            <button type="submit" class="btn btn--primary btn--full">Create Account</button>
-            <p class="form-message" id="signup-message" role="status" aria-live="polite"></p>
-          </form>
-
-          <div class="auth-card__footer">
-            <p>Already have an account? <a href="login.html" class="auth-link auth-link--strong">Log in</a></p>
-          </div>
+      <div class="auth-left-overlay"></div>
+      <div class="auth-left-content">
+        <div class="brand-block">
+          <svg class="brand-logo" viewBox="0 0 320 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldLg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#C8A96B"/>
+                <stop offset="35%" stop-color="#E8D5A8"/>
+                <stop offset="65%" stop-color="#C8A96B"/>
+                <stop offset="100%" stop-color="#D4B87A"/>
+              </linearGradient>
+            </defs>
+            <rect x="6" y="14" width="7" height="34" rx="2.5" fill="url(#goldLg)"/>
+            <rect x="17" y="10" width="7" height="38" rx="2.5" fill="url(#goldLg)"/>
+            <rect x="28" y="18" width="7" height="30" rx="2.5" fill="url(#goldLg)"/>
+            <rect x="39" y="24" width="7" height="24" rx="2.5" fill="url(#goldLg)"/>
+            <rect x="2" y="46" width="48" height="3" rx="1.5" fill="url(#goldLg)" opacity="0.5"/>
+            <line x1="60" y1="10" x2="60" y2="50" stroke="url(#goldLg)" stroke-width="1" opacity="0.3"/>
+            <text x="74" y="31" font-family="Georgia,'Times New Roman',serif" font-size="20" font-weight="700" fill="#C8A96B" letter-spacing="3.5">STACKLY</text>
+            <text x="74" y="48" font-family="Georgia,'Times New Roman',serif" font-size="10" fill="#C8A96B" letter-spacing="5" opacity="0.85">ESTATES</text>
+          </svg>
+          <h2 class="brand-tagline">Luxury Living Starts Here</h2>
+          <p class="brand-desc">Discover a world of extraordinary properties curated for those who demand the finest in luxury real estate.</p>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
-            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
-            <span class="logo__text">Stackly Estates</span>
-          </a>
-          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
-          <div class="social-links" aria-label="Social media">
-            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
-            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+        <div class="stat-cards">
+          <div class="stat-card stat-card--1">
+            <span class="stat-num">1200+</span>
+            <span class="stat-label">Luxury Properties</span>
           </div>
-        </div>
-
-        <nav class="footer-nav" aria-label="Footer quick links">
-          <h3 class="footer-nav__title">Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="properties.html">Properties</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Signup</a></li>
-          </ul>
-        </nav>
-
-        <nav class="footer-nav" aria-label="Footer property links">
-          <h3 class="footer-nav__title">Properties</h3>
-          <ul>
-            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
-            <li><a href="properties.html?type=apartment">Apartments</a></li>
-            <li><a href="properties.html?type=commercial">Commercial</a></li>
-            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
-            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
-          </ul>
-        </nav>
-
-        <div class="footer-newsletter">
-          <h3 class="footer-nav__title">Newsletter</h3>
-          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
-          <form class="newsletter-form" id="newsletter-form" novalidate>
-            <label for="newsletter-email" class="visually-hidden">Email address</label>
-            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
-            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
-              <i data-lucide="send" aria-hidden="true"></i>
-            </button>
-          </form>
-          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
-        <div class="footer-bottom__links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <div class="stat-card stat-card--2">
+            <span class="stat-num">98%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+          <div class="stat-card stat-card--3">
+            <span class="stat-num">15+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
 
-  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
-    <i data-lucide="chevron-up" aria-hidden="true"></i>
-  </button>
+    <div class="auth-right">
+      <div class="auth-card auth-card--signup">
+        <div class="auth-card-header">
+          <svg class="card-logo" viewBox="0 0 320 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="goldSm" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#C8A96B"/>
+                <stop offset="35%" stop-color="#E8D5A8"/>
+                <stop offset="65%" stop-color="#C8A96B"/>
+                <stop offset="100%" stop-color="#D4B87A"/>
+              </linearGradient>
+            </defs>
+            <rect x="4" y="10" width="5" height="26" rx="2" fill="url(#goldSm)"/>
+            <rect x="12" y="7" width="5" height="29" rx="2" fill="url(#goldSm)"/>
+            <rect x="20" y="13" width="5" height="23" rx="2" fill="url(#goldSm)"/>
+            <rect x="28" y="18" width="5" height="18" rx="2" fill="url(#goldSm)"/>
+            <rect x="2" y="35" width="34" height="2" rx="1" fill="url(#goldSm)" opacity="0.5"/>
+            <line x1="42" y1="7" x2="42" y2="38" stroke="url(#goldSm)" stroke-width="0.7" opacity="0.3"/>
+            <text x="52" y="23" font-family="Georgia,'Times New Roman',serif" font-size="14" font-weight="700" fill="#C8A96B" letter-spacing="2.5">STACKLY</text>
+            <text x="52" y="36" font-family="Georgia,'Times New Roman',serif" font-size="7" fill="#C8A96B" letter-spacing="3.5" opacity="0.85">ESTATES</text>
+          </svg>
+          <h1 class="auth-title">Create Account</h1>
+          <p class="auth-subtitle">Join the world of luxury real estate</p>
+        </div>
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script src="assets/js/shared.js"></script>
+        <form class="auth-form" id="signup-form" novalidate autocomplete="off">
+          <div class="floating-group">
+            <div class="floating-wrap">
+              <input type="text" id="signup-name" class="floating-input" placeholder=" " required autofocus autocomplete="name">
+              <label for="signup-name" class="floating-label">Full Name</label>
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              </span>
+            </div>
+            <span class="field-error" id="name-error"></span>
+          </div>
+
+          <div class="floating-group">
+            <div class="floating-wrap">
+              <input type="email" id="signup-email" class="floating-input" placeholder=" " required autocomplete="email">
+              <label for="signup-email" class="floating-label">Email Address</label>
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </span>
+            </div>
+            <span class="field-error" id="signup-email-error"></span>
+          </div>
+
+          <div class="floating-group">
+            <div class="floating-wrap">
+              <input type="tel" id="signup-phone" class="floating-input" placeholder=" " required autocomplete="tel">
+              <label for="signup-phone" class="floating-label">Phone Number</label>
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+            </div>
+            <span class="field-error" id="phone-error"></span>
+          </div>
+
+          <div class="floating-group">
+            <div class="floating-wrap floating-wrap--select">
+              <select id="signup-role" class="floating-input floating-select" required>
+                <option value="" disabled selected></option>
+                <option value="student">Student</option>
+                <option value="trainer">Trainer</option>
+              </select>
+              <label for="signup-role" class="floating-label">Choose Your Role</label>
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              <span class="select-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </span>
+            </div>
+            <span class="field-error" id="role-error"></span>
+          </div>
+
+          <div class="floating-group">
+            <div class="floating-wrap">
+              <input type="password" id="signup-password" class="floating-input" placeholder=" " required autocomplete="new-password">
+              <label for="signup-password" class="floating-label">Password</label>
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <button type="button" class="password-toggle" id="signup-pw-toggle" aria-label="Show password" tabindex="-1">
+                <svg class="eye-icon eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-icon eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </button>
+            </div>
+            <div class="password-strength" id="pw-strength">
+              <div class="strength-bar" id="strength-bar">
+                <div class="strength-fill" id="strength-fill"></div>
+              </div>
+              <span class="strength-label" id="strength-label"></span>
+            </div>
+            <ul class="pw-checklist" id="pw-checklist">
+              <li class="check-item" data-check="length">8–32 characters</li>
+              <li class="check-item" data-check="upper">Uppercase letter</li>
+              <li class="check-item" data-check="lower">Lowercase letter</li>
+              <li class="check-item" data-check="number">Number</li>
+              <li class="check-item" data-check="special">Special character</li>
+            </ul>
+            <span class="field-error" id="signup-password-error"></span>
+          </div>
+
+          <div class="floating-group">
+            <div class="floating-wrap">
+              <input type="password" id="signup-confirm" class="floating-input" placeholder=" " required autocomplete="new-password">
+              <label for="signup-confirm" class="floating-label">Confirm Password</label>
+              <span class="input-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              </span>
+              <button type="button" class="password-toggle" id="signup-confirm-toggle" aria-label="Show password" tabindex="-1">
+                <svg class="eye-icon eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-icon eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </button>
+            </div>
+            <span class="field-error" id="confirm-error"></span>
+          </div>
+
+          <div class="form-row form-row--terms">
+            <label class="checkbox-label">
+              <input type="checkbox" id="signup-terms" class="checkbox-input">
+              <span class="checkbox-mark">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              <span class="checkbox-text">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></span>
+            </label>
+            <span class="field-error" id="terms-error"></span>
+          </div>
+
+          <button type="submit" class="btn-submit" id="signup-submit">
+            <span class="btn-text">Create Account</span>
+            <span class="btn-spinner">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+                <circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </button>
+        </form>
+
+        <div class="auth-footer">
+          <p class="footer-text">Already have an account? <a href="login.html" class="footer-link">Sign In</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="particle-canvas" class="particle-canvas"></canvas>
+
+  <div class="success-overlay" id="success-overlay">
+    <div class="success-modal">
+      <div class="success-circle">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 class="success-title">Account Created!</h3>
+      <p class="success-text">Redirecting to your dashboard...</p>
+    </div>
+  </div>
+
   <script src="assets/js/signup.js"></script>
 </body>
 </html>

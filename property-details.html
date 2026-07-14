@@ -21,19 +21,95 @@
   <header class="site-header" id="site-header" role="banner">
     <div class="container header-container">
       <a href="index.html" class="logo" aria-label="Stackly Estates Home">
-        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+        <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="logo__img">
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul class="nav-list" role="menubar">
           <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
           <li role="none"><a href="properties.html" class="nav-link active" role="menuitem" aria-current="page">Properties</a></li>
+          <li role="none"><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
           <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
           <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
-          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
         </ul>
+        <div class="nav-auth-mobile">
+          <a href="login.html" class="btn btn--login">Login</a>
+          <a href="signup.html" class="btn btn--signup">Signup</a>
+        </div>
+
+        <div class="mobile-menu">
+          <div class="mobile-menu__header">
+            <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="mobile-search">
+            <i data-lucide="search" class="mobile-search__icon" aria-hidden="true"></i>
+            <input type="text" class="mobile-search__input" placeholder="Search properties...">
+          </div>
+
+          <ul class="mobile-nav-items">
+            <li><a href="index.html"><i data-lucide="home" aria-hidden="true"></i><span>Home</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="properties.html"><i data-lucide="building-2" aria-hidden="true"></i><span>Properties</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="services.html"><i data-lucide="wrench" aria-hidden="true"></i><span>Services</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="about.html"><i data-lucide="users" aria-hidden="true"></i><span>About</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="contact.html"><i data-lucide="mail" aria-hidden="true"></i><span>Contact</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+
+          <div class="mobile-featured">
+            <div class="mobile-featured__image">
+              <img src="assets/images/properties/featured-villa.webp" alt="Featured Property" loading="lazy">
+            </div>
+            <div class="mobile-featured__body">
+              <p class="mobile-featured__title">Featured Property</p>
+              <p class="mobile-featured__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, CA</p>
+              <p class="mobile-featured__price">$4,250,000</p>
+              <a href="property-details.html" class="btn btn--primary">View Property</a>
+            </div>
+          </div>
+
+          <div class="mobile-quick-features">
+            <div class="mobile-quick-feature">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span>Verified Listings</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="users" aria-hidden="true"></i>
+              <span>Trusted Agents</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="landmark" aria-hidden="true"></i>
+              <span>Easy Financing</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="headset" aria-hidden="true"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+
+          <div class="mobile-social">
+            <span class="mobile-social__label">Follow Us</span>
+            <div class="mobile-social__icons">
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="mobile-auth">
+            <a href="login.html" class="btn btn--login-outline">Login</a>
+            <a href="signup.html" class="btn btn--signup">Signup</a>
+          </div>
+        </div>
       </nav>
+
+      <div class="header-auth">
+        <a href="login.html" class="btn btn--login">Login</a>
+        <a href="signup.html" class="btn btn--signup">Signup</a>
+      </div>
 
       <div class="header-actions">
         <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">

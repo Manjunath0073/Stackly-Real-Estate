@@ -50,6 +50,7 @@
   function initMobileMenu() {
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
+    const closeBtn = document.getElementById('mobile-close');
     if (!toggle || !nav) return;
 
     const openMenu = () => {
@@ -57,7 +58,7 @@
       nav.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close menu');
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
     };
 
     const closeMenu = () => {
@@ -65,7 +66,7 @@
       nav.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open menu');
-      document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
     };
 
     toggle.addEventListener('click', () => {
@@ -76,22 +77,16 @@
       }
     });
 
-    nav.querySelectorAll('a').forEach((link) => {
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMenu);
+    }
+
+    nav.querySelectorAll('.mobile-nav-items a').forEach((link) => {
       link.addEventListener('click', closeMenu);
     });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-        closeMenu();
-      }
-    });
-
-    document.addEventListener('click', (e) => {
-      if (
-        nav.classList.contains('is-open') &&
-        !nav.contains(e.target) &&
-        !toggle.contains(e.target)
-      ) {
         closeMenu();
       }
     });

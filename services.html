@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly Estates - Premium real estate services including luxury property consulting, investment advisory, concierge services, and global market intelligence.">
+  <meta name="theme-color" content="#0F172A">
+  <title>Services | Stackly Estates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="stylesheet" href="assets/css/services.css">
+</head>
+<body>
+  <div class="page-loader" id="page-loader">
+    <div class="page-loader__spinner"></div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  </div>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
+        <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="logo__img">
+      </a>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
+          <li role="none"><a href="services.html" class="nav-link active" role="menuitem" aria-current="page">Services</a></li>
+          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+        </ul>
+        <div class="nav-auth-mobile">
+          <a href="login.html" class="btn btn--login">Login</a>
+          <a href="signup.html" class="btn btn--signup">Signup</a>
+        </div>
+        <div class="mobile-menu">
+          <div class="mobile-menu__header">
+            <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu"><i data-lucide="x" aria-hidden="true"></i></button>
+          </div>
+          <div class="mobile-search">
+            <i data-lucide="search" class="mobile-search__icon" aria-hidden="true"></i>
+            <input type="text" class="mobile-search__input" placeholder="Search properties...">
+          </div>
+          <ul class="mobile-nav-items">
+            <li><a href="index.html"><i data-lucide="home" aria-hidden="true"></i><span>Home</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="properties.html"><i data-lucide="building-2" aria-hidden="true"></i><span>Properties</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="services.html"><i data-lucide="wrench" aria-hidden="true"></i><span>Services</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="about.html"><i data-lucide="users" aria-hidden="true"></i><span>About</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="contact.html"><i data-lucide="mail" aria-hidden="true"></i><span>Contact</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+          <div class="mobile-featured">
+            <div class="mobile-featured__image"><img src="assets/images/properties/featured-villa.webp" alt="Featured Property" loading="lazy"></div>
+            <div class="mobile-featured__body">
+              <p class="mobile-featured__title">Featured Property</p>
+              <p class="mobile-featured__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, CA</p>
+              <p class="mobile-featured__price">$4,250,000</p>
+              <a href="property-details.html" class="btn btn--primary">View Property</a>
+            </div>
+          </div>
+          <div class="mobile-quick-features">
+            <div class="mobile-quick-feature"><i data-lucide="shield-check" aria-hidden="true"></i><span>Verified Listings</span></div>
+            <div class="mobile-quick-feature"><i data-lucide="users" aria-hidden="true"></i><span>Trusted Agents</span></div>
+            <div class="mobile-quick-feature"><i data-lucide="landmark" aria-hidden="true"></i><span>Easy Financing</span></div>
+            <div class="mobile-quick-feature"><i data-lucide="headset" aria-hidden="true"></i><span>24/7 Support</span></div>
+          </div>
+          <div class="mobile-social">
+            <span class="mobile-social__label">Follow Us</span>
+            <div class="mobile-social__icons">
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="mobile-auth">
+            <a href="login.html" class="btn btn--login-outline">Login</a>
+            <a href="signup.html" class="btn btn--signup">Signup</a>
+          </div>
+        </div>
+      </nav>
+      <div class="header-auth">
+        <a href="login.html" class="btn btn--login">Login</a>
+        <a href="signup.html" class="btn btn--signup">Signup</a>
+      </div>
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- 1. Hero -->
+    <section class="services-hero" aria-label="Services hero">
+      <div class="services-hero__bg" aria-hidden="true">
+        <img src="assets/images/services/services-hero.webp" alt="" width="1200" height="800" loading="eager">
+      </div>
+      <div class="services-hero__gradient" aria-hidden="true"></div>
+      <div class="services-hero__mesh" aria-hidden="true"></div>
+      <div class="container services-hero__container">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol><li><a href="index.html">Home</a></li><li aria-current="page">Services</li></ol>
+        </nav>
+        <span class="services-hero__tag">White-Glove Service</span>
+        <h1 class="services-hero__title">Beyond Real Estate.<br>An Extraordinary Experience.</h1>
+        <p class="services-hero__text">Every interaction with Stackly Estates is crafted to exceed expectations — from your first inquiry to long after you've received the keys.</p>
+        <div class="services-hero__actions">
+          <a href="#services-overview" class="btn btn--primary btn--icon"><span>Explore Services</span><i data-lucide="arrow-down" aria-hidden="true"></i></a>
+          <a href="contact.html" class="btn btn--outline btn--light">Book a Consultation</a>
+        </div>
+      </div>
+      <div class="services-hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <i data-lucide="chevron-down" aria-hidden="true"></i>
+      </div>
+    </section>
+
+    <!-- 2. Premium Services -->
+    <section class="section services-overview" id="services-overview" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">What We Offer</span>
+          <h2 class="section-title" id="overview-title">Comprehensive Luxury Services</h2>
+          <p class="section-subtitle">End-to-end solutions tailored to the most discerning clients.</p>
+        </div>
+        <div class="overview-grid">
+          <article class="overview-card" data-delay="0">
+            <div class="overview-card__icon"><i data-lucide="building-2" aria-hidden="true"></i></div>
+            <h3 class="overview-card__title">Property Acquisition</h3>
+            <p class="overview-card__text">Strategic sourcing of premium properties through our global network and off-market connections.</p>
+          </article>
+          <article class="overview-card" data-delay="100">
+            <div class="overview-card__icon"><i data-lucide="trending-up" aria-hidden="true"></i></div>
+            <h3 class="overview-card__title">Investment Advisory</h3>
+            <p class="overview-card__text">Data-driven market analysis and portfolio strategies optimized for high-net-worth individuals.</p>
+          </article>
+          <article class="overview-card" data-delay="200">
+            <div class="overview-card__icon"><i data-lucide="shield-check" aria-hidden="true"></i></div>
+            <h3 class="overview-card__title">Due Diligence</h3>
+            <p class="overview-card__text">Comprehensive property verification, legal audits, and risk assessment by our expert team.</p>
+          </article>
+          <article class="overview-card" data-delay="300">
+            <div class="overview-card__icon"><i data-lucide="home" aria-hidden="true"></i></div>
+            <h3 class="overview-card__title">Interior Curation</h3>
+            <p class="overview-card__text">Bespoke interior design and furnishing services through our network of award-winning designers.</p>
+          </article>
+          <article class="overview-card" data-delay="400">
+            <div class="overview-card__icon"><i data-lucide="landmark" aria-hidden="true"></i></div>
+            <h3 class="overview-card__title">Wealth Structuring</h3>
+            <p class="overview-card__text">Tax-optimized ownership structures, trusts, and cross-border transaction management.</p>
+          </article>
+          <article class="overview-card" data-delay="500">
+            <div class="overview-card__icon"><i data-lucide="headset" aria-hidden="true"></i></div>
+            <h3 class="overview-card__title">Concierge Services</h3>
+            <p class="overview-card__text">Dedicated lifestyle management from relocation to property maintenance and beyond.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Property Solutions -->
+    <section class="section property-solutions" id="solutions" aria-labelledby="solutions-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Expertise</span>
+          <h2 class="section-title" id="solutions-title">Tailored Property Solutions</h2>
+          <p class="section-subtitle">Specialized services for every stage of your property journey.</p>
+        </div>
+        <div class="solutions-grid">
+          <article class="solution-card" style="--accent-color: #C8A96B;">
+            <div class="solution-card__bg"></div>
+            <div class="solution-card__content reveal" data-reveal="fade-up" data-delay="0">
+              <div class="solution-card__icon"><i data-lucide="search" aria-hidden="true"></i></div>
+              <h3 class="solution-card__title">Buying</h3>
+              <p class="solution-card__text">From initial consultation to closing, our advisors guide you through every step of acquiring your ideal property with precision and discretion.</p>
+              <ul class="solution-card__list">
+                <li><i data-lucide="check" aria-hidden="true"></i> Personalized property search</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Private showings & virtual tours</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Negotiation & offer management</li>
+              </ul>
+              <a href="contact.html" class="btn btn--outline solution-card__btn">Learn More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="solution-card" style="--accent-color: #2563EB;">
+            <div class="solution-card__bg"></div>
+            <div class="solution-card__content reveal" data-reveal="fade-up" data-delay="150">
+              <div class="solution-card__icon"><i data-lucide="dollar-sign" aria-hidden="true"></i></div>
+              <h3 class="solution-card__title">Selling</h3>
+              <p class="solution-card__text">Maximize your property's value with our premium marketing strategy, global exposure, and network of qualified luxury buyers.</p>
+              <ul class="solution-card__list">
+                <li><i data-lucide="check" aria-hidden="true"></i> Professional photography & staging</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Global marketing campaign</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Private buyer introductions</li>
+              </ul>
+              <a href="contact.html" class="btn btn--outline solution-card__btn">Learn More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+          <article class="solution-card" style="--accent-color: #10B981;">
+            <div class="solution-card__bg"></div>
+            <div class="solution-card__content reveal" data-reveal="fade-up" data-delay="300">
+              <div class="solution-card__icon"><i data-lucide="briefcase" aria-hidden="true"></i></div>
+              <h3 class="solution-card__title">Investing</h3>
+              <p class="solution-card__text">Build and manage a high-performance real estate portfolio with our institutional-grade research and advisory services.</p>
+              <ul class="solution-card__list">
+                <li><i data-lucide="check" aria-hidden="true"></i> Market research & forecasting</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Portfolio diversification</li>
+                <li><i data-lucide="check" aria-hidden="true"></i> Asset management & reporting</li>
+              </ul>
+              <a href="contact.html" class="btn btn--outline solution-card__btn">Learn More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Client Journey -->
+    <section class="section client-journey" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Your Journey</span>
+          <h2 class="section-title" id="journey-title">A Seamless Experience From Start to Finish</h2>
+          <p class="section-subtitle">Every step is designed with your goals, timeline, and preferences in mind.</p>
+        </div>
+        <div class="journey-timeline">
+          <div class="journey-step" data-delay="0">
+            <div class="journey-step__dot"></div>
+            <div class="journey-step__content">
+              <span class="journey-step__number">01</span>
+              <h3 class="journey-step__title">Discovery Call</h3>
+              <p class="journey-step__text">We learn about your vision, preferences, and investment goals.</p>
+            </div>
+          </div>
+          <div class="journey-step" data-delay="150">
+            <div class="journey-step__dot"></div>
+            <div class="journey-step__content">
+              <span class="journey-step__number">02</span>
+              <h3 class="journey-step__title">Curated Selection</h3>
+              <p class="journey-step__text">We present hand-picked properties matching your criteria.</p>
+            </div>
+          </div>
+          <div class="journey-step" data-delay="300">
+            <div class="journey-step__dot"></div>
+            <div class="journey-step__content">
+              <span class="journey-step__number">03</span>
+              <h3 class="journey-step__title">Private Viewings</h3>
+              <p class="journey-step__text">Exclusive property tours arranged at your convenience.</p>
+            </div>
+          </div>
+          <div class="journey-step" data-delay="450">
+            <div class="journey-step__dot"></div>
+            <div class="journey-step__content">
+              <span class="journey-step__number">04</span>
+              <h3 class="journey-step__title">Negotiation & Offer</h3>
+              <p class="journey-step__text">Our experts handle all negotiations to secure the best terms.</p>
+            </div>
+          </div>
+          <div class="journey-step" data-delay="600">
+            <div class="journey-step__dot"></div>
+            <div class="journey-step__content">
+              <span class="journey-step__number">05</span>
+              <h3 class="journey-step__title">Closing & Beyond</h3>
+              <p class="journey-step__text">Seamless closing with ongoing support and lifestyle services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Luxury Concierge -->
+    <section class="section concierge" id="concierge" aria-labelledby="concierge-title">
+      <div class="container concierge__container">
+        <div class="concierge__media">
+          <div class="concierge__image">
+            <img src="assets/images/services/services-concierge.webp" alt="Luxury concierge service" width="900" height="600" loading="lazy" decoding="async">
+          </div>
+          <div class="concierge__floating-card" aria-hidden="true">
+            <i data-lucide="clock" aria-hidden="true"></i>
+            <span>24/7 Dedicated Support</span>
+          </div>
+        </div>
+        <div class="concierge__content">
+          <span class="section-tag">Concierge</span>
+          <h2 class="section-title" id="concierge-title">White-Glove Concierge Experience</h2>
+          <p class="concierge__text">Our concierge team anticipates every need, delivering a seamless experience that extends far beyond the transaction. From relocation to lifestyle management, we ensure every detail is handled with discretion and excellence.</p>
+          <div class="concierge__features">
+            <div class="concierge__feature">
+              <i data-lucide="check-circle-2" aria-hidden="true"></i>
+              <div>
+                <h4>Personal Concierge</h4>
+                <p>A dedicated advisor available around the clock.</p>
+              </div>
+            </div>
+            <div class="concierge__feature">
+              <i data-lucide="check-circle-2" aria-hidden="true"></i>
+              <div>
+                <h4>Relocation Support</h4>
+                <p>Seamless moving, school placement, and local integration.</p>
+              </div>
+            </div>
+            <div class="concierge__feature">
+              <i data-lucide="check-circle-2" aria-hidden="true"></i>
+              <div>
+                <h4>Property Management</h4>
+                <p>Complete oversight of your estate when you're away.</p>
+              </div>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn--primary btn--icon">
+            <span>Experience Concierge</span>
+            <i data-lucide="arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Market Intelligence -->
+    <section class="section market-intel" id="intelligence" aria-labelledby="intel-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Intelligence</span>
+          <h2 class="section-title" id="intel-title">Market Intelligence & Insights</h2>
+          <p class="section-subtitle">Data-driven analysis powering every investment decision.</p>
+        </div>
+        <div class="intel-stats">
+          <div class="intel-stat" data-delay="0">
+            <span class="intel-stat__value" data-counter="12400">0</span>
+            <span class="intel-stat__suffix">+</span>
+            <p class="intel-stat__label">Properties Analyzed</p>
+          </div>
+          <div class="intel-stat" data-delay="100">
+            <span class="intel-stat__value">98.6<span>%</span></span>
+            <p class="intel-stat__label">Data Accuracy Rate</p>
+          </div>
+          <div class="intel-stat" data-delay="200">
+            <span class="intel-stat__value" data-counter="40">0</span>
+            <span class="intel-stat__suffix">+</span>
+            <p class="intel-stat__label">Global Markets</p>
+          </div>
+          <div class="intel-stat" data-delay="300">
+            <span class="intel-stat__value" data-counter="15">0</span>
+            <span class="intel-stat__suffix">+</span>
+            <p class="intel-stat__label">Years of Data</p>
+          </div>
+        </div>
+        <div class="intel-features">
+          <div class="intel-feature" data-delay="0">
+            <i data-lucide="bar-chart-3" aria-hidden="true"></i>
+            <h3>Real-Time Pricing</h3>
+            <p>Live market data and valuation models updated daily.</p>
+          </div>
+          <div class="intel-feature" data-delay="150">
+            <i data-lucide="trending-up" aria-hidden="true"></i>
+            <h3>Growth Forecasting</h3>
+            <p>Predictive analytics identifying emerging luxury markets.</p>
+          </div>
+          <div class="intel-feature" data-delay="300">
+            <i data-lucide="globe" aria-hidden="true"></i>
+            <h3>Global Comparables</h3>
+            <p>Cross-market benchmarking across 40+ countries.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Client Testimonials -->
+    <section class="section client-reviews" id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Testimonials</span>
+          <h2 class="section-title" id="reviews-title">Trusted by Discerning Clients</h2>
+          <p class="section-subtitle">Hear from those who have experienced the Stackly difference.</p>
+        </div>
+        <div class="reviews-carousel">
+          <div class="reviews-track" id="reviews-track">
+            <div class="review-card">
+              <div class="review-card__stars" aria-label="5 stars">
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+              </div>
+              <blockquote class="review-card__text">"The level of personal attention and market expertise we received was extraordinary. Stackly didn't just find us a home — they curated an experience that exceeded every expectation."</blockquote>
+              <div class="review-card__author">
+                <div class="review-card__avatar" aria-hidden="true">JR</div>
+                <div>
+                  <p class="review-card__name">Jonathan & Rebecca</p>
+                  <p class="review-card__role">Beverly Hills Estate Buyers</p>
+                </div>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-card__stars" aria-label="5 stars">
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+              </div>
+              <blockquote class="review-card__text">"Their investment advisory team transformed our portfolio. The data-driven approach and global market access opened doors we didn't know existed."</blockquote>
+              <div class="review-card__author">
+                <div class="review-card__avatar" aria-hidden="true">MK</div>
+                <div>
+                  <p class="review-card__name">Michael Kline</p>
+                  <p class="review-card__role">Private Investor</p>
+                </div>
+              </div>
+            </div>
+            <div class="review-card">
+              <div class="review-card__stars" aria-label="5 stars">
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+                <i data-lucide="star" aria-hidden="true"></i>
+              </div>
+              <blockquote class="review-card__text">"From our first consultation to the final handshake, every detail was handled with precision and genuine care. This is what true white-glove service looks like."</blockquote>
+              <div class="review-card__author">
+                <div class="review-card__avatar" aria-hidden="true">SL</div>
+                <div>
+                  <p class="review-card__name">Sophia Laurent</p>
+                  <p class="review-card__role">Creative Director</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="reviews-controls">
+            <button class="reviews-btn reviews-btn--prev" id="reviews-prev" aria-label="Previous"><i data-lucide="arrow-left" aria-hidden="true"></i></button>
+            <div class="reviews-dots" id="reviews-dots"></div>
+            <button class="reviews-btn reviews-btn--next" id="reviews-next" aria-label="Next"><i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Global Presence -->
+    <section class="section global-presence" id="global" aria-labelledby="global-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Network</span>
+          <h2 class="section-title" id="global-title">A Global Network of Excellence</h2>
+          <p class="section-subtitle">Premium properties and trusted partners across the world's most desirable markets.</p>
+        </div>
+        <div class="global-grid">
+          <div class="global-city" data-delay="0">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>New York</h3>
+            <p>Manhattan & Hamptons</p>
+          </div>
+          <div class="global-city" data-delay="100">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>London</h3>
+            <p>Knightsbridge & Mayfair</p>
+          </div>
+          <div class="global-city" data-delay="200">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Dubai</h3>
+            <p>Palm Jumeirah & Downtown</p>
+          </div>
+          <div class="global-city" data-delay="300">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Paris</h3>
+            <p>Rive Gauche & Le Marais</p>
+          </div>
+          <div class="global-city" data-delay="400">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Singapore</h3>
+            <p>Orchard & Marina Bay</p>
+          </div>
+          <div class="global-city" data-delay="500">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Sydney</h3>
+            <p>Darling Point & Vaucluse</p>
+          </div>
+          <div class="global-city" data-delay="600">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Mumbai</h3>
+            <p>South Mumbai & Bandra</p>
+          </div>
+          <div class="global-city" data-delay="700">
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            <h3>Tokyo</h3>
+            <p>Minato & Shibuya</p>
+          </div>
+        </div>
+        <div class="global-map" aria-hidden="true">
+          <img src="assets/images/services/services-global.webp" alt="" width="1000" height="600" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Awards & Recognition -->
+    <section class="section awards" id="awards" aria-labelledby="awards-title">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-tag">Recognition</span>
+          <h2 class="section-title" id="awards-title">Awards & Industry Recognition</h2>
+          <p class="section-subtitle">Our commitment to excellence has been recognized by the industry's most respected organizations.</p>
+        </div>
+        <div class="awards-grid">
+          <div class="award-item" data-delay="0">
+            <div class="award-item__icon"><i data-lucide="award" aria-hidden="true"></i></div>
+            <h3 class="award-item__title">Best Luxury Real Estate Agency</h3>
+            <p class="award-item__year">2025</p>
+            <p class="award-item__org">International Property Awards</p>
+          </div>
+          <div class="award-item" data-delay="100">
+            <div class="award-item__icon"><i data-lucide="trophy" aria-hidden="true"></i></div>
+            <h3 class="award-item__title">Top Global Brokerage</h3>
+            <p class="award-item__year">2024</p>
+            <p class="award-item__org">Forbes Global Properties</p>
+          </div>
+          <div class="award-item" data-delay="200">
+            <div class="award-item__icon"><i data-lucide="medal" aria-hidden="true"></i></div>
+            <h3 class="award-item__title">Excellence in Client Service</h3>
+            <p class="award-item__year">2026</p>
+            <p class="award-item__org">Luxury Real Estate Awards</p>
+          </div>
+          <div class="award-item" data-delay="300">
+            <div class="award-item__icon"><i data-lucide="star" aria-hidden="true"></i></div>
+            <h3 class="award-item__title">Innovation in PropTech</h3>
+            <p class="award-item__year">2025</p>
+            <p class="award-item__org">Real Estate Tech Summit</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. CTA -->
+    <section class="section final-cta" aria-labelledby="final-cta-title">
+      <div class="container final-cta__container">
+        <div class="final-cta__card">
+          <span class="final-cta__tag">Begin Your Journey</span>
+          <h2 class="final-cta__title" id="final-cta-title">Experience the Stackly Difference</h2>
+          <p class="final-cta__text">Let our team of dedicated professionals guide you through every aspect of your luxury real estate journey.</p>
+          <div class="final-cta__actions">
+            <a href="contact.html" class="btn btn--primary btn--icon"><span>Book a Consultation</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="tel:+1234567890" class="btn btn--outline btn--light">+1 (234) 567-890</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
+            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="logo__text">Stackly Estates</span>
+          </a>
+          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h3 class="footer-nav__title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+        <nav class="footer-nav" aria-label="Footer services">
+          <h3 class="footer-nav__title">Services</h3>
+          <ul>
+            <li><a href="#services-overview">Property Acquisition</a></li>
+            <li><a href="#solutions">Investment Advisory</a></li>
+            <li><a href="#concierge">Concierge Services</a></li>
+            <li><a href="#intelligence">Market Intelligence</a></li>
+            <li><a href="#global">Global Network</a></li>
+          </ul>
+        </nav>
+        <div class="footer-newsletter">
+          <h3 class="footer-nav__title">Newsletter</h3>
+          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
+            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe"><i data-lucide="send" aria-hidden="true"></i></button>
+          </form>
+          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top"><i data-lucide="chevron-up" aria-hidden="true"></i></button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/services.js"></script>
+</body>
+</html>

@@ -16,24 +16,102 @@
   <link rel="stylesheet" href="assets/css/about.css">
 </head>
 <body>
+  <div class="page-loader" id="page-loader"><div class="page-loader__spinner"></div></div>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar" id="scroll-progress-bar"></div></div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" id="site-header" role="banner">
     <div class="container header-container">
       <a href="index.html" class="logo" aria-label="Stackly Estates Home">
-        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+        <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="logo__img">
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul class="nav-list" role="menubar">
           <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
           <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
+          <li role="none"><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
           <li role="none"><a href="about.html" class="nav-link active" role="menuitem" aria-current="page">About</a></li>
           <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
-          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
         </ul>
+        <div class="nav-auth-mobile">
+          <a href="login.html" class="btn btn--login">Login</a>
+          <a href="signup.html" class="btn btn--signup">Signup</a>
+        </div>
+
+        <div class="mobile-menu">
+          <div class="mobile-menu__header">
+            <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="mobile-search">
+            <i data-lucide="search" class="mobile-search__icon" aria-hidden="true"></i>
+            <input type="text" class="mobile-search__input" placeholder="Search properties...">
+          </div>
+
+          <ul class="mobile-nav-items">
+            <li><a href="index.html"><i data-lucide="home" aria-hidden="true"></i><span>Home</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="properties.html"><i data-lucide="building-2" aria-hidden="true"></i><span>Properties</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="services.html"><i data-lucide="wrench" aria-hidden="true"></i><span>Services</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="about.html"><i data-lucide="users" aria-hidden="true"></i><span>About</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="contact.html"><i data-lucide="mail" aria-hidden="true"></i><span>Contact</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+
+          <div class="mobile-featured">
+            <div class="mobile-featured__image">
+              <img src="assets/images/properties/featured-villa.webp" alt="Featured Property" loading="lazy">
+            </div>
+            <div class="mobile-featured__body">
+              <p class="mobile-featured__title">Featured Property</p>
+              <p class="mobile-featured__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, CA</p>
+              <p class="mobile-featured__price">$4,250,000</p>
+              <a href="property-details.html" class="btn btn--primary">View Property</a>
+            </div>
+          </div>
+
+          <div class="mobile-quick-features">
+            <div class="mobile-quick-feature">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span>Verified Listings</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="users" aria-hidden="true"></i>
+              <span>Trusted Agents</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="landmark" aria-hidden="true"></i>
+              <span>Easy Financing</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="headset" aria-hidden="true"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+
+          <div class="mobile-social">
+            <span class="mobile-social__label">Follow Us</span>
+            <div class="mobile-social__icons">
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="mobile-auth">
+            <a href="login.html" class="btn btn--login-outline">Login</a>
+            <a href="signup.html" class="btn btn--signup">Signup</a>
+          </div>
+        </div>
       </nav>
+
+      <div class="header-auth">
+        <a href="login.html" class="btn btn--login">Login</a>
+        <a href="signup.html" class="btn btn--signup">Signup</a>
+      </div>
 
       <div class="header-actions">
         <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -46,18 +124,68 @@
   </header>
 
   <main id="main-content">
-    <!-- Page Hero -->
-    <section class="page-hero page-hero--about" aria-label="About page hero">
-      <div class="page-hero__overlay" aria-hidden="true"></div>
-      <div class="container page-hero__content">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li aria-current="page">About Us</li>
-          </ol>
-        </nav>
-        <h1 class="page-hero__title reveal" data-reveal="fade-up">Redefining Luxury Real Estate</h1>
-        <p class="page-hero__subtitle reveal" data-reveal="fade-up">A global team of advisors dedicated to the art of exceptional living.</p>
+    <!-- About Hero (Split-Screen) -->
+    <section class="about-hero" aria-label="About Stackly Estates">
+      <div class="about-hero__bg" aria-hidden="true">
+        <div class="about-hero__gradient"></div>
+        <div class="about-hero__glow"></div>
+        <div class="about-hero__shape about-hero__shape--1"></div>
+        <div class="about-hero__shape about-hero__shape--2"></div>
+        <div class="about-hero__shape about-hero__shape--3"></div>
+      </div>
+      <div class="container about-hero__container">
+        <div class="about-hero__left">
+          <span class="about-hero__label">ABOUT STACKLY ESTATES</span>
+          <h1 class="about-hero__title">Redefining <span class="about-hero__highlight">Luxury</span> Living Through <span class="about-hero__highlight">Trust</span> &amp; <span class="about-hero__highlight">Excellence</span></h1>
+          <p class="about-hero__text">With over a decade of market leadership, Stackly Estates has become the trusted partner for discerning buyers, sellers, and investors worldwide. Our global network of experts delivers white-glove service, data-driven insights, and exclusive access to the world's most remarkable properties.</p>
+          <div class="about-hero__actions">
+            <a href="properties.html" class="btn btn--primary btn--icon"><span>Explore Properties</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="contact.html" class="btn btn--outline btn--light">Contact Our Experts</a>
+          </div>
+          <div class="about-hero__badges">
+            <div class="about-hero__badge">
+              <span class="about-hero__stars" aria-label="4.9 out of 5">★★★★★</span>
+              <span class="about-hero__badge-text">4.9 Rating</span>
+            </div>
+            <div class="about-hero__badge">
+              <i data-lucide="building-2" aria-hidden="true"></i>
+              <span class="about-hero__badge-text">1200+ Properties</span>
+            </div>
+            <div class="about-hero__badge">
+              <i data-lucide="clock" aria-hidden="true"></i>
+              <span class="about-hero__badge-text">15+ Years</span>
+            </div>
+            <div class="about-hero__badge">
+              <i data-lucide="globe" aria-hidden="true"></i>
+              <span class="about-hero__badge-text">25+ Cities</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-hero__right">
+          <div class="about-hero__image">
+            <img src="assets/images/about/about-hero-portrait.webp" alt="Luxury real estate property" width="900" height="1400" loading="eager" decoding="async">
+          </div>
+          <div class="about-hero__floating-card" aria-hidden="true">
+            <div class="about-hero__floating-header">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span>Trusted Since 2010</span>
+            </div>
+            <div class="about-hero__floating-stats">
+              <div class="about-hero__floating-stat">
+                <span class="about-hero__floating-value">98<span>%</span></span>
+                <span class="about-hero__floating-label">Satisfaction</span>
+              </div>
+              <div class="about-hero__floating-stat">
+                <span class="about-hero__floating-value" data-counter="1200">0</span>
+                <span class="about-hero__floating-label">Luxury Homes</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <i data-lucide="chevron-down" aria-hidden="true"></i>
       </div>
     </section>
 
@@ -97,6 +225,64 @@
       </div>
     </section>
 
+    <!-- Our Journey -->
+    <section class="section journey" id="journey" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Timeline</span>
+          <h2 class="section-title" id="journey-title">Our Journey</h2>
+          <p class="section-subtitle">Two decades of excellence, innovation, and growth.</p>
+        </div>
+        <div class="journey-timeline">
+          <div class="journey-card journey-card--left reveal" data-reveal="fade-left">
+            <div class="journey-card__dot"></div>
+            <div class="journey-card__image"><img src="assets/images/about/about-history.webp" alt="Stackly Estates founded" width="400" height="300" loading="lazy" decoding="async"></div>
+            <div class="journey-card__body">
+              <span class="journey-card__year">2008</span>
+              <h3 class="journey-card__title">Company Founded</h3>
+              <p class="journey-card__text">Stackly Estates was established in Los Angeles with a vision to redefine luxury real estate through personalized service.</p>
+            </div>
+          </div>
+          <div class="journey-card journey-card--right reveal" data-reveal="fade-right">
+            <div class="journey-card__dot"></div>
+            <div class="journey-card__image"><img src="assets/images/properties/luxury-villa.webp" alt="International expansion" width="400" height="300" loading="lazy" decoding="async"></div>
+            <div class="journey-card__body">
+              <span class="journey-card__year">2013</span>
+              <h3 class="journey-card__title">Global Expansion</h3>
+              <p class="journey-card__text">Opened offices in New York, London, and Dubai, establishing a presence in the world's premier luxury markets.</p>
+            </div>
+          </div>
+          <div class="journey-card journey-card--left reveal" data-reveal="fade-left">
+            <div class="journey-card__dot"></div>
+            <div class="journey-card__image"><img src="assets/images/properties/penthouse-newyork.webp" alt="Industry awards" width="400" height="300" loading="lazy" decoding="async"></div>
+            <div class="journey-card__body">
+              <span class="journey-card__year">2018</span>
+              <h3 class="journey-card__title">Industry Recognition</h3>
+              <p class="journey-card__text">Named 'Best Luxury Real Estate Agency' at the International Property Awards, cementing our reputation for excellence.</p>
+            </div>
+          </div>
+          <div class="journey-card journey-card--right reveal" data-reveal="fade-right">
+            <div class="journey-card__dot"></div>
+            <div class="journey-card__image"><img src="assets/images/properties/featured-estate-01.webp" alt="Digital innovation" width="400" height="300" loading="lazy" decoding="async"></div>
+            <div class="journey-card__body">
+              <span class="journey-card__year">2022</span>
+              <h3 class="journey-card__title">Digital Innovation</h3>
+              <p class="journey-card__text">Launched our AI-powered property matching platform and immersive virtual tour technology for global clients.</p>
+            </div>
+          </div>
+          <div class="journey-card journey-card--left reveal" data-reveal="fade-left">
+            <div class="journey-card__dot"></div>
+            <div class="journey-card__image"><img src="assets/images/properties/community-palm-heights.webp" alt="Future vision" width="400" height="300" loading="lazy" decoding="async"></div>
+            <div class="journey-card__body">
+              <span class="journey-card__year">2026</span>
+              <h3 class="journey-card__title">Future Vision</h3>
+              <p class="journey-card__text">Expanding into 15 new markets with a focus on sustainability, proptech, and next-generation client experiences.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Mission / Vision -->
     <section class="section mission" aria-labelledby="mission-title">
       <div class="container">
@@ -119,6 +305,61 @@
             <div class="mission-card__icon" aria-hidden="true"><i data-lucide="gem"></i></div>
             <h3 class="mission-card__title">Our Values</h3>
             <p>Excellence, transparency, discretion, and long-term relationships are the foundation of everything we do.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Core Values -->
+    <section class="section values" id="values" aria-labelledby="values-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Values</span>
+          <h2 class="section-title" id="values-title">Our Core Values</h2>
+          <p class="section-subtitle">The principles that guide every relationship and every transaction.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="0">
+            <div class="value-card__image"><img src="assets/images/about/about-values-integrity.webp" alt="Integrity" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="value-card__body">
+              <h3 class="value-card__title">Integrity</h3>
+              <p class="value-card__text">We uphold the highest ethical standards in every transaction, building trust through honesty and accountability.</p>
+            </div>
+          </article>
+          <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="100">
+            <div class="value-card__image"><img src="assets/images/about/about-values-innovation.webp" alt="Innovation" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="value-card__body">
+              <h3 class="value-card__title">Innovation</h3>
+              <p class="value-card__text">We leverage cutting-edge technology and data intelligence to deliver exceptional results for our clients.</p>
+            </div>
+          </article>
+          <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="200">
+            <div class="value-card__image"><img src="assets/images/about/about-values-transparency.webp" alt="Transparency" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="value-card__body">
+              <h3 class="value-card__title">Transparency</h3>
+              <p class="value-card__text">Clear communication and full disclosure ensure our clients make informed decisions with confidence.</p>
+            </div>
+          </article>
+          <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="300">
+            <div class="value-card__image"><img src="assets/images/about/about-values-customer.webp" alt="Customer First" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="value-card__body">
+              <h3 class="value-card__title">Customer First</h3>
+              <p class="value-card__text">Every decision starts with our clients' goals, preferences, and long-term success at the forefront.</p>
+            </div>
+          </article>
+          <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="400">
+            <div class="value-card__image"><img src="assets/images/about/about-values-luxury.webp" alt="Luxury Living" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="value-card__body">
+              <h3 class="value-card__title">Luxury Living</h3>
+              <p class="value-card__text">We curate not just properties, but lifestyles — connecting clients with the finest experiences worldwide.</p>
+            </div>
+          </article>
+          <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="500">
+            <div class="value-card__image"><img src="assets/images/about/about-values-sustainability.webp" alt="Sustainability" width="600" height="400" loading="lazy" decoding="async"></div>
+            <div class="value-card__body">
+              <h3 class="value-card__title">Sustainability</h3>
+              <p class="value-card__text">We champion eco-conscious living and sustainable development across our portfolio and operations.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -224,6 +465,51 @@
             <i data-lucide="globe" aria-hidden="true"></i>
             <h3>Global Network of the Year</h3>
             <p>Elite Agents Forum, 2022</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Achievements -->
+    <section class="section achievements" id="achievements" aria-labelledby="achievements-title">
+      <div class="container achievements__container">
+        <div class="achievements__media reveal" data-reveal="clip-path">
+          <div class="achievements__image"><img src="assets/images/about/about-achievement.webp" alt="Stackly Estates achievements" width="900" height="600" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="achievements__content reveal" data-reveal="fade-left">
+          <span class="section-tag">Impact</span>
+          <h2 class="section-title" id="achievements-title">Our Achievements</h2>
+          <p class="achievements__text">Numbers that reflect our commitment to excellence and the trust our clients place in us.</p>
+          <div class="achievements__stats">
+            <div class="achievement-stat" data-delay="0">
+              <span class="achievement-stat__value" data-counter="15">0</span>
+              <span class="achievement-stat__suffix">+</span>
+              <p class="achievement-stat__label">Years Experience</p>
+            </div>
+            <div class="achievement-stat" data-delay="100">
+              <span class="achievement-stat__value" data-counter="1200">0</span>
+              <span class="achievement-stat__suffix">+</span>
+              <p class="achievement-stat__label">Luxury Properties</p>
+            </div>
+            <div class="achievement-stat" data-delay="200">
+              <span class="achievement-stat__value" data-counter="850">0</span>
+              <span class="achievement-stat__suffix">+</span>
+              <p class="achievement-stat__label">Happy Clients</p>
+            </div>
+            <div class="achievement-stat" data-delay="300">
+              <span class="achievement-stat__value">98<span>%</span></span>
+              <p class="achievement-stat__label">Client Satisfaction</p>
+            </div>
+            <div class="achievement-stat" data-delay="400">
+              <span class="achievement-stat__value" data-counter="45">0</span>
+              <span class="achievement-stat__suffix">+</span>
+              <p class="achievement-stat__label">Expert Consultants</p>
+            </div>
+            <div class="achievement-stat" data-delay="500">
+              <span class="achievement-stat__value" data-counter="18">0</span>
+              <span class="achievement-stat__suffix">+</span>
+              <p class="achievement-stat__label">Awards Won</p>
+            </div>
           </div>
         </div>
       </div>

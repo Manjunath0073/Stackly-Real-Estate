@@ -1,24 +1,343 @@
 /* =====================================================
-   Stackly Estates - Signup Page Styles
-   Page-specific overrides for the signup form.
+   Stackly Estates — Premium Signup Styles
+   Split-screen luxury authentication — v2 spacious
    ===================================================== */
 
-/* -------------------- Signup Form Overrides -------------------- */
-.auth-form .form-group {
-  margin-bottom: 18px;
+/* ---------- Reset & Base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#081120;color:#E8EDF5;overflow-x:hidden;min-height:100vh;width:100vw}
+a{text-decoration:none;color:inherit}
+input,button,select,textarea{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+
+/* ---------- Wrapper ---------- */
+.auth-wrapper{display:flex;min-height:100vh;width:100vw;position:relative}
+
+/* ===========================================
+   LEFT PANEL — 45%
+   =========================================== */
+.auth-left{flex:0 0 45%;position:relative;overflow:hidden;background:#0A1628}
+.auth-left-bg{position:absolute;inset:0}
+.auth-left-img{width:100%;height:100%;object-fit:cover;object-position:center;animation:imgZoom 20s ease-in-out infinite alternate}
+@keyframes imgZoom{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+
+.auth-left-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,32,.35) 0%,rgba(8,17,32,.82) 55%,rgba(8,17,32,.95) 100%);z-index:1}
+
+.auth-left-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:space-between;padding:56px 48px 44px}
+
+/* Brand Block */
+.brand-block{animation:fadeUp 0.8s ease-out both}
+.brand-logo{height:40px;margin-bottom:20px;display:block}
+.brand-tagline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.6vw,36px);font-weight:600;color:#E8D5A8;margin-bottom:10px;line-height:1.2}
+.brand-desc{font-size:clamp(13px,.85vw,15px);color:rgba(232,237,245,.6);line-height:1.7;max-width:400px}
+
+/* ---------- Stat Cards ---------- */
+.stat-cards{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp 0.8s ease-out 0.2s both}
+.stat-card{background:rgba(255,255,255,.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,169,107,.15);border-radius:14px;padding:14px 18px;display:flex;flex-direction:column;gap:3px;flex:1;min-width:120px;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease}
+.stat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+.stat-card--1{animation:cardFloat 4s ease-in-out infinite}
+.stat-card--2{animation:cardFloat 4s ease-in-out 0.3s infinite}
+.stat-card--3{animation:cardFloat 4s ease-in-out 0.6s infinite}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+.stat-num{font-size:clamp(18px,1.4vw,26px);font-weight:700;color:#E8D5A8;line-height:1;font-family:'Playfair Display',Georgia,serif}
+.stat-label{font-size:clamp(10px,.7vw,12px);color:rgba(232,237,245,.55);line-height:1.3}
+
+/* ===========================================
+   RIGHT PANEL — 55%
+   =========================================== */
+.auth-right{flex:0 0 55%;display:flex;align-items:center;justify-content:center;position:relative;background:
+  radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,169,107,.05) 0%,transparent 70%),
+  radial-gradient(ellipse 60% 50% at 50% 100%,rgba(22,48,74,.6) 0%,transparent 70%),
+  linear-gradient(180deg,#081120 0%,#0F172A 50%,#16304A 100%);padding:28px}
+
+/* ---------- Auth Card ---------- */
+.auth-card{width:100%;max-width:620px;background:rgba(15,23,42,.6);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(200,169,107,.12);border-radius:28px;padding:60px;box-shadow:
+  0 8px 48px rgba(0,0,0,.25),
+  0 0 0 1px rgba(200,169,107,.06),
+  inset 0 1px 0 rgba(255,255,255,.04);position:relative;z-index:2;animation:cardSlideIn 0.7s cubic-bezier(.22,1,.36,1) both}
+
+@keyframes cardSlideIn{0%{opacity:0;transform:translateX(40px) scale(.97)}100%{opacity:1;transform:translateX(0) scale(1)}}
+
+.auth-card--signup{max-width:620px;padding:60px;display:flex;flex-direction:column}
+
+/* Header */
+.auth-card-header{text-align:center;margin-bottom:32px}
+.card-logo{height:30px;display:block;margin:0 auto 14px}
+.auth-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:600;color:#E8D5A8;margin-bottom:6px}
+.auth-subtitle{font-size:15px;color:rgba(232,237,245,.45);font-weight:400}
+
+/* ===========================================
+   FORM ELEMENTS
+   =========================================== */
+.auth-form{display:flex;flex-direction:column;gap:0}
+
+/* ---------- Floating Labels ---------- */
+.floating-group{margin-bottom:22px;position:relative}
+.floating-group:last-of-type{margin-bottom:0}
+.floating-wrap{position:relative}
+.floating-input{width:100%;height:60px;padding:22px 52px 8px 54px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:16px;font-size:16px;color:#E8EDF5;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
+.floating-input:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.18)}
+.floating-input:focus{background:rgba(255,255,255,.06);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.12),0 0 24px rgba(200,169,107,.04)}
+.floating-input.is-error{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
+.floating-input.is-success{border-color:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.08)}
+
+.floating-input::placeholder{color:transparent}
+.floating-label{position:absolute;left:54px;top:50%;transform:translateY(-50%);font-size:16px;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);padding:0 4px;user-select:none}
+.floating-input:focus~.floating-label,
+.floating-input:not(:placeholder-shown)~.floating-label{top:14px;transform:translateY(0);font-size:11px;color:#C8A96B}
+
+.input-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);display:flex;opacity:.5;transition:opacity .3s ease;pointer-events:none}
+.floating-input:focus~.input-icon{opacity:1}
+.input-icon svg{width:20px;height:20px}
+
+/* Select */
+.floating-select{appearance:none;-webkit-appearance:none;padding-right:48px;cursor:pointer;height:60px;padding-top:24px;padding-bottom:4px}
+.floating-select option{background:#0F172A;color:#E8EDF5}
+.floating-wrap--select .floating-label{top:calc(50% + 2px)}
+.floating-select:focus~.floating-label,
+.floating-select:not(:placeholder-shown)~.floating-label{top:14px!important;transform:translateY(0);font-size:11px;color:#C8A96B}
+.select-arrow{position:absolute;right:18px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease}
+.floating-select:focus~.select-arrow{transform:translateY(-50%) rotate(180deg);opacity:.7}
+
+/* ---------- Password Toggle ---------- */
+.password-toggle{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:transparent;transition:background .2s ease;z-index:2}
+.password-toggle:hover{background:rgba(255,255,255,.06)}
+.eye-closed{display:none}
+.password-toggle.is-visible .eye-open{display:none}
+.password-toggle.is-visible .eye-closed{display:block}
+.password-toggle svg{width:20px;height:20px}
+
+/* ---------- Password Strength ---------- */
+.password-strength{display:flex;align-items:center;gap:12px;margin:8px 0 6px;min-height:22px;padding:0 2px}
+.strength-bar{flex:1;height:4px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.strength-fill{height:100%;width:0%;border-radius:4px;transition:width .4s ease,background .4s ease;background:rgba(232,237,245,.1)}
+.strength-fill.weak{width:33.33%;background:#EF4444}
+.strength-fill.medium{width:66.66%;background:#F59E0B}
+.strength-fill.strong{width:100%;background:#22C55E}
+.strength-label{font-size:12px;font-weight:500;min-width:52px;text-align:right;color:rgba(232,237,245,.35);transition:color .3s ease}
+.strength-label.weak{color:#EF4444}
+.strength-label.medium{color:#F59E0B}
+.strength-label.strong{color:#22C55E}
+
+/* ---------- Password Checklist — 2-column ---------- */
+.pw-checklist{list-style:none;margin:4px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 32px}
+.check-item{font-size:13px;color:rgba(232,237,245,.25);padding-left:24px;position:relative;transition:color .35s ease,opacity .35s ease;line-height:1.5}
+.check-item::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:14px;height:14px;border-radius:50%;border:1.5px solid rgba(232,237,245,.15);transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.check-item.is-valid{color:rgba(34,197,94,.8)}
+.check-item.is-valid::before{border-color:#22C55E;background:#22C55E;box-shadow:0 0 8px rgba(34,197,94,.35)}
+.check-item.is-invalid{color:rgba(239,68,68,.5)}
+.check-item.is-invalid::before{border-color:#EF4444;background:transparent}
+
+/* ---------- Field Error ---------- */
+.field-error{display:block;min-height:18px;font-size:12px;color:#EF4444;padding:3px 4px 0;opacity:0;transform:translateY(-3px);transition:all .25s ease}
+.field-error.is-visible{opacity:1;transform:translateY(0)}
+
+/* ---------- Form Row ---------- */
+.form-row{display:flex;align-items:center;justify-content:space-between;margin:0 0 22px;flex-wrap:wrap;gap:12px}
+
+.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.checkbox-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.checkbox-mark{flex-shrink:0;width:22px;height:22px;border-radius:7px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s ease}
+.checkbox-mark svg{opacity:0;transform:scale(0);transition:all .2s cubic-bezier(.34,1.56,.64,1)}
+.checkbox-input:checked+.checkbox-mark{border-color:#C8A96B;background:#C8A96B}
+.checkbox-input:checked+.checkbox-mark svg{opacity:1;transform:scale(1)}
+.checkbox-text{font-size:14px;color:rgba(232,237,245,.55)}
+.checkbox-input:focus-visible+.checkbox-mark{box-shadow:0 0 0 3px rgba(200,169,107,.2)}
+
+/* ---------- Terms Row ---------- */
+.form-row--terms{flex-direction:column;align-items:flex-start;margin:0}
+.form-row--terms .checkbox-text{font-size:13px;color:rgba(232,237,245,.45)}
+.terms-link{color:rgba(200,169,107,.7);transition:color .25s ease}
+.terms-link:hover{color:#C8A96B;text-decoration:underline}
+.form-row--terms .field-error{margin-top:4px}
+
+/* ---------- Submit Button ---------- */
+.btn-submit{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:60px;border-radius:18px;background:linear-gradient(135deg,#C8A96B,#D4B87A,#C8A96B);color:#0F172A;font-size:16px;font-weight:600;border:none;cursor:pointer;overflow:hidden;transition:all .35s cubic-bezier(.34,1.56,.64,1);margin-top:30px}
+.btn-submit:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(200,169,107,.3)}
+.btn-submit:active{transform:translateY(0);box-shadow:0 4px 16px rgba(200,169,107,.15)}
+.btn-submit:focus-visible{outline:2px solid #C8A96B;outline-offset:4px}
+
+/* Ripple */
+.btn-submit .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* Loading state */
+.btn-submit.is-loading .btn-text{opacity:0}
+.btn-submit.is-loading .btn-spinner{opacity:1}
+.btn-submit.is-loading{pointer-events:none}
+.btn-spinner{position:absolute;opacity:0;transition:opacity .3s ease}
+.btn-spinner svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Footer ---------- */
+.auth-footer{text-align:center;margin-top:auto;padding-top:24px;border-top:1px solid rgba(200,169,107,.06)}
+.footer-text{font-size:14px;color:rgba(232,237,245,.4)}
+.footer-link{color:#C8A96B;font-weight:500;transition:color .25s ease}
+.footer-link:hover{color:#E8D5A8;text-decoration:underline}
+
+/* ===========================================
+   SHAKE ANIMATION
+   =========================================== */
+@keyframes shake{0%,100%{transform:translateX(0)}10%,30%,50%,70%,90%{transform:translateX(-5px)}20%,40%,60%,80%{transform:translateX(5px)}}
+.auth-card.is-shaking{animation:shake .5s ease-in-out}
+
+/* ===========================================
+   SUCCESS OVERLAY
+   =========================================== */
+.success-overlay{position:fixed;inset:0;background:rgba(8,17,32,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .5s ease}
+.success-overlay.is-visible{opacity:1;pointer-events:all}
+.success-modal{text-align:center;animation:fadeUp 0.6s ease-out both}
+.success-circle{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,#22C55E,#16A34A);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 0 48px rgba(34,197,94,.3);animation:successPop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes successPop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;color:#E8D5A8;margin-bottom:8px}
+.success-text{font-size:16px;color:rgba(232,237,245,.5)}
+
+/* ===========================================
+   PARTICLES
+   =========================================== */
+.particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4}
+
+/* ===========================================
+   KEYFRAMES — Shared
+   =========================================== */
+@keyframes fadeUp{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media(max-width:1440px){
+  .auth-left-content{padding:44px 40px 36px}
+  .brand-desc{font-size:14px}
+  .auth-card--signup{padding:48px}
 }
 
-.password-hint {
-  font-size: 0.8125rem;
-  color: var(--text-muted);
-  margin: 6px 0 0;
+@media(max-width:1280px){
+  .auth-left{flex:0 0 45%}
+  .auth-right{flex:0 0 55%}
+  .brand-desc{font-size:13px}
+  .stat-card{padding:12px 16px;min-width:105px}
+  .auth-card--signup{padding:44px}
 }
 
-.checkbox-label--terms {
-  align-items: flex-start;
-  line-height: 1.5;
+@media(max-width:1024px){
+  .auth-left{flex:0 0 40%}
+  .auth-right{flex:0 0 60%}
+  .brand-tagline{font-size:clamp(18px,2.4vw,26px)}
+  .brand-desc{max-width:340px;margin-bottom:16px}
+  .stat-card{padding:10px 14px;min-width:95px}
+  .stat-num{font-size:clamp(16px,1.3vw,22px)}
+  .auth-card--signup{padding:40px 36px}
+  .auth-card-header{margin-bottom:26px}
 }
 
-.checkbox-label--terms .checkbox-custom {
-  margin-top: 2px;
+@media(max-width:992px){
+  .auth-left{flex:0 0 38%}
+  .auth-right{flex:0 0 62%}
 }
+
+@media(max-width:768px){
+  .auth-wrapper{flex-direction:column;overflow-y:auto}
+  .auth-left{flex:none;height:240px}
+  .auth-left-content{padding:28px 24px 24px;justify-content:center;align-items:center;text-align:center}
+  .brand-block{display:flex;flex-direction:column;align-items:center}
+  .brand-desc{max-width:420px}
+  .stat-cards{justify-content:center}
+  .stat-card{flex:none;min-width:105px}
+
+  .auth-right{flex:none;min-height:100vh;padding:0;align-items:flex-start}
+  .auth-right::before{content:'';position:fixed;inset:0;background:url('../images/properties/luxury-villa.webp') center/cover no-repeat;filter:blur(24px) brightness(.3);z-index:0}
+  .auth-card{max-width:100%;border-radius:28px 28px 0 0;margin-top:-36px;padding:36px 28px;background:rgba(8,17,32,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:none;box-shadow:0 -8px 48px rgba(0,0,0,.4);z-index:1;position:relative}
+  .auth-card--signup{max-width:100%;min-height:auto;padding:36px 28px}
+  .auth-title{font-size:26px}
+  .auth-subtitle{font-size:14px}
+  .card-logo{height:26px}
+  .auth-card-header{margin-bottom:26px}
+  .floating-input{height:54px;padding:18px 46px 6px 46px;font-size:15px;border-radius:14px}
+  .floating-label{left:46px;font-size:15px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px;top:12px}
+  .input-icon{left:16px}
+  .input-icon svg{width:18px;height:18px}
+  .floating-select{padding-right:44px;height:54px}
+  .password-toggle{right:14px;width:28px;height:28px}
+  .password-toggle svg{width:18px;height:18px}
+  .select-arrow{right:16px}
+  .btn-submit{height:54px;font-size:15px;border-radius:16px;margin-top:26px}
+  .pw-checklist{gap:8px 24px}
+  .check-item{font-size:12px;padding-left:22px}
+  .check-item::before{width:12px;height:12px}
+  .particle-canvas{display:none}
+}
+
+@media(max-width:576px){
+  .auth-left{height:180px}
+  .auth-left-content{padding:20px 16px 16px}
+  .brand-logo{height:28px;margin-bottom:10px}
+  .brand-tagline{font-size:20px;margin-bottom:4px}
+  .brand-desc{font-size:12px;max-width:100%}
+  .stat-card{padding:8px 12px;min-width:80px}
+  .stat-num{font-size:16px}
+  .stat-label{font-size:9px}
+
+  .auth-right::before{filter:blur(20px) brightness(.25)}
+  .auth-card{border-radius:24px 24px 0 0;margin-top:-28px;padding:32px 24px}
+  .auth-card--signup{max-width:460px;padding:32px 24px;margin-left:auto;margin-right:auto}
+  .auth-title{font-size:24px}
+  .auth-subtitle{font-size:13px}
+  .card-logo{height:24px}
+  .auth-card-header{margin-bottom:24px}
+  .floating-input{height:50px;padding:16px 42px 6px 42px;font-size:15px;border-radius:12px}
+  .floating-label{left:42px;font-size:14px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px;top:10px}
+  .input-icon{left:14px}
+  .input-icon svg{width:17px;height:17px}
+  .floating-select{padding-right:40px;height:50px}
+  .password-toggle{right:12px;width:26px;height:26px}
+  .password-toggle svg{width:17px;height:17px}
+  .select-arrow{right:14px}
+  .floating-group{margin-bottom:18px}
+  .password-strength{margin:6px 0 4px}
+  .strength-bar{height:3px}
+  .pw-checklist{gap:6px 20px}
+  .check-item{font-size:11px;padding-left:20px;line-height:1.4}
+  .check-item::before{width:11px;height:11px}
+  .btn-submit{height:50px;font-size:15px;border-radius:14px;margin-top:24px}
+  .checkbox-mark{width:20px;height:20px}
+  .checkbox-text{font-size:12px}
+  .form-row--terms .checkbox-text{font-size:12px}
+  .auth-footer{margin-top:20px;padding-top:18px}
+  .footer-text{font-size:13px}
+}
+
+@media(max-width:375px){
+  .auth-left{height:140px}
+  .brand-logo{height:24px}
+  .brand-tagline{font-size:18px}
+  .stat-card{min-width:65px;padding:6px 10px}
+  .stat-num{font-size:14px}
+  .stat-label{font-size:8px}
+  .auth-card{border-radius:20px 20px 0 0;padding:28px 20px;margin-top:-20px}
+  .auth-card--signup{padding:28px 20px}
+  .auth-title{font-size:22px}
+  .floating-input{height:46px;padding:14px 38px 4px 38px;font-size:14px;border-radius:12px}
+  .floating-label{left:38px;font-size:13px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:9px}
+  .input-icon{left:12px}
+  .input-icon svg{width:15px;height:15px}
+  .floating-select{padding-right:36px;height:46px}
+  .password-toggle{right:10px}
+  .btn-submit{height:46px;font-size:14px;border-radius:12px;margin-top:20px}
+  .checkbox-text{font-size:11px}
+  .footer-text{font-size:12px}
+}
+
+@media(max-width:320px){
+  .auth-left{height:100px}
+  .stat-card{min-width:55px}
+  .auth-card--signup{padding:24px 16px}
+  .btn-submit{font-size:13px;height:42px}
+}
+
+

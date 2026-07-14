@@ -1,22 +1,301 @@
 /* =====================================================
-   Stackly Estates - Login Page Styles
-   Page-specific overrides for the login form.
+   Stackly Estates — Premium Login Styles
+   Split-screen luxury authentication
    ===================================================== */
 
-/* -------------------- Login Options -------------------- */
-.form-options {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+/* ---------- Reset & Base ---------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#081120;color:#E8EDF5;overflow-x:hidden;min-height:100vh;width:100vw}
+a{text-decoration:none;color:inherit}
+input,button,select,textarea{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
+button{cursor:pointer}
+img{display:block;max-width:100%}
+
+/* ---------- Wrapper ---------- */
+.auth-wrapper{display:flex;min-height:100vh;width:100vw;position:relative}
+
+/* ===========================================
+   LEFT PANEL — 55%
+   =========================================== */
+.auth-left{flex:0 0 55%;position:relative;overflow:hidden;background:#0A1628}
+.auth-left-bg{position:absolute;inset:0}
+.auth-left-img{width:100%;height:100%;object-fit:cover;object-position:center;animation:imgZoom 20s ease-in-out infinite alternate}
+@keyframes imgZoom{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+
+.auth-left-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,32,.20) 0%,rgba(8,17,32,.80) 60%,rgba(8,17,32,.95) 100%);z-index:1}
+
+.auth-left-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:60px 56px 56px}
+
+/* Brand Block */
+.brand-block{animation:fadeUp 0.8s ease-out both}
+.brand-logo{height:40px;margin-bottom:20px;display:block}
+.brand-tagline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,40px);font-weight:600;color:#E8D5A8;margin-bottom:10px;line-height:1.2}
+.brand-desc{font-size:clamp(14px,.95vw,16px);color:rgba(232,237,245,.65);line-height:1.7;max-width:420px;margin-bottom:40px}
+
+/* ---------- Stat Cards ---------- */
+.stat-cards{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 0.8s ease-out 0.2s both}
+.stat-card{background:rgba(255,255,255,.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,169,107,.15);border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:4px;flex:1;min-width:130px;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease}
+.stat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
+.stat-card--1{animation:cardFloat 4s ease-in-out infinite}
+.stat-card--2{animation:cardFloat 4s ease-in-out 0.3s infinite}
+.stat-card--3{animation:cardFloat 4s ease-in-out 0.6s infinite}
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.stat-num{font-size:clamp(20px,1.6vw,28px);font-weight:700;color:#E8D5A8;line-height:1;font-family:'Playfair Display',Georgia,serif}
+.stat-label{font-size:clamp(11px,.75vw,13px);color:rgba(232,237,245,.6);line-height:1.3}
+
+/* ===========================================
+   RIGHT PANEL — 45%
+   =========================================== */
+.auth-right{flex:0 0 45%;display:flex;align-items:center;justify-content:center;position:relative;background:
+  radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,169,107,.05) 0%,transparent 70%),
+  radial-gradient(ellipse 60% 50% at 50% 100%,rgba(22,48,74,.6) 0%,transparent 70%),
+  linear-gradient(180deg,#081120 0%,#0F172A 50%,#16304A 100%);padding:24px}
+
+/* ---------- Auth Card ---------- */
+.auth-card{width:100%;max-width:440px;background:rgba(15,23,42,.55);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(200,169,107,.12);border-radius:28px;padding:44px 40px 36px;box-shadow:
+  0 8px 48px rgba(0,0,0,.25),
+  0 0 0 1px rgba(200,169,107,.06),
+  inset 0 1px 0 rgba(255,255,255,.04);position:relative;z-index:2;animation:cardSlideIn 0.7s cubic-bezier(.22,1,.36,1) both}
+
+@keyframes cardSlideIn{0%{opacity:0;transform:translateX(40px) scale(.97)}100%{opacity:1;transform:translateX(0) scale(1)}}
+
+/* Header */
+.auth-card-header{text-align:center;margin-bottom:32px}
+.card-logo{height:32px;display:block;margin:0 auto 16px}
+.auth-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:600;color:#E8D5A8;margin-bottom:6px}
+.auth-subtitle{font-size:15px;color:rgba(232,237,245,.5);font-weight:400}
+
+/* ===========================================
+   FORM ELEMENTS
+   =========================================== */
+.auth-form{display:flex;flex-direction:column;gap:0}
+
+/* ---------- Floating Labels ---------- */
+.floating-group{margin-bottom:6px;position:relative}
+.floating-wrap{position:relative;margin-bottom:4px}
+.floating-input{width:100%;height:52px;padding:18px 48px 6px 46px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:14px;font-size:15px;color:#E8EDF5;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
+.floating-input:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.18)}
+.floating-input:focus{background:rgba(255,255,255,.06);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.12),0 0 24px rgba(200,169,107,.04)}
+.floating-input.is-error{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
+.floating-input.is-success{border-color:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.08)}
+
+.floating-input::placeholder{color:transparent}
+.floating-label{position:absolute;left:46px;top:50%;transform:translateY(-50%);font-size:15px;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);background:transparent;padding:0 4px;user-select:none}
+.floating-input:focus~.floating-label,
+.floating-input:not(:placeholder-shown)~.floating-label{top:10px;transform:translateY(0);font-size:11px;color:#C8A96B}
+
+.input-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);display:flex;opacity:.5;transition:opacity .3s ease;pointer-events:none}
+.floating-input:focus~.input-icon{opacity:1}
+
+/* Select */
+.floating-select{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:pointer}
+.floating-select option{background:#0F172A;color:#E8EDF5}
+.select-arrow{position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .3s ease}
+.floating-select:focus~.select-arrow{transform:translateY(-50%) rotate(180deg);opacity:.7}
+
+/* ---------- Password Toggle ---------- */
+.password-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:transparent;transition:background .2s ease;z-index:2}
+.password-toggle:hover{background:rgba(255,255,255,.06)}
+.eye-closed{display:none}
+.password-toggle.is-visible .eye-open{display:none}
+.password-toggle.is-visible .eye-closed{display:block}
+
+/* ---------- Field Error ---------- */
+.field-error{display:block;min-height:20px;font-size:12px;color:#EF4444;padding:2px 4px 0;opacity:0;transform:translateY(-4px);transition:all .25s ease}
+.field-error.is-visible{opacity:1;transform:translateY(0)}
+
+/* ---------- Remember Me + Forgot ---------- */
+.form-row{display:flex;align-items:center;justify-content:space-between;margin:10px 0 22px;flex-wrap:wrap;gap:12px}
+
+.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.checkbox-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.checkbox-mark{flex-shrink:0;width:20px;height:20px;border-radius:6px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s ease}
+.checkbox-mark svg{opacity:0;transform:scale(0);transition:all .2s cubic-bezier(.34,1.56,.64,1)}
+.checkbox-input:checked+.checkbox-mark{border-color:#C8A96B;background:#C8A96B}
+.checkbox-input:checked+.checkbox-mark svg{opacity:1;transform:scale(1)}
+.checkbox-text{font-size:14px;color:rgba(232,237,245,.6)}
+.checkbox-input:focus-visible+.checkbox-mark{box-shadow:0 0 0 3px rgba(200,169,107,.2)}
+
+.forgot-link{font-size:14px;color:rgba(200,169,107,.7);transition:color .25s ease}
+.forgot-link:hover{color:#C8A96B}
+
+/* ---------- Terms Row ---------- */
+.form-row--terms{flex-direction:column;align-items:flex-start;margin:6px 0 18px}
+.form-row--terms .checkbox-text{font-size:13px;color:rgba(232,237,245,.5)}
+.terms-link{color:rgba(200,169,107,.7);transition:color .25s ease}
+.terms-link:hover{color:#C8A96B;text-decoration:underline}
+.form-row--terms .field-error{margin-top:2px}
+
+/* ---------- Submit Button ---------- */
+.btn-submit{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:14px;background:linear-gradient(135deg,#C8A96B,#D4B87A,#C8A96B);color:#0F172A;font-size:16px;font-weight:600;border:none;cursor:pointer;overflow:hidden;transition:all .35s cubic-bezier(.34,1.56,.64,1);margin-top:4px}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,169,107,.25)}
+.btn-submit:active{transform:translateY(0);box-shadow:0 2px 12px rgba(200,169,107,.15)}
+.btn-submit:focus-visible{outline:2px solid #C8A96B;outline-offset:3px}
+
+/* Ripple effect */
+.btn-submit .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none}
+@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
+
+/* Loading state */
+.btn-submit.is-loading .btn-text{opacity:0}
+.btn-submit.is-loading .btn-spinner{opacity:1}
+.btn-submit.is-loading{pointer-events:none}
+.btn-spinner{position:absolute;opacity:0;transition:opacity .3s ease}
+.btn-spinner svg{animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Divider ---------- */
+.form-divider{display:flex;align-items:center;gap:16px;margin:20px 0}
+.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,107,.15),transparent)}
+.divider-text{font-size:13px;color:rgba(232,237,245,.3);text-transform:uppercase;letter-spacing:1.5px}
+
+/* ---------- Guest Button ---------- */
+.btn-guest{display:flex;align-items:center;justify-content:center;width:100%;height:46px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(200,169,107,.1);color:rgba(232,237,245,.55);font-size:14px;font-weight:500;transition:all .3s ease}
+.btn-guest:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.2);color:rgba(232,237,245,.8)}
+
+/* ---------- Footer ---------- */
+.auth-footer{text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(200,169,107,.06)}
+.footer-text{font-size:14px;color:rgba(232,237,245,.4)}
+.footer-link{color:#C8A96B;font-weight:500;transition:color .25s ease}
+.footer-link:hover{color:#E8D5A8;text-decoration:underline}
+
+/* ===========================================
+   SHAKE ANIMATION
+   =========================================== */
+@keyframes shake{0%,100%{transform:translateX(0)}10%,30%,50%,70%,90%{transform:translateX(-4px)}20%,40%,60%,80%{transform:translateX(4px)}}
+.auth-card.is-shaking{animation:shake .5s ease-in-out}
+
+/* ===========================================
+   SUCCESS OVERLAY
+   =========================================== */
+.success-overlay{position:fixed;inset:0;background:rgba(8,17,32,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .5s ease}
+.success-overlay.is-visible{opacity:1;pointer-events:all}
+.success-modal{text-align:center;animation:fadeUp 0.6s ease-out both}
+.success-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#22C55E,#16A34A);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(34,197,94,.3);animation:successPop .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes successPop{0%{transform:scale(0)}100%{transform:scale(1)}}
+.success-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;color:#E8D5A8;margin-bottom:8px}
+.success-text{font-size:16px;color:rgba(232,237,245,.5)}
+
+/* ===========================================
+   PARTICLES
+   =========================================== */
+.particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4}
+
+/* ===========================================
+   KEYFRAMES — Shared
+   =========================================== */
+@keyframes fadeUp{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+/* 1440 & below */
+@media(max-width:1440px){
+  .auth-left-content{padding:44px 40px 40px}
+  .brand-desc{margin-bottom:28px}
+  .auth-card{padding:36px 32px 28px}
 }
 
-@media (max-width: 576px) {
-  .form-options {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
+/* 1280 & below */
+@media(max-width:1280px){
+  .auth-left{flex:0 0 50%}
+  .auth-right{flex:0 0 50%}
+  .brand-desc{font-size:14px;margin-bottom:24px}
+  .stat-card{padding:14px 16px;min-width:110px}
 }
+
+/* 1024 — Tablet landscape */
+@media(max-width:1024px){
+  .auth-left{flex:0 0 42%}
+  .auth-right{flex:0 0 58%}
+  .brand-tagline{font-size:clamp(20px,2.5vw,28px)}
+  .brand-desc{margin-bottom:20px}
+  .stat-card{padding:12px 14px;min-width:100px}
+  .stat-num{font-size:clamp(18px,1.4vw,22px)}
+}
+
+/* 992 & below — Tablet */
+@media(max-width:992px){
+  .auth-left{flex:0 0 40%}
+  .auth-right{flex:0 0 60%}
+}
+
+/* 768 — Tablet portrait */
+@media(max-width:768px){
+  .auth-wrapper{flex-direction:column;overflow-y:auto}
+  .auth-left{flex:none;height:280px;position:relative}
+  .auth-left-content{padding:32px 28px 24px;justify-content:center;align-items:center;text-align:center}
+  .brand-block{display:flex;flex-direction:column;align-items:center}
+  .brand-desc{max-width:480px}
+  .stat-cards{justify-content:center}
+  .stat-card{flex:none;min-width:120px}
+
+  .auth-right{flex:none;min-height:100vh;padding:0;align-items:flex-start}
+  .auth-right::before{content:'';position:fixed;inset:0;background:url('../images/properties/featured-estate-01.webp') center/cover no-repeat;filter:blur(24px) brightness(.3);z-index:0}
+  .auth-card{max-width:100%;border-radius:28px 28px 0 0;margin-top:-40px;padding:36px 28px 28px;background:rgba(8,17,32,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:none;box-shadow:0 -8px 48px rgba(0,0,0,.4);z-index:1;position:relative}
+  .auth-title{font-size:24px}
+  .auth-subtitle{font-size:14px}
+  .floating-input{height:48px;padding:16px 44px 4px 42px;font-size:14px}
+  .floating-label{left:42px;font-size:14px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px}
+  .btn-submit{height:46px;font-size:15px}
+  .btn-guest{height:42px}
+  .particle-canvas{display:none}
+}
+
+/* 576 & below — Mobile */
+@media(max-width:576px){
+  .auth-left{height:220px}
+  .auth-left-content{padding:24px 20px 20px}
+  .brand-logo{height:28px;margin-bottom:12px}
+  .brand-tagline{font-size:20px;margin-bottom:6px}
+  .brand-desc{font-size:13px;margin-bottom:16px;max-width:100%}
+  .stat-card{padding:10px 14px;min-width:90px}
+  .stat-num{font-size:18px}
+  .stat-label{font-size:10px}
+  .auth-card{padding:28px 20px 24px;border-radius:24px 24px 0 0;margin-top:-28px}
+  .auth-card-header{margin-bottom:24px}
+  .card-logo{height:26px}
+  .auth-title{font-size:22px}
+  .auth-subtitle{font-size:13px}
+  .floating-group{margin-bottom:2px}
+  .floating-input{height:44px;padding:14px 40px 4px 38px;font-size:14px}
+  .floating-label{left:38px;font-size:13px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:8px}
+  .input-icon{left:12px}
+  .input-icon svg{width:15px;height:15px}
+  .password-toggle{right:10px}
+  .form-row{margin:8px 0 18px}
+  .btn-submit{height:44px;font-size:14px;border-radius:12px}
+  .btn-guest{height:40px;font-size:13px;border-radius:12px}
+  .form-divider{margin:16px 0}
+  .auth-footer{margin-top:20px;padding-top:16px}
+}
+
+/* 375 & below */
+@media(max-width:375px){
+  .auth-left{height:180px}
+  .stat-card{min-width:80px;padding:8px 10px}
+  .stat-num{font-size:16px}
+  .stat-label{font-size:9px}
+  .auth-card{border-radius:20px 20px 0 0;padding:24px 16px 20px;margin-top:-20px}
+  .auth-title{font-size:20px}
+  .floating-input{height:42px;padding:12px 36px 4px 34px;font-size:13px}
+  .floating-label{left:34px;font-size:12px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:8px;top:7px}
+  .checkbox-text{font-size:12px}
+  .forgot-link{font-size:12px}
+  .footer-text{font-size:12px}
+}
+
+/* 320 */
+@media(max-width:320px){
+  .auth-left{height:140px}
+  .auth-card{padding:20px 12px 16px}
+  .stat-card{min-width:70px}
+  .btn-submit{font-size:13px;height:40px}
+}
+
+

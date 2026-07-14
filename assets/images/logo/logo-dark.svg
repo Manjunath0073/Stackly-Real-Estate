@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64">
+  <defs>
+    <linearGradient id="goldMetallic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8A96B"/>
+      <stop offset="35%" stop-color="#E8D5A8"/>
+      <stop offset="65%" stop-color="#C8A96B"/>
+      <stop offset="100%" stop-color="#D4B87A"/>
+    </linearGradient>
+  </defs>
+  <g>
+    <rect x="6" y="14" width="7" height="34" rx="2.5" fill="url(#goldMetallic)"/>
+    <rect x="17" y="10" width="7" height="38" rx="2.5" fill="url(#goldMetallic)"/>
+    <rect x="28" y="18" width="7" height="30" rx="2.5" fill="url(#goldMetallic)"/>
+    <rect x="39" y="24" width="7" height="24" rx="2.5" fill="url(#goldMetallic)"/>
+    <rect x="2" y="46" width="48" height="3" rx="1.5" fill="url(#goldMetallic)" opacity="0.5"/>
+    <line x1="60" y1="10" x2="60" y2="50" stroke="url(#goldMetallic)" stroke-width="1" opacity="0.3"/>
+    <text x="74" y="31" font-family="Georgia,'Times New Roman',serif" font-size="20" font-weight="700" fill="#0F172A" letter-spacing="3.5">STACKLY</text>
+    <text x="74" y="48" font-family="Georgia,'Times New Roman',serif" font-size="10" fill="#0F172A" letter-spacing="5" opacity="0.85">ESTATES</text>
+  </g>
+</svg>

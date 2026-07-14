@@ -16,24 +16,102 @@
   <link rel="stylesheet" href="assets/css/contact.css">
 </head>
 <body>
+  <div class="page-loader" id="page-loader"><div class="page-loader__spinner"></div></div>
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar" id="scroll-progress-bar"></div></div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header class="site-header" id="site-header" role="banner">
     <div class="container header-container">
       <a href="index.html" class="logo" aria-label="Stackly Estates Home">
-        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+        <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="logo__img">
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
         <ul class="nav-list" role="menubar">
           <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
           <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
+          <li role="none"><a href="services.html" class="nav-link" role="menuitem">Services</a></li>
           <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
           <li role="none"><a href="contact.html" class="nav-link active" role="menuitem" aria-current="page">Contact</a></li>
-          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
-          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
         </ul>
+        <div class="nav-auth-mobile">
+          <a href="login.html" class="btn btn--login">Login</a>
+          <a href="signup.html" class="btn btn--signup">Signup</a>
+        </div>
+
+        <div class="mobile-menu">
+          <div class="mobile-menu__header">
+            <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="mobile-menu__logo">
+            <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="mobile-search">
+            <i data-lucide="search" class="mobile-search__icon" aria-hidden="true"></i>
+            <input type="text" class="mobile-search__input" placeholder="Search properties...">
+          </div>
+
+          <ul class="mobile-nav-items">
+            <li><a href="index.html"><i data-lucide="home" aria-hidden="true"></i><span>Home</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="properties.html"><i data-lucide="building-2" aria-hidden="true"></i><span>Properties</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="services.html"><i data-lucide="wrench" aria-hidden="true"></i><span>Services</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="about.html"><i data-lucide="users" aria-hidden="true"></i><span>About</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+            <li><a href="contact.html"><i data-lucide="mail" aria-hidden="true"></i><span>Contact</span><i data-lucide="chevron-right" aria-hidden="true"></i></a></li>
+          </ul>
+
+          <div class="mobile-featured">
+            <div class="mobile-featured__image">
+              <img src="assets/images/properties/featured-villa.webp" alt="Featured Property" loading="lazy">
+            </div>
+            <div class="mobile-featured__body">
+              <p class="mobile-featured__title">Featured Property</p>
+              <p class="mobile-featured__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, CA</p>
+              <p class="mobile-featured__price">$4,250,000</p>
+              <a href="property-details.html" class="btn btn--primary">View Property</a>
+            </div>
+          </div>
+
+          <div class="mobile-quick-features">
+            <div class="mobile-quick-feature">
+              <i data-lucide="shield-check" aria-hidden="true"></i>
+              <span>Verified Listings</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="users" aria-hidden="true"></i>
+              <span>Trusted Agents</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="landmark" aria-hidden="true"></i>
+              <span>Easy Financing</span>
+            </div>
+            <div class="mobile-quick-feature">
+              <i data-lucide="headset" aria-hidden="true"></i>
+              <span>24/7 Support</span>
+            </div>
+          </div>
+
+          <div class="mobile-social">
+            <span class="mobile-social__label">Follow Us</span>
+            <div class="mobile-social__icons">
+              <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+              <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+              <a href="#" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+          <div class="mobile-auth">
+            <a href="login.html" class="btn btn--login-outline">Login</a>
+            <a href="signup.html" class="btn btn--signup">Signup</a>
+          </div>
+        </div>
       </nav>
+
+      <div class="header-auth">
+        <a href="login.html" class="btn btn--login">Login</a>
+        <a href="signup.html" class="btn btn--signup">Signup</a>
+      </div>
 
       <div class="header-actions">
         <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
@@ -46,18 +124,73 @@
   </header>
 
   <main id="main-content">
-    <!-- Page Hero -->
-    <section class="page-hero page-hero--contact" aria-label="Contact page hero">
-      <div class="page-hero__overlay" aria-hidden="true"></div>
-      <div class="container page-hero__content">
-        <nav class="breadcrumbs" aria-label="Breadcrumb">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li aria-current="page">Contact Us</li>
-          </ol>
-        </nav>
-        <h1 class="page-hero__title reveal" data-reveal="fade-up">Get in Touch</h1>
-        <p class="page-hero__subtitle reveal" data-reveal="fade-up">Our luxury advisors are ready to assist with your next property journey.</p>
+    <!-- Contact Hero (Split-Screen) -->
+    <section class="contact-hero" aria-label="Contact Stackly Estates">
+      <div class="contact-hero__bg" aria-hidden="true">
+        <div class="contact-hero__gradient"></div>
+        <div class="contact-hero__glow"></div>
+        <div class="contact-hero__glow contact-hero__glow--2"></div>
+        <div class="contact-hero__pattern"></div>
+        <div class="contact-hero__circle contact-hero__circle--1"></div>
+        <div class="contact-hero__circle contact-hero__circle--2"></div>
+      </div>
+      <div class="container contact-hero__container">
+        <div class="contact-hero__left">
+          <span class="contact-hero__label">CONTACT STACKLY ESTATES</span>
+          <h1 class="contact-hero__title">Let's Find Your <span class="contact-hero__highlight">Perfect Property</span> Together</h1>
+          <p class="contact-hero__text">Whether you're looking to buy a coastal villa, sell a city penthouse, or invest in emerging luxury markets — our global team of advisors is ready to guide you with discretion, insight, and white-glove service.</p>
+          <div class="contact-hero__actions">
+            <a href="#contact-form" class="btn btn--primary btn--icon" id="contact-hero-primary"><span>Schedule a Consultation</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="properties.html" class="btn btn--outline btn--light">Browse Properties</a>
+          </div>
+          <div class="contact-hero__cards">
+            <div class="contact-hero__card">
+              <i data-lucide="phone" aria-hidden="true"></i>
+              <div>
+                <span class="contact-hero__card-label">Call Us</span>
+                <span class="contact-hero__card-value">+91 XXXXX XXXXX</span>
+              </div>
+            </div>
+            <div class="contact-hero__card">
+              <i data-lucide="mail" aria-hidden="true"></i>
+              <div>
+                <span class="contact-hero__card-label">Email Us</span>
+                <span class="contact-hero__card-value">info@stackly.ai</span>
+              </div>
+            </div>
+            <div class="contact-hero__card">
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              <div>
+                <span class="contact-hero__card-label">Visit Us</span>
+                <span class="contact-hero__card-value">Salem, Tamil Nadu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-hero__right">
+          <div class="contact-hero__image">
+            <img src="assets/images/contact/contact-hero.webp" alt="Luxury real estate consultation" width="900" height="1200" loading="eager" decoding="async">
+          </div>
+          <div class="contact-hero__floating-card" aria-hidden="true">
+            <div class="contact-hero__floating-stars" aria-label="5 stars">★★★★★</div>
+            <div class="contact-hero__floating-row">
+              <span class="contact-hero__floating-value">4.9</span>
+              <span class="contact-hero__floating-label">Client Rating</span>
+            </div>
+            <div class="contact-hero__floating-row">
+              <i data-lucide="headset" aria-hidden="true"></i>
+              <span class="contact-hero__floating-label">24/7 Expert Support</span>
+            </div>
+            <div class="contact-hero__floating-row">
+              <i data-lucide="users" aria-hidden="true"></i>
+              <span class="contact-hero__floating-label">1200+ Happy Clients</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <i data-lucide="chevron-down" aria-hidden="true"></i>
       </div>
     </section>
 
@@ -150,7 +283,60 @@
         </div>
 
         <div class="contact-map reveal" data-reveal="fade-left" data-delay="100">
-          <img src="assets/images/contact/contact-map.webp" alt="Map showing Stackly Estates headquarters location" width="900" height="1100" loading="lazy" decoding="async">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.407270809484!2d78.1332707!3d11.6633286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1f8e1c1c1c1%3A0x123456789abcdef!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1" width="900" height="1100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Stackly AI & Robotics Office Location"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Find Us -->
+    <section class="section find-us" aria-labelledby="find-us-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Location</span>
+          <h2 class="section-title" id="find-us-title">Find Our Office</h2>
+          <p class="section-subtitle">Visit our headquarters or schedule an appointment with one of our real estate experts.</p>
+        </div>
+        <div class="find-us__grid">
+          <div class="find-us__map reveal" data-reveal="fade-right">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.407270809484!2d78.1332707!3d11.6633286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1f8e1c1c1c1%3A0x123456789abcdef!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1" width="800" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map - Stackly AI & Robotics Office"></iframe>
+          </div>
+          <div class="find-us__info reveal" data-reveal="fade-left">
+            <h3 class="find-us__name">Stackly AI & Robotics</h3>
+            <div class="find-us__details">
+              <div class="find-us__detail">
+                <i data-lucide="map-pin" aria-hidden="true"></i>
+                <div>
+                  <p class="find-us__detail-label">Address</p>
+                  <p class="find-us__detail-text">Salem,<br>Tamil Nadu,<br>India</p>
+                </div>
+              </div>
+              <div class="find-us__detail">
+                <i data-lucide="mail" aria-hidden="true"></i>
+                <div>
+                  <p class="find-us__detail-label">Email</p>
+                  <p class="find-us__detail-text"><a href="mailto:info@stackly.ai">info@stackly.ai</a></p>
+                </div>
+              </div>
+              <div class="find-us__detail">
+                <i data-lucide="phone" aria-hidden="true"></i>
+                <div>
+                  <p class="find-us__detail-label">Phone</p>
+                  <p class="find-us__detail-text"><a href="tel:+919999999999">+91 XXXXX XXXXX</a></p>
+                </div>
+              </div>
+              <div class="find-us__detail">
+                <i data-lucide="clock" aria-hidden="true"></i>
+                <div>
+                  <p class="find-us__detail-label">Working Hours</p>
+                  <p class="find-us__detail-text">Monday – Friday<br>9:00 AM – 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <div class="find-us__actions">
+              <a href="https://maps.google.com/?q=Salem+Tamil+Nadu+India" target="_blank" rel="noopener" class="btn btn--primary btn--icon"><span>Get Directions</span><i data-lucide="map-pin" aria-hidden="true"></i></a>
+              <a href="#contact-form" class="btn btn--outline">Schedule Visit</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
