@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Stackly Estates - Get in touch with our luxury real estate advisors for inquiries, viewings, and consultations.">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Contact Us | Stackly Estates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
+        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
+          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="contact.html" class="nav-link active" role="menuitem" aria-current="page">Contact</a></li>
+          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
+          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Hero -->
+    <section class="page-hero page-hero--contact" aria-label="Contact page hero">
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="container page-hero__content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Contact Us</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero__title reveal" data-reveal="fade-up">Get in Touch</h1>
+        <p class="page-hero__subtitle reveal" data-reveal="fade-up">Our luxury advisors are ready to assist with your next property journey.</p>
+      </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="section contact-info" aria-labelledby="contact-info-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Contact</span>
+          <h2 class="section-title" id="contact-info-title">We’re Here to Help</h2>
+          <p class="section-subtitle">Reach out by phone, email, or visit one of our offices.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="contact-card__icon" aria-hidden="true"><i data-lucide="map-pin"></i></div>
+            <h3 class="contact-card__title">Headquarters</h3>
+            <p class="contact-card__text">9876 Wilshire Boulevard<br>Beverly Hills, CA 90210<br>United States</p>
+          </article>
+
+          <article class="contact-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="contact-card__icon" aria-hidden="true"><i data-lucide="phone"></i></div>
+            <h3 class="contact-card__title">Phone</h3>
+            <p class="contact-card__text">
+              <a href="tel:+13105550198">+1 (310) 555-0198</a><br>
+              <a href="tel:+13105550199">+1 (310) 555-0199</a>
+            </p>
+          </article>
+
+          <article class="contact-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="contact-card__icon" aria-hidden="true"><i data-lucide="mail"></i></div>
+            <h3 class="contact-card__title">Email</h3>
+            <p class="contact-card__text">
+              <a href="mailto:hello@stacklyestates.com">hello@stacklyestates.com</a><br>
+              <a href="mailto:sales@stacklyestates.com">sales@stacklyestates.com</a>
+            </p>
+          </article>
+
+          <article class="contact-card reveal" data-reveal="fade-up" data-delay="300">
+            <div class="contact-card__icon" aria-hidden="true"><i data-lucide="clock"></i></div>
+            <h3 class="contact-card__title">Working Hours</h3>
+            <p class="contact-card__text">Monday – Friday: 9am – 7pm<br>Saturday: 10am – 5pm<br>Sunday: By appointment</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form & Map -->
+    <section class="section contact-main" aria-label="Contact form and map">
+      <div class="container contact-main__grid">
+        <div class="contact-form-wrapper reveal" data-reveal="fade-right">
+          <span class="section-tag">Send a Message</span>
+          <h2 class="section-title">Let’s Start a Conversation</h2>
+          <p class="contact-intro">Whether you are ready to buy, sell, or simply explore the market, our team will respond within 24 hours.</p>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Full Name</label>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email Address</label>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-phone" class="form-label">Phone Number</label>
+                <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
+              </div>
+              <div class="form-group">
+                <label for="contact-subject" class="form-label">Subject</label>
+                <select id="contact-subject" name="subject" class="form-select" required>
+                  <option value="">Select a subject</option>
+                  <option value="buying">Buying a Property</option>
+                  <option value="selling">Selling a Property</option>
+                  <option value="renting">Renting a Property</option>
+                  <option value="investment">Investment Inquiry</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="6" placeholder="How can we help you?" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary">Send Message</button>
+            <p class="form-message" id="contact-form-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="contact-map reveal" data-reveal="fade-left" data-delay="100">
+          <img src="assets/images/contact/contact-map.webp" alt="Map showing Stackly Estates headquarters location" width="900" height="1100" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal" data-reveal="fade-up" data-delay="0">
+            <summary class="faq-item__question">How do I schedule a private viewing?</summary>
+            <div class="faq-item__answer">
+              <p>You can schedule a viewing by filling out the contact form, calling our office directly, or clicking the “Book Visit” button on any property listing.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" data-reveal="fade-up" data-delay="100">
+            <summary class="faq-item__question">Do you work with international buyers?</summary>
+            <div class="faq-item__answer">
+              <p>Yes. Our global team specializes in assisting international clients with relocation, investment, and cross-border transactions.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" data-reveal="fade-up" data-delay="200">
+            <summary class="faq-item__question">What areas do you cover?</summary>
+            <div class="faq-item__answer">
+              <p>We operate in over 40 premium markets worldwide, with a strong presence in North America, Europe, Asia, and the Middle East.</p>
+            </div>
+          </details>
+
+          <details class="faq-item reveal" data-reveal="fade-up" data-delay="300">
+            <summary class="faq-item__question">Can you help with financing and legal paperwork?</summary>
+            <div class="faq-item__answer">
+              <p>Absolutely. We partner with leading mortgage advisors, attorneys, and escrow services to provide end-to-end transaction support.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
+            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="logo__text">Stackly Estates</span>
+          </a>
+          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h3 class="footer-nav__title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav" aria-label="Footer property links">
+          <h3 class="footer-nav__title">Properties</h3>
+          <ul>
+            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
+            <li><a href="properties.html?type=apartment">Apartments</a></li>
+            <li><a href="properties.html?type=commercial">Commercial</a></li>
+            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
+            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-nav__title">Newsletter</h3>
+          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
+            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
+              <i data-lucide="send" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i data-lucide="chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>

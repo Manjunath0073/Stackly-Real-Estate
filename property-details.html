@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cliffside Villa Malibu - $6,800,000 luxury property at Stackly Estates. 5 beds, 6 baths, 6,200 sqft.">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Cliffside Villa Malibu | Stackly Estates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="stylesheet" href="assets/css/property-details.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
+        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li role="none"><a href="properties.html" class="nav-link active" role="menuitem" aria-current="page">Properties</a></li>
+          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
+          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-bar">
+      <div class="container">
+        <nav class="breadcrumbs breadcrumbs--dark" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li aria-current="page">Cliffside Villa Malibu</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Property Hero -->
+    <section class="property-hero" aria-labelledby="property-title">
+      <div class="container">
+        <div class="property-hero__header reveal" data-reveal="fade-up">
+          <div>
+            <span class="property-badge">For Sale</span>
+            <h1 class="property-hero__title" id="property-title">Cliffside Villa Malibu</h1>
+            <p class="property-hero__location"><i data-lucide="map-pin" aria-hidden="true"></i> 28058 Pacific Coast Highway, Malibu, California</p>
+          </div>
+          <div class="property-hero__price">
+            <p class="property-hero__amount">$6,800,000</p>
+            <p class="property-hero__estimate">$4,225 / sqft</p>
+          </div>
+        </div>
+
+        <div class="property-gallery reveal" data-reveal="fade-up" data-delay="100">
+          <div class="property-gallery__main">
+            <img src="assets/images/properties/villa-malibu-main.webp" alt="Main exterior view of Cliffside Villa Malibu with infinity pool" width="1200" height="800" loading="eager" decoding="async" id="gallery-main">
+          </div>
+          <div class="property-gallery__thumbs">
+            <button type="button" class="property-gallery__thumb is-active" data-src="assets/images/properties/villa-malibu-main.webp" aria-label="Show main exterior view">
+              <img src="assets/images/properties/villa-malibu-main.webp" alt="" width="240" height="160" loading="lazy" decoding="async">
+            </button>
+            <button type="button" class="property-gallery__thumb" data-src="assets/images/properties/villa-malibu-living.webp" aria-label="Show living room view">
+              <img src="assets/images/properties/villa-malibu-living.webp" alt="" width="240" height="160" loading="lazy" decoding="async">
+            </button>
+            <button type="button" class="property-gallery__thumb" data-src="assets/images/properties/villa-malibu-kitchen.webp" aria-label="Show kitchen view">
+              <img src="assets/images/properties/villa-malibu-kitchen.webp" alt="" width="240" height="160" loading="lazy" decoding="async">
+            </button>
+            <button type="button" class="property-gallery__thumb" data-src="assets/images/properties/villa-malibu-bedroom.webp" aria-label="Show bedroom view">
+              <img src="assets/images/properties/villa-malibu-bedroom.webp" alt="" width="240" height="160" loading="lazy" decoding="async">
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Property Content -->
+    <section class="section property-content" aria-label="Property details">
+      <div class="container property-content__grid">
+        <div class="property-main reveal" data-reveal="fade-up">
+          <!-- Key Specs -->
+          <div class="specs-bar">
+            <div class="spec-item">
+              <i data-lucide="bed-double" aria-hidden="true"></i>
+              <div>
+                <span class="spec-item__value">5</span>
+                <span class="spec-item__label">Bedrooms</span>
+              </div>
+            </div>
+            <div class="spec-item">
+              <i data-lucide="bath" aria-hidden="true"></i>
+              <div>
+                <span class="spec-item__value">6</span>
+                <span class="spec-item__label">Bathrooms</span>
+              </div>
+            </div>
+            <div class="spec-item">
+              <i data-lucide="maximize" aria-hidden="true"></i>
+              <div>
+                <span class="spec-item__value">6,200</span>
+                <span class="spec-item__label">Sq Ft</span>
+              </div>
+            </div>
+            <div class="spec-item">
+              <i data-lucide="car" aria-hidden="true"></i>
+              <div>
+                <span class="spec-item__value">3</span>
+                <span class="spec-item__label">Garage</span>
+              </div>
+            </div>
+            <div class="spec-item">
+              <i data-lucide="calendar" aria-hidden="true"></i>
+              <div>
+                <span class="spec-item__value">2022</span>
+                <span class="spec-item__label">Year Built</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="detail-block">
+            <h2 class="detail-block__title">Description</h2>
+            <p>Commanding uninterrupted views of the Pacific Ocean, Cliffside Villa Malibu is a masterclass in contemporary coastal architecture. Floor-to-ceiling glass walls dissolve the boundary between indoor and outdoor living, framing golden sunsets and the rhythmic surf below.</p>
+            <p>The residence spans three levels of refined finishes, including imported stone, rift-cut white oak, and bespoke bronze detailing. A private elevator, temperature-controlled wine cellar, and smart-home automation provide modern convenience, while expansive terraces, an infinity-edge pool, and an outdoor kitchen create an unrivaled entertaining environment.</p>
+          </div>
+
+          <!-- Amenities -->
+          <div class="detail-block">
+            <h2 class="detail-block__title">Amenities</h2>
+            <ul class="amenities-list">
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Infinity-edge swimming pool</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Outdoor kitchen & dining terrace</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Private beach access</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Home theater</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Wine cellar</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Fitness studio</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Smart home automation</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> 24-hour gated security</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Climate-controlled garage</li>
+              <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Landscaped gardens</li>
+            </ul>
+          </div>
+
+          <!-- Floor Plan -->
+          <div class="detail-block">
+            <h2 class="detail-block__title">Floor Plan</h2>
+            <div class="floor-plan">
+              <img src="assets/images/properties/villa-malibu-floorplan.webp" alt="Floor plan of Cliffside Villa Malibu" width="1200" height="800" loading="lazy" decoding="async">
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="detail-block">
+            <h2 class="detail-block__title">Location</h2>
+            <div class="property-map">
+              <img src="assets/images/properties/malibu-map.webp" alt="Map showing the location of Cliffside Villa Malibu" width="1200" height="500" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="property-sidebar reveal" data-reveal="fade-left" data-delay="100">
+          <div class="agent-card-large">
+            <div class="agent-card-large__image">
+              <img src="assets/images/agents/agent-sarah.webp" alt="Sarah Mitchell, Senior Real Estate Consultant" width="400" height="400" loading="lazy" decoding="async">
+            </div>
+            <h3 class="agent-card-large__name">Sarah Mitchell</h3>
+            <p class="agent-card-large__role">Senior Real Estate Consultant</p>
+            <ul class="agent-card-large__contact">
+              <li><i data-lucide="phone" aria-hidden="true"></i> +1 (310) 555-0198</li>
+              <li><i data-lucide="mail" aria-hidden="true"></i> sarah@stacklyestates.com</li>
+            </ul>
+            <a href="contact.html" class="btn btn--primary btn--full">Contact Agent</a>
+          </div>
+
+          <div class="inquiry-form">
+            <h3 class="inquiry-form__title">Schedule a Visit</h3>
+            <form id="visit-form" novalidate>
+              <div class="form-group">
+                <label for="visit-name" class="form-label">Full Name</label>
+                <input type="text" id="visit-name" name="name" class="form-input" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="visit-email" class="form-label">Email Address</label>
+                <input type="email" id="visit-email" name="email" class="form-input" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="visit-phone" class="form-label">Phone Number</label>
+                <input type="tel" id="visit-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
+              </div>
+              <div class="form-group">
+                <label for="visit-date" class="form-label">Preferred Date</label>
+                <input type="date" id="visit-date" name="date" class="form-input" required>
+              </div>
+              <div class="form-group">
+                <label for="visit-message" class="form-label">Message</label>
+                <textarea id="visit-message" name="message" class="form-textarea" rows="4" placeholder="Tell us about your ideal visit..."></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">Request Tour</button>
+              <p class="form-message" id="visit-message-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Similar Properties -->
+    <section class="section similar-properties" aria-labelledby="similar-title">
+      <div class="container">
+        <div class="section-header section-header--flex reveal" data-reveal="fade-up">
+          <div>
+            <span class="section-tag">You May Also Like</span>
+            <h2 class="section-title" id="similar-title">Similar Properties</h2>
+          </div>
+          <a href="properties.html" class="btn btn--secondary">View All</a>
+        </div>
+
+        <div class="properties-grid">
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-miami.webp" alt="Miami waterfront modern villa" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$5,950,000</p>
+              <h3 class="property-card__title">Miami Waterfront Estate</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Miami Beach, Florida</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 6 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 7 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 7,500 sqft</li>
+              </ul>
+              <a href="property-details.html?id=miami-estate" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="property-card__image">
+              <img src="assets/images/properties/estate-hamptons.webp" alt="Hamptons estate with pool and garden" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$4,500,000</p>
+              <h3 class="property-card__title">Hamptons Summer Estate</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> East Hampton, New York</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 4 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 4,200 sqft</li>
+              </ul>
+              <a href="property-details.html?id=hamptons-estate" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-beverly-hills.webp" alt="Beverly Hills mega mansion with gated entrance" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$8,200,000</p>
+              <h3 class="property-card__title">Beverly Hills Mega Mansion</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, California</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 7 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 8 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 9,400 sqft</li>
+              </ul>
+              <a href="property-details.html?id=beverly-hills-mansion" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
+            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="logo__text">Stackly Estates</span>
+          </a>
+          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h3 class="footer-nav__title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav" aria-label="Footer property links">
+          <h3 class="footer-nav__title">Properties</h3>
+          <ul>
+            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
+            <li><a href="properties.html?type=apartment">Apartments</a></li>
+            <li><a href="properties.html?type=commercial">Commercial</a></li>
+            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
+            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-nav__title">Newsletter</h3>
+          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
+            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
+              <i data-lucide="send" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i data-lucide="chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/property-details.js"></script>
+</body>
+</html>

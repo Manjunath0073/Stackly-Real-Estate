@@ -1,0 +1,464 @@
+/* =====================================================
+   Stackly Estates - Property Details Page Styles
+   Gallery, specs bar, detail blocks, sidebar agent card,
+   inquiry form, and similar properties.
+   ===================================================== */
+
+/* -------------------- Breadcrumb Bar -------------------- */
+.breadcrumb-bar {
+  background: var(--bg-alt);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumbs--dark {
+  color: var(--text-muted);
+}
+
+.breadcrumbs--dark a {
+  color: var(--text-muted);
+}
+
+.breadcrumbs--dark a:hover {
+  color: var(--secondary);
+}
+
+.breadcrumbs--dark [aria-current="page"] {
+  color: var(--primary);
+}
+
+/* -------------------- Property Hero -------------------- */
+.property-hero {
+  padding-top: calc(var(--header-height) + 32px);
+  background: var(--bg-alt);
+}
+
+.property-hero__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.property-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.property-hero__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 10px;
+}
+
+.property-hero__location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.property-hero__price {
+  text-align: right;
+}
+
+.property-hero__amount {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 4px;
+}
+
+.property-hero__estimate {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+/* -------------------- Gallery -------------------- */
+.property-gallery {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+.property-gallery__main {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 3 / 2;
+}
+
+.property-gallery__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity var(--transition-base);
+}
+
+.property-gallery__thumbs {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.property-gallery__thumb {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color var(--transition-base), transform var(--transition-base), opacity var(--transition-base);
+  opacity: 0.8;
+}
+
+.property-gallery__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property-gallery__thumb:hover,
+.property-gallery__thumb.is-active {
+  border-color: var(--secondary);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* -------------------- Property Content -------------------- */
+.property-content {
+  background: var(--bg);
+  padding-top: 60px;
+}
+
+.property-content__grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 48px;
+  align-items: start;
+}
+
+/* -------------------- Specs Bar -------------------- */
+.specs-bar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 40px;
+}
+
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.spec-item svg {
+  width: 28px;
+  height: 28px;
+  color: var(--secondary);
+}
+
+.spec-item__value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.spec-item__label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+}
+
+/* -------------------- Detail Block -------------------- */
+.detail-block {
+  margin-bottom: 48px;
+}
+
+.detail-block__title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-block p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* -------------------- Amenities -------------------- */
+.amenities-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 32px;
+}
+
+.amenities-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.amenities-list svg {
+  width: 20px;
+  height: 20px;
+  color: var(--success);
+  flex-shrink: 0;
+}
+
+/* -------------------- Floor Plan / Map -------------------- */
+.floor-plan,
+.property-map {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.floor-plan img,
+.property-map img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* -------------------- Sidebar -------------------- */
+.property-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+}
+
+.agent-card-large,
+.inquiry-form {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+}
+
+.agent-card-large__image {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin: 0 auto 16px;
+}
+
+.agent-card-large__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.agent-card-large__name {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.agent-card-large__role {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin-bottom: 20px;
+}
+
+.agent-card-large__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.agent-card-large__contact li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  color: var(--text);
+}
+
+.agent-card-large__contact svg {
+  width: 18px;
+  height: 18px;
+  color: var(--secondary);
+}
+
+/* -------------------- Inquiry Form -------------------- */
+.inquiry-form__title {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(200, 169, 107, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.form-message {
+  margin-top: 12px;
+  font-size: 0.875rem;
+  min-height: 1.25em;
+}
+
+.form-message.is-success {
+  color: var(--success);
+}
+
+.form-message.is-error {
+  color: #ef4444;
+}
+
+/* -------------------- Similar Properties -------------------- */
+.similar-properties {
+  background: var(--bg-alt);
+}
+
+.similar-properties .properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* =====================================================
+   Responsive Adjustments
+   ===================================================== */
+
+@media (max-width: 1280px) {
+  .property-content__grid {
+    grid-template-columns: 1fr 340px;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .property-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .property-gallery__thumbs {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .property-gallery__thumb {
+    aspect-ratio: 4 / 3;
+  }
+
+  .property-content__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .property-sidebar {
+    position: static;
+    flex-direction: row;
+  }
+
+  .agent-card-large,
+  .inquiry-form {
+    flex: 1;
+  }
+
+  .similar-properties .properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .property-hero__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .property-hero__price {
+    text-align: left;
+  }
+
+  .specs-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .amenities-list {
+    grid-template-columns: 1fr;
+  }
+
+  .property-sidebar {
+    flex-direction: column;
+  }
+
+  .similar-properties .properties-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .property-hero {
+    padding-top: calc(var(--header-height) + 24px);
+  }
+
+  .property-gallery__thumbs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .specs-bar {
+    padding: 20px;
+  }
+}

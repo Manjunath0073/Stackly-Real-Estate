@@ -1,0 +1,22 @@
+/* =====================================================
+   Stackly Estates - Login Page Styles
+   Page-specific overrides for the login form.
+   ===================================================== */
+
+/* -------------------- Login Options -------------------- */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 576px) {
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}

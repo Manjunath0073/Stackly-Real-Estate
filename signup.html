@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Stackly Estates account to unlock exclusive luxury property listings, saved favorites, and personalized alerts.">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Sign Up | Stackly Estates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="stylesheet" href="assets/css/signup.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
+        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
+          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
+          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="auth-section" aria-labelledby="signup-title">
+      <div class="auth-section__overlay" aria-hidden="true"></div>
+      <div class="container auth-section__container">
+        <div class="auth-card reveal" data-reveal="fade-up">
+          <div class="auth-card__header">
+            <span class="auth-card__icon" aria-hidden="true"><i data-lucide="user-plus"></i></span>
+            <h1 class="auth-card__title" id="signup-title">Create Your Account</h1>
+            <p class="auth-card__text">Join Stackly Estates to unlock exclusive listings, save favorites, and receive personalized market alerts.</p>
+          </div>
+
+          <form class="auth-form" id="signup-form" novalidate>
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <div class="form-input-wrap">
+                <i data-lucide="user" aria-hidden="true"></i>
+                <input type="text" id="signup-name" name="name" class="form-input" placeholder="John Doe" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <div class="form-input-wrap">
+                <i data-lucide="mail" aria-hidden="true"></i>
+                <input type="email" id="signup-email" name="email" class="form-input" placeholder="you@example.com" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-phone" class="form-label">Phone Number</label>
+              <div class="form-input-wrap">
+                <i data-lucide="phone" aria-hidden="true"></i>
+                <input type="tel" id="signup-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-password" class="form-label">Password</label>
+              <div class="form-input-wrap">
+                <i data-lucide="lock" aria-hidden="true"></i>
+                <input type="password" id="signup-password" name="password" class="form-input" placeholder="Create a password" required minlength="8">
+                <button type="button" class="password-toggle" id="password-toggle" aria-label="Show password" aria-pressed="false">
+                  <i data-lucide="eye" aria-hidden="true"></i>
+                </button>
+              </div>
+              <p class="password-hint">Minimum 8 characters with letters and numbers.</p>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-confirm" class="form-label">Confirm Password</label>
+              <div class="form-input-wrap">
+                <i data-lucide="lock" aria-hidden="true"></i>
+                <input type="password" id="signup-confirm" name="confirm-password" class="form-input" placeholder="Confirm your password" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="checkbox-label checkbox-label--terms">
+                <input type="checkbox" name="terms" id="signup-terms" required>
+                <span class="checkbox-custom" aria-hidden="true"></span>
+                <span>I agree to the <a href="#" class="auth-link">Terms of Service</a> and <a href="#" class="auth-link">Privacy Policy</a>.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full">Create Account</button>
+            <p class="form-message" id="signup-message" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="auth-card__footer">
+            <p>Already have an account? <a href="login.html" class="auth-link auth-link--strong">Log in</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
+            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="logo__text">Stackly Estates</span>
+          </a>
+          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h3 class="footer-nav__title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav" aria-label="Footer property links">
+          <h3 class="footer-nav__title">Properties</h3>
+          <ul>
+            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
+            <li><a href="properties.html?type=apartment">Apartments</a></li>
+            <li><a href="properties.html?type=commercial">Commercial</a></li>
+            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
+            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-nav__title">Newsletter</h3>
+          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
+            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
+              <i data-lucide="send" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i data-lucide="chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/signup.js"></script>
+</body>
+</html>

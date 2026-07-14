@@ -1,0 +1,294 @@
+/* =====================================================
+   Stackly Estates - About Page Styles
+   Hero, story, mission, team, awards, and CTA.
+   ===================================================== */
+
+/* -------------------- Page Hero -------------------- */
+.page-hero--about {
+  background: linear-gradient(135deg, var(--primary) 0%, #1e293b 70%, rgba(37, 99, 235, 0.25) 100%);
+}
+
+/* -------------------- Story Section -------------------- */
+.story {
+  background: var(--bg);
+}
+
+.story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.story__media {
+  position: relative;
+}
+
+.story__image {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.story__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story__image--main {
+  width: 85%;
+  aspect-ratio: 4 / 5;
+}
+
+.story__image--secondary {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  width: 55%;
+  aspect-ratio: 1 / 1;
+  border: 6px solid var(--bg);
+}
+
+.story__content p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.story__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.story__stat {
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-lg);
+}
+
+.story__stat-number,
+.story__stat-plus {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.story__stat-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+/* -------------------- Mission Section -------------------- */
+.mission {
+  background: var(--bg-alt);
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.mission-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.mission-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.mission-card__icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: var(--radius-full);
+  background: var(--bg-alt);
+  color: var(--secondary);
+}
+
+.mission-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.mission-card__title {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.mission-card p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* -------------------- Team Section -------------------- */
+.team {
+  background: var(--bg);
+}
+
+.team .agents-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* -------------------- Awards Section -------------------- */
+.awards {
+  background: var(--bg-alt);
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.award-card {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.award-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.award-card svg {
+  width: 40px;
+  height: 40px;
+  color: var(--secondary);
+  margin-bottom: 16px;
+}
+
+.award-card h3 {
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+.award-card p {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+/* -------------------- CTA Section -------------------- */
+.cta-section {
+  background: var(--bg);
+  padding-top: 0;
+}
+
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+  border-radius: var(--radius-xl);
+  padding: 60px;
+  color: #fff;
+  box-shadow: var(--shadow-xl);
+  flex-wrap: wrap;
+}
+
+.cta-card__title {
+  color: #fff;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 12px;
+}
+
+.cta-card__text {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  margin: 0;
+}
+
+.cta-card .btn {
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   Responsive Adjustments
+   ===================================================== */
+
+@media (max-width: 1280px) {
+  .story__grid {
+    gap: 48px;
+  }
+
+  .team .agents-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .story__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story__media {
+    max-width: 600px;
+    margin: 0 auto 40px;
+  }
+
+  .mission-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .team .agents-grid,
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .story__image--main {
+    width: 100%;
+  }
+
+  .story__image--secondary {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 70%;
+    margin: -40px auto 0;
+    border-width: 4px;
+  }
+
+  .story__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-grid,
+  .team .agents-grid,
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 40px 28px;
+    text-align: center;
+    justify-content: center;
+  }
+}

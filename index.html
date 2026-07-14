@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stackly Estates - Luxury Real Estate & Property Marketplace. Discover premium villas, apartments, and exclusive properties worldwide.">
+  <meta name="keywords" content="luxury real estate, premium properties, villas, apartments, Stackly Estates">
+  <meta name="author" content="Stackly Estates">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Stackly Estates | Luxury Real Estate & Property Marketplace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
+        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link active" role="menuitem" aria-current="page">Home</a></li>
+          <li role="none"><a href="properties.html" class="nav-link" role="menuitem">Properties</a></li>
+          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
+          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="home" aria-label="Luxury real estate hero">
+      <div class="hero__media" aria-hidden="true">
+        <img src="assets/images/hero/hero-villa.webp" alt="Modern luxury villa exterior with infinity pool at golden hour" width="1920" height="1080" loading="eager" decoding="async">
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__container">
+        <div class="hero__content">
+          <p class="hero__tagline reveal" data-reveal="fade-up">Premium Living Redefined</p>
+          <h1 class="hero__title reveal" data-reveal="fade-up">Find Your Dream Luxury Property Today</h1>
+          <p class="hero__subtitle reveal" data-reveal="fade-up">Explore hand-picked villas, penthouses, and waterfront estates curated for the discerning few.</p>
+
+          <div class="search-form-wrapper reveal" data-reveal="fade-up">
+            <form class="search-form" id="property-search-form" action="properties.html" method="get" novalidate>
+              <div class="search-form__group">
+                <label for="search-location" class="search-form__label">Location</label>
+                <div class="search-form__input-wrap">
+                  <i data-lucide="map-pin" class="search-form__icon" aria-hidden="true"></i>
+                  <input type="text" id="search-location" name="location" class="search-form__input" placeholder="City, neighborhood...">
+                </div>
+              </div>
+
+              <div class="search-form__group">
+                <label for="search-type" class="search-form__label">Property Type</label>
+                <div class="search-form__input-wrap">
+                  <i data-lucide="home" class="search-form__icon" aria-hidden="true"></i>
+                  <select id="search-type" name="type" class="search-form__select">
+                    <option value="">All Types</option>
+                    <option value="villa">Luxury Villa</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="commercial">Commercial</option>
+                    <option value="beach-house">Beach House</option>
+                    <option value="farm-house">Farm House</option>
+                    <option value="plot">Plot</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="search-form__group">
+                <label for="search-budget" class="search-form__label">Budget</label>
+                <div class="search-form__input-wrap">
+                  <i data-lucide="wallet" class="search-form__icon" aria-hidden="true"></i>
+                  <select id="search-budget" name="budget" class="search-form__select">
+                    <option value="">Any Budget</option>
+                    <option value="500000">Up to $500K</option>
+                    <option value="1000000">Up to $1M</option>
+                    <option value="2500000">Up to $2.5M</option>
+                    <option value="5000000">Up to $5M</option>
+                    <option value="5000001">$5M+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="search-form__action">
+                <button type="submit" class="btn btn--primary btn--icon search-form__btn">
+                  <i data-lucide="search" aria-hidden="true"></i>
+                  <span>Search</span>
+                </button>
+              </div>
+            </form>
+            <p class="search-form__error" id="search-error" role="alert" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="floating-card reveal" data-reveal="fade-up" data-delay="200">
+          <div class="floating-card__image">
+            <img src="assets/images/properties/featured-villa.webp" alt="Featured luxury property preview" width="400" height="280" loading="lazy" decoding="async">
+          </div>
+          <div class="floating-card__body">
+            <p class="floating-card__label">Featured Listing</p>
+            <p class="floating-card__price">$4,250,000</p>
+            <p class="floating-card__address"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, CA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__stats container">
+        <div class="stat-card reveal" data-reveal="fade-up" data-delay="100">
+          <span class="stat-card__number" data-counter="1250">0</span>
+          <span class="stat-card__suffix">+</span>
+          <p class="stat-card__label">Properties Sold</p>
+        </div>
+        <div class="stat-card reveal" data-reveal="fade-up" data-delay="200">
+          <span class="stat-card__number" data-counter="980">0</span>
+          <span class="stat-card__suffix">+</span>
+          <p class="stat-card__label">Happy Clients</p>
+        </div>
+        <div class="stat-card reveal" data-reveal="fade-up" data-delay="300">
+          <span class="stat-card__number" data-counter="35">0</span>
+          <span class="stat-card__suffix">+</span>
+          <p class="stat-card__label">Industry Awards</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="section categories" id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Explore</span>
+          <h2 class="section-title" id="categories-title">Featured Property Categories</h2>
+          <p class="section-subtitle">Curated collections tailored to every lifestyle and investment goal.</p>
+        </div>
+
+        <div class="categories-grid">
+          <article class="category-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="category-card__image">
+              <img src="assets/images/properties/luxury-villa.webp" alt="Luxury villa with landscaped gardens" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Luxury Villas</h3>
+              <p class="category-card__count">48 Listings</p>
+              <a href="properties.html?type=villa" class="category-card__link" aria-label="View luxury villas">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="category-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="category-card__image">
+              <img src="assets/images/properties/modern-apartment.webp" alt="Modern city apartment building facade" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Apartments</h3>
+              <p class="category-card__count">72 Listings</p>
+              <a href="properties.html?type=apartment" class="category-card__link" aria-label="View apartments">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="category-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="category-card__image">
+              <img src="assets/images/properties/commercial-space.webp" alt="Contemporary commercial office building" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Commercial</h3>
+              <p class="category-card__count">24 Listings</p>
+              <a href="properties.html?type=commercial" class="category-card__link" aria-label="View commercial properties">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="category-card reveal" data-reveal="fade-up" data-delay="300">
+            <div class="category-card__image">
+              <img src="assets/images/properties/beach-house.webp" alt="Luxury beach house overlooking ocean" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Beach Houses</h3>
+              <p class="category-card__count">19 Listings</p>
+              <a href="properties.html?type=beach-house" class="category-card__link" aria-label="View beach houses">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="category-card reveal" data-reveal="fade-up" data-delay="400">
+            <div class="category-card__image">
+              <img src="assets/images/properties/farm-house.webp" alt="Elegant countryside farm house estate" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Farm Houses</h3>
+              <p class="category-card__count">12 Listings</p>
+              <a href="properties.html?type=farm-house" class="category-card__link" aria-label="View farm houses">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="category-card reveal" data-reveal="fade-up" data-delay="500">
+            <div class="category-card__image">
+              <img src="assets/images/properties/land-plot.webp" alt="Premium land plot ready for development" width="600" height="400" loading="lazy" decoding="async">
+            </div>
+            <div class="category-card__content">
+              <h3 class="category-card__title">Plots</h3>
+              <p class="category-card__count">31 Listings</p>
+              <a href="properties.html?type=plot" class="category-card__link" aria-label="View plots">
+                <i data-lucide="arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Properties Section -->
+    <section class="section featured-properties" id="properties" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="section-header section-header--flex reveal" data-reveal="fade-up">
+          <div>
+            <span class="section-tag">Exclusive</span>
+            <h2 class="section-title" id="featured-title">Featured Properties</h2>
+            <p class="section-subtitle">Hand-picked premium listings available now.</p>
+          </div>
+          <a href="properties.html" class="btn btn--secondary">View All Properties</a>
+        </div>
+
+        <div class="properties-grid">
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-malibu.webp" alt="Malibu cliffside villa with ocean view" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite>
+                <i data-lucide="heart" aria-hidden="true"></i>
+              </button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$6,800,000</p>
+              <h3 class="property-card__title">Cliffside Villa Malibu</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Malibu, California</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 5 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 6 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 6,200 sqft</li>
+              </ul>
+              <a href="property-details.html?id=malibu-villa" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="property-card__image">
+              <img src="assets/images/properties/penthouse-newyork.webp" alt="Penthouse terrace with skyline view" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite>
+                <i data-lucide="heart" aria-hidden="true"></i>
+              </button>
+              <span class="property-card__badge">For Rent</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$18,500<span>/mo</span></p>
+              <h3 class="property-card__title">Skyline Penthouse</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Manhattan, New York</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 3 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 3 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 3,400 sqft</li>
+              </ul>
+              <a href="property-details.html?id=manhattan-penthouse" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-miami.webp" alt="Miami waterfront modern villa" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite>
+                <i data-lucide="heart" aria-hidden="true"></i>
+              </button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$5,950,000</p>
+              <h3 class="property-card__title">Miami Waterfront Estate</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Miami Beach, Florida</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 6 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 7 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 7,500 sqft</li>
+              </ul>
+              <a href="property-details.html?id=miami-estate" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="300">
+            <div class="property-card__image">
+              <img src="assets/images/properties/apartment-london.webp" alt="Luxury apartment in London building" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite>
+                <i data-lucide="heart" aria-hidden="true"></i>
+              </button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$3,200,000</p>
+              <h3 class="property-card__title">Kensington Residence</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> London, United Kingdom</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 4 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 3,100 sqft</li>
+              </ul>
+              <a href="property-details.html?id=kensington-residence" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="400">
+            <div class="property-card__image">
+              <img src="assets/images/properties/beachfront-bali.webp" alt="Beachfront villa in Bali with palm trees" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite>
+                <i data-lucide="heart" aria-hidden="true"></i>
+              </button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$2,850,000</p>
+              <h3 class="property-card__title">Bali Beachfront Retreat</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Seminyak, Bali</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 5 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 4,800 sqft</li>
+              </ul>
+              <a href="property-details.html?id=bali-retreat" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card reveal" data-reveal="fade-up" data-delay="500">
+            <div class="property-card__image">
+              <img src="assets/images/properties/chalet-aspen.webp" alt="Modern mountain chalet in Aspen" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite>
+                <i data-lucide="heart" aria-hidden="true"></i>
+              </button>
+              <span class="property-card__badge">For Rent</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$22,000<span>/mo</span></p>
+              <h3 class="property-card__title">Aspen Mountain Chalet</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Aspen, Colorado</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 5 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 5 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 5,600 sqft</li>
+              </ul>
+              <a href="property-details.html?id=aspen-chalet" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="section why-us" id="why-us" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Why Stackly</span>
+          <h2 class="section-title" id="why-title">Why Choose Us</h2>
+          <p class="section-subtitle">A premium experience built around trust, transparency, and results.</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i data-lucide="shield-check"></i>
+            </div>
+            <h3 class="feature-card__title">Verified Listings</h3>
+            <p class="feature-card__text">Every property is vetted, inspected, and verified before it reaches your screen.</p>
+          </article>
+
+          <article class="feature-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i data-lucide="users"></i>
+            </div>
+            <h3 class="feature-card__title">Trusted Agents</h3>
+            <p class="feature-card__text">Work with award-winning agents who understand luxury and discretion.</p>
+          </article>
+
+          <article class="feature-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i data-lucide="landmark"></i>
+            </div>
+            <h3 class="feature-card__title">Easy Financing</h3>
+            <p class="feature-card__text">Access bespoke mortgage and investment solutions from leading partners.</p>
+          </article>
+
+          <article class="feature-card reveal" data-reveal="fade-up" data-delay="300">
+            <div class="feature-card__icon" aria-hidden="true">
+              <i data-lucide="headset"></i>
+            </div>
+            <h3 class="feature-card__title">24/7 Support</h3>
+            <p class="feature-card__text">Our concierge team is available around the clock for viewings and inquiries.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dream Property Showcase Section -->
+    <section class="section showcase" id="showcase" aria-labelledby="showcase-title">
+      <div class="container showcase__container">
+        <div class="showcase__media reveal" data-reveal="fade-right">
+          <div class="showcase__image">
+            <img src="assets/images/properties/dream-estate.webp" alt="Grand luxury estate with manicured gardens and pool" width="900" height="1100" loading="lazy" decoding="async">
+          </div>
+          <div class="showcase__counter" aria-hidden="true">
+            <span class="showcase__counter-number" data-counter="18">0</span>
+            <span class="showcase__counter-label">Years of Excellence</span>
+          </div>
+        </div>
+
+        <div class="showcase__content reveal" data-reveal="fade-left">
+          <span class="section-tag">Discover</span>
+          <h2 class="section-title" id="showcase-title">A Home That Matches Your Ambition</h2>
+          <p class="showcase__text">From architectural masterpieces to serene retreats, Stackly Estates connects you with properties that define exceptional living. Our global network, data-driven insights, and white-glove service ensure a seamless journey from discovery to ownership.</p>
+          <ul class="showcase__list">
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Curated luxury portfolios across 40+ countries</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Private viewings and virtual tours</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> Dedicated relocation specialists</li>
+            <li><i data-lucide="check-circle-2" aria-hidden="true"></i> End-to-end transaction management</li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary">Start Your Journey</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section class="section agents" id="agents" aria-labelledby="agents-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Our Team</span>
+          <h2 class="section-title" id="agents-title">Meet Our Agents</h2>
+          <p class="section-subtitle">Expert advisors committed to finding your perfect property.</p>
+        </div>
+
+        <div class="agents-grid">
+          <article class="agent-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="agent-card__image">
+              <img src="assets/images/agents/agent-sarah.webp" alt="Portrait of Sarah Mitchell, Senior Real Estate Consultant" width="500" height="600" loading="lazy" decoding="async">
+              <div class="agent-card__social">
+                <a href="#" aria-label="Sarah Mitchell on LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Email Sarah Mitchell"><i data-lucide="mail" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Call Sarah Mitchell"><i data-lucide="phone" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="agent-card__body">
+              <h3 class="agent-card__name">Sarah Mitchell</h3>
+              <p class="agent-card__role">Senior Consultant</p>
+            </div>
+          </article>
+
+          <article class="agent-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="agent-card__image">
+              <img src="assets/images/agents/agent-james.webp" alt="Portrait of James Carter, Luxury Property Specialist" width="500" height="600" loading="lazy" decoding="async">
+              <div class="agent-card__social">
+                <a href="#" aria-label="James Carter on LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Email James Carter"><i data-lucide="mail" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Call James Carter"><i data-lucide="phone" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="agent-card__body">
+              <h3 class="agent-card__name">James Carter</h3>
+              <p class="agent-card__role">Luxury Specialist</p>
+            </div>
+          </article>
+
+          <article class="agent-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="agent-card__image">
+              <img src="assets/images/agents/agent-elena.webp" alt="Portrait of Elena Rodriguez, Investment Advisor" width="500" height="600" loading="lazy" decoding="async">
+              <div class="agent-card__social">
+                <a href="#" aria-label="Elena Rodriguez on LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Email Elena Rodriguez"><i data-lucide="mail" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Call Elena Rodriguez"><i data-lucide="phone" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="agent-card__body">
+              <h3 class="agent-card__name">Elena Rodriguez</h3>
+              <p class="agent-card__role">Investment Advisor</p>
+            </div>
+          </article>
+
+          <article class="agent-card reveal" data-reveal="fade-up" data-delay="300">
+            <div class="agent-card__image">
+              <img src="assets/images/agents/agent-michael.webp" alt="Portrait of Michael Chen, Global Markets Director" width="500" height="600" loading="lazy" decoding="async">
+              <div class="agent-card__social">
+                <a href="#" aria-label="Michael Chen on LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Email Michael Chen"><i data-lucide="mail" aria-hidden="true"></i></a>
+                <a href="#" aria-label="Call Michael Chen"><i data-lucide="phone" aria-hidden="true"></i></a>
+              </div>
+            </div>
+            <div class="agent-card__body">
+              <h3 class="agent-card__name">Michael Chen</h3>
+              <p class="agent-card__role">Markets Director</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <div class="section-header section-header--center reveal" data-reveal="fade-up">
+          <span class="section-tag">Testimonials</span>
+          <h2 class="section-title" id="testimonials-title">What Our Clients Say</h2>
+          <p class="section-subtitle">Trusted by homeowners, investors, and visionaries worldwide.</p>
+        </div>
+
+        <div class="testimonial-slider" id="testimonial-slider" aria-roledescription="carousel" aria-label="Client testimonials">
+          <div class="testimonial-track" id="testimonial-track">
+            <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="testimonial-card">
+                <div class="testimonial-card__media">
+                  <img src="assets/images/testimonials/testimonial-alexandra.webp" alt="Portrait of Alexandra Reynolds" width="200" height="200" loading="lazy" decoding="async">
+                  <div class="testimonial-card__quote" aria-hidden="true">
+                    <i data-lucide="quote"></i>
+                  </div>
+                </div>
+                <div class="testimonial-card__content">
+                  <div class="testimonial-card__rating" aria-label="5 out of 5 stars">
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                  </div>
+                  <blockquote class="testimonial-card__text">
+                    "Stackly Estates made the entire process feel effortless. From private viewings to closing, every detail was handled with professionalism and care."
+                  </blockquote>
+                  <p class="testimonial-card__author">Alexandra Reynolds</p>
+                  <p class="testimonial-card__company">CEO, Reynolds Holdings</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="testimonial-card">
+                <div class="testimonial-card__media">
+                  <img src="assets/images/testimonials/testimonial-david.webp" alt="Portrait of David Thompson" width="200" height="200" loading="lazy" decoding="async">
+                  <div class="testimonial-card__quote" aria-hidden="true">
+                    <i data-lucide="quote"></i>
+                  </div>
+                </div>
+                <div class="testimonial-card__content">
+                  <div class="testimonial-card__rating" aria-label="5 out of 5 stars">
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                  </div>
+                  <blockquote class="testimonial-card__text">
+                    "Their market knowledge is unmatched. They found us a property that exceeded every expectation and delivered genuine value."
+                  </blockquote>
+                  <p class="testimonial-card__author">David Thompson</p>
+                  <p class="testimonial-card__company">Investor, Thompson Capital</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="testimonial-card">
+                <div class="testimonial-card__media">
+                  <img src="assets/images/testimonials/testimonial-sophia.webp" alt="Portrait of Sophia Laurent" width="200" height="200" loading="lazy" decoding="async">
+                  <div class="testimonial-card__quote" aria-hidden="true">
+                    <i data-lucide="quote"></i>
+                  </div>
+                </div>
+                <div class="testimonial-card__content">
+                  <div class="testimonial-card__rating" aria-label="5 out of 5 stars">
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                    <i data-lucide="star" aria-hidden="true"></i>
+                  </div>
+                  <blockquote class="testimonial-card__text">
+                    "A truly white-glove experience. The team's discretion, taste, and dedication turned a stressful move into a memorable milestone."
+                  </blockquote>
+                  <p class="testimonial-card__author">Sophia Laurent</p>
+                  <p class="testimonial-card__company">Creative Director, Maison Laurent</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-controls">
+            <button type="button" class="testimonial-btn testimonial-btn--prev" id="testimonial-prev" aria-label="Previous testimonial">
+              <i data-lucide="arrow-left" aria-hidden="true"></i>
+            </button>
+            <div class="testimonial-dots" id="testimonial-dots" role="tablist" aria-label="Testimonial slides"></div>
+            <button type="button" class="testimonial-btn testimonial-btn--next" id="testimonial-next" aria-label="Next testimonial">
+              <i data-lucide="arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="section blog" id="insights" aria-labelledby="insights-title">
+      <div class="container">
+        <div class="section-header section-header--flex reveal" data-reveal="fade-up">
+          <div>
+            <span class="section-tag">Insights</span>
+            <h2 class="section-title" id="insights-title">Latest Real Estate Insights</h2>
+            <p class="section-subtitle">News, trends, and expert advice from the world of luxury real estate.</p>
+          </div>
+          <a href="#" class="btn btn--secondary">View All Articles</a>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card reveal" data-reveal="fade-up" data-delay="0">
+            <div class="blog-card__image">
+              <img src="assets/images/blog/blog-market-trends.webp" alt="Modern city skyline representing real estate market trends" width="800" height="500" loading="lazy" decoding="async">
+              <span class="blog-card__category">Market Trends</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i data-lucide="calendar" aria-hidden="true"></i> June 12, 2026</span>
+                <span><i data-lucide="user" aria-hidden="true"></i> Elena Rodriguez</span>
+              </div>
+              <h3 class="blog-card__title">2026 Luxury Real Estate Market Outlook</h3>
+              <p class="blog-card__text">Key trends shaping global prime property markets and where savvy investors are placing capital this year.</p>
+              <a href="#" class="blog-card__link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-reveal="fade-up" data-delay="100">
+            <div class="blog-card__image">
+              <img src="assets/images/blog/blog-interior-design.webp" alt="Luxury minimalist interior design" width="800" height="500" loading="lazy" decoding="async">
+              <span class="blog-card__category">Design</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i data-lucide="calendar" aria-hidden="true"></i> May 28, 2026</span>
+                <span><i data-lucide="user" aria-hidden="true"></i> Sarah Mitchell</span>
+              </div>
+              <h3 class="blog-card__title">Timeless Interiors for Modern Estates</h3>
+              <p class="blog-card__text">How to blend classic elegance with contemporary comfort in your next luxury home.</p>
+              <a href="#" class="blog-card__link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal" data-reveal="fade-up" data-delay="200">
+            <div class="blog-card__image">
+              <img src="assets/images/blog/blog-buying-guide.webp" alt="Family entering new luxury home" width="800" height="500" loading="lazy" decoding="async">
+              <span class="blog-card__category">Buying Guide</span>
+            </div>
+            <div class="blog-card__body">
+              <div class="blog-card__meta">
+                <span><i data-lucide="calendar" aria-hidden="true"></i> May 15, 2026</span>
+                <span><i data-lucide="user" aria-hidden="true"></i> James Carter</span>
+              </div>
+              <h3 class="blog-card__title">The Complete Guide to Buying a Second Home</h3>
+              <p class="blog-card__text">From financing to location, everything you need to know before investing in a luxury retreat.</p>
+              <a href="#" class="blog-card__link">Read More <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
+            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="logo__text">Stackly Estates</span>
+          </a>
+          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h3 class="footer-nav__title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav" aria-label="Footer property links">
+          <h3 class="footer-nav__title">Properties</h3>
+          <ul>
+            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
+            <li><a href="properties.html?type=apartment">Apartments</a></li>
+            <li><a href="properties.html?type=commercial">Commercial</a></li>
+            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
+            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-nav__title">Newsletter</h3>
+          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
+            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
+              <i data-lucide="send" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i data-lucide="chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

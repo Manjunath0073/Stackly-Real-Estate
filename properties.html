@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse exclusive luxury properties for sale and rent at Stackly Estates. Villas, penthouses, apartments, and more.">
+  <meta name="theme-color" content="#0F172A">
+
+  <title>Properties | Stackly Estates</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="stylesheet" href="assets/css/properties.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header" id="site-header" role="banner">
+    <div class="container header-container">
+      <a href="index.html" class="logo" aria-label="Stackly Estates Home">
+        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img" height="44">
+      </a>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" role="menubar">
+          <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+          <li role="none"><a href="properties.html" class="nav-link active" role="menuitem" aria-current="page">Properties</a></li>
+          <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+          <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+          <li role="none" class="nav-list__auth"><a href="login.html" class="btn btn--login" role="menuitem">Login</a></li>
+          <li role="none" class="nav-list__auth"><a href="signup.html" class="btn btn--signup" role="menuitem">Signup</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+          <span class="menu-toggle__bar" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Hero -->
+    <section class="page-hero" aria-label="Properties page hero">
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="container page-hero__content">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Properties</li>
+          </ol>
+        </nav>
+        <h1 class="page-hero__title reveal" data-reveal="fade-up">Explore Exclusive Properties</h1>
+        <p class="page-hero__subtitle reveal" data-reveal="fade-up">Discover curated luxury homes, investment opportunities, and rare listings around the world.</p>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-section" aria-label="Property filters">
+      <div class="container">
+        <form class="filter-form" id="property-filters" novalidate>
+          <div class="filter-form__group">
+            <label for="filter-location" class="filter-form__label">Location</label>
+            <div class="filter-form__input-wrap">
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              <input type="text" id="filter-location" name="location" class="filter-form__input" placeholder="City or neighborhood">
+            </div>
+          </div>
+
+          <div class="filter-form__group">
+            <label for="filter-type" class="filter-form__label">Type</label>
+            <div class="filter-form__input-wrap">
+              <i data-lucide="home" aria-hidden="true"></i>
+              <select id="filter-type" name="type" class="filter-form__select">
+                <option value="">All Types</option>
+                <option value="villa">Luxury Villa</option>
+                <option value="apartment">Apartment</option>
+                <option value="commercial">Commercial</option>
+                <option value="beach-house">Beach House</option>
+                <option value="farm-house">Farm House</option>
+                <option value="plot">Plot</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-form__group">
+            <label for="filter-status" class="filter-form__label">Status</label>
+            <div class="filter-form__input-wrap">
+              <i data-lucide="tag" aria-hidden="true"></i>
+              <select id="filter-status" name="status" class="filter-form__select">
+                <option value="">All Status</option>
+                <option value="sale">For Sale</option>
+                <option value="rent">For Rent</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-form__group filter-form__group--small">
+            <label for="filter-beds" class="filter-form__label">Beds</label>
+            <div class="filter-form__input-wrap">
+              <i data-lucide="bed-double" aria-hidden="true"></i>
+              <select id="filter-beds" name="beds" class="filter-form__select">
+                <option value="">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-form__group filter-form__group--small">
+            <label for="filter-baths" class="filter-form__label">Baths</label>
+            <div class="filter-form__input-wrap">
+              <i data-lucide="bath" aria-hidden="true"></i>
+              <select id="filter-baths" name="baths" class="filter-form__select">
+                <option value="">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-form__group">
+            <label for="filter-sort" class="filter-form__label">Sort By</label>
+            <div class="filter-form__input-wrap">
+              <i data-lucide="arrow-up-down" aria-hidden="true"></i>
+              <select id="filter-sort" name="sort" class="filter-form__select">
+                <option value="featured">Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="newest">Newest</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="filter-form__actions">
+            <button type="submit" class="btn btn--primary btn--icon">
+              <i data-lucide="search" aria-hidden="true"></i>
+              <span>Search</span>
+            </button>
+            <button type="button" class="btn btn--outline" id="filter-reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Property Listings -->
+    <section class="section listings" id="listings" aria-labelledby="listings-title">
+      <div class="container">
+        <div class="listings-header reveal" data-reveal="fade-up">
+          <h2 class="section-title" id="listings-title">Premium Listings</h2>
+          <p class="listings-count">Showing <strong id="results-count">9</strong> properties</p>
+        </div>
+
+        <div class="properties-grid" id="properties-grid">
+          <article class="property-card" data-type="villa" data-status="sale" data-price="6800000" data-beds="5" data-baths="6" data-date="2026-05-01">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-malibu.webp" alt="Malibu cliffside villa with ocean view" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$6,800,000</p>
+              <h3 class="property-card__title">Cliffside Villa Malibu</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Malibu, California</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 5 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 6 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 6,200 sqft</li>
+              </ul>
+              <a href="property-details.html?id=malibu-villa" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="apartment" data-status="rent" data-price="18500" data-beds="3" data-baths="3" data-date="2026-06-10">
+            <div class="property-card__image">
+              <img src="assets/images/properties/penthouse-newyork.webp" alt="Penthouse terrace with skyline view" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Rent</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$18,500<span>/mo</span></p>
+              <h3 class="property-card__title">Skyline Penthouse</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Manhattan, New York</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 3 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 3 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 3,400 sqft</li>
+              </ul>
+              <a href="property-details.html?id=manhattan-penthouse" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="villa" data-status="sale" data-price="5950000" data-beds="6" data-baths="7" data-date="2026-04-15">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-miami.webp" alt="Miami waterfront modern villa" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$5,950,000</p>
+              <h3 class="property-card__title">Miami Waterfront Estate</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Miami Beach, Florida</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 6 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 7 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 7,500 sqft</li>
+              </ul>
+              <a href="property-details.html?id=miami-estate" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="apartment" data-status="sale" data-price="3200000" data-beds="4" data-baths="4" data-date="2026-03-20">
+            <div class="property-card__image">
+              <img src="assets/images/properties/apartment-london.webp" alt="Luxury apartment in London building" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$3,200,000</p>
+              <h3 class="property-card__title">Kensington Residence</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> London, United Kingdom</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 4 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 3,100 sqft</li>
+              </ul>
+              <a href="property-details.html?id=kensington-residence" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="beach-house" data-status="sale" data-price="2850000" data-beds="4" data-baths="5" data-date="2026-02-08">
+            <div class="property-card__image">
+              <img src="assets/images/properties/beachfront-bali.webp" alt="Beachfront villa in Bali with palm trees" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$2,850,000</p>
+              <h3 class="property-card__title">Bali Beachfront Retreat</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Seminyak, Bali</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 5 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 4,800 sqft</li>
+              </ul>
+              <a href="property-details.html?id=bali-retreat" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="farm-house" data-status="rent" data-price="22000" data-beds="5" data-baths="5" data-date="2026-05-22">
+            <div class="property-card__image">
+              <img src="assets/images/properties/chalet-aspen.webp" alt="Modern mountain chalet in Aspen" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Rent</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$22,000<span>/mo</span></p>
+              <h3 class="property-card__title">Aspen Mountain Chalet</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Aspen, Colorado</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 5 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 5 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 5,600 sqft</li>
+              </ul>
+              <a href="property-details.html?id=aspen-chalet" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="villa" data-status="sale" data-price="8200000" data-beds="7" data-baths="8" data-date="2026-01-30">
+            <div class="property-card__image">
+              <img src="assets/images/properties/villa-beverly-hills.webp" alt="Beverly Hills mega mansion with gated entrance" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$8,200,000</p>
+              <h3 class="property-card__title">Beverly Hills Mega Mansion</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Beverly Hills, California</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 7 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 8 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 9,400 sqft</li>
+              </ul>
+              <a href="property-details.html?id=beverly-hills-mansion" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="villa" data-status="sale" data-price="4500000" data-beds="4" data-baths="4" data-date="2026-04-02">
+            <div class="property-card__image">
+              <img src="assets/images/properties/estate-hamptons.webp" alt="Hamptons estate with pool and garden" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$4,500,000</p>
+              <h3 class="property-card__title">Hamptons Summer Estate</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> East Hampton, New York</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 4 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 4 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 4,200 sqft</li>
+              </ul>
+              <a href="property-details.html?id=hamptons-estate" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="apartment" data-status="sale" data-price="2100000" data-beds="2" data-baths="2" data-date="2026-06-01">
+            <div class="property-card__image">
+              <img src="assets/images/properties/loft-chicago.webp" alt="Industrial chic loft in Chicago" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$2,100,000</p>
+              <h3 class="property-card__title">River North Designer Loft</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Chicago, Illinois</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 2 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 2 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 1,900 sqft</li>
+              </ul>
+              <a href="property-details.html?id=chicago-loft" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+
+          <article class="property-card" data-type="villa" data-status="sale" data-price="12500000" data-beds="6" data-baths="7" data-date="2025-12-12">
+            <div class="property-card__image">
+              <img src="assets/images/properties/mansion-dubai.webp" alt="Modern mansion in Dubai with skyline view" width="800" height="600" loading="lazy" decoding="async">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites" data-favorite><i data-lucide="heart" aria-hidden="true"></i></button>
+              <span class="property-card__badge">For Sale</span>
+            </div>
+            <div class="property-card__body">
+              <p class="property-card__price">$12,500,000</p>
+              <h3 class="property-card__title">Dubai Palm Mansion</h3>
+              <p class="property-card__location"><i data-lucide="map-pin" aria-hidden="true"></i> Palm Jumeirah, Dubai</p>
+              <ul class="property-card__meta">
+                <li><i data-lucide="bed-double" aria-hidden="true"></i> 6 Beds</li>
+                <li><i data-lucide="bath" aria-hidden="true"></i> 7 Baths</li>
+                <li><i data-lucide="maximize" aria-hidden="true"></i> 10,200 sqft</li>
+              </ul>
+              <a href="property-details.html?id=dubai-mansion" class="btn btn--outline btn--small">View Details</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="no-results" id="no-results" role="status" aria-live="polite" hidden>
+          <div class="no-results__icon" aria-hidden="true"><i data-lucide="search-x"></i></div>
+          <h3>No properties found</h3>
+          <p>Try adjusting your filters or search criteria.</p>
+          <button type="button" class="btn btn--primary" id="no-results-reset">Clear Filters</button>
+        </div>
+
+        <nav class="pagination" id="pagination" aria-label="Property pagination">
+          <button type="button" class="pagination__btn pagination__btn--prev" aria-label="Previous page" disabled>
+            <i data-lucide="chevron-left" aria-hidden="true"></i>
+          </button>
+          <div class="pagination__pages" id="pagination-pages">
+            <button type="button" class="pagination__page is-active" aria-label="Page 1" aria-current="page">1</button>
+            <button type="button" class="pagination__page" aria-label="Page 2">2</button>
+            <button type="button" class="pagination__page" aria-label="Page 3">3</button>
+          </div>
+          <button type="button" class="pagination__btn pagination__btn--next" aria-label="Next page">
+            <i data-lucide="chevron-right" aria-hidden="true"></i>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section" aria-labelledby="cta-title">
+      <div class="container">
+        <div class="cta-card reveal" data-reveal="fade-up">
+          <div class="cta-card__content">
+            <h2 class="cta-card__title" id="cta-title">Can’t Find What You’re Looking For?</h2>
+            <p class="cta-card__text">Our private listings and off-market network include properties not shown online. Speak with a specialist today.</p>
+          </div>
+          <a href="contact.html" class="btn btn--primary">Contact an Agent</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
+            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
+            <span class="logo__text">Stackly Estates</span>
+          </a>
+          <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
+          <div class="social-links" aria-label="Social media">
+            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
+            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer quick links">
+          <h3 class="footer-nav__title">Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="properties.html">Properties</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-nav" aria-label="Footer property links">
+          <h3 class="footer-nav__title">Properties</h3>
+          <ul>
+            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
+            <li><a href="properties.html?type=apartment">Apartments</a></li>
+            <li><a href="properties.html?type=commercial">Commercial</a></li>
+            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
+            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-newsletter">
+          <h3 class="footer-nav__title">Newsletter</h3>
+          <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <label for="newsletter-email" class="visually-hidden">Email address</label>
+            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
+            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
+              <i data-lucide="send" aria-hidden="true"></i>
+            </button>
+          </form>
+          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
+        <div class="footer-bottom__links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top" title="Back to top">
+    <i data-lucide="chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="assets/js/shared.js"></script>
+  <script src="assets/js/properties.js"></script>
+</body>
+</html>

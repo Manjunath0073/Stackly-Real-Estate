@@ -1,0 +1,433 @@
+/* =====================================================
+   Stackly Estates - Properties Page Styles
+   Page hero, breadcrumbs, filter bar, listings,
+   pagination, and CTA section.
+   ===================================================== */
+
+/* -------------------- Page Hero -------------------- */
+.page-hero {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--header-height) + 40px) 0 80px;
+  background: var(--primary);
+  overflow: hidden;
+}
+
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.75) 60%, rgba(37, 99, 235, 0.2) 100%);
+  opacity: 0.9;
+}
+
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.breadcrumbs {
+  margin-bottom: 20px;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.breadcrumbs li:not(:last-child)::after {
+  content: '/';
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.breadcrumbs a:hover {
+  color: var(--secondary);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: #fff;
+}
+
+.page-hero__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.page-hero__subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+}
+
+/* -------------------- Filter Section -------------------- */
+.filter-section {
+  background: var(--bg);
+  padding: 40px 0;
+  position: sticky;
+  top: var(--header-height);
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-form {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 120px 120px 160px auto;
+  align-items: end;
+  gap: 16px;
+}
+
+.filter-form__group {
+  min-width: 0;
+}
+
+.filter-form__label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.filter-form__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-form__icon {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.filter-form__input,
+.filter-form__select {
+  width: 100%;
+  padding: 13px 14px 13px 42px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.filter-form__input::placeholder {
+  color: var(--text-muted);
+}
+
+.filter-form__select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.filter-form__input:focus,
+.filter-form__select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(200, 169, 107, 0.15);
+}
+
+.filter-form__actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.filter-form__actions .btn {
+  white-space: nowrap;
+}
+
+/* -------------------- Listings -------------------- */
+.listings {
+  background: var(--bg-alt);
+}
+
+.listings-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.listings-header .section-title {
+  margin-bottom: 4px;
+}
+
+.listings-count {
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.listings-count strong {
+  color: var(--primary);
+}
+
+/* Property grid is inherited from shared.css */
+.listings .properties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* -------------------- No Results -------------------- */
+.no-results {
+  text-align: center;
+  padding: 80px 20px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.no-results__icon {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  border-radius: var(--radius-full);
+  background: var(--bg-alt);
+  color: var(--secondary);
+}
+
+.no-results__icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.no-results h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.no-results p {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+/* -------------------- Pagination -------------------- */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 48px;
+}
+
+.pagination__btn,
+.pagination__page {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
+}
+
+.pagination__btn:hover:not(:disabled),
+.pagination__page:hover:not(.is-active) {
+  border-color: var(--secondary);
+  color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.pagination__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination__pages {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination__page.is-active {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--primary);
+}
+
+/* -------------------- CTA Section -------------------- */
+.cta-section {
+  background: var(--bg);
+  padding-top: 0;
+}
+
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+  border-radius: var(--radius-xl);
+  padding: 60px;
+  color: #fff;
+  box-shadow: var(--shadow-xl);
+  flex-wrap: wrap;
+}
+
+.cta-card__title {
+  color: #fff;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin-bottom: 12px;
+}
+
+.cta-card__text {
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 520px;
+  margin: 0;
+}
+
+.cta-card .btn {
+  flex-shrink: 0;
+}
+
+/* =====================================================
+   Responsive Adjustments
+   ===================================================== */
+
+@media (max-width: 1600px) {
+  .filter-form {
+    grid-template-columns: repeat(4, 1fr) 110px 110px 140px auto;
+  }
+}
+
+@media (max-width: 1440px) {
+  .filter-form {
+    grid-template-columns: repeat(3, 1fr) 110px 110px 140px auto;
+  }
+}
+
+@media (max-width: 1280px) {
+  .filter-form {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .filter-form__group--small {
+    grid-column: span 1;
+  }
+
+  .filter-form__actions {
+    grid-column: span 2;
+    justify-content: flex-end;
+  }
+
+  .listings .properties-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .filter-section {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .filter-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-form__actions {
+    grid-column: span 2;
+  }
+
+  .filter-form__actions .btn {
+    flex: 1;
+  }
+
+  .listings .properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 340px;
+    padding: calc(var(--header-height) + 24px) 0 60px;
+  }
+
+  .page-hero__title {
+    font-size: 2rem;
+  }
+
+  .filter-form {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-form__actions {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+
+  .filter-form__actions .btn {
+    width: 100%;
+  }
+
+  .listings-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .listings .properties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 40px 28px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .cta-card__content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .breadcrumbs ol {
+    font-size: 0.8125rem;
+  }
+
+  .pagination__btn,
+  .pagination__page {
+    width: 40px;
+    height: 40px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .filter-section {
+    padding: 28px 0;
+  }
+}
