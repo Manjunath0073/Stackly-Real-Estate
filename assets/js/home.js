@@ -82,6 +82,17 @@
     );
 
     reveals.forEach((el) => observer.observe(el));
+
+    // Safety fallback: ensure no element stays permanently hidden
+    // (e.g., if IntersectionObserver fails to fire for any reason)
+    setTimeout(() => {
+      reveals.forEach((el) => {
+        if (!el.classList.contains('is-visible')) {
+          el.style.transitionDelay = '0ms';
+          el.classList.add('is-visible');
+        }
+      });
+    }, 2000);
   }
 
   /* ------------------ Hero Parallax ------------------ */
@@ -319,29 +330,34 @@
     startAutoplay();
   }
 
-  /* ----------------- Search Validation ----------------- */
+  /* ----------------- Search Form Action ----------------- */
   function initSearchValidation() {
     const form = document.getElementById('property-search-form');
     const error = document.getElementById('search-error');
-    if (!form || !error) return;
+    if (!form) return;
+
+    const redirectToResults = () => {
+      window.location.href = '404.html';
+    };
 
     form.addEventListener('submit', (e) => {
-      const location = form.querySelector('#search-location').value.trim();
-      const type = form.querySelector('#search-type').value;
-      const budget = form.querySelector('#search-budget').value;
-
-      if (!location && !type && !budget) {
-        e.preventDefault();
-        error.textContent = 'Please enter a location, property type, or budget to search.';
-        return;
-      }
-
-      error.textContent = '';
+      e.preventDefault();
+      if (error) error.textContent = '';
+      redirectToResults();
     });
+
+    const searchBtn = form.querySelector('.search-form__btn');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (error) error.textContent = '';
+        redirectToResults();
+      });
+    }
 
     form.querySelectorAll('input, select').forEach((el) => {
       el.addEventListener('input', () => {
-        if (error.textContent) error.textContent = '';
+        if (error && error.textContent) error.textContent = '';
       });
     });
   }

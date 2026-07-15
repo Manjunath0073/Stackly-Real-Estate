@@ -126,8 +126,10 @@
 
     var emailInput = document.getElementById('login-email');
     var pwInput = document.getElementById('login-password');
+    var roleSelect = document.getElementById('login-role');
     var emailError = document.getElementById('email-error');
     var pwError = document.getElementById('password-error');
+    var roleError = document.getElementById('login-role-error');
     var remember = document.getElementById('login-remember');
     var submitBtn = document.getElementById('login-submit');
     var guestLink = document.getElementById('guest-link');
@@ -139,9 +141,6 @@
       if (!val) {
         showError(emailError, 'Email is required');
         setFieldState(emailInput, 'is-error');
-      } else if (!isValidEmail(val)) {
-        showError(emailError, 'Please enter a valid email');
-        setFieldState(emailInput, 'is-error');
       } else {
         hideError(emailError);
         setFieldState(emailInput, 'is-success');
@@ -151,14 +150,12 @@
     emailInput.addEventListener('input', function () {
       var val = emailInput.value.trim().toLowerCase();
       emailInput.value = val;
-      if (val && isValidEmail(val)) {
+      if (val) {
         hideError(emailError);
         setFieldState(emailInput, 'is-success');
-      } else if (!val) {
+      } else {
         hideError(emailError);
         setFieldState(emailInput, null);
-      } else {
-        setFieldState(emailInput, 'is-error');
       }
     });
 
@@ -198,10 +195,6 @@
         showError(emailError, 'Email is required');
         setFieldState(emailInput, 'is-error');
         hasError = true;
-      } else if (!isValidEmail(email)) {
-        showError(emailError, 'Please enter a valid email');
-        setFieldState(emailInput, 'is-error');
-        hasError = true;
       } else {
         hideError(emailError);
         setFieldState(emailInput, 'is-success');
@@ -217,6 +210,17 @@
         setFieldState(pwInput, 'is-success');
       }
 
+      // Validate role
+      var role = roleSelect ? roleSelect.value : '';
+      if (!role) {
+        if (roleError) showError(roleError, 'Please select your role');
+        if (roleSelect) setFieldState(roleSelect, 'is-error');
+        hasError = true;
+      } else {
+        if (roleError) hideError(roleError);
+        if (roleSelect) setFieldState(roleSelect, 'is-success');
+      }
+
       if (hasError) {
         shakeCard();
         var firstErr = form.querySelector('.is-error');
@@ -228,7 +232,15 @@
       submitBtn.classList.add('is-loading');
 
       // Store in localStorage
+      var name = email.split('@')[0];
+      var displayName = name.charAt(0).toUpperCase() + name.slice(1).replace(/[._-]/g, ' ');
+      var initials = displayName.split(' ').map(function(w){return w[0]}).join('').substring(0,2).toUpperCase();
+      var user = { name: displayName, email: email, role: role, initials: initials };
+      localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem('userName', displayName);
       localStorage.setItem('userEmail', email);
+      localStorage.setItem('userRole', role);
+      localStorage.setItem('userInitials', initials);
       if (remember.checked) {
         localStorage.setItem('rememberEmail', email);
       } else {
@@ -245,7 +257,13 @@
     if (guestLink) {
       guestLink.addEventListener('click', function (e) {
         e.preventDefault();
+        var guest = { name: 'Guest', email: 'guest@stackly.com', role: 'buyer', initials: 'GU' };
+        localStorage.setItem('currentUser', JSON.stringify(guest));
         localStorage.setItem('guestMode', 'true');
+        localStorage.setItem('userName', 'Guest');
+        localStorage.setItem('userEmail', 'guest@stackly.com');
+        localStorage.setItem('userRole', 'buyer');
+        localStorage.setItem('userInitials', 'GU');
         showSuccess();
       });
     }
@@ -260,10 +278,10 @@
     overlay.classList.add('is-visible');
     setTimeout(function () {
       var role = localStorage.getItem('userRole');
-      if (role === 'trainer') {
-        window.location.href = 'trainer-dashboard.html';
-      } else if (role === 'student') {
-        window.location.href = 'student-dashboard.html';
+      if (role === 'buyer') {
+        window.location.href = 'buyer-dashboard.html';
+      } else if (role === 'seller') {
+        window.location.href = 'seller-dashboard.html';
       } else {
         window.location.href = 'index.html';
       }

@@ -29,7 +29,7 @@ img{display:block;max-width:100%}
 
 /* Brand Block */
 .brand-block{animation:fadeUp 0.8s ease-out both}
-.brand-logo{height:40px;margin-bottom:20px;display:block}
+.brand-logo{height:104px;width:auto;margin-bottom:20px;display:block;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
 .brand-tagline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,40px);font-weight:600;color:#E8D5A8;margin-bottom:10px;line-height:1.2}
 .brand-desc{font-size:clamp(14px,.95vw,16px);color:rgba(232,237,245,.65);line-height:1.7;max-width:420px;margin-bottom:40px}
 
@@ -61,8 +61,8 @@ img{display:block;max-width:100%}
 @keyframes cardSlideIn{0%{opacity:0;transform:translateX(40px) scale(.97)}100%{opacity:1;transform:translateX(0) scale(1)}}
 
 /* Header */
-.auth-card-header{text-align:center;margin-bottom:32px}
-.card-logo{height:32px;display:block;margin:0 auto 16px}
+.auth-card-header{text-align:center;margin-bottom:28px}
+.card-logo{height:104px;width:auto;display:block;margin:0 auto 14px;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
 .auth-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:600;color:#E8D5A8;margin-bottom:6px}
 .auth-subtitle{font-size:15px;color:rgba(232,237,245,.5);font-weight:400}
 
@@ -74,29 +74,36 @@ img{display:block;max-width:100%}
 /* ---------- Floating Labels ---------- */
 .floating-group{margin-bottom:6px;position:relative}
 .floating-wrap{position:relative;margin-bottom:4px}
-.floating-input{width:100%;height:52px;padding:18px 48px 6px 46px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:14px;font-size:15px;color:#E8EDF5;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
-.floating-input:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.18)}
-.floating-input:focus{background:rgba(255,255,255,.06);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.12),0 0 24px rgba(200,169,107,.04)}
+.floating-input{width:100%;height:56px;padding:22px 48px 8px 46px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:14px;font-size:15px;font-weight:500;color:#E8EDF5;transition:border-color .25s cubic-bezier(.4,0,.2,1),box-shadow .25s cubic-bezier(.4,0,.2,1),background .25s ease;line-height:1.4}
+.floating-input:hover{background:rgba(255,255,255,.07);border-color:rgba(200,169,107,.2)}
+.floating-input:focus{background:rgba(255,255,255,.07);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.15),0 4px 20px rgba(200,169,107,.08);outline:none}
 .floating-input.is-error{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
 .floating-input.is-success{border-color:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.08)}
 
 .floating-input::placeholder{color:transparent}
-.floating-label{position:absolute;left:46px;top:50%;transform:translateY(-50%);font-size:15px;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);background:transparent;padding:0 4px;user-select:none}
+.floating-label{position:absolute;left:46px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:400;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);background:transparent;padding:0 4px;user-select:none;line-height:1}
 .floating-input:focus~.floating-label,
-.floating-input:not(:placeholder-shown)~.floating-label{top:10px;transform:translateY(0);font-size:11px;color:#C8A96B}
+.floating-input:not(:placeholder-shown)~.floating-label{top:10px;transform:translateY(0);font-size:11px;font-weight:500;color:#C8A96B}
 
-.input-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);display:flex;opacity:.5;transition:opacity .3s ease;pointer-events:none}
+.floating-input.is-error~.floating-label{color:#EF4444}
+.floating-input.is-success~.floating-label{color:#22C55E}
+
+.input-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:20px;height:20px;opacity:.5;transition:opacity .25s ease;pointer-events:none}
 .floating-input:focus~.input-icon{opacity:1}
+.input-icon svg{width:18px;height:18px;display:block}
 
 /* Select */
-.floating-select{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:pointer}
+.floating-select{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:pointer;height:56px}
 .floating-select option{background:#0F172A;color:#E8EDF5}
-.select-arrow{position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .3s ease}
+.floating-select optgroup{background:#0F172A;color:rgba(232,237,245,.5);font-weight:500}
+.select-arrow{position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .25s ease,opacity .25s ease;display:flex;align-items:center;justify-content:center}
 .floating-select:focus~.select-arrow{transform:translateY(-50%) rotate(180deg);opacity:.7}
 
 /* ---------- Password Toggle ---------- */
-.password-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:transparent;transition:background .2s ease;z-index:2}
-.password-toggle:hover{background:rgba(255,255,255,.06)}
+.password-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:transparent;transition:background .2s ease,color .2s ease;z-index:2;color:rgba(232,237,245,.35);padding:0;border:none}
+.password-toggle:hover{background:rgba(255,255,255,.06);color:rgba(232,237,245,.6)}
+.password-toggle:focus-visible{outline:2px solid #C8A96B;outline-offset:2px}
+.password-toggle svg{width:18px;height:18px;display:block;pointer-events:none}
 .eye-closed{display:none}
 .password-toggle.is-visible .eye-open{display:none}
 .password-toggle.is-visible .eye-closed{display:block}
@@ -106,15 +113,17 @@ img{display:block;max-width:100%}
 .field-error.is-visible{opacity:1;transform:translateY(0)}
 
 /* ---------- Remember Me + Forgot ---------- */
-.form-row{display:flex;align-items:center;justify-content:space-between;margin:10px 0 22px;flex-wrap:wrap;gap:12px}
+.form-row{display:flex;align-items:center;justify-content:space-between;margin:8px 0 20px;flex-wrap:wrap;gap:12px}
 
-.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none;position:relative}
 .checkbox-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-.checkbox-mark{flex-shrink:0;width:20px;height:20px;border-radius:6px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s ease}
+.checkbox-mark{flex-shrink:0;width:20px;height:20px;border-radius:6px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.4,0,.2,1)}
 .checkbox-mark svg{opacity:0;transform:scale(0);transition:all .2s cubic-bezier(.34,1.56,.64,1)}
+.checkbox-input:hover+.checkbox-mark{border-color:rgba(200,169,107,.35);background:rgba(255,255,255,.06)}
 .checkbox-input:checked+.checkbox-mark{border-color:#C8A96B;background:#C8A96B}
 .checkbox-input:checked+.checkbox-mark svg{opacity:1;transform:scale(1)}
-.checkbox-text{font-size:14px;color:rgba(232,237,245,.6)}
+.checkbox-text{font-size:14px;color:rgba(232,237,245,.6);transition:color .25s ease}
+.checkbox-input:checked~.checkbox-text{color:rgba(232,237,245,.8)}
 .checkbox-input:focus-visible+.checkbox-mark{box-shadow:0 0 0 3px rgba(200,169,107,.2)}
 
 .forgot-link{font-size:14px;color:rgba(200,169,107,.7);transition:color .25s ease}
@@ -154,8 +163,23 @@ img{display:block;max-width:100%}
 .btn-guest{display:flex;align-items:center;justify-content:center;width:100%;height:46px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(200,169,107,.1);color:rgba(232,237,245,.55);font-size:14px;font-weight:500;transition:all .3s ease}
 .btn-guest:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.2);color:rgba(232,237,245,.8)}
 
-/* ---------- Footer ---------- */
-.auth-footer{text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid rgba(200,169,107,.06)}
+/* ---------- Go to Home ---------- */
+.go-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:rgba(200,169,107,.55);transition:all .25s ease;margin-bottom:16px;padding:4px 0;width:fit-content;position:relative;z-index:2}
+.go-home svg{width:16px;height:16px;transition:transform .25s ease}
+.go-home:hover{color:#C8A96B;gap:10px}
+.go-home:hover svg{transform:translateX(-2px)}
+.go-home:focus-visible{outline:2px solid #C8A96B;outline-offset:3px;border-radius:4px}
+
+/* ---------- Autofill ---------- */
+.floating-input:-webkit-autofill,
+.floating-input:-webkit-autofill:hover,
+.floating-input:-webkit-autofill:focus{-webkit-text-fill-color:#E8EDF5;-webkit-box-shadow:0 0 0 1000px rgba(15,23,42,.95) inset;transition:background-color 5000s ease-in-out 0s;caret-color:#E8EDF5}
+
+/* ---------- Disabled State ---------- */
+.floating-input:disabled{opacity:.4;pointer-events:none;background:rgba(255,255,255,.02)}
+.floating-input:disabled~.floating-label{opacity:.4}
+.floating-input:disabled~.input-icon{opacity:.2}
+
 .footer-text{font-size:14px;color:rgba(232,237,245,.4)}
 .footer-link{color:#C8A96B;font-weight:500;transition:color .25s ease}
 .footer-link:hover{color:#E8D5A8;text-decoration:underline}
@@ -196,6 +220,8 @@ img{display:block;max-width:100%}
   .auth-left-content{padding:44px 40px 40px}
   .brand-desc{margin-bottom:28px}
   .auth-card{padding:36px 32px 28px}
+  .brand-logo{height:100px}
+  .card-logo{height:100px}
 }
 
 /* 1280 & below */
@@ -204,6 +230,8 @@ img{display:block;max-width:100%}
   .auth-right{flex:0 0 50%}
   .brand-desc{font-size:14px;margin-bottom:24px}
   .stat-card{padding:14px 16px;min-width:110px}
+  .brand-logo{height:90px}
+  .card-logo{height:90px}
 }
 
 /* 1024 — Tablet landscape */
@@ -214,12 +242,16 @@ img{display:block;max-width:100%}
   .brand-desc{margin-bottom:20px}
   .stat-card{padding:12px 14px;min-width:100px}
   .stat-num{font-size:clamp(18px,1.4vw,22px)}
+  .brand-logo{height:80px}
+  .card-logo{height:80px}
 }
 
 /* 992 & below — Tablet */
 @media(max-width:992px){
   .auth-left{flex:0 0 40%}
   .auth-right{flex:0 0 60%}
+  .brand-logo{height:84px}
+  .card-logo{height:84px}
 }
 
 /* 768 — Tablet portrait */
@@ -237,9 +269,11 @@ img{display:block;max-width:100%}
   .auth-card{max-width:100%;border-radius:28px 28px 0 0;margin-top:-40px;padding:36px 28px 28px;background:rgba(8,17,32,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:none;box-shadow:0 -8px 48px rgba(0,0,0,.4);z-index:1;position:relative}
   .auth-title{font-size:24px}
   .auth-subtitle{font-size:14px}
-  .floating-input{height:48px;padding:16px 44px 4px 42px;font-size:14px}
+  .brand-logo{height:74px}
+  .card-logo{height:74px}
+  .floating-input{height:50px;padding:18px 44px 6px 42px;font-size:14px}
   .floating-label{left:42px;font-size:14px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px;top:8px}
   .btn-submit{height:46px;font-size:15px}
   .btn-guest{height:42px}
   .particle-canvas{display:none}
@@ -249,53 +283,127 @@ img{display:block;max-width:100%}
 @media(max-width:576px){
   .auth-left{height:220px}
   .auth-left-content{padding:24px 20px 20px}
-  .brand-logo{height:28px;margin-bottom:12px}
+  .brand-logo{height:68px;margin-bottom:12px}
   .brand-tagline{font-size:20px;margin-bottom:6px}
   .brand-desc{font-size:13px;margin-bottom:16px;max-width:100%}
   .stat-card{padding:10px 14px;min-width:90px}
   .stat-num{font-size:18px}
   .stat-label{font-size:10px}
   .auth-card{padding:28px 20px 24px;border-radius:24px 24px 0 0;margin-top:-28px}
-  .auth-card-header{margin-bottom:24px}
-  .card-logo{height:26px}
+  .auth-card-header{margin-bottom:20px}
+  .card-logo{height:68px}
   .auth-title{font-size:22px}
   .auth-subtitle{font-size:13px}
-  .floating-group{margin-bottom:2px}
-  .floating-input{height:44px;padding:14px 40px 4px 38px;font-size:14px}
+  .floating-group{margin-bottom:4px}
+  .floating-input{height:46px;padding:16px 40px 6px 38px;font-size:14px}
   .floating-label{left:38px;font-size:13px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:8px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:7px}
   .input-icon{left:12px}
   .input-icon svg{width:15px;height:15px}
   .password-toggle{right:10px}
-  .form-row{margin:8px 0 18px}
+  .password-toggle svg{width:16px;height:16px}
+  .form-row{margin:6px 0 16px}
   .btn-submit{height:44px;font-size:14px;border-radius:12px}
   .btn-guest{height:40px;font-size:13px;border-radius:12px}
-  .form-divider{margin:16px 0}
-  .auth-footer{margin-top:20px;padding-top:16px}
+  .form-divider{margin:14px 0}
+  .auth-footer{margin-top:16px;padding-top:14px}
+}
+
+/* 480 & below */
+@media(max-width:480px){
+  .brand-logo{height:64px}
+  .card-logo{height:64px}
+}
+
+/* 430 & below */
+@media(max-width:430px){
+  .brand-logo{height:60px}
+  .card-logo{height:60px}
+}
+
+/* 414 & below */
+@media(max-width:414px){
+  .brand-logo{height:58px}
+  .card-logo{height:58px}
+}
+
+/* 390 & below */
+@media(max-width:390px){
+  .brand-logo{height:56px}
+  .card-logo{height:56px}
 }
 
 /* 375 & below */
 @media(max-width:375px){
-  .auth-left{height:180px}
-  .stat-card{min-width:80px;padding:8px 10px}
-  .stat-num{font-size:16px}
+  .auth-left{height:160px}
+  .auth-left-content{padding:20px 16px 16px}
+  .stat-card{min-width:75px;padding:6px 10px}
+  .stat-num{font-size:15px}
   .stat-label{font-size:9px}
-  .auth-card{border-radius:20px 20px 0 0;padding:24px 16px 20px;margin-top:-20px}
-  .auth-title{font-size:20px}
-  .floating-input{height:42px;padding:12px 36px 4px 34px;font-size:13px}
+  .auth-card{border-radius:20px 20px 0 0;padding:20px 14px 16px;margin-top:-18px}
+  .auth-card-header{margin-bottom:16px}
+  .auth-title{font-size:18px}
+  .card-logo{height:52px}
+  .brand-logo{height:52px}
+  .floating-input{height:44px;padding:14px 36px 6px 34px;font-size:13px}
   .floating-label{left:34px;font-size:12px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:8px;top:7px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:8px;top:6px}
   .checkbox-text{font-size:12px}
   .forgot-link{font-size:12px}
   .footer-text{font-size:12px}
+  .go-home{font-size:11px;margin-bottom:10px}
+  .go-home svg{width:13px;height:13px}
+  .form-row{margin:4px 0 14px}
+  .btn-submit{height:42px;font-size:13px;border-radius:10px}
+  .btn-guest{height:38px;font-size:12px;border-radius:10px}
+  .form-divider{margin:12px 0;gap:12px}
+  .auth-footer{margin-top:14px;padding-top:12px}
+}
+
+/* 360 */
+@media(max-width:360px){
+  .brand-logo{height:50px}
+  .card-logo{height:50px}
 }
 
 /* 320 */
 @media(max-width:320px){
-  .auth-left{height:140px}
-  .auth-card{padding:20px 12px 16px}
-  .stat-card{min-width:70px}
-  .btn-submit{font-size:13px;height:40px}
+  .auth-left{height:120px}
+  .auth-left-content{padding:14px 12px 12px}
+  .brand-logo{height:44px;margin-bottom:8px}
+  .brand-tagline{font-size:14px;margin-bottom:4px}
+  .brand-desc{font-size:11px;margin-bottom:10px}
+  .stat-card{min-width:60px;padding:4px 8px;border-radius:10px}
+  .stat-num{font-size:13px}
+  .stat-label{font-size:8px}
+  .stat-cards{gap:6px}
+  .auth-card{padding:14px 10px 12px;border-radius:16px 16px 0 0;margin-top:-14px}
+  .auth-card-header{margin-bottom:12px}
+  .card-logo{height:44px;margin-bottom:8px}
+  .auth-title{font-size:16px;margin-bottom:4px}
+  .auth-subtitle{font-size:11px}
+  .go-home{font-size:10px;gap:4px;margin-bottom:8px}
+  .go-home svg{width:11px;height:11px}
+  .floating-group{margin-bottom:2px}
+  .floating-input{height:40px;padding:12px 34px 6px 32px;font-size:12px;border-radius:10px}
+  .floating-label{left:32px;font-size:11px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:7px;top:5px}
+  .input-icon{left:10px;width:16px;height:16px}
+  .input-icon svg{width:13px;height:13px}
+  .password-toggle{right:8px;width:26px;height:26px}
+  .password-toggle svg{width:15px;height:15px}
+  .select-arrow{right:10px}
+  .floating-select{height:40px}
+  .checkbox-mark{width:16px;height:16px;border-radius:4px}
+  .checkbox-text{font-size:11px}
+  .forgot-link{font-size:11px}
+  .form-row{gap:8px;margin:2px 0 12px}
+  .btn-submit{height:38px;font-size:12px;border-radius:10px;margin-top:2px}
+  .btn-guest{height:34px;font-size:11px;border-radius:10px}
+  .form-divider{margin:10px 0;gap:8px}
+  .divider-text{font-size:11px}
+  .auth-footer{margin-top:10px;padding-top:10px}
+  .footer-text{font-size:11px}
 }
 
 

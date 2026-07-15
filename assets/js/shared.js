@@ -196,6 +196,17 @@
     );
 
     elements.forEach((el) => observer.observe(el));
+
+    // Safety fallback: ensure no element stays permanently hidden
+    // (e.g., if IntersectionObserver fails to fire for any reason)
+    setTimeout(() => {
+      elements.forEach((el) => {
+        if (!el.classList.contains('is-visible')) {
+          el.style.transitionDelay = '0ms';
+          el.classList.add('is-visible');
+        }
+      });
+    }, 2000);
   }
 
   /* ------------------ Favorite Buttons ------------------ */
@@ -229,27 +240,79 @@
     const message = document.getElementById('newsletter-message');
     if (!form || !message) return;
 
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+    const showMessage = (text, type) => {
+      message.textContent = text;
+      message.className = 'newsletter-form__message';
+      if (type) {
+        message.classList.add(type);
+      }
+      requestAnimationFrame(() => {
+        message.classList.add('is-visible');
+      });
+    };
+
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const input = form.querySelector('#newsletter-email');
-      const email = input.value.trim();
+      const btn = form.querySelector('.newsletter-form__btn');
+      const email = input.value.trim().toLowerCase();
+
+      input.classList.remove('is-error');
 
       if (!email) {
-        message.textContent = 'Please enter your email address.';
-        message.style.color = '#ffcece';
+        input.classList.add('is-error');
+        showMessage('Please enter your email address.', 'is-error');
+        input.focus();
         return;
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        message.textContent = 'Please enter a valid email address.';
-        message.style.color = '#ffcece';
+      if (!emailRegex.test(email)) {
+        input.classList.add('is-error');
+        showMessage('Please enter a valid email address.', 'is-error');
+        input.focus();
         return;
       }
 
-      message.textContent = 'Thank you for subscribing!';
-      message.style.color = 'var(--success)';
-      form.reset();
+      btn.classList.add('is-loading');
+
+      setTimeout(() => {
+        btn.classList.remove('is-loading');
+        showMessage('✓ Thank you! You\'ve successfully subscribed.', 'is-success');
+        input.value = '';
+
+        setTimeout(() => {
+          message.classList.remove('is-visible');
+        }, 3000);
+      }, 800);
+    });
+
+    form.querySelector('#newsletter-email').addEventListener('input', function () {
+      this.classList.remove('is-error');
+      message.classList.remove('is-visible');
+    });
+  }
+
+  /* ------------------ Footer Active Navigation ------------------ */
+  function initFooterActiveNav() {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    const footerLinks = document.querySelectorAll('.footer-nav a');
+
+    footerLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http')) return;
+
+      const linkPath = href.split('/').pop() || 'index.html';
+      const isActive =
+        linkPath === currentPath ||
+        (currentPath === '' && linkPath === 'index.html');
+
+      if (isActive) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
     });
   }
 
@@ -260,6 +323,7 @@
     initMobileMenu();
     initBackToTop();
     initActiveNavigation();
+    initFooterActiveNav();
     initSmoothScroll();
     initScrollReveal();
     initFavoriteButtons();

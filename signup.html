@@ -24,24 +24,7 @@
       <div class="auth-left-overlay"></div>
       <div class="auth-left-content">
         <div class="brand-block">
-          <svg class="brand-logo" viewBox="0 0 320 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="goldLg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#C8A96B"/>
-                <stop offset="35%" stop-color="#E8D5A8"/>
-                <stop offset="65%" stop-color="#C8A96B"/>
-                <stop offset="100%" stop-color="#D4B87A"/>
-              </linearGradient>
-            </defs>
-            <rect x="6" y="14" width="7" height="34" rx="2.5" fill="url(#goldLg)"/>
-            <rect x="17" y="10" width="7" height="38" rx="2.5" fill="url(#goldLg)"/>
-            <rect x="28" y="18" width="7" height="30" rx="2.5" fill="url(#goldLg)"/>
-            <rect x="39" y="24" width="7" height="24" rx="2.5" fill="url(#goldLg)"/>
-            <rect x="2" y="46" width="48" height="3" rx="1.5" fill="url(#goldLg)" opacity="0.5"/>
-            <line x1="60" y1="10" x2="60" y2="50" stroke="url(#goldLg)" stroke-width="1" opacity="0.3"/>
-            <text x="74" y="31" font-family="Georgia,'Times New Roman',serif" font-size="20" font-weight="700" fill="#C8A96B" letter-spacing="3.5">STACKLY</text>
-            <text x="74" y="48" font-family="Georgia,'Times New Roman',serif" font-size="10" fill="#C8A96B" letter-spacing="5" opacity="0.85">ESTATES</text>
-          </svg>
+          <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="brand-logo">
           <h2 class="brand-tagline">Luxury Living Starts Here</h2>
           <p class="brand-desc">Discover a world of extraordinary properties curated for those who demand the finest in luxury real estate.</p>
         </div>
@@ -64,25 +47,12 @@
 
     <div class="auth-right">
       <div class="auth-card auth-card--signup">
+        <a href="index.html" class="go-home" aria-label="Go to home page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Go to Home
+        </a>
         <div class="auth-card-header">
-          <svg class="card-logo" viewBox="0 0 320 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="goldSm" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#C8A96B"/>
-                <stop offset="35%" stop-color="#E8D5A8"/>
-                <stop offset="65%" stop-color="#C8A96B"/>
-                <stop offset="100%" stop-color="#D4B87A"/>
-              </linearGradient>
-            </defs>
-            <rect x="4" y="10" width="5" height="26" rx="2" fill="url(#goldSm)"/>
-            <rect x="12" y="7" width="5" height="29" rx="2" fill="url(#goldSm)"/>
-            <rect x="20" y="13" width="5" height="23" rx="2" fill="url(#goldSm)"/>
-            <rect x="28" y="18" width="5" height="18" rx="2" fill="url(#goldSm)"/>
-            <rect x="2" y="35" width="34" height="2" rx="1" fill="url(#goldSm)" opacity="0.5"/>
-            <line x1="42" y1="7" x2="42" y2="38" stroke="url(#goldSm)" stroke-width="0.7" opacity="0.3"/>
-            <text x="52" y="23" font-family="Georgia,'Times New Roman',serif" font-size="14" font-weight="700" fill="#C8A96B" letter-spacing="2.5">STACKLY</text>
-            <text x="52" y="36" font-family="Georgia,'Times New Roman',serif" font-size="7" fill="#C8A96B" letter-spacing="3.5" opacity="0.85">ESTATES</text>
-          </svg>
+          <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="card-logo">
           <h1 class="auth-title">Create Account</h1>
           <p class="auth-subtitle">Join the world of luxury real estate</p>
         </div>
@@ -125,8 +95,8 @@
             <div class="floating-wrap floating-wrap--select">
               <select id="signup-role" class="floating-input floating-select" required>
                 <option value="" disabled selected></option>
-                <option value="student">Student</option>
-                <option value="trainer">Trainer</option>
+                <option value="buyer">Buyer</option>
+                <option value="seller">Seller</option>
               </select>
               <label for="signup-role" class="floating-label">Choose Your Role</label>
               <span class="input-icon">

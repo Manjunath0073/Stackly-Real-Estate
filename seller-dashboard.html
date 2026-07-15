@@ -1,0 +1,1154 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Seller Dashboard — Stackly Estates Luxury Real Estate">
+  <meta name="theme-color" content="#0F172A">
+  <title>Dashboard | Stackly Estates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/dashboard-shared.css">
+  <link rel="stylesheet" href="assets/css/seller-dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-role="seller">
+
+<div class="dashboard">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__header">
+      <a href="index.html" class="sidebar__logo" aria-label="Stackly Estates Home">
+        <div class="sidebar__logo-icon">
+          <img src="assets/images/logo/logo-stackly.webp" alt="" class="sidebar__logo-img">
+        </div>
+      </a>
+      <button class="sidebar__toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar__user">
+      <div class="sidebar__user-avatar" id="sidebar-avatar">JC</div>
+      <span class="sidebar__user-badge"></span>
+      <div class="sidebar__user-info">
+        <div class="sidebar__user-name" id="sidebar-name">James Carter</div>
+        <div class="sidebar__user-role" id="sidebar-role">Premium Agent</div>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="sidebar__nav-label">Main Menu</div>
+
+      <div class="sidebar__nav-item active" data-page="dashboard" data-tooltip="Dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="properties" data-tooltip="My Properties">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>My Properties</span>
+        <span class="sidebar__badge">8</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="performance" data-tooltip="Property Performance">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        <span>Performance</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="leads" data-tooltip="Leads">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>Leads</span>
+        <span class="sidebar__badge">12</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="appointments" data-tooltip="Appointments">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Appointments</span>
+        <span class="sidebar__badge">4</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="payments" data-tooltip="Payments">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Payments</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="documents" data-tooltip="Documents">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Documents</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="settings" data-tooltip="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Settings</span>
+      </div>
+    </nav>
+
+    <div class="sidebar__footer">
+      <div class="sidebar__nav-item" id="logout-btn" data-tooltip="Logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Logout</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== SIDEBAR OVERLAY ==================== -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ==================== MAIN ==================== -->
+  <div class="main">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+      <div class="navbar__left">
+        <div class="navbar__title">
+          <h1 class="navbar__page-title" id="page-title">Dashboard</h1>
+          <div class="navbar__breadcrumb" id="breadcrumb">Home / Dashboard</div>
+        </div>
+      </div>
+
+      <div class="navbar__center">
+        <div class="navbar__search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search properties, leads, appointments..." aria-label="Search">
+        </div>
+      </div>
+
+      <div class="navbar__right">
+        <button class="navbar__btn navbar__search-btn" id="search-btn-mobile" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="navbar__btn" id="notif-trigger" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="navbar__badge" id="notif-badge">5</span>
+        </button>
+
+        <button class="navbar__btn" id="dark-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <div class="navbar__profile" id="profile-trigger" role="button" tabindex="0" aria-label="User menu">
+          <div class="navbar__profile-avatar" id="nav-avatar">JC</div>
+          <div class="navbar__profile-info">
+            <div class="navbar__profile-name" id="nav-name">James Carter</div>
+            <div class="navbar__profile-email" id="nav-email">james@stacklyestates.com</div>
+          </div>
+
+          <div class="dropdown" id="profile-dropdown">
+            <div class="dropdown__header">
+              <div class="dropdown__avatar" id="dropdown-avatar">JC</div>
+              <div>
+                <div class="dropdown__name" id="dropdown-name">James Carter</div>
+                <div class="dropdown__email" id="dropdown-email">james@stacklyestates.com</div>
+                <div class="dropdown__role" id="dropdown-role">Premium Agent</div>
+              </div>
+            </div>
+            <div class="dropdown__divider"></div>
+            <div class="dropdown__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              My Profile
+            </div>
+            <div class="dropdown__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Settings
+            </div>
+            <div class="dropdown__divider"></div>
+            <div class="dropdown__item dropdown__item--danger" id="dropdown-logout">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              Logout
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== CONTENT ==================== -->
+    <div class="content">
+
+      <!-- ============================== DASHBOARD ============================== -->
+      <div class="page-section active" id="page-dashboard">
+
+        <!-- Section 1: Welcome Card -->
+        <div class="welcome-card animate-fade">
+          <div class="welcome-card__text-wrap">
+            <span class="welcome-card__greeting" id="greeting-text">Good Morning</span>
+            <h1 class="welcome-card__title">Welcome back, <span id="greeting-name">James</span></h1>
+            <p class="welcome-card__text">Your property portfolio is performing exceptionally well this quarter.</p>
+            <div class="welcome-card__meta">
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Last login: Today, 8:30 AM</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Premium Agent since 2019</span>
+              <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Top Rated 4.9 Stars</span>
+            </div>
+          </div>
+          <div class="welcome-card__actions">
+            <a href="#" class="welcome-card__btn" onclick="switchPage('properties');return false">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Property
+            </a>
+          </div>
+        </div>
+
+        <!-- Section 2: Quick Statistics -->
+        <div class="kpi-grid animate-fade">
+          <div class="kpi-card" style="animation-delay:0.05s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>+12.5%</span>
+            </div>
+            <div class="kpi-card__value" data-count="8">0</div>
+            <div class="kpi-card__label">Active Listings</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.1s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>+8.3%</span>
+            </div>
+            <div class="kpi-card__value" data-count="24">0</div>
+            <div class="kpi-card__label">Properties Sold</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.15s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>+18.2%</span>
+            </div>
+            <div class="kpi-card__value" data-count="284">0</div>
+            <div class="kpi-card__label">Monthly Revenue ($K)</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.2s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>+24%</span>
+            </div>
+            <div class="kpi-card__value" data-count="32">0</div>
+            <div class="kpi-card__label">New Buyer Inquiries</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.25s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>+6.7%</span>
+            </div>
+            <div class="kpi-card__value" data-count="56">0</div>
+            <div class="kpi-card__label">Commission Earned ($K)</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.3s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>+3.2%</span>
+            </div>
+            <div class="kpi-card__value" data-count="32">0</div>
+            <div class="kpi-card__label">Conversion Rate (%)</div>
+          </div>
+        </div>
+
+        <!-- Section 3: Charts Row -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Revenue Trend</h2>
+                <a href="#" class="section-card__action" onclick="return false">Full Report <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+              </div>
+              <div class="chart-container" style="height:280px"><canvas id="chart-revenue"></canvas></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Property Status</h2>
+              </div>
+              <div class="chart-container" style="height:280px"><canvas id="chart-property-status"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Monthly Sales + Quick Actions -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Monthly Sales</h2>
+                <a href="#" class="section-card__action" onclick="return false">Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+              </div>
+              <div class="chart-container" style="height:260px"><canvas id="chart-monthly-sales"></canvas></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Quick Actions</h2>
+              </div>
+              <div class="quick-actions-grid">
+                <div class="quick-action-item" onclick="switchPage('properties');return false">
+                  <div class="quick-action-item__icon" style="background:rgba(200,169,107,0.12);color:var(--secondary)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+                  <span>Add Property</span>
+                </div>
+                <div class="quick-action-item" onclick="switchPage('leads');return false">
+                  <div class="quick-action-item__icon" style="background:rgba(59,130,246,0.12);color:var(--info)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+                  <span>View Leads</span>
+                </div>
+                <div class="quick-action-item" onclick="switchPage('appointments');return false">
+                  <div class="quick-action-item__icon" style="background:rgba(16,185,129,0.12);color:var(--success)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div>
+                  <span>Appointments</span>
+                </div>
+                <div class="quick-action-item" onclick="switchPage('performance');return false">
+                  <div class="quick-action-item__icon" style="background:rgba(245,158,11,0.12);color:var(--warning)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                  <span>Performance</span>
+                </div>
+                <div class="quick-action-item" onclick="switchPage('payments');return false">
+                  <div class="quick-action-item__icon" style="background:rgba(139,92,246,0.12);color:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+                  <span>Revenue</span>
+                </div>
+                <div class="quick-action-item" onclick="switchPage('documents');return false">
+                  <div class="quick-action-item__icon" style="background:rgba(239,68,68,0.12);color:var(--danger)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                  <span>Documents</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Top Performing Properties -->
+        <div class="section-card animate-fade" style="animation-delay:0.2s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Top Performing Properties</h2>
+            <a href="#" class="section-card__action" onclick="return false">View All <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+          <div class="prop-grid">
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">For Sale</span></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$6,800,000</div>
+                <div class="prop-card__title">Cliffside Villa Malibu</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Malibu, CA</div>
+                <div class="prop-card__meta"><span>456 Views</span><span>23 Leads</span></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">For Sale</span></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$4,250,000</div>
+                <div class="prop-card__title">Beverly Hills Estate</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Beverly Hills, CA</div>
+                <div class="prop-card__meta"><span>328 Views</span><span>18 Leads</span></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">Active</span></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$5,950,000</div>
+                <div class="prop-card__title">Miami Waterfront Estate</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Miami Beach, FL</div>
+                <div class="prop-card__meta"><span>275 Views</span><span>14 Leads</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Recent Activity + Upcoming Site Visits -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Recent Activity</h2>
+                <a href="#" class="section-card__action" onclick="return false">View All <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+              </div>
+              <div class="timeline">
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--secondary)"></div>
+                  <div class="timeline__time">Today, 10:30 AM</div>
+                  <div class="timeline__text">New listing published <strong>Santa Monica Modern</strong></div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--info)"></div>
+                  <div class="timeline__time">Today, 9:15 AM</div>
+                  <div class="timeline__text">Lead received <strong>Alexandra Reynolds</strong> viewed Cliffside Villa</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--success)"></div>
+                  <div class="timeline__time">Yesterday, 4:00 PM</div>
+                  <div class="timeline__text">Appointment scheduled <strong>David Thompson</strong> for Beverly Hills</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--secondary)"></div>
+                  <div class="timeline__time">Yesterday, 2:00 PM</div>
+                  <div class="timeline__text">Property sold <strong>Lake Tahoe Retreat</strong> for $3,750,000</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--success)"></div>
+                  <div class="timeline__time">Mar 12, 2026</div>
+                  <div class="timeline__text">Payment received <strong>$45,000 commission</strong> for Malibu sale</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.3s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Upcoming Site Visits</h2>
+                <a href="#" class="section-card__action" onclick="switchPage('appointments');return false">View All <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+              </div>
+              <div class="timeline">
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Mar 15 — 10:00 AM</div>
+                  <div class="timeline__text">Visit <strong>Cliffside Villa Malibu</strong> with Alexandra R.</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--success)"></div>
+                  <div class="timeline__time">Mar 15 — 2:30 PM</div>
+                  <div class="timeline__text">Visit <strong>Beverly Hills Estate</strong> with David T.</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--warning)"></div>
+                  <div class="timeline__time">Mar 18 — 11:00 AM</div>
+                  <div class="timeline__text">Visit <strong>Miami Waterfront</strong> with Sophia L.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: Notifications + Performance Score -->
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.35s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Latest Notifications</h2>
+                <span class="section-card__action">Mark All Read</span>
+              </div>
+              <div class="msg-list">
+                <div class="msg-item">
+                  <div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">!</div>
+                  <div class="msg-item__content">
+                    <div class="msg-item__top"><span class="msg-item__name">New Lead Alert</span><span class="msg-item__time">2h ago</span></div>
+                    <div class="msg-item__preview">Alexandra Reynolds interested in Cliffside Villa ($6.8M)</div>
+                  </div>
+                </div>
+                <div class="msg-item">
+                  <div class="msg-item__avatar" style="background:rgba(16,185,129,0.12);color:var(--success)">+</div>
+                  <div class="msg-item__content">
+                    <div class="msg-item__top"><span class="msg-item__name">Commission Received</span><span class="msg-item__time">1d ago</span></div>
+                    <div class="msg-item__preview">$45,000 deposited for Malibu sale</div>
+                  </div>
+                </div>
+                <div class="msg-item">
+                  <div class="msg-item__avatar" style="background:rgba(59,130,246,0.12);color:var(--info)">i</div>
+                  <div class="msg-item__content">
+                    <div class="msg-item__top"><span class="msg-item__name">Document Verified</span><span class="msg-item__time">2d ago</span></div>
+                    <div class="msg-item__preview">Beverly Hills Estate title deed verified</div>
+                  </div>
+                </div>
+                <div class="msg-item">
+                  <div class="msg-item__avatar" style="background:rgba(245,158,11,0.12);color:var(--warning)">★</div>
+                  <div class="msg-item__content">
+                    <div class="msg-item__top"><span class="msg-item__name">5-Star Review</span><span class="msg-item__time">3d ago</span></div>
+                    <div class="msg-item__preview">"James made our home buying seamless!"</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.4s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Performance Score</h2>
+              </div>
+              <div class="performance-score">
+                <div class="performance-score__circle">
+                  <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/><circle cx="60" cy="60" r="54" fill="none" stroke="var(--secondary)" stroke-width="8" stroke-dasharray="339" stroke-dashoffset="34" stroke-linecap="round" transform="rotate(-90 60 60)"/></svg>
+                  <div class="performance-score__value">90<span>%</span></div>
+                </div>
+                <div class="performance-score__label">Excellent Performance</div>
+                <div class="performance-score__breakdown">
+                  <div class="performance-score__row"><span>Listings Quality</span><span>95%</span></div>
+                  <div class="performance-score__row"><span>Response Time</span><span>88%</span></div>
+                  <div class="performance-score__row"><span>Client Satisfaction</span><span>92%</span></div>
+                  <div class="performance-score__row"><span>Conversion Rate</span><span>85%</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 8: Goal Progress -->
+        <div class="section-card animate-fade" style="animation-delay:0.45s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Q1 Goal Progress</h2>
+            <span class="section-card__action">Annual Target: $5M</span>
+          </div>
+          <div class="goal-grid">
+            <div class="goal-card">
+              <div class="goal-card__header">
+                <span class="goal-card__label">Revenue</span>
+                <span class="goal-card__value">$2.84M / $5M</span>
+              </div>
+              <div class="progress-bar" style="height:8px"><div class="progress-bar__fill gold" style="width:56.8%"></div></div>
+              <div class="goal-card__percent">56.8% Complete</div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-card__header">
+                <span class="goal-card__label">Properties Sold</span>
+                <span class="goal-card__value">24 / 40</span>
+              </div>
+              <div class="progress-bar" style="height:8px"><div class="progress-bar__fill green" style="width:60%"></div></div>
+              <div class="goal-card__percent">60% Complete</div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-card__header">
+                <span class="goal-card__label">New Listings</span>
+                <span class="goal-card__value">8 / 12</span>
+              </div>
+              <div class="progress-bar" style="height:8px"><div class="progress-bar__fill blue" style="width:66.7%"></div></div>
+              <div class="goal-card__percent">66.7% Complete</div>
+            </div>
+            <div class="goal-card">
+              <div class="goal-card__header">
+                <span class="goal-card__label">Client Satisfaction</span>
+                <span class="goal-card__value">98% / 95%</span>
+              </div>
+              <div class="progress-bar" style="height:8px"><div class="progress-bar__fill" style="width:103%;background:var(--success)"></div></div>
+              <div class="goal-card__percent" style="color:var(--success)">Target Exceeded!</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== MY PROPERTIES ============================== -->
+      <div class="page-section" id="page-properties">
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">My Properties</h1>
+            <p class="content__subtitle">Manage all your property listings, track status, and add new listings.</p>
+          </div>
+          <button class="btn btn--primary ripple-btn" onclick="return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Property</button>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div></div>
+            <div class="kpi-card__value" data-count="8">0</div><div class="kpi-card__label">Active</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div></div>
+            <div class="kpi-card__value" data-count="4">0</div><div class="kpi-card__label">Featured</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v12M8 9l4 4 4-4"/><path d="M3 16v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/></svg></div></div>
+            <div class="kpi-card__value" data-count="2">0</div><div class="kpi-card__label">Draft</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="24">0</div><div class="kpi-card__label">Sold</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.2s">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div></div>
+            <div class="kpi-card__value" data-count="36">0</div><div class="kpi-card__label">Total</div>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.1s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">All Properties</h2>
+            <a href="#" class="section-card__action" onclick="return false">Export CSV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></a>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Property</th><th>Price</th><th>Status</th><th>Views</th><th>Leads</th><th>Listed</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Cliffside Villa Malibu</td><td>$6,800,000</td><td><span class="table__status completed">Active</span></td><td>456</td><td>23</td><td>Jan 2026</td><td><button class="btn btn--sm btn--ghost">Edit</button></td></tr>
+                <tr><td style="font-weight:600">Beverly Hills Estate</td><td>$4,250,000</td><td><span class="table__status completed">Active</span></td><td>328</td><td>18</td><td>Feb 2026</td><td><button class="btn btn--sm btn--ghost">Edit</button></td></tr>
+                <tr><td style="font-weight:600">Miami Waterfront</td><td>$5,950,000</td><td><span class="table__status completed">Active</span></td><td>275</td><td>14</td><td>Jan 2026</td><td><button class="btn btn--sm btn--ghost">Edit</button></td></tr>
+                <tr><td style="font-weight:600">Manhattan Penthouse</td><td>$1,950,000</td><td><span class="table__status pending">Sold</span></td><td>189</td><td>9</td><td>Dec 2025</td><td><button class="btn btn--sm btn--ghost">View</button></td></tr>
+                <tr><td style="font-weight:600">Santa Monica Modern</td><td>$3,450,000</td><td><span class="table__status completed">Active</span></td><td>198</td><td>11</td><td>Mar 2026</td><td><button class="btn btn--sm btn--ghost">Edit</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.15s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Property Performance</h2>
+            <a href="#" class="section-card__action" onclick="return false">Details</a>
+          </div>
+          <div class="chart-container" style="height:260px"><canvas id="chart-property-perf"></canvas></div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header"><h2 class="section-card__title">Draft Properties</h2></div>
+              <div class="msg-list">
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(245,158,11,0.12);color:var(--warning)">D1</div><div class="msg-item__content"><div class="msg-item__name">Hollywood Hills Modern</div><div class="msg-item__preview">Last edited 2 days ago</div></div></div>
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(245,158,11,0.12);color:var(--warning)">D2</div><div class="msg-item__content"><div class="msg-item__name">Palm Springs Retreat</div><div class="msg-item__preview">Last edited 5 days ago</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header"><h2 class="section-card__title">Featured Properties</h2></div>
+              <div class="msg-list">
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">F</div><div class="msg-item__content"><div class="msg-item__name">Cliffside Villa Malibu</div><div class="msg-item__preview">Premium placement — 14d remaining</div></div></div>
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">F</div><div class="msg-item__content"><div class="msg-item__name">Beverly Hills Estate</div><div class="msg-item__preview">Premium placement — 23d remaining</div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== PROPERTY PERFORMANCE ============================== -->
+      <div class="page-section" id="page-performance">
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Property Performance</h1>
+            <p class="content__subtitle">Detailed analytics and metrics for all your property listings.</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(5,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div></div>
+            <div class="kpi-card__value" data-count="1847">0</div><div class="kpi-card__label">Total Views</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div></div>
+            <div class="kpi-card__value" data-count="142">0</div><div class="kpi-card__label">Saves</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div></div>
+            <div class="kpi-card__value" data-count="95">0</div><div class="kpi-card__label">Leads</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div>
+            <div class="kpi-card__value" data-count="48">0</div><div class="kpi-card__label">CTR (%)</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.2s">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div></div>
+            <div class="kpi-card__value" data-count="32">0</div><div class="kpi-card__label">Conversion (%)</div>
+          </div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header"><h2 class="section-card__title">Monthly Growth</h2></div>
+              <div class="chart-container" style="height:280px"><canvas id="chart-monthly-growth"></canvas></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">Lead Sources</h2></div>
+              <div class="chart-container" style="height:280px"><canvas id="chart-lead-sources"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header"><h2 class="section-card__title">Sales Funnel</h2></div>
+              <div class="chart-container" style="height:260px"><canvas id="chart-funnel"></canvas></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header"><h2 class="section-card__title">Performance Scorecards</h2></div>
+              <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:0.8125rem;color:var(--text-muted)">Listing Views</span><span style="font-size:0.8125rem;font-weight:600">78%</span></div><div class="progress-bar"><div class="progress-bar__fill gold" style="width:78%"></div></div></div>
+              <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:0.8125rem;color:var(--text-muted)">Click Through Rate</span><span style="font-size:0.8125rem;font-weight:600">48%</span></div><div class="progress-bar"><div class="progress-bar__fill blue" style="width:48%"></div></div></div>
+              <div style="margin-bottom:16px"><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:0.8125rem;color:var(--text-muted)">Buyer Interest</span><span style="font-size:0.8125rem;font-weight:600">64%</span></div><div class="progress-bar"><div class="progress-bar__fill green" style="width:64%"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;margin-bottom:6px"><span style="font-size:0.8125rem;color:var(--text-muted)">Photo Engagement</span><span style="font-size:0.8125rem;font-weight:600">88%</span></div><div class="progress-bar"><div class="progress-bar__fill gold" style="width:88%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== LEADS ============================== -->
+      <div class="page-section" id="page-leads">
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Leads</h1>
+            <p class="content__subtitle">Track and manage all your potential buyers from every source.</p>
+          </div>
+          <button class="btn btn--primary ripple-btn" onclick="return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Lead</button>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div></div>
+            <div class="kpi-card__value" data-count="48">0</div><div class="kpi-card__label">Total Leads</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="26">0</div><div class="kpi-card__label">Qualified</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div>
+            <div class="kpi-card__value" data-count="33">0</div><div class="kpi-card__label">Conversion (%)</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+            <div class="kpi-card__value" data-count="24">0</div><div class="kpi-card__label">Avg Response (h)</div>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.1s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">All Leads</h2>
+            <div class="view-toggle">
+              <button class="view-toggle__btn active" aria-label="Table view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Name</th><th>Contact</th><th>Property Interest</th><th>Budget</th><th>Source</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Alexandra Reynolds</td><td>alexandra@email.com</td><td>Cliffside Villa</td><td>$6-7M</td><td>Website</td><td><span class="table__status completed">Qualified</span></td><td><button class="btn btn--sm btn--primary">Contact</button></td></tr>
+                <tr><td style="font-weight:600">David Thompson</td><td>david@email.com</td><td>Beverly Hills Estate</td><td>$4-5M</td><td>Zillow</td><td><span class="table__status pending">New</span></td><td><button class="btn btn--sm btn--primary">Contact</button></td></tr>
+                <tr><td style="font-weight:600">Sophia Laurent</td><td>sophia@email.com</td><td>Miami Waterfront</td><td>$5-6M</td><td>Referral</td><td><span class="table__status completed">Qualified</span></td><td><button class="btn btn--sm btn--primary">Contact</button></td></tr>
+                <tr><td style="font-weight:600">Michael Roberts</td><td>michael@email.com</td><td>Manhattan Penthouse</td><td>$1.5-2.5M</td><td>Google</td><td><span class="table__status active">Negotiation</span></td><td><button class="btn btn--sm btn--primary">Contact</button></td></tr>
+                <tr><td style="font-weight:600">Emma Williams</td><td>emma@email.com</td><td>Santa Monica Modern</td><td>$3-4M</td><td>Social</td><td><span class="table__status pending">New</span></td><td><button class="btn btn--sm btn--primary">Contact</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">Lead Source Analytics</h2></div>
+              <div class="chart-container" style="height:260px"><canvas id="chart-lead-analytics"></canvas></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header"><h2 class="section-card__title">Buyer Pipeline</h2></div>
+              <div class="funnel-list">
+                <div class="funnel-item"><div class="funnel-item__label">New Leads</div><div class="funnel-item__bar"><div class="funnel-item__fill" style="width:100%;background:var(--secondary)"></div></div><div class="funnel-item__count">48</div></div>
+                <div class="funnel-item"><div class="funnel-item__label">Contacted</div><div class="funnel-item__bar"><div class="funnel-item__fill" style="width:75%;background:var(--info)"></div></div><div class="funnel-item__count">36</div></div>
+                <div class="funnel-item"><div class="funnel-item__label">Qualified</div><div class="funnel-item__bar"><div class="funnel-item__fill" style="width:54%;background:var(--success)"></div></div><div class="funnel-item__count">26</div></div>
+                <div class="funnel-item"><div class="funnel-item__label">Viewing</div><div class="funnel-item__bar"><div class="funnel-item__fill" style="width:35%;background:var(--warning)"></div></div><div class="funnel-item__count">17</div></div>
+                <div class="funnel-item"><div class="funnel-item__label">Negotiation</div><div class="funnel-item__bar"><div class="funnel-item__fill" style="width:23%;background:#8B5CF6"></div></div><div class="funnel-item__count">11</div></div>
+                <div class="funnel-item"><div class="funnel-item__label">Closed</div><div class="funnel-item__bar"><div class="funnel-item__fill" style="width:17%;background:var(--success)"></div></div><div class="funnel-item__count">8</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== APPOINTMENTS ============================== -->
+      <div class="page-section" id="page-appointments">
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Appointments</h1>
+            <p class="content__subtitle">Manage property tours, buyer meetings, and your calendar.</p>
+          </div>
+          <button class="btn btn--primary ripple-btn" onclick="return false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Schedule New</button>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div></div>
+            <div class="kpi-card__value" data-count="14">0</div><div class="kpi-card__label">Total Visits</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="9">0</div><div class="kpi-card__label">Confirmed</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+            <div class="kpi-card__value" data-count="3">0</div><div class="kpi-card__label">Pending</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+            <div class="kpi-card__value" data-count="22">0</div><div class="kpi-card__label">Completed</div>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.1s">
+          <div class="section-card__header"><h2 class="section-card__title">Upcoming Tours</h2></div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Buyer</th><th>Property</th><th>Date</th><th>Time</th><th>Type</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Alexandra Reynolds</td><td>Cliffside Villa Malibu</td><td>Mar 15</td><td>10:00 AM</td><td>In-Person</td><td><span class="table__status completed">Confirmed</span></td></tr>
+                <tr><td style="font-weight:600">David Thompson</td><td>Beverly Hills Estate</td><td>Mar 15</td><td>2:30 PM</td><td>Virtual</td><td><span class="table__status completed">Confirmed</span></td></tr>
+                <tr><td style="font-weight:600">Sophia Laurent</td><td>Miami Waterfront</td><td>Mar 18</td><td>11:00 AM</td><td>In-Person</td><td><span class="table__status pending">Pending</span></td></tr>
+                <tr><td style="font-weight:600">Michael Roberts</td><td>Manhattan Penthouse</td><td>Mar 22</td><td>3:00 PM</td><td>Virtual</td><td><span class="table__status pending">Pending</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.15s">
+          <div class="section-card__header"><h2 class="section-card__title">March 2026 Calendar</h2></div>
+          <div class="calendar-grid">
+            <span class="calendar__day muted">23</span><span class="calendar__day muted">24</span><span class="calendar__day muted">25</span><span class="calendar__day muted">26</span><span class="calendar__day muted">27</span><span class="calendar__day muted">28</span><span class="calendar__day">1</span>
+            <span class="calendar__day">2</span><span class="calendar__day">3</span><span class="calendar__day">4</span><span class="calendar__day">5</span><span class="calendar__day">6</span><span class="calendar__day">7</span><span class="calendar__day">8</span>
+            <span class="calendar__day">9</span><span class="calendar__day">10</span><span class="calendar__day">11</span><span class="calendar__day">12</span><span class="calendar__day">13</span><span class="calendar__day">14</span><span class="calendar__day today event">15</span>
+            <span class="calendar__day event">16</span><span class="calendar__day">17</span><span class="calendar__day event">18</span><span class="calendar__day">19</span><span class="calendar__day">20</span><span class="calendar__day">21</span><span class="calendar__day event">22</span>
+            <span class="calendar__day">23</span><span class="calendar__day">24</span><span class="calendar__day">25</span><span class="calendar__day">26</span><span class="calendar__day">27</span><span class="calendar__day">28</span><span class="calendar__day">29</span>
+            <span class="calendar__day">30</span><span class="calendar__day">31</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== PAYMENTS ============================== -->
+      <div class="page-section" id="page-payments">
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Payments</h1>
+            <p class="content__subtitle">Track commissions, earnings, and payment history.</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div></div>
+            <div class="kpi-card__value" data-count="284">0</div><div class="kpi-card__label">Monthly Income ($K)</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="56">0</div><div class="kpi-card__label">Commission ($K)</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+            <div class="kpi-card__value" data-count="12">0</div><div class="kpi-card__label">Pending</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="98">0</div><div class="kpi-card__label">Satisfaction (%)</div>
+          </div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header"><h2 class="section-card__title">Earnings Trend</h2></div>
+              <div class="chart-container" style="height:280px"><canvas id="chart-earnings"></canvas></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">Payment Status</h2></div>
+              <div class="chart-container" style="height:280px"><canvas id="chart-payment-status"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.2s">
+          <div class="section-card__header"><h2 class="section-card__title">Commission History</h2></div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Property</th><th>Sale Price</th><th>Commission Rate</th><th>Amount</th><th>Date</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Cliffside Villa Malibu</td><td>$6,800,000</td><td>2.5%</td><td>$170,000</td><td>Mar 12, 2026</td><td><span class="table__status completed">Paid</span></td></tr>
+                <tr><td style="font-weight:600">Beverly Hills Estate</td><td>$4,250,000</td><td>2.5%</td><td>$106,250</td><td>Mar 8, 2026</td><td><span class="table__status pending">Pending</span></td></tr>
+                <tr><td style="font-weight:600">Lake Tahoe Retreat</td><td>$3,750,000</td><td>2.5%</td><td>$93,750</td><td>Feb 28, 2026</td><td><span class="table__status completed">Paid</span></td></tr>
+                <tr><td style="font-weight:600">Aspen Mountain Chalet</td><td>$3,200,000</td><td>2.5%</td><td>$80,000</td><td>Feb 20, 2026</td><td><span class="table__status completed">Paid</span></td></tr>
+                <tr><td style="font-weight:600">Bali Beachfront Retreat</td><td>$2,850,000</td><td>2.5%</td><td>$71,250</td><td>Feb 15, 2026</td><td><span class="table__status active">Processing</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== DOCUMENTS ============================== -->
+      <div class="page-section" id="page-documents">
+        <div class="content__header doc-header">
+          <div>
+            <h1 class="content__title">Documents</h1>
+            <p class="content__subtitle">Manage property documents, contracts, and verification status.</p>
+          </div>
+          <div class="doc-header__actions">
+            <div class="doc-search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search documents..." class="doc-search__input">
+            </div>
+            <button class="btn btn--primary ripple-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg><span>Upload</span></button>
+          </div>
+        </div>
+
+        <div class="doc-stats animate-fade">
+          <div class="doc-stat"><div class="doc-stat__icon" style="color:var(--secondary)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><div class="doc-stat__value">38</div><div class="doc-stat__label">Total Files</div></div></div>
+          <div class="doc-stat"><div class="doc-stat__icon" style="color:var(--info)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18"/><line x1="7" y1="2" x2="7" y2="6"/><line x1="17" y1="2" x2="17" y2="6"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><div><div class="doc-stat__value">2.4</div><div class="doc-stat__label">GB Used</div></div></div>
+          <div class="doc-stat"><div class="doc-stat__icon" style="color:var(--success)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div><div class="doc-stat__value">24</div><div class="doc-stat__label">Verified</div></div></div>
+          <div class="doc-stat"><div class="doc-stat__icon" style="color:var(--warning)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><div class="doc-stat__value">8</div><div class="doc-stat__label">Pending</div></div></div>
+        </div>
+
+        <div class="doc-filters animate-fade" style="animation-delay:0.05s">
+          <button class="doc-filter active">All</button>
+          <button class="doc-filter">Property Titles</button>
+          <button class="doc-filter">Sales Contracts</button>
+          <button class="doc-filter">Insurance</button>
+          <button class="doc-filter">Inspections</button>
+          <button class="doc-filter">Tax Records</button>
+          <button class="doc-filter">Legal Forms</button>
+        </div>
+
+        <div class="dashboard-row" style="animation-delay:0.1s">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card">
+              <div class="section-card__header">
+                <h2 class="section-card__title">All Documents</h2>
+                <div class="section-card__actions">
+                  <button class="btn btn--ghost btn--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg> Sort</button>
+                  <button class="btn btn--ghost btn--sm"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> Grid</button>
+                </div>
+              </div>
+              <div class="doc-list">
+                <div class="doc-item">
+                  <div class="doc-item__icon" style="background:rgba(200,169,107,0.12);color:var(--secondary)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                  <div class="doc-item__body">
+                    <div class="doc-item__top">
+                      <span class="doc-item__name">Title_Deed_CliffsideVilla.pdf</span>
+                      <span class="doc-item__size">2.4 MB</span>
+                    </div>
+                    <div class="doc-item__meta">
+                      <span class="doc-item__category" style="color:var(--secondary)">Property Title</span>
+                      <span class="doc-item__divider">·</span>
+                      <span>Cliffside Villa</span>
+                      <span class="doc-item__divider">·</span>
+                      <span class="doc-item__date">Mar 12, 2026</span>
+                    </div>
+                    <div class="doc-item__bottom">
+                      <span class="table__status completed">Verified</span>
+                      <div class="doc-item__actions">
+                        <button class="doc-item__action" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+                        <button class="doc-item__action" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                        <button class="doc-item__action doc-item__action--danger" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="doc-item">
+                  <div class="doc-item__icon" style="background:rgba(59,130,246,0.12);color:var(--info)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+                  <div class="doc-item__body">
+                    <div class="doc-item__top">
+                      <span class="doc-item__name">Sales_Contract_BeverlyHills.pdf</span>
+                      <span class="doc-item__size">1.8 MB</span>
+                    </div>
+                    <div class="doc-item__meta">
+                      <span class="doc-item__category" style="color:var(--info)">Sales Contract</span>
+                      <span class="doc-item__divider">·</span>
+                      <span>Beverly Hills</span>
+                      <span class="doc-item__divider">·</span>
+                      <span class="doc-item__date">Mar 10, 2026</span>
+                    </div>
+                    <div class="doc-item__bottom">
+                      <span class="table__status pending">Pending</span>
+                      <div class="doc-item__actions">
+                        <button class="doc-item__action" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+                        <button class="doc-item__action" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                        <button class="doc-item__action doc-item__action--danger" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="doc-item">
+                  <div class="doc-item__icon" style="background:rgba(245,158,11,0.12);color:var(--warning)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                  <div class="doc-item__body">
+                    <div class="doc-item__top">
+                      <span class="doc-item__name">Inspection_MiamiWaterfront.pdf</span>
+                      <span class="doc-item__size">4.2 MB</span>
+                    </div>
+                    <div class="doc-item__meta">
+                      <span class="doc-item__category" style="color:var(--warning)">Inspection</span>
+                      <span class="doc-item__divider">·</span>
+                      <span>Miami Waterfront</span>
+                      <span class="doc-item__divider">·</span>
+                      <span class="doc-item__date">Mar 8, 2026</span>
+                    </div>
+                    <div class="doc-item__bottom">
+                      <span class="table__status completed">Verified</span>
+                      <div class="doc-item__actions">
+                        <button class="doc-item__action" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+                        <button class="doc-item__action" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                        <button class="doc-item__action doc-item__action--danger" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="doc-item">
+                  <div class="doc-item__icon" style="background:rgba(16,185,129,0.12);color:var(--success)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+                  <div class="doc-item__body">
+                    <div class="doc-item__top">
+                      <span class="doc-item__name">Insurance_Manhattan.pdf</span>
+                      <span class="doc-item__size">0.8 MB</span>
+                    </div>
+                    <div class="doc-item__meta">
+                      <span class="doc-item__category" style="color:var(--success)">Insurance</span>
+                      <span class="doc-item__divider">·</span>
+                      <span>Manhattan Penthouse</span>
+                      <span class="doc-item__divider">·</span>
+                      <span class="doc-item__date">Mar 5, 2026</span>
+                    </div>
+                    <div class="doc-item__bottom">
+                      <span class="table__status active">Processing</span>
+                      <div class="doc-item__actions">
+                        <button class="doc-item__action" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+                        <button class="doc-item__action" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                        <button class="doc-item__action doc-item__action--danger" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="doc-item">
+                  <div class="doc-item__icon" style="background:rgba(139,92,246,0.12);color:#8B5CF6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+                  <div class="doc-item__body">
+                    <div class="doc-item__top">
+                      <span class="doc-item__name">TaxRecord_Q1_2026.pdf</span>
+                      <span class="doc-item__size">1.2 MB</span>
+                    </div>
+                    <div class="doc-item__meta">
+                      <span class="doc-item__category" style="color:#8B5CF6">Tax Records</span>
+                      <span class="doc-item__divider">·</span>
+                      <span>All Properties</span>
+                      <span class="doc-item__divider">·</span>
+                      <span class="doc-item__date">Mar 3, 2026</span>
+                    </div>
+                    <div class="doc-item__bottom">
+                      <span class="table__status completed">Verified</span>
+                      <div class="doc-item__actions">
+                        <button class="doc-item__action" title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
+                        <button class="doc-item__action" title="Share"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                        <button class="doc-item__action doc-item__action--danger" title="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card">
+              <div class="section-card__header"><h2 class="section-card__title">Storage Usage</h2></div>
+              <div class="storage-info">
+                <div class="storage-info__used">2.4 GB of 5 GB used</div>
+                <div class="progress-bar" style="height:10px;margin:16px 0"><div class="progress-bar__fill gold" style="width:48%"></div></div>
+                <div class="storage-info__breakdown">
+                  <div class="storage-info__row"><span>Property Documents</span><span>1.0 GB</span></div>
+                  <div class="storage-info__row"><span>Contracts</span><span>0.7 GB</span></div>
+                  <div class="storage-info__row"><span>Images</span><span>0.5 GB</span></div>
+                  <div class="storage-info__row"><span>Reports</span><span>0.2 GB</span></div>
+                </div>
+                <button class="btn btn--primary" style="width:100%;justify-content:center;margin-top:16px">Upgrade Storage</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <div class="upload-area">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <h3 class="upload-area__title">Drop files here or click to upload</h3>
+            <p class="upload-area__text">Supports PDF, DOC, PNG, JPG — Max 10MB per file</p>
+            <button class="btn btn--primary ripple-btn">Browse Files</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============================== SETTINGS ============================== -->
+      <div class="page-section" id="page-settings">
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Settings</h1>
+            <p class="content__subtitle">Manage your account, preferences, and security.</p>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade">
+          <div class="section-card__header"><h2 class="section-card__title">Account</h2></div>
+          <div class="settings-fields" style="max-width:480px">
+            <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" value="James Carter" placeholder="Your name"></div>
+            <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" value="james@stacklyestates.com" placeholder="Your email"></div>
+            <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" value="+1 (310) 555-0192" placeholder="Phone number"></div>
+            <button class="btn btn--primary ripple-btn">Save Changes</button>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.05s">
+          <div class="section-card__header"><h2 class="section-card__title">Security</h2></div>
+          <div class="toggle-row"><div><div class="toggle-row__title">Two-Factor Authentication</div><div class="toggle-row__desc">Add an extra layer of security to your account</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label></div>
+          <div class="toggle-row"><div><div class="toggle-row__title">Login Alerts</div><div class="toggle-row__desc">Get notified of new login attempts</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label></div>
+        </div>
+
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header"><h2 class="section-card__title">Notifications</h2></div>
+              <div class="toggle-row"><div><div class="toggle-row__title">Email Notifications</div><div class="toggle-row__desc">Receive updates via email</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label></div>
+              <div class="toggle-row"><div><div class="toggle-row__title">Push Notifications</div><div class="toggle-row__desc">Browser push notifications</div></div><label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label></div>
+              <div class="toggle-row"><div><div class="toggle-row__title">SMS Alerts</div><div class="toggle-row__desc">Critical alerts via SMS</div></div><label class="toggle"><input type="checkbox"><span class="toggle__slider"></span></label></div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">Preferences</h2></div>
+              <div class="form-group"><label class="form-label">Theme</label><select class="form-input"><option>Dark</option><option>Light</option><option>Auto</option></select></div>
+              <div class="form-group"><label class="form-label">Language</label><select class="form-input"><option>English (US)</option><option>Spanish</option><option>French</option></select></div>
+              <div class="form-group"><label class="form-label">Timezone</label><select class="form-input"><option>America/Los_Angeles (PT)</option><option>America/New_York (ET)</option><option>Europe/London (GMT)</option></select></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card animate-fade" style="animation-delay:0.2s">
+          <div class="section-card__header"><h2 class="section-card__title">Connected Services</h2></div>
+          <div class="toggle-row"><div><div class="toggle-row__title">Google Calendar</div><div class="toggle-row__desc">Sync appointments automatically</div></div><span class="table__status completed">Connected</span></div>
+          <div class="toggle-row"><div><div class="toggle-row__title">Stripe</div><div class="toggle-row__desc">Payment processing</div></div><span class="table__status completed">Connected</span></div>
+          <div class="toggle-row"><div><div class="toggle-row__title">Mailchimp</div><div class="toggle-row__desc">Email marketing</div></div><button class="btn btn--sm btn--ghost">Connect</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ==================== NOTIFICATION PANEL ==================== -->
+<div class="notif-overlay" id="notif-overlay"></div>
+<div class="notif-panel" id="notif-panel">
+  <div class="notif-panel__header">
+    <h2 class="notif-panel__title">Notifications</h2>
+    <button class="notif-panel__close" id="notif-close" aria-label="Close notifications">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="notif-panel__body" id="notif-body">
+    <div class="notif-item">
+      <div class="notif-item__dot gold"></div>
+      <div class="notif-item__content">
+        <div class="notif-item__title">New Lead Alert</div>
+        <div class="notif-item__desc">Alexandra Reynolds is interested in Cliffside Villa ($6.8M)</div>
+        <div class="notif-item__time">2 hours ago</div>
+      </div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-item__dot green"></div>
+      <div class="notif-item__content">
+        <div class="notif-item__title">Commission Received</div>
+        <div class="notif-item__desc">$45,000 deposited for Malibu sale</div>
+        <div class="notif-item__time">1 day ago</div>
+      </div>
+    </div>
+    <div class="notif-item">
+      <div class="notif-item__dot blue"></div>
+      <div class="notif-item__content">
+        <div class="notif-item__title">Document Verified</div>
+        <div class="notif-item__desc">Beverly Hills Estate title deed verified</div>
+        <div class="notif-item__time">2 days ago</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/dashboard-shared.js"></script>
+<script src="assets/js/seller-dashboard.js"></script>
+</body>
+</html>

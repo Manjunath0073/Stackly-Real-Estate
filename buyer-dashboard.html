@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Buyer Dashboard — Stackly Estates Luxury Real Estate">
+  <meta name="theme-color" content="#0F172A">
+  <title>Dashboard | Stackly Estates</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/dashboard-shared.css">
+  <link rel="stylesheet" href="assets/css/buyer-dashboard.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body data-role="buyer">
+
+<div class="dashboard">
+
+  <!-- ==================== SIDEBAR ==================== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__header">
+      <a href="index.html" class="sidebar__logo" aria-label="Stackly Estates Home">
+        <div class="sidebar__logo-icon">
+          <img src="assets/images/logo/logo-stackly.webp" alt="" class="sidebar__logo-img">
+        </div>
+      </a>
+      <button class="sidebar__toggle" id="sidebar-toggle" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar__user">
+      <div class="sidebar__user-avatar" id="sidebar-avatar"></div>
+      <span class="sidebar__user-badge"></span>
+      <div class="sidebar__user-info">
+        <div class="sidebar__user-name" id="sidebar-name"></div>
+        <div class="sidebar__user-role" id="sidebar-role"></div>
+      </div>
+    </div>
+
+    <nav class="sidebar__nav">
+      <div class="sidebar__nav-label">Main Menu</div>
+
+      <div class="sidebar__nav-item active" data-page="dashboard" data-tooltip="Dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        <span>Dashboard</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="search" data-tooltip="Property Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Property Search</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="saved" data-tooltip="Saved Properties">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span>Saved Properties</span>
+        <span class="sidebar__badge">12</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="appointments" data-tooltip="Appointments">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Appointments</span>
+        <span class="sidebar__badge">4</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="offers" data-tooltip="Offers &amp; Negotiations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <span>Offers &amp; Negotiations</span>
+        <span class="sidebar__badge">3</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="documents" data-tooltip="Documents">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        <span>Documents</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="messages" data-tooltip="Messages">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <span>Messages</span>
+        <span class="sidebar__badge">5</span>
+      </div>
+
+      <div class="sidebar__nav-item" data-page="settings" data-tooltip="Settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Settings</span>
+      </div>
+    </nav>
+
+    <div class="sidebar__footer">
+      <div class="sidebar__nav-item" id="logout-btn" data-tooltip="Logout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Logout</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==================== SIDEBAR OVERLAY ==================== -->
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ==================== MAIN ==================== -->
+  <div class="main">
+
+    <!-- ==================== NAVBAR ==================== -->
+    <nav class="navbar">
+      <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+      <div class="navbar__left">
+        <div class="navbar__title">
+          <h1 class="navbar__page-title" id="page-title">Dashboard</h1>
+          <div class="navbar__breadcrumb" id="breadcrumb">Home / Dashboard</div>
+        </div>
+      </div>
+
+      <div class="navbar__center">
+        <div class="navbar__search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search properties, agents..." aria-label="Search">
+        </div>
+      </div>
+
+      <div class="navbar__right">
+        <button class="navbar__btn navbar__search-btn" id="search-btn-mobile" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <button class="navbar__btn" id="notif-trigger" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          <span class="navbar__badge" id="notif-badge">3</span>
+        </button>
+
+        <button class="navbar__btn" id="dark-toggle" aria-label="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <div class="navbar__profile" id="profile-trigger" role="button" tabindex="0" aria-label="User menu">
+          <div class="navbar__profile-avatar" id="nav-avatar"></div>
+          <div class="navbar__profile-info">
+            <div class="navbar__profile-name" id="nav-name"></div>
+            <div class="navbar__profile-email" id="nav-email"></div>
+          </div>
+
+          <div class="dropdown" id="profile-dropdown">
+            <div class="dropdown__header">
+              <div class="dropdown__avatar" id="dropdown-avatar"></div>
+              <div>
+                <div class="dropdown__name" id="dropdown-name"></div>
+                <div class="dropdown__email" id="dropdown-email"></div>
+                <div class="dropdown__role" id="dropdown-role"></div>
+              </div>
+            </div>
+            <div class="dropdown__divider"></div>
+            <div class="dropdown__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              My Profile
+            </div>
+            <div class="dropdown__item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06A1.65 1.65 0 0 0 15 19.4a1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Settings
+            </div>
+            <div class="dropdown__divider"></div>
+            <div class="dropdown__item dropdown__item--danger" id="dropdown-logout">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+              Logout
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==================== CONTENT ==================== -->
+    <div class="content">
+
+      <!-- ============================== DASHBOARD ============================== -->
+      <div class="page-section active" id="page-dashboard">
+
+        <!-- Section 1: Welcome Card -->
+        <div class="welcome-card animate-fade">
+          <div class="welcome-card__text-wrap">
+            <span class="welcome-card__greeting" id="greeting-text">Good Morning</span>
+            <h1 class="welcome-card__title">Welcome back, <span id="greeting-name">John</span></h1>
+            <p class="welcome-card__text">Here's what's happening with your property search today.</p>
+            <div class="welcome-card__meta">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Last login: Today, 9:42 AM</span>
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Member since Jan 2026</span>
+            </div>
+          </div>
+          <div class="welcome-card__actions">
+            <a href="#" class="welcome-card__btn" onclick="switchPage('search');return false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              Explore Properties
+            </a>
+          </div>
+        </div>
+
+        <!-- Section 2: Quick Statistics -->
+        <div class="kpi-grid animate-fade">
+          <div class="kpi-card" style="animation-delay:0.05s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>12%</span>
+            </div>
+            <div class="kpi-card__value" data-count="28">0</div>
+            <div class="kpi-card__label">Saved Properties</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.1s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>8%</span>
+            </div>
+            <div class="kpi-card__value" data-count="6">0</div>
+            <div class="kpi-card__label">Appointments</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.15s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>25%</span>
+            </div>
+            <div class="kpi-card__value" data-count="4">0</div>
+            <div class="kpi-card__label">Active Offers</div>
+          </div>
+          <div class="kpi-card" style="animation-delay:0.2s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+              <span class="kpi-card__trend down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 15 12 9 18 15"/></svg>3%</span>
+            </div>
+            <div class="kpi-card__value" data-count="9">0</div>
+            <div class="kpi-card__label">Unread Messages</div>
+          </div>
+        </div>
+
+        <!-- Section 3: Recent Activity + Recommended Properties -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Recent Activity</h2>
+                <a href="#" class="section-card__action">View All <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+              </div>
+              <div class="timeline">
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Today, 10:30 AM</div>
+                  <div class="timeline__text">Viewed <strong>Modern Waterfront Villa</strong> in Marina Del Rey</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--success)"></div>
+                  <div class="timeline__time">Today, 8:15 AM</div>
+                  <div class="timeline__text">Appointment scheduled for <strong>Beverly Hills Estate</strong> — Mar 18</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Yesterday, 4:45 PM</div>
+                  <div class="timeline__text">Submitted offer on <strong>Cliffside Villa Malibu</strong> — $6,500,000</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot" style="border-color:var(--secondary)"></div>
+                  <div class="timeline__time">Yesterday, 2:10 PM</div>
+                  <div class="timeline__text">Saved <strong>Skyline Penthouse</strong> to your wishlist</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Mar 12, 2026</div>
+                  <div class="timeline__text">Downloaded property documents for <strong>Miami Waterfront Estate</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Upcoming Appointments</h2>
+                <a href="#" class="section-card__action" onclick="switchPage('appointments');return false">View All <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+              </div>
+              <div class="timeline">
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Mar 15 — 10:00 AM</div>
+                  <div class="timeline__text">Visit <strong>Cliffside Villa Malibu</strong> with Sarah Mitchell</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Mar 18 — 2:30 PM</div>
+                  <div class="timeline__text">Visit <strong>Beverly Hills Estate</strong> with James Carter</div>
+                </div>
+                <div class="timeline__item">
+                  <div class="timeline__dot"></div>
+                  <div class="timeline__time">Mar 22 — 11:00 AM</div>
+                  <div class="timeline__text">Visit <strong>Manhattan Penthouse</strong> with Elena Rodriguez</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Recommended Properties -->
+        <div class="section-card animate-fade" style="animation-delay:0.2s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Recommended for You</h2>
+            <div class="prop-slider-nav">
+              <button class="prop-slider-btn" id="slider-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+              <button class="prop-slider-btn" id="slider-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+            </div>
+          </div>
+          <div class="prop-slider-wrap">
+            <div class="prop-slider" id="prop-slider">
+              <div class="prop-card prop-card--slider">
+                <div class="prop-card__img">
+                  <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=260&fit=crop" alt="Luxury Villa" loading="lazy">
+                  <span class="prop-card__badge">Match 95%</span>
+                  <button class="prop-card__wishlist" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                </div>
+                <div class="prop-card__body">
+                  <div class="prop-card__price">$6,800,000</div>
+                  <div class="prop-card__title">Cliffside Villa Malibu</div>
+                  <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Malibu, CA</div>
+                  <div class="prop-card__meta"><span>5 Beds</span><span>6 Baths</span><span>5,200 sqft</span></div>
+                </div>
+              </div>
+              <div class="prop-card prop-card--slider">
+                <div class="prop-card__img">
+                  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=260&fit=crop" alt="Beverly Hills Estate" loading="lazy">
+                  <span class="prop-card__badge">Match 92%</span>
+                  <button class="prop-card__wishlist" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                </div>
+                <div class="prop-card__body">
+                  <div class="prop-card__price">$4,250,000</div>
+                  <div class="prop-card__title">Beverly Hills Estate</div>
+                  <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Beverly Hills, CA</div>
+                  <div class="prop-card__meta"><span>5 Beds</span><span>6 Baths</span><span>4,800 sqft</span></div>
+                </div>
+              </div>
+              <div class="prop-card prop-card--slider">
+                <div class="prop-card__img">
+                  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=260&fit=crop" alt="Skyline Penthouse" loading="lazy">
+                  <span class="prop-card__badge">Match 88%</span>
+                  <button class="prop-card__wishlist" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                </div>
+                <div class="prop-card__body">
+                  <div class="prop-card__price">$1,950,000</div>
+                  <div class="prop-card__title">Skyline Penthouse</div>
+                  <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Manhattan, NY</div>
+                  <div class="prop-card__meta"><span>3 Beds</span><span>3 Baths</span><span>2,400 sqft</span></div>
+                </div>
+              </div>
+              <div class="prop-card prop-card--slider">
+                <div class="prop-card__img">
+                  <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=260&fit=crop" alt="Miami Waterfront" loading="lazy">
+                  <span class="prop-card__badge">Match 85%</span>
+                  <button class="prop-card__wishlist" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                </div>
+                <div class="prop-card__body">
+                  <div class="prop-card__price">$5,950,000</div>
+                  <div class="prop-card__title">Miami Waterfront Estate</div>
+                  <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Miami Beach, FL</div>
+                  <div class="prop-card__meta"><span>6 Beds</span><span>7 Baths</span><span>6,800 sqft</span></div>
+                </div>
+              </div>
+              <div class="prop-card prop-card--slider">
+                <div class="prop-card__img">
+                  <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&h=260&fit=crop" alt="Bali Retreat" loading="lazy">
+                  <span class="prop-card__badge">Match 82%</span>
+                  <button class="prop-card__wishlist" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                </div>
+                <div class="prop-card__body">
+                  <div class="prop-card__price">$2,850,000</div>
+                  <div class="prop-card__title">Bali Beachfront Retreat</div>
+                  <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Seminyak, Bali</div>
+                  <div class="prop-card__meta"><span>4 Beds</span><span>5 Baths</span><span>3,600 sqft</span></div>
+                </div>
+              </div>
+              <div class="prop-card prop-card--slider">
+                <div class="prop-card__img">
+                  <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=260&fit=crop" alt="Aspen Chalet" loading="lazy">
+                  <span class="prop-card__badge">Match 78%</span>
+                  <button class="prop-card__wishlist" aria-label="Save"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+                </div>
+                <div class="prop-card__body">
+                  <div class="prop-card__price">$3,200,000</div>
+                  <div class="prop-card__title">Aspen Mountain Chalet</div>
+                  <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Aspen, CO</div>
+                  <div class="prop-card__meta"><span>4 Beds</span><span>4 Baths</span><span>3,800 sqft</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Market Trend -->
+        <div class="section-card animate-fade" style="animation-delay:0.25s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Market Trends</h2>
+            <a href="#" class="section-card__action">View Full Report <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+          <div class="chart-container" style="height:280px"><canvas id="chart-market-trend"></canvas></div>
+        </div>
+
+        <!-- Section 6: Property Categories -->
+        <div class="section-card animate-fade" style="animation-delay:0.3s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Property Categories</h2>
+          </div>
+          <div class="cat-grid">
+            <div class="cat-card">
+              <div class="cat-card__icon" style="background:rgba(200,169,107,0.12);color:var(--secondary)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              </div>
+              <div class="cat-card__name">Luxury Villas</div>
+              <div class="cat-card__count">48 Properties</div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-card__icon" style="background:rgba(59,130,246,0.12);color:var(--info)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="4" y1="10" x2="20" y2="10"/></svg>
+              </div>
+              <div class="cat-card__name">Apartments</div>
+              <div class="cat-card__count">156 Properties</div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-card__icon" style="background:rgba(16,185,129,0.12);color:var(--success)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div class="cat-card__name">Commercial</div>
+              <div class="cat-card__count">32 Properties</div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-card__icon" style="background:rgba(245,158,11,0.12);color:var(--warning)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M6 20V8l6-5 6 5v12"/><circle cx="12" cy="12" r="2"/></svg>
+              </div>
+              <div class="cat-card__name">Beach Houses</div>
+              <div class="cat-card__count">27 Properties</div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-card__icon" style="background:rgba(168,85,247,0.12);color:#A855F7">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="cat-card__name">Farm Houses</div>
+              <div class="cat-card__count">19 Properties</div>
+            </div>
+            <div class="cat-card">
+              <div class="cat-card__icon" style="background:rgba(236,72,153,0.12);color:#EC4899">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div class="cat-card__name">Plots</div>
+              <div class="cat-card__count">64 Properties</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: Recent Messages -->
+        <div class="section-card animate-fade" style="animation-delay:0.35s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Latest Notifications</h2>
+            <span class="section-card__action">Mark All Read</span>
+          </div>
+          <div class="msg-list">
+            <div class="msg-item">
+              <div class="msg-item__avatar" style="background:rgba(245,158,11,0.12);color:var(--warning)">!</div>
+              <div class="msg-item__content">
+                <div class="msg-item__top"><span class="msg-item__name">Price Drop Alert</span><span class="msg-item__time">6h ago</span></div>
+                <div class="msg-item__preview">Beverly Hills Estate reduced by $250,000 — now listed at $4,000,000</div>
+              </div>
+              <span class="msg-item__badge"></span>
+            </div>
+            <div class="msg-item">
+              <div class="msg-item__avatar" style="background:rgba(34,197,94,0.12);color:var(--success)">+</div>
+              <div class="msg-item__content">
+                <div class="msg-item__top"><span class="msg-item__name">New Listing</span><span class="msg-item__time">1d ago</span></div>
+                <div class="msg-item__preview">Hollywood Hills Modern Estate — $5,400,000</div>
+              </div>
+              <span class="msg-item__badge"></span>
+            </div>
+            <div class="msg-item">
+              <div class="msg-item__avatar" style="background:rgba(59,130,246,0.12);color:var(--info)">i</div>
+              <div class="msg-item__content">
+                <div class="msg-item__top"><span class="msg-item__name">Offer Update</span><span class="msg-item__time">2d ago</span></div>
+                <div class="msg-item__preview">Your offer on Cliffside Villa Malibu was countered at $6,650,000</div>
+              </div>
+            </div>
+            <div class="msg-item">
+              <div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">+</div>
+              <div class="msg-item__content">
+                <div class="msg-item__top"><span class="msg-item__name">Document Verified</span><span class="msg-item__time">3d ago</span></div>
+                <div class="msg-item__preview">Loan Pre-Approval document has been verified.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== PROPERTY SEARCH ============================== -->
+      <div class="page-section" id="page-search">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Property Search</h1>
+            <p class="content__subtitle">Find your dream property with advanced filters and AI recommendations.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Search Filters -->
+        <div class="section-card animate-fade">
+          <div class="filter-row">
+            <input class="filter-input" placeholder="Location, city, zip..." aria-label="Location">
+            <select class="filter-input" aria-label="Property type"><option>All Types</option><option>Villa</option><option>Apartment</option><option>Penthouse</option><option>Beach House</option><option>Estate</option></select>
+            <select class="filter-input" aria-label="Price range"><option>Any Price</option><option>$0 - $1M</option><option>$1M - $3M</option><option>$3M - $5M</option><option>$5M+</option></select>
+            <select class="filter-input" aria-label="Bedrooms"><option>Any Beds</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select>
+            <select class="filter-input" aria-label="Bathrooms"><option>Any Baths</option><option>2+</option><option>3+</option><option>4+</option><option>5+</option></select>
+            <button class="btn btn--primary ripple-btn">Search</button>
+          </div>
+          <div class="filter-row" style="margin-top:12px">
+            <span class="filter-tag">Villa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="filter-tag">$3M - $5M <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="filter-tag">4+ Beds <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="filter-tag">Pool <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+            <span class="filter-tag">Ocean View <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+          </div>
+        </div>
+
+        <!-- Section 2: Featured Properties -->
+        <div class="section-card animate-fade" style="animation-delay:0.05s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Featured Properties</h2>
+            <div class="view-toggle">
+              <button class="view-toggle__btn active" aria-label="Grid view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+              <button class="view-toggle__btn" aria-label="List view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button>
+            </div>
+          </div>
+          <div class="prop-grid">
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">For Sale</span></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$6,800,000</div>
+                <div class="prop-card__title">Cliffside Villa Malibu</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Malibu, CA</div>
+                <div class="prop-card__meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> 5 bd</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M4 4v16"/><rect x="6" y="4" width="6" height="12"/><rect x="14" y="6" width="6" height="10"/></svg> 6 ba</span></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">For Sale</span></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$4,250,000</div>
+                <div class="prop-card__title">Beverly Hills Estate</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Beverly Hills, CA</div>
+                <div class="prop-card__meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> 7 bd</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M4 4v16"/><rect x="6" y="4" width="6" height="12"/><rect x="14" y="6" width="6" height="10"/></svg> 8 ba</span></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">For Rent</span></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$18,500/mo</div>
+                <div class="prop-card__title">Skyline Penthouse</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Manhattan, NY</div>
+                <div class="prop-card__meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> 3 bd</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M4 4v16"/><rect x="6" y="4" width="6" height="12"/><rect x="14" y="6" width="6" height="10"/></svg> 3 ba</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Popular Locations -->
+        <div class="section-card animate-fade" style="animation-delay:0.1s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Popular Locations</h2>
+          </div>
+          <div class="loc-grid">
+            <div class="loc-card">
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=300&h=180&fit=crop" alt="Los Angeles" loading="lazy">
+              <div class="loc-card__overlay">
+                <div class="loc-card__name">Los Angeles</div>
+                <div class="loc-card__count">128 Properties</div>
+              </div>
+            </div>
+            <div class="loc-card">
+              <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=300&h=180&fit=crop" alt="New York" loading="lazy">
+              <div class="loc-card__overlay">
+                <div class="loc-card__name">New York</div>
+                <div class="loc-card__count">96 Properties</div>
+              </div>
+            </div>
+            <div class="loc-card">
+              <img src="https://images.unsplash.com/photo-1592595896616-c37162298647?w=300&h=180&fit=crop" alt="Miami" loading="lazy">
+              <div class="loc-card__overlay">
+                <div class="loc-card__name">Miami</div>
+                <div class="loc-card__count">74 Properties</div>
+              </div>
+            </div>
+            <div class="loc-card">
+              <img src="https://images.unsplash.com/photo-1560732488-6b0df240254a?w=300&h=180&fit=crop" alt="San Francisco" loading="lazy">
+              <div class="loc-card__overlay">
+                <div class="loc-card__name">San Francisco</div>
+                <div class="loc-card__count">52 Properties</div>
+              </div>
+            </div>
+            <div class="loc-card">
+              <img src="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=300&h=180&fit=crop" alt="London" loading="lazy">
+              <div class="loc-card__overlay">
+                <div class="loc-card__name">London</div>
+                <div class="loc-card__count">41 Properties</div>
+              </div>
+            </div>
+            <div class="loc-card">
+              <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=300&h=180&fit=crop" alt="Dubai" loading="lazy">
+              <div class="loc-card__overlay">
+                <div class="loc-card__name">Dubai</div>
+                <div class="loc-card__count">33 Properties</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Map + Recently Viewed -->
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Map View</h2>
+              </div>
+              <div class="map-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Interactive map loading...</span>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header">
+                <h2 class="section-card__title">Recently Viewed</h2>
+                <a href="#" class="section-card__action">Clear</a>
+              </div>
+              <div class="timeline">
+                <div class="timeline__item"><div class="timeline__dot"></div><div class="timeline__time">2 hours ago</div><div class="timeline__text"><strong>Modern Waterfront Villa</strong> — Marina Del Rey</div></div>
+                <div class="timeline__item"><div class="timeline__dot"></div><div class="timeline__time">5 hours ago</div><div class="timeline__text"><strong>Beverly Hills Estate</strong> — Beverly Hills</div></div>
+                <div class="timeline__item"><div class="timeline__dot"></div><div class="timeline__time">Yesterday</div><div class="timeline__text"><strong>Manhattan Penthouse</strong> — New York</div></div>
+                <div class="timeline__item"><div class="timeline__dot"></div><div class="timeline__time">2 days ago</div><div class="timeline__text"><strong>Miami Waterfront Estate</strong> — Miami Beach</div></div>
+                <div class="timeline__item"><div class="timeline__dot"></div><div class="timeline__time">3 days ago</div><div class="timeline__text"><strong>Aspen Mountain Chalet</strong> — Aspen</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Mortgage Calculator -->
+        <div class="section-card animate-fade" style="animation-delay:0.25s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Mortgage Calculator</h2>
+          </div>
+          <div class="mortgage-calc">
+            <div>
+              <div class="mortgage-calc__input-group">
+                <label class="mortgage-calc__label">Property Price</label>
+                <input class="mortgage-calc__input" type="number" value="2500000" id="mortgage-price">
+              </div>
+              <div class="mortgage-calc__input-group">
+                <label class="mortgage-calc__label">Down Payment (%)</label>
+                <input class="mortgage-calc__input" type="number" value="20" id="mortgage-down">
+              </div>
+              <div class="mortgage-calc__input-group">
+                <label class="mortgage-calc__label">Interest Rate (%)</label>
+                <input class="mortgage-calc__input" type="number" value="6.5" id="mortgage-rate">
+              </div>
+              <div class="mortgage-calc__input-group">
+                <label class="mortgage-calc__label">Loan Term (years)</label>
+                <input class="mortgage-calc__input" type="number" value="30" id="mortgage-term">
+              </div>
+              <button class="btn btn--primary ripple-btn" id="mortgage-calc-btn">Calculate</button>
+            </div>
+            <div class="mortgage-calc__result">
+              <div class="mortgage-calc__amount" id="mortgage-result">$12,632</div>
+              <div class="mortgage-calc__label-result">Estimated Monthly Payment</div>
+              <div class="mortgage-calc__breakdown">
+                <span>Principal &amp; Interest</span>
+                <span>Property Tax: $520</span>
+                <span>Insurance: $210</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 6: Property Comparison -->
+        <div class="section-card animate-fade" style="animation-delay:0.3s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Property Comparison</h2>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-item">
+              <div class="compare-item__title">Cliffside Villa Malibu</div>
+              <div class="compare-item__row"><span class="compare-item__label">Price</span><span class="compare-item__value">$6,800,000</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Beds</span><span class="compare-item__value">5</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Baths</span><span class="compare-item__value">6</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Sq Ft</span><span class="compare-item__value">5,200</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Year Built</span><span class="compare-item__value">2021</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Lot Size</span><span class="compare-item__value">0.5 acres</span></div>
+            </div>
+            <div class="compare-item">
+              <div class="compare-item__title">Beverly Hills Estate</div>
+              <div class="compare-item__row"><span class="compare-item__label">Price</span><span class="compare-item__value">$4,250,000</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Beds</span><span class="compare-item__value">5</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Baths</span><span class="compare-item__value">6</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Sq Ft</span><span class="compare-item__value">4,800</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Year Built</span><span class="compare-item__value">2019</span></div>
+              <div class="compare-item__row"><span class="compare-item__label">Lot Size</span><span class="compare-item__value">0.8 acres</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== SAVED PROPERTIES ============================== -->
+      <div class="page-section" id="page-saved">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Saved Properties</h1>
+            <p class="content__subtitle">Your curated wishlist of premium properties. Track prices and compare.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Stats -->
+        <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
+              <span class="kpi-card__trend up"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>2 new</span>
+            </div>
+            <div class="kpi-card__value" data-count="12">0</div>
+            <div class="kpi-card__label">Total Saved</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v12M8 9l4 4 4-4"/><path d="M3 16v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4"/></svg></div>
+              <span class="kpi-card__trend down"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 15 12 9 18 15"/></svg>3 alerts</span>
+            </div>
+            <div class="kpi-card__value" data-count="5">0</div>
+            <div class="kpi-card__label">Price Alerts</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.2s">
+            <div class="kpi-card__top">
+              <div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 3 21 8 16 8"/><line x1="21" y1="3" x2="21" y2="8"/></svg></div>
+              <span class="kpi-card__trend up">Active</span>
+            </div>
+            <div class="kpi-card__value" data-count="4">0</div>
+            <div class="kpi-card__label">Compared</div>
+          </div>
+        </div>
+
+        <!-- Section 2: Wishlist Grid -->
+        <div class="section-card animate-fade" style="animation-delay:0.15s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">My Wishlist</h2>
+            <a href="#" class="section-card__action">Manage List <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
+          </div>
+          <div class="prop-grid">
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">Saved Feb 12</span><button class="prop-card__wishlist active" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$6,800,000</div>
+                <div class="prop-card__title">Cliffside Villa Malibu</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Malibu, CA</div>
+                <div class="prop-card__meta"><span>5 Beds</span><span>6 Baths</span></div>
+                <div class="progress-bar" style="margin-top:12px"><div class="progress-bar__fill gold" style="width:92%"></div></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">Saved Feb 10</span><button class="prop-card__wishlist active" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$4,250,000</div>
+                <div class="prop-card__title">Beverly Hills Estate</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Beverly Hills, CA</div>
+                <div class="prop-card__meta"><span>5 Beds</span><span>6 Baths</span></div>
+                <div class="progress-bar" style="margin-top:12px"><div class="progress-bar__fill gold" style="width:78%"></div></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">Saved Feb 8</span><button class="prop-card__wishlist active" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$1,950,000</div>
+                <div class="prop-card__title">Manhattan Penthouse</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>New York, NY</div>
+                <div class="prop-card__meta"><span>3 Beds</span><span>3 Baths</span></div>
+                <div class="progress-bar" style="margin-top:12px"><div class="progress-bar__fill gold" style="width:65%"></div></div>
+              </div>
+            </div>
+            <div class="prop-card">
+              <div class="prop-card__img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=260&fit=crop" alt="" loading="lazy"><span class="prop-card__badge">Saved Feb 5</span><button class="prop-card__wishlist active" aria-label="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button></div>
+              <div class="prop-card__body">
+                <div class="prop-card__price">$5,950,000</div>
+                <div class="prop-card__title">Miami Waterfront Estate</div>
+                <div class="prop-card__loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Miami Beach, FL</div>
+                <div class="prop-card__meta"><span>6 Beds</span><span>7 Baths</span></div>
+                <div class="progress-bar" style="margin-top:12px"><div class="progress-bar__fill gold" style="width:45%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Price Drop Alerts -->
+        <div class="section-card animate-fade" style="animation-delay:0.2s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Price Drop Alerts</h2>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Property</th><th>Original Price</th><th>New Price</th><th>Change</th><th>Date</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Beverly Hills Estate</td><td>$4,500,000</td><td>$4,250,000</td><td style="color:var(--success);font-weight:600">-$250,000</td><td>Mar 12</td></tr>
+                <tr><td style="font-weight:600">Manhattan Penthouse</td><td>$2,100,000</td><td>$1,950,000</td><td style="color:var(--success);font-weight:600">-$150,000</td><td>Mar 10</td></tr>
+                <tr><td style="font-weight:600">Bali Beachfront Retreat</td><td>$3,100,000</td><td>$2,850,000</td><td style="color:var(--success);font-weight:600">-$250,000</td><td>Mar 8</td></tr>
+                <tr><td style="font-weight:600">Kensington Residence</td><td>$3,500,000</td><td>$3,200,000</td><td style="color:var(--success);font-weight:600">-$300,000</td><td>Mar 5</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 4: Recommendations -->
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header"><h2 class="section-card__title">Similar Recommendations</h2></div>
+              <div class="msg-list">
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">+</div><div class="msg-item__content"><div class="msg-item__top"><span class="msg-item__name">Pacific Heights Villa</span><span class="msg-item__time">$3,800,000</span></div><div class="msg-item__preview">San Francisco, CA — 4 Beds, 4 Baths</div></div></div>
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">+</div><div class="msg-item__content"><div class="msg-item__top"><span class="msg-item__name">SoHo Loft</span><span class="msg-item__time">$2,950,000</span></div><div class="msg-item__preview">New York, NY — 2 Beds, 2 Baths</div></div></div>
+                <div class="msg-item"><div class="msg-item__avatar" style="background:rgba(200,169,107,0.12);color:var(--secondary)">+</div><div class="msg-item__content"><div class="msg-item__top"><span class="msg-item__name">Palm Beach Estate</span><span class="msg-item__time">$7,200,000</span></div><div class="msg-item__preview">Palm Beach, FL — 7 Beds, 8 Baths</div></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.3s">
+              <div class="section-card__header"><h2 class="section-card__title">Notes &amp; Tags</h2></div>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">
+                <span class="filter-tag">Dream Home</span>
+                <span class="filter-tag">Needs Renovation</span>
+                <span class="filter-tag">Good Investment</span>
+                <span class="filter-tag">Beachfront</span>
+              </div>
+              <textarea class="form-input" rows="4" placeholder="Add notes about your saved properties..." style="resize:vertical;min-height:100px">Cliffside Villa is the top contender. Need to schedule a second visit for Beverly Hills.</textarea>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== APPOINTMENTS ============================== -->
+      <div class="page-section" id="page-appointments">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Appointments</h1>
+            <p class="content__subtitle">Manage your property visits, calendar, and agent connections.</p>
+          </div>
+          <button class="btn btn--primary ripple-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Schedule New</button>
+        </div>
+
+        <!-- Section 1: Stats -->
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg></div></div>
+            <div class="kpi-card__value" data-count="6">0</div>
+            <div class="kpi-card__label">Total Visits</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="4">0</div>
+            <div class="kpi-card__label">Confirmed</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+            <div class="kpi-card__value" data-count="2">0</div>
+            <div class="kpi-card__label">Pending</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div>
+            <div class="kpi-card__value" data-count="8">0</div>
+            <div class="kpi-card__label">Completed</div>
+          </div>
+        </div>
+
+        <!-- Section 2: Upcoming Visits Table -->
+        <div class="section-card animate-fade" style="animation-delay:0.15s">
+          <div class="section-card__header">
+            <h2 class="section-card__title">Upcoming Visits</h2>
+          </div>
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Property</th><th>Date</th><th>Time</th><th>Agent</th><th>Status</th><th>Action</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Cliffside Villa Malibu</td><td>Mar 15, 2026</td><td>10:00 AM</td><td>Sarah Mitchell</td><td><span class="table__status completed">Confirmed</span></td><td><button class="btn btn--sm btn--ghost">Reschedule</button></td></tr>
+                <tr><td style="font-weight:600">Beverly Hills Estate</td><td>Mar 18, 2026</td><td>2:30 PM</td><td>James Carter</td><td><span class="table__status pending">Pending</span></td><td><button class="btn btn--sm btn--ghost">Confirm</button></td></tr>
+                <tr><td style="font-weight:600">Manhattan Penthouse</td><td>Mar 22, 2026</td><td>11:00 AM</td><td>Elena Rodriguez</td><td><span class="table__status completed">Confirmed</span></td><td><button class="btn btn--sm btn--ghost">Reschedule</button></td></tr>
+                <tr><td style="font-weight:600">Miami Waterfront Estate</td><td>Mar 25, 2026</td><td>3:00 PM</td><td>Michael Chen</td><td><span class="table__status pending">Pending</span></td><td><button class="btn btn--sm btn--ghost">Confirm</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Section 3: Calendar + Past Visits + Agent Profiles -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header"><h2 class="section-card__title">March 2026</h2></div>
+              <div class="calendar-grid">
+                <span class="calendar__day muted">28</span><span class="calendar__day muted">29</span><span class="calendar__day muted">30</span><span class="calendar__day muted">31</span><span class="calendar__day">1</span><span class="calendar__day">2</span><span class="calendar__day">3</span>
+                <span class="calendar__day">4</span><span class="calendar__day">5</span><span class="calendar__day">6</span><span class="calendar__day">7</span><span class="calendar__day">8</span><span class="calendar__day">9</span><span class="calendar__day">10</span>
+                <span class="calendar__day">11</span><span class="calendar__day">12</span><span class="calendar__day">13</span><span class="calendar__day">14</span><span class="calendar__day today event">15</span><span class="calendar__day">16</span><span class="calendar__day">17</span>
+                <span class="calendar__day event">18</span><span class="calendar__day">19</span><span class="calendar__day">20</span><span class="calendar__day">21</span><span class="calendar__day event">22</span><span class="calendar__day">23</span><span class="calendar__day">24</span>
+                <span class="calendar__day event">25</span><span class="calendar__day">26</span><span class="calendar__day">27</span><span class="calendar__day">28</span><span class="calendar__day">29</span><span class="calendar__day">30</span><span class="calendar__day">31</span>
+                <span class="calendar__day muted">1</span><span class="calendar__day muted">2</span><span class="calendar__day muted">3</span><span class="calendar__day muted">4</span><span class="calendar__day muted">5</span>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header"><h2 class="section-card__title">Past Visits</h2></div>
+              <div class="timeline">
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--success)"></div><div class="timeline__time">Mar 8</div><div class="timeline__text"><strong>Bali Beachfront Retreat</strong> — <span style="color:var(--success)">Completed</span></div></div>
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--success)"></div><div class="timeline__time">Mar 1</div><div class="timeline__text"><strong>Aspen Mountain Chalet</strong> — <span style="color:var(--success)">Completed</span></div></div>
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--danger)"></div><div class="timeline__time">Feb 22</div><div class="timeline__text"><strong>Kensington Residence</strong> — Cancelled</div></div>
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--success)"></div><div class="timeline__time">Feb 15</div><div class="timeline__text"><strong>Skyline Penthouse</strong> — <span style="color:var(--success)">Completed</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Agent Profiles -->
+        <div class="section-card animate-fade" style="animation-delay:0.3s">
+          <div class="section-card__header"><h2 class="section-card__title">Your Agents</h2></div>
+          <div class="agent-grid">
+            <div class="agent-mini">
+              <div class="agent-mini__avatar">SM</div>
+              <div>
+                <div class="agent-mini__name">Sarah Mitchell</div>
+                <div class="agent-mini__role">Senior Agent — 5 yrs</div>
+              </div>
+              <span class="agent-mini__status">Online</span>
+            </div>
+            <div class="agent-mini">
+              <div class="agent-mini__avatar">JC</div>
+              <div>
+                <div class="agent-mini__name">James Carter</div>
+                <div class="agent-mini__role">Luxury Specialist — 8 yrs</div>
+              </div>
+              <span class="agent-mini__status" style="color:var(--warning)">Away</span>
+            </div>
+            <div class="agent-mini">
+              <div class="agent-mini__avatar">ER</div>
+              <div>
+                <div class="agent-mini__name">Elena Rodriguez</div>
+                <div class="agent-mini__role">Property Advisor — 3 yrs</div>
+              </div>
+              <span class="agent-mini__status">Online</span>
+            </div>
+            <div class="agent-mini">
+              <div class="agent-mini__avatar">MC</div>
+              <div>
+                <div class="agent-mini__name">Michael Chen</div>
+                <div class="agent-mini__role">International Desk — 6 yrs</div>
+              </div>
+              <span class="agent-mini__status" style="color:var(--text-muted)">Offline</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== OFFERS & NEGOTIATIONS ============================== -->
+      <div class="page-section" id="page-offers">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Offers &amp; Negotiations</h1>
+            <p class="content__subtitle">Track your offers, counter-offers, and negotiation progress.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Offer Summary -->
+        <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+          <div class="kpi-card animate-fade">
+            <div class="kpi-card__top"><div class="kpi-card__icon warning"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div>
+            <div class="kpi-card__value" data-count="2">0</div>
+            <div class="kpi-card__label">Pending</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.05s">
+            <div class="kpi-card__top"><div class="kpi-card__icon success"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="1">0</div>
+            <div class="kpi-card__label">Accepted</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.1s">
+            <div class="kpi-card__top"><div class="kpi-card__icon danger"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div></div>
+            <div class="kpi-card__value" data-count="1">0</div>
+            <div class="kpi-card__label">Rejected</div>
+          </div>
+          <div class="kpi-card animate-fade" style="animation-delay:0.15s">
+            <div class="kpi-card__top"><div class="kpi-card__icon info"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div></div>
+            <div class="kpi-card__value" data-count="1">0</div>
+            <div class="kpi-card__label">Counter Offers</div>
+          </div>
+        </div>
+
+        <!-- Section 2: Offers Table + Chart -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">All Offers</h2></div>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead><tr><th>Property</th><th>Amount</th><th>Status</th><th>Date</th><th>Action</th></tr></thead>
+                  <tbody>
+                    <tr><td style="font-weight:600">Cliffside Villa Malibu</td><td>$6,500,000</td><td><span class="table__status pending">Countered</span></td><td>Mar 12</td><td><button class="btn btn--sm btn--primary">Review</button></td></tr>
+                    <tr><td style="font-weight:600">Beverly Hills Estate</td><td>$3,950,000</td><td><span class="table__status pending">Pending</span></td><td>Mar 10</td><td><button class="btn btn--sm btn--primary">Review</button></td></tr>
+                    <tr><td style="font-weight:600">Bali Beachfront Retreat</td><td>$2,700,000</td><td><span class="table__status completed">Accepted</span></td><td>Mar 5</td><td><button class="btn btn--sm btn--ghost">Details</button></td></tr>
+                    <tr><td style="font-weight:600">Kensington Residence</td><td>$2,900,000</td><td><span class="table__status rejected">Rejected</span></td><td>Feb 28</td><td><button class="btn btn--sm btn--ghost">Details</button></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="pagination">
+                <button class="pagination__btn" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <button class="pagination__btn active">1</button>
+                <button class="pagination__btn">2</button>
+                <button class="pagination__btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header"><h2 class="section-card__title">Offer Trends</h2></div>
+              <div class="chart-container" style="height:220px"><canvas id="chart-offers"></canvas></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Negotiation Chat Preview + Timeline -->
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header"><h2 class="section-card__title">Negotiation Chat</h2><span class="section-card__action">Open Chat</span></div>
+              <div class="chat-preview">
+                <div class="chat-msg chat-msg--agent">
+                  <div class="chat-msg__avatar">SM</div>
+                  <div class="chat-msg__bubble">
+                    <div class="chat-msg__name">Sarah Mitchell</div>
+                    <div class="chat-msg__text">The seller has countered at $6,650,000. They're willing to include the furnishings.</div>
+                    <div class="chat-msg__time">Today, 11:30 AM</div>
+                  </div>
+                </div>
+                <div class="chat-msg chat-msg--buyer">
+                  <div class="chat-msg__bubble">
+                    <div class="chat-msg__text">That's closer to our range. Can we meet at $6,575,000 with all furnishings included?</div>
+                    <div class="chat-msg__time">Today, 11:45 AM</div>
+                  </div>
+                </div>
+                <div class="chat-msg chat-msg--agent">
+                  <div class="chat-msg__avatar">SM</div>
+                  <div class="chat-msg__bubble">
+                    <div class="chat-msg__name">Sarah Mitchell</div>
+                    <div class="chat-msg__text">Let me present that. I'll get back to you by end of day.</div>
+                    <div class="chat-msg__time">Today, 12:00 PM</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.3s">
+              <div class="section-card__header"><h2 class="section-card__title">Offer Timeline</h2></div>
+              <div class="timeline">
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--success)"></div><div class="timeline__time">Mar 5</div><div class="timeline__text">Offer accepted — <strong>Bali Beachfront Retreat</strong></div></div>
+                <div class="timeline__item"><div class="timeline__dot"></div><div class="timeline__time">Mar 10</div><div class="timeline__text">Offer submitted — <strong>Beverly Hills Estate</strong> $3,950,000</div></div>
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--secondary)"></div><div class="timeline__time">Mar 12</div><div class="timeline__text">Counter offer received — <strong>Cliffside Villa</strong> $6,650,000</div></div>
+                <div class="timeline__item"><div class="timeline__dot" style="border-color:var(--danger)"></div><div class="timeline__time">Feb 28</div><div class="timeline__text">Offer rejected — <strong>Kensington Residence</strong></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== DOCUMENTS ============================== -->
+      <div class="page-section" id="page-documents">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Documents</h1>
+            <p class="content__subtitle">Manage your property documents, agreements, and uploads.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Document Categories -->
+        <div class="cat-grid animate-fade">
+          <div class="cat-card">
+            <div class="cat-card__icon" style="background:rgba(200,169,107,0.12);color:var(--secondary)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+            <div class="cat-card__name">Purchase Agreements</div>
+            <div class="cat-card__count">4 Files</div>
+          </div>
+          <div class="cat-card">
+            <div class="cat-card__icon" style="background:rgba(59,130,246,0.12);color:var(--info)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="cat-card__name">Identity Documents</div>
+            <div class="cat-card__count">2 Files</div>
+          </div>
+          <div class="cat-card">
+            <div class="cat-card__icon" style="background:rgba(16,185,129,0.12);color:var(--success)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="cat-card__name">Loan Documents</div>
+            <div class="cat-card__count">3 Files</div>
+          </div>
+          <div class="cat-card">
+            <div class="cat-card__icon" style="background:rgba(245,158,11,0.12);color:var(--warning)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <div class="cat-card__name">Property Documents</div>
+            <div class="cat-card__count">6 Files</div>
+          </div>
+          <div class="cat-card">
+            <div class="cat-card__icon" style="background:rgba(168,85,247,0.12);color:#A855F7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <div class="cat-card__name">Inspection Reports</div>
+            <div class="cat-card__count">2 Files</div>
+          </div>
+          <div class="cat-card">
+            <div class="cat-card__icon" style="background:rgba(236,72,153,0.12);color:#EC4899"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div class="cat-card__name">Legal Forms</div>
+            <div class="cat-card__count">5 Files</div>
+          </div>
+        </div>
+
+        <!-- Section 2: Recent Uploads + Storage -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header"><h2 class="section-card__title">Recent Uploads</h2><button class="section-card__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload</button></div>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead><tr><th>Name</th><th>Category</th><th>Size</th><th>Status</th><th>Uploaded</th></tr></thead>
+                  <tbody>
+                    <tr><td style="font-weight:600">Loan Pre-Approval.pdf</td><td>Loan</td><td>2.4 MB</td><td><span class="table__status completed">Verified</span></td><td>Mar 12</td></tr>
+                    <tr><td style="font-weight:600">Purchase Agreement - Cliffside.docx</td><td>Agreement</td><td>1.8 MB</td><td><span class="table__status pending">Pending</span></td><td>Mar 10</td></tr>
+                    <tr><td style="font-weight:600">Property Inspection Report.pdf</td><td>Inspection</td><td>4.2 MB</td><td><span class="table__status completed">Verified</span></td><td>Mar 8</td></tr>
+                    <tr><td style="font-weight:600">ID Proof - Passport.pdf</td><td>Identity</td><td>0.8 MB</td><td><span class="table__status completed">Verified</span></td><td>Mar 5</td></tr>
+                    <tr><td style="font-weight:600">Bank Statement Q1.pdf</td><td>Loan</td><td>1.2 MB</td><td><span class="table__status active">Processing</span></td><td>Mar 3</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">Storage</h2></div>
+              <div class="storage-info">
+                <div class="storage-info__used">2.8 GB of 5 GB used</div>
+                <div class="progress-bar" style="height:10px;margin:16px 0"><div class="progress-bar__fill gold" style="width:56%"></div></div>
+                <div class="storage-info__breakdown">
+                  <div class="storage-info__row"><span>Documents</span><span>1.2 GB</span></div>
+                  <div class="storage-info__row"><span>Images</span><span>0.9 GB</span></div>
+                  <div class="storage-info__row"><span>Reports</span><span>0.4 GB</span></div>
+                  <div class="storage-info__row"><span>Other</span><span>0.3 GB</span></div>
+                </div>
+                <button class="btn btn--primary ripple-btn" style="width:100%;justify-content:center;margin-top:16px">Upgrade Storage</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Upload Area -->
+        <div class="section-card animate-fade" style="animation-delay:0.2s">
+          <div class="upload-area">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            <h3 class="upload-area__title">Drop files here or click to upload</h3>
+            <p class="upload-area__text">Supports PDF, DOC, PNG, JPG — Max 10MB per file</p>
+            <button class="btn btn--primary ripple-btn">Browse Files</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== MESSAGES ============================== -->
+      <div class="page-section" id="page-messages">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Messages</h1>
+            <p class="content__subtitle">Stay connected with your agents and support team.</p>
+          </div>
+        </div>
+
+        <div class="messages-layout">
+          <!-- Sidebar: Conversation List -->
+          <div class="messages-sidebar">
+            <div class="section-card" style="margin-bottom:0;padding:0;overflow:hidden">
+              <div class="messages-sidebar__search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" placeholder="Search conversations..." aria-label="Search messages">
+              </div>
+              <div class="messages-sidebar__list">
+                <div class="chat-item active">
+                  <div class="chat-item__avatar">SM</div>
+                  <div class="chat-item__content">
+                    <div class="chat-item__top"><span class="chat-item__name">Sarah Mitchell</span><span class="chat-item__time">2m ago</span></div>
+                    <div class="chat-item__preview">Great news! The seller has accepted your counter offer...</div>
+                  </div>
+                  <span class="chat-item__badge">3</span>
+                </div>
+                <div class="chat-item">
+                  <div class="chat-item__avatar">JC</div>
+                  <div class="chat-item__content">
+                    <div class="chat-item__top"><span class="chat-item__name">James Carter</span><span class="chat-item__time">1h ago</span></div>
+                    <div class="chat-item__preview">Your appointment for Cliffside Villa has been confirmed...</div>
+                  </div>
+                  <span class="chat-item__badge">1</span>
+                </div>
+                <div class="chat-item">
+                  <div class="chat-item__avatar">ER</div>
+                  <div class="chat-item__content">
+                    <div class="chat-item__top"><span class="chat-item__name">Elena Rodriguez</span><span class="chat-item__time">3h ago</span></div>
+                    <div class="chat-item__preview">I've found 3 new properties that match your criteria...</div>
+                  </div>
+                </div>
+                <div class="chat-item">
+                  <div class="chat-item__avatar">SC</div>
+                  <div class="chat-item__content">
+                    <div class="chat-item__top"><span class="chat-item__name">Stackly Support</span><span class="chat-item__time">1d ago</span></div>
+                    <div class="chat-item__preview">Your document verification is complete. You can now...</div>
+                  </div>
+                </div>
+                <div class="chat-item">
+                  <div class="chat-item__avatar">MC</div>
+                  <div class="chat-item__content">
+                    <div class="chat-item__top"><span class="chat-item__name">Michael Chen</span><span class="chat-item__time">2d ago</span></div>
+                    <div class="chat-item__preview">The Miami Waterfront open house is scheduled for...</div>
+                  </div>
+                </div>
+                <div class="chat-item archived">
+                  <div class="chat-item__avatar">AR</div>
+                  <div class="chat-item__content">
+                    <div class="chat-item__top"><span class="chat-item__name" style="color:var(--text-muted)">Alex Reynolds</span><span class="chat-item__time">Archived</span></div>
+                    <div class="chat-item__preview">Property inquiry regarding Manhattan Penthouse...</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main: Chat Area -->
+          <div class="messages-main">
+            <div class="section-card" style="margin-bottom:0;padding:0;overflow:hidden;display:flex;flex-direction:column;height:100%">
+              <div class="messages-main__header">
+                <div class="messages-main__user">
+                  <div class="messages-main__avatar">SM</div>
+                  <div>
+                    <div class="messages-main__name">Sarah Mitchell</div>
+                    <div class="messages-main__status">Online</div>
+                  </div>
+                </div>
+                <div class="messages-main__actions">
+                  <button class="navbar__btn" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
+                  <button class="navbar__btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></button>
+                </div>
+              </div>
+              <div class="messages-main__body">
+                <div class="chat-msg chat-msg--agent">
+                  <div class="chat-msg__avatar">SM</div>
+                  <div class="chat-msg__bubble">
+                    <div class="chat-msg__name">Sarah Mitchell</div>
+                    <div class="chat-msg__text">Great news! The seller has accepted your counter offer on the Beverly Hills property.</div>
+                    <div class="chat-msg__time">2 minutes ago</div>
+                  </div>
+                </div>
+                <div class="chat-msg chat-msg--buyer">
+                  <div class="chat-msg__bubble">
+                    <div class="chat-msg__text">That's amazing! What are the next steps?</div>
+                    <div class="chat-msg__time">1 minute ago</div>
+                  </div>
+                </div>
+                <div class="chat-msg chat-msg--agent">
+                  <div class="chat-msg__avatar">SM</div>
+                  <div class="chat-msg__bubble">
+                    <div class="chat-msg__name">Sarah Mitchell</div>
+                    <div class="chat-msg__text">I'll send over the final purchase agreement for your signature. We'll aim for a 30-day close.</div>
+                    <div class="chat-msg__time">Just now</div>
+                  </div>
+                </div>
+              </div>
+              <div class="messages-main__footer">
+                <div class="messages-main__input-wrap">
+                  <input type="text" class="messages-main__input" placeholder="Type a message..." aria-label="Type a message">
+                  <button class="messages-main__send" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ============================== SETTINGS ============================== -->
+      <div class="page-section" id="page-settings">
+
+        <div class="content__header">
+          <div>
+            <h1 class="content__title">Settings</h1>
+            <p class="content__subtitle">Manage your account, preferences, and security.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Profile -->
+        <div class="section-card animate-fade">
+          <div class="section-card__header"><h2 class="section-card__title">Profile</h2></div>
+          <div class="settings-row">
+            <div class="settings-avatar">
+              <div class="settings-avatar__img" id="settings-avatar-img">JD</div>
+              <div>
+                <button class="btn btn--sm btn--primary ripple-btn">Change Photo</button>
+                <button class="btn btn--sm btn--ghost">Remove</button>
+              </div>
+            </div>
+            <div class="settings-fields">
+              <div class="form-group">
+                <label class="form-label">Full Name</label>
+                <input class="form-input" id="settings-name" value="John Doe" placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input class="form-input" id="settings-email" value="john@stackly.com" placeholder="Your email">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input class="form-input" value="+1 (310) 555-0182" placeholder="Phone number">
+              </div>
+              <button class="btn btn--primary ripple-btn">Save Changes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Password -->
+        <div class="section-card animate-fade" style="animation-delay:0.05s">
+          <div class="section-card__header"><h2 class="section-card__title">Password</h2></div>
+          <div class="settings-fields" style="max-width:480px">
+            <div class="form-group">
+              <label class="form-label">Current Password</label>
+              <input class="form-input" type="password" placeholder="Enter current password">
+            </div>
+            <div class="form-group">
+              <label class="form-label">New Password</label>
+              <input class="form-input" type="password" placeholder="Enter new password">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Confirm New Password</label>
+              <input class="form-input" type="password" placeholder="Confirm new password">
+            </div>
+            <button class="btn btn--primary ripple-btn">Update Password</button>
+          </div>
+        </div>
+
+        <!-- Section 3: Two Factor + Notifications -->
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.1s">
+              <div class="section-card__header"><h2 class="section-card__title">Two-Factor Authentication</h2></div>
+              <div class="settings-row">
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">Authenticator App</div>
+                    <div class="toggle-row__desc">Use an authenticator app to generate codes</div>
+                  </div>
+                  <label class="toggle"><input type="checkbox"><span class="toggle__slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">SMS Codes</div>
+                    <div class="toggle-row__desc">Receive codes via text message</div>
+                  </div>
+                  <label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.15s">
+              <div class="section-card__header"><h2 class="section-card__title">Notification Preferences</h2></div>
+              <div class="settings-row">
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">Price Drop Alerts</div>
+                    <div class="toggle-row__desc">Get notified when saved properties drop in price</div>
+                  </div>
+                  <label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">New Listings</div>
+                    <div class="toggle-row__desc">New properties matching your criteria</div>
+                  </div>
+                  <label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">Offer Updates</div>
+                    <div class="toggle-row__desc">Status changes on your offers and counter-offers</div>
+                  </div>
+                  <label class="toggle"><input type="checkbox" checked><span class="toggle__slider"></span></label>
+                </div>
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">Marketing Emails</div>
+                    <div class="toggle-row__desc">Receive property market insights and tips</div>
+                  </div>
+                  <label class="toggle"><input type="checkbox"><span class="toggle__slider"></span></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Dark Mode + Language -->
+        <div class="dashboard-row">
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.2s">
+              <div class="section-card__header"><h2 class="section-card__title">Appearance</h2></div>
+              <div class="toggle-row">
+                <div>
+                  <div class="toggle-row__title">Dark Mode</div>
+                  <div class="toggle-row__desc">Toggle between light and dark theme</div>
+                </div>
+                <label class="toggle"><input type="checkbox" id="settings-dark-toggle" checked><span class="toggle__slider"></span></label>
+              </div>
+              <div class="form-group" style="margin-top:16px">
+                <label class="form-label">Language</label>
+                <select class="form-input">
+                  <option>English (US)</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>Arabic</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.25s">
+              <div class="section-card__header"><h2 class="section-card__title">Connected Accounts</h2></div>
+              <div class="settings-row">
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">Google</div>
+                    <div class="toggle-row__desc">john.doe@gmail.com</div>
+                  </div>
+                  <span class="table__status completed">Connected</span>
+                </div>
+                <div class="toggle-row">
+                  <div>
+                    <div class="toggle-row__title">Apple</div>
+                    <div class="toggle-row__desc">Not connected</div>
+                  </div>
+                  <button class="btn btn--sm btn--ghost">Connect</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Login History + Delete -->
+        <div class="dashboard-row">
+          <div class="dashboard-col dashboard-col--wide">
+            <div class="section-card animate-fade" style="animation-delay:0.3s">
+              <div class="section-card__header"><h2 class="section-card__title">Login History</h2></div>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead><tr><th>Device</th><th>Location</th><th>IP Address</th><th>Date</th><th>Status</th></tr></thead>
+                  <tbody>
+                    <tr><td>Chrome / Windows</td><td>Los Angeles, CA</td><td>192.168.1.42</td><td>Today, 9:42 AM</td><td><span class="table__status completed">Current</span></td></tr>
+                    <tr><td>Safari / iPhone</td><td>Los Angeles, CA</td><td>192.168.1.42</td><td>Mar 13, 8:15 PM</td><td><span class="table__status active">Active</span></td></tr>
+                    <tr><td>Firefox / macOS</td><td>San Francisco, CA</td><td>203.0.113.45</td><td>Mar 10, 2:30 PM</td><td><span class="table__status pending">Pending</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="dashboard-col">
+            <div class="section-card animate-fade" style="animation-delay:0.35s">
+              <div class="section-card__header"><h2 class="section-card__title">Danger Zone</h2></div>
+              <div class="settings-row">
+                <p style="font-size:0.875rem;color:var(--text-muted);margin-bottom:16px;line-height:1.6">Once you delete your account, there is no going back. Please be certain.</p>
+                <button class="btn btn--danger ripple-btn" style="width:100%;justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Delete Account</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== NOTIFICATION PANEL ==================== -->
+  <div class="notif-overlay" id="notif-overlay"></div>
+  <div class="notif-panel" id="notif-panel">
+    <div class="notif-panel__header">
+      <h2 class="notif-panel__title">Notifications</h2>
+      <button class="notif-panel__close" id="notif-close" aria-label="Close notifications">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="notif-panel__body" id="notif-body">
+      <div class="notif-item">
+        <div class="notif-item__dot gold"></div>
+        <div class="notif-item__content">
+          <div class="notif-item__title">Price Drop Alert</div>
+          <div class="notif-item__desc">Beverly Hills Estate reduced by $250,000 — now listed at $4,000,000</div>
+          <div class="notif-item__time">6 hours ago</div>
+        </div>
+      </div>
+      <div class="notif-item">
+        <div class="notif-item__dot green"></div>
+        <div class="notif-item__content">
+          <div class="notif-item__title">New Listing</div>
+          <div class="notif-item__desc">New property listed: Hollywood Hills Modern Estate — $5,400,000</div>
+          <div class="notif-item__time">1 day ago</div>
+        </div>
+      </div>
+      <div class="notif-item">
+        <div class="notif-item__dot blue"></div>
+        <div class="notif-item__content">
+          <div class="notif-item__title">System Update</div>
+          <div class="notif-item__desc">Your document "Loan Pre-Approval" has been verified successfully.</div>
+          <div class="notif-item__time">2 days ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/dashboard-shared.js"></script>
+<script src="assets/js/buyer-dashboard.js"></script>
+</body>
+</html>

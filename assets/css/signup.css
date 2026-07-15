@@ -29,7 +29,7 @@ img{display:block;max-width:100%}
 
 /* Brand Block */
 .brand-block{animation:fadeUp 0.8s ease-out both}
-.brand-logo{height:40px;margin-bottom:20px;display:block}
+.brand-logo{height:104px;width:auto;margin-bottom:20px;display:block;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
 .brand-tagline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(22px,2.6vw,36px);font-weight:600;color:#E8D5A8;margin-bottom:10px;line-height:1.2}
 .brand-desc{font-size:clamp(13px,.85vw,15px);color:rgba(232,237,245,.6);line-height:1.7;max-width:400px}
 
@@ -64,7 +64,7 @@ img{display:block;max-width:100%}
 
 /* Header */
 .auth-card-header{text-align:center;margin-bottom:32px}
-.card-logo{height:30px;display:block;margin:0 auto 14px}
+.card-logo{height:104px;width:auto;display:block;margin:0 auto 14px;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
 .auth-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:600;color:#E8D5A8;margin-bottom:6px}
 .auth-subtitle{font-size:15px;color:rgba(232,237,245,.45);font-weight:400}
 
@@ -77,20 +77,23 @@ img{display:block;max-width:100%}
 .floating-group{margin-bottom:22px;position:relative}
 .floating-group:last-of-type{margin-bottom:0}
 .floating-wrap{position:relative}
-.floating-input{width:100%;height:60px;padding:22px 52px 8px 54px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:16px;font-size:16px;color:#E8EDF5;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
-.floating-input:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.18)}
-.floating-input:focus{background:rgba(255,255,255,.06);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.12),0 0 24px rgba(200,169,107,.04)}
+.floating-input{width:100%;height:60px;padding:22px 52px 8px 54px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:16px;font-size:16px;font-weight:500;color:#E8EDF5;transition:border-color .25s cubic-bezier(.4,0,.2,1),box-shadow .25s cubic-bezier(.4,0,.2,1),background .25s ease;line-height:1.4}
+.floating-input:hover{background:rgba(255,255,255,.07);border-color:rgba(200,169,107,.2)}
+.floating-input:focus{background:rgba(255,255,255,.07);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.15),0 4px 20px rgba(200,169,107,.08);outline:none}
 .floating-input.is-error{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
 .floating-input.is-success{border-color:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.08)}
 
 .floating-input::placeholder{color:transparent}
-.floating-label{position:absolute;left:54px;top:50%;transform:translateY(-50%);font-size:16px;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);padding:0 4px;user-select:none}
+.floating-label{position:absolute;left:54px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:400;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);padding:0 4px;user-select:none;line-height:1}
 .floating-input:focus~.floating-label,
-.floating-input:not(:placeholder-shown)~.floating-label{top:14px;transform:translateY(0);font-size:11px;color:#C8A96B}
+.floating-input:not(:placeholder-shown)~.floating-label{top:14px;transform:translateY(0);font-size:11px;font-weight:500;color:#C8A96B}
 
-.input-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);display:flex;opacity:.5;transition:opacity .3s ease;pointer-events:none}
+.floating-input.is-error~.floating-label{color:#EF4444}
+.floating-input.is-success~.floating-label{color:#22C55E}
+
+.input-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:22px;height:22px;opacity:.5;transition:opacity .25s ease;pointer-events:none}
 .floating-input:focus~.input-icon{opacity:1}
-.input-icon svg{width:20px;height:20px}
+.input-icon svg{width:20px;height:20px;display:block}
 
 /* Select */
 .floating-select{appearance:none;-webkit-appearance:none;padding-right:48px;cursor:pointer;height:60px;padding-top:24px;padding-bottom:4px}
@@ -98,16 +101,17 @@ img{display:block;max-width:100%}
 .floating-wrap--select .floating-label{top:calc(50% + 2px)}
 .floating-select:focus~.floating-label,
 .floating-select:not(:placeholder-shown)~.floating-label{top:14px!important;transform:translateY(0);font-size:11px;color:#C8A96B}
-.select-arrow{position:absolute;right:18px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .35s cubic-bezier(.34,1.56,.64,1),opacity .3s ease}
+.select-arrow{position:absolute;right:18px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .25s ease,opacity .25s ease;display:flex;align-items:center;justify-content:center}
 .floating-select:focus~.select-arrow{transform:translateY(-50%) rotate(180deg);opacity:.7}
 
 /* ---------- Password Toggle ---------- */
-.password-toggle{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:transparent;transition:background .2s ease;z-index:2}
-.password-toggle:hover{background:rgba(255,255,255,.06)}
+.password-toggle{position:absolute;right:16px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:transparent;transition:background .2s ease,color .2s ease;z-index:2;color:rgba(232,237,245,.35);padding:0;border:none}
+.password-toggle:hover{background:rgba(255,255,255,.06);color:rgba(232,237,245,.6)}
+.password-toggle:focus-visible{outline:2px solid #C8A96B;outline-offset:2px}
+.password-toggle svg{width:20px;height:20px;display:block;pointer-events:none}
 .eye-closed{display:none}
 .password-toggle.is-visible .eye-open{display:none}
 .password-toggle.is-visible .eye-closed{display:block}
-.password-toggle svg{width:20px;height:20px}
 
 /* ---------- Password Strength ---------- */
 .password-strength{display:flex;align-items:center;gap:12px;margin:8px 0 6px;min-height:22px;padding:0 2px}
@@ -137,13 +141,15 @@ img{display:block;max-width:100%}
 /* ---------- Form Row ---------- */
 .form-row{display:flex;align-items:center;justify-content:space-between;margin:0 0 22px;flex-wrap:wrap;gap:12px}
 
-.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none;position:relative}
 .checkbox-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-.checkbox-mark{flex-shrink:0;width:22px;height:22px;border-radius:7px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s ease}
+.checkbox-mark{flex-shrink:0;width:22px;height:22px;border-radius:7px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.4,0,.2,1)}
 .checkbox-mark svg{opacity:0;transform:scale(0);transition:all .2s cubic-bezier(.34,1.56,.64,1)}
+.checkbox-input:hover+.checkbox-mark{border-color:rgba(200,169,107,.35);background:rgba(255,255,255,.06)}
 .checkbox-input:checked+.checkbox-mark{border-color:#C8A96B;background:#C8A96B}
 .checkbox-input:checked+.checkbox-mark svg{opacity:1;transform:scale(1)}
-.checkbox-text{font-size:14px;color:rgba(232,237,245,.55)}
+.checkbox-text{font-size:14px;color:rgba(232,237,245,.55);transition:color .25s ease}
+.checkbox-input:checked~.checkbox-text{color:rgba(232,237,245,.75)}
 .checkbox-input:focus-visible+.checkbox-mark{box-shadow:0 0 0 3px rgba(200,169,107,.2)}
 
 /* ---------- Terms Row ---------- */
@@ -170,6 +176,23 @@ img{display:block;max-width:100%}
 .btn-spinner{position:absolute;opacity:0;transition:opacity .3s ease}
 .btn-spinner svg{animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Go to Home ---------- */
+.go-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:rgba(200,169,107,.55);transition:all .25s ease;margin-bottom:16px;padding:4px 0;width:fit-content;position:relative;z-index:2}
+.go-home svg{width:16px;height:16px;transition:transform .25s ease}
+.go-home:hover{color:#C8A96B;gap:10px}
+.go-home:hover svg{transform:translateX(-2px)}
+.go-home:focus-visible{outline:2px solid #C8A96B;outline-offset:3px;border-radius:4px}
+
+/* ---------- Autofill ---------- */
+.floating-input:-webkit-autofill,
+.floating-input:-webkit-autofill:hover,
+.floating-input:-webkit-autofill:focus{-webkit-text-fill-color:#E8EDF5;-webkit-box-shadow:0 0 0 1000px rgba(15,23,42,.95) inset;transition:background-color 5000s ease-in-out 0s;caret-color:#E8EDF5}
+
+/* ---------- Disabled State ---------- */
+.floating-input:disabled{opacity:.4;pointer-events:none;background:rgba(255,255,255,.02)}
+.floating-input:disabled~.floating-label{opacity:.4}
+.floating-input:disabled~.input-icon{opacity:.2}
 
 /* ---------- Footer ---------- */
 .auth-footer{text-align:center;margin-top:auto;padding-top:24px;border-top:1px solid rgba(200,169,107,.06)}
@@ -212,6 +235,8 @@ img{display:block;max-width:100%}
   .auth-left-content{padding:44px 40px 36px}
   .brand-desc{font-size:14px}
   .auth-card--signup{padding:48px}
+  .brand-logo{height:100px}
+  .card-logo{height:100px}
 }
 
 @media(max-width:1280px){
@@ -220,6 +245,8 @@ img{display:block;max-width:100%}
   .brand-desc{font-size:13px}
   .stat-card{padding:12px 16px;min-width:105px}
   .auth-card--signup{padding:44px}
+  .brand-logo{height:90px}
+  .card-logo{height:90px}
 }
 
 @media(max-width:1024px){
@@ -231,11 +258,15 @@ img{display:block;max-width:100%}
   .stat-num{font-size:clamp(16px,1.3vw,22px)}
   .auth-card--signup{padding:40px 36px}
   .auth-card-header{margin-bottom:26px}
+  .brand-logo{height:80px}
+  .card-logo{height:80px}
 }
 
 @media(max-width:992px){
   .auth-left{flex:0 0 38%}
   .auth-right{flex:0 0 62%}
+  .brand-logo{height:84px}
+  .card-logo{height:84px}
 }
 
 @media(max-width:768px){
@@ -253,8 +284,9 @@ img{display:block;max-width:100%}
   .auth-card--signup{max-width:100%;min-height:auto;padding:36px 28px}
   .auth-title{font-size:26px}
   .auth-subtitle{font-size:14px}
-  .card-logo{height:26px}
-  .auth-card-header{margin-bottom:26px}
+  .brand-logo{height:74px}
+  .card-logo{height:74px}
+  .auth-card-header{margin-bottom:24px}
   .floating-input{height:54px;padding:18px 46px 6px 46px;font-size:15px;border-radius:14px}
   .floating-label{left:46px;font-size:15px}
   .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px;top:12px}
@@ -274,7 +306,7 @@ img{display:block;max-width:100%}
 @media(max-width:576px){
   .auth-left{height:180px}
   .auth-left-content{padding:20px 16px 16px}
-  .brand-logo{height:28px;margin-bottom:10px}
+  .brand-logo{height:68px;margin-bottom:10px}
   .brand-tagline{font-size:20px;margin-bottom:4px}
   .brand-desc{font-size:12px;max-width:100%}
   .stat-card{padding:8px 12px;min-width:80px}
@@ -286,8 +318,8 @@ img{display:block;max-width:100%}
   .auth-card--signup{max-width:460px;padding:32px 24px;margin-left:auto;margin-right:auto}
   .auth-title{font-size:24px}
   .auth-subtitle{font-size:13px}
-  .card-logo{height:24px}
-  .auth-card-header{margin-bottom:24px}
+  .card-logo{height:68px}
+  .auth-card-header{margin-bottom:20px}
   .floating-input{height:50px;padding:16px 42px 6px 42px;font-size:15px;border-radius:12px}
   .floating-label{left:42px;font-size:14px}
   .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px;top:10px}
@@ -313,31 +345,90 @@ img{display:block;max-width:100%}
 
 @media(max-width:375px){
   .auth-left{height:140px}
-  .brand-logo{height:24px}
-  .brand-tagline{font-size:18px}
-  .stat-card{min-width:65px;padding:6px 10px}
-  .stat-num{font-size:14px}
+  .auth-left-content{padding:16px 14px 14px}
+  .brand-logo{height:52px}
+  .brand-tagline{font-size:16px;margin-bottom:4px}
+  .brand-desc{font-size:11px;margin-bottom:10px}
+  .stat-card{min-width:60px;padding:4px 8px;border-radius:10px}
+  .stat-num{font-size:13px}
   .stat-label{font-size:8px}
-  .auth-card{border-radius:20px 20px 0 0;padding:28px 20px;margin-top:-20px}
-  .auth-card--signup{padding:28px 20px}
-  .auth-title{font-size:22px}
-  .floating-input{height:46px;padding:14px 38px 4px 38px;font-size:14px;border-radius:12px}
-  .floating-label{left:38px;font-size:13px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:9px}
-  .input-icon{left:12px}
-  .input-icon svg{width:15px;height:15px}
-  .floating-select{padding-right:36px;height:46px}
-  .password-toggle{right:10px}
-  .btn-submit{height:46px;font-size:14px;border-radius:12px;margin-top:20px}
+  .stat-cards{gap:6px}
+  .auth-card{border-radius:20px 20px 0 0;padding:20px 14px 16px;margin-top:-16px}
+  .auth-card--signup{padding:20px 14px 16px}
+  .auth-card-header{margin-bottom:14px}
+  .auth-title{font-size:20px}
+  .card-logo{height:52px;margin-bottom:8px}
+  .auth-subtitle{font-size:12px}
+  .floating-group{margin-bottom:14px}
+  .floating-input{height:44px;padding:14px 36px 6px 34px;font-size:13px;border-radius:10px}
+  .floating-label{left:34px;font-size:12px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:8px}
+  .input-icon{left:12px;width:18px;height:18px}
+  .input-icon svg{width:14px;height:14px}
+  .floating-select{padding-right:34px;height:44px}
+  .password-toggle{right:10px;width:26px;height:26px}
+  .password-toggle svg{width:16px;height:16px}
+  .select-arrow{right:12px}
+  .pw-checklist{gap:4px 12px}
+  .check-item{font-size:10px;padding-left:16px}
+  .check-item::before{width:9px;height:9px}
+  .btn-submit{height:42px;font-size:13px;border-radius:10px;margin-top:18px}
+  .checkbox-mark{width:18px;height:18px;border-radius:5px}
   .checkbox-text{font-size:11px}
-  .footer-text{font-size:12px}
+  .form-row--terms .checkbox-text{font-size:11px}
+  .auth-footer{margin-top:14px;padding-top:12px}
+  .footer-text{font-size:11px}
+  .go-home{font-size:11px;margin-bottom:10px}
+  .go-home svg{width:13px;height:13px}
+}
+
+/* 360 */
+@media(max-width:360px){
+  .brand-logo{height:50px}
+  .card-logo{height:50px}
 }
 
 @media(max-width:320px){
   .auth-left{height:100px}
-  .stat-card{min-width:55px}
-  .auth-card--signup{padding:24px 16px}
-  .btn-submit{font-size:13px;height:42px}
+  .auth-left-content{padding:12px 10px 10px}
+  .brand-logo{height:44px;margin-bottom:6px}
+  .brand-tagline{font-size:14px;margin-bottom:3px}
+  .brand-desc{font-size:10px;margin-bottom:6px;max-width:100%}
+  .stat-card{min-width:50px;padding:3px 6px;border-radius:8px}
+  .stat-num{font-size:11px}
+  .stat-label{font-size:7px}
+  .stat-cards{gap:4px}
+  .auth-card{border-radius:16px 16px 0 0;padding:14px 10px 12px;margin-top:-12px}
+  .auth-card--signup{padding:14px 10px 12px}
+  .auth-card-header{margin-bottom:10px}
+  .card-logo{height:44px;margin-bottom:6px}
+  .auth-title{font-size:16px;margin-bottom:3px}
+  .auth-subtitle{font-size:11px}
+  .go-home{font-size:10px;gap:3px;margin-bottom:6px}
+  .go-home svg{width:10px;height:10px}
+  .floating-group{margin-bottom:10px}
+  .floating-input{height:40px;padding:12px 32px 6px 30px;font-size:12px;border-radius:9px}
+  .floating-label{left:30px;font-size:11px}
+  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:7px;top:6px}
+  .input-icon{left:10px;width:16px;height:16px}
+  .input-icon svg{width:12px;height:12px}
+  .floating-select{padding-right:30px;height:40px}
+  .password-toggle{right:8px;width:24px;height:24px}
+  .password-toggle svg{width:14px;height:14px}
+  .select-arrow{right:10px}
+  .password-strength{margin:4px 0 2px;min-height:16px}
+  .strength-bar{height:3px}
+  .strength-label{font-size:9px;min-width:36px}
+  .pw-checklist{gap:2px 8px;margin:2px 0 0}
+  .check-item{font-size:9px;padding-left:14px;line-height:1.3}
+  .check-item::before{width:8px;height:8px}
+  .btn-submit{height:38px;font-size:12px;border-radius:9px;margin-top:14px}
+  .checkbox-mark{width:16px;height:16px;border-radius:4px}
+  .checkbox-text{font-size:10px}
+  .form-row--terms .checkbox-text{font-size:10px}
+  .form-row--terms .field-error{margin-top:2px}
+  .auth-footer{margin-top:10px;padding-top:8px}
+  .footer-text{font-size:10px}
 }
 
 

@@ -21,7 +21,7 @@
   <header class="site-header" id="site-header" role="banner">
     <div class="container header-container">
       <a href="index.html" class="logo" aria-label="Stackly Estates Home">
-        <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="logo__img">
+        <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img">
       </a>
 
       <nav class="main-nav" id="main-nav" aria-label="Main navigation">
@@ -39,7 +39,7 @@
 
         <div class="mobile-menu">
           <div class="mobile-menu__header">
-            <img src="assets/images/logo/logo-stackly.svg" alt="Stackly Estates" class="mobile-menu__logo">
+            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="mobile-menu__logo">
             <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
               <i data-lucide="x" aria-hidden="true"></i>
             </button>
@@ -380,15 +380,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo logo--light" aria-label="Stackly Estates Home">
-            <span class="logo__icon" aria-hidden="true"><i data-lucide="building-2"></i></span>
-            <span class="logo__text">Stackly Estates</span>
+            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="footer-logo__img">
           </a>
           <p class="footer-brand__text">Redefining luxury real estate with curated properties, expert guidance, and unmatched service.</p>
           <div class="social-links" aria-label="Social media">
-            <a href="#" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
-            <a href="#" aria-label="Twitter"><i data-lucide="twitter" aria-hidden="true"></i></a>
-            <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
+            <a href="404.html" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="404.html" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="404.html" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+            <a href="404.html" aria-label="X"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16zM4 20l6.768 -6.768M17.232 4.768l-6.768 6.768"/></svg></a>
           </div>
         </div>
 
@@ -397,21 +396,21 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="properties.html">Properties</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href="signup.html">Signup</a></li>
           </ul>
         </nav>
 
         <nav class="footer-nav" aria-label="Footer property links">
           <h3 class="footer-nav__title">Properties</h3>
           <ul>
-            <li><a href="properties.html?type=villa">Luxury Villas</a></li>
-            <li><a href="properties.html?type=apartment">Apartments</a></li>
-            <li><a href="properties.html?type=commercial">Commercial</a></li>
-            <li><a href="properties.html?type=beach-house">Beach Houses</a></li>
-            <li><a href="properties.html?type=farm-house">Farm Houses</a></li>
+            <li><a href="404.html">Luxury Villas</a></li>
+            <li><a href="404.html">Apartments</a></li>
+            <li><a href="404.html">Beach Houses</a></li>
+            <li><a href="404.html">Commercial</a></li>
+            <li><a href="404.html">Penthouses</a></li>
+            <li><a href="404.html">Plots</a></li>
           </ul>
         </nav>
 
@@ -419,13 +418,20 @@
           <h3 class="footer-nav__title">Newsletter</h3>
           <p class="footer-newsletter__text">Subscribe for exclusive listings and market insights.</p>
           <form class="newsletter-form" id="newsletter-form" novalidate>
-            <label for="newsletter-email" class="visually-hidden">Email address</label>
-            <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" required>
-            <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
-              <i data-lucide="send" aria-hidden="true"></i>
-            </button>
+            <div class="newsletter-form__wrap">
+              <label for="newsletter-email" class="visually-hidden">Email address</label>
+              <input type="email" id="newsletter-email" name="email" class="newsletter-form__input" placeholder="Your email address" aria-label="Email address" required>
+              <button type="submit" class="btn btn--primary newsletter-form__btn" aria-label="Subscribe">
+                <span class="newsletter-form__btn-text"><i data-lucide="send" aria-hidden="true"></i></span>
+                <span class="newsletter-form__btn-spinner" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
           </form>
-          <p class="newsletter-form__message" id="newsletter-message" role="status" aria-live="polite"></p>
         </div>
       </div>
 
@@ -433,7 +439,7 @@
         <p class="footer-copyright">&copy; 2026 Stackly Estates. All rights reserved.</p>
         <div class="footer-bottom__links">
           <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <a href="#">Terms &amp; Conditions</a>
         </div>
       </div>
     </div>

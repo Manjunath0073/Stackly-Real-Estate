@@ -426,6 +426,7 @@
       localStorage.setItem('userRole', userData.role);
       localStorage.setItem('userEmail', email);
       localStorage.setItem('userName', name);
+      localStorage.setItem('userInitials', name.split(' ').map(function(w){return w[0]}).join('').substring(0,2).toUpperCase());
 
       setTimeout(function () {
         submitBtn.classList.remove('is-loading');
@@ -443,10 +444,12 @@
     overlay.classList.add('is-visible');
     setTimeout(function () {
       var role = localStorage.getItem('userRole');
-      if (role === 'trainer') {
-        window.location.href = 'trainer-dashboard.html';
+      if (role === 'buyer') {
+        window.location.href = 'buyer-dashboard.html';
+      } else if (role === 'seller') {
+        window.location.href = 'seller-dashboard.html';
       } else {
-        window.location.href = 'student-dashboard.html';
+        window.location.href = 'index.html';
       }
     }, 2200);
   }

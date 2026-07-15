@@ -187,20 +187,109 @@
     initPaginationControls();
 
     if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        currentPage = 1;
-        updateListings();
-      });
-
       form.addEventListener('change', () => {
         currentPage = 1;
         updateListings();
       });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        window.location.href = '404.html';
+      });
     }
 
-    if (resetBtn) resetBtn.addEventListener('click', resetFilters);
-    if (noResultsReset) noResultsReset.addEventListener('click', resetFilters);
+    if (resetBtn) resetBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = '404.html';
+    });
+    if (noResultsReset) noResultsReset.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = '404.html';
+    });
+
+    const searchBtn = form?.querySelector('.filter-form__btn-search');
+    if (searchBtn) {
+      searchBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = '404.html';
+      });
+    }
+  }
+
+  /* ----------------- Marquee Placeholder Detection ----------------- */
+  function initMarqueePlaceholders() {
+    const wraps = document.querySelectorAll('.filter-form__input-wrap[data-placeholder]');
+    if (!wraps.length) return;
+
+    const measureText = (text, font) => {
+      const temp = document.createElement('span');
+      temp.style.cssText = 'visibility:hidden;position:absolute;white-space:nowrap;left:-9999px;top:-9999px;';
+      temp.style.font = font;
+      temp.textContent = text;
+      document.body.appendChild(temp);
+      const width = temp.offsetWidth;
+      document.body.removeChild(temp);
+      return width;
+    };
+
+    const updateWrap = (wrap) => {
+      const input = wrap.querySelector('input, select');
+      if (!input) return;
+
+      const hasValue = input.value && String(input.value).trim() !== '';
+      wrap.classList.toggle('has-value', hasValue);
+
+      if (hasValue || document.activeElement === input) {
+        wrap.classList.remove('marquee-active');
+        return;
+      }
+
+      const placeholder = wrap.dataset.placeholder;
+      if (!placeholder) return;
+
+      const cs = window.getComputedStyle(input);
+      const font = `${cs.fontStyle} ${cs.fontVariant} ${cs.fontWeight} ${cs.fontSize}/${cs.lineHeight} ${cs.fontFamily}`;
+      const textWidth = measureText(placeholder, font);
+      const wrapWidth = wrap.offsetWidth;
+      const available = Math.max(0, wrapWidth - 56);
+      wrap.classList.toggle('marquee-active', textWidth > available);
+    };
+
+    wraps.forEach((wrap) => {
+      const input = wrap.querySelector('input, select');
+      if (!input) return;
+      updateWrap(wrap);
+      input.addEventListener('input', () => updateWrap(wrap));
+      input.addEventListener('change', () => updateWrap(wrap));
+      input.addEventListener('focus', () => updateWrap(wrap));
+      input.addEventListener('blur', () => updateWrap(wrap));
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => wraps.forEach(updateWrap), 120);
+    });
+  }
+
+  /* ----------------- Page Hero Entrance Animation ----------------- */
+  function initHeroReveal() {
+    const hero = document.querySelector('.page-hero');
+    if (!hero) return;
+    const items = hero.querySelectorAll('.breadcrumbs, .page-hero__badge, .page-hero__title, .page-hero__subtitle, .page-hero__stats');
+    items.forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = `opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${i * 120}ms, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${i * 120}ms`;
+    });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        items.forEach((el) => {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        });
+      });
+    });
   }
 
   /* ------------------ Scroll Reveal ------------------ */
@@ -289,6 +378,8 @@
     init();
     initScrollReveal();
     initCounters();
+    initHeroReveal();
+    initMarqueePlaceholders();
   }
 
   if (document.readyState === 'loading') {
