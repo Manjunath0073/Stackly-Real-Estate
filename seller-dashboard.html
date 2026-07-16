@@ -1149,6 +1149,24 @@
 </div>
 
 <script src="assets/js/dashboard-shared.js"></script>
-<script src="assets/js/seller-dashboard.js"></script>
+  <script src="assets/js/seller-dashboard.js"></script>
+    <script>
+    (function() {
+      var userData = localStorage.getItem('stacklyCurrentUser');
+      if (!userData) {
+        window.location.href = 'login.html';
+        return;
+      }
+      try {
+        var user = JSON.parse(userData);
+        var nameEls = document.querySelectorAll('[data-user-name]');
+        var emailEls = document.querySelectorAll('[data-user-email]');
+        var roleEls = document.querySelectorAll('[data-user-role]');
+        nameEls.forEach(function(el) { el.textContent = user.name || 'User'; });
+        emailEls.forEach(function(el) { el.textContent = user.email || ''; });
+        roleEls.forEach(function(el) { el.textContent = user.role || ''; });
+      } catch(e) {}
+    })();
+  </script>
 </body>
 </html>

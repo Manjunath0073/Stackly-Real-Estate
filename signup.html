@@ -4,191 +4,155 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Create your Stackly Estates account and unlock exclusive luxury property listings, personalized alerts, and more.">
-  <meta name="theme-color" content="#081120">
-
+  <meta name="theme-color" content="#0F172A">
   <title>Create Account | Stackly Estates</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/signup.css">
 </head>
 <body>
-
   <div class="auth-wrapper">
-    <div class="auth-left">
-      <div class="auth-left-bg">
-        <img src="assets/images/properties/luxury-villa.webp" alt="Luxury modern villa with pool" class="auth-left-img">
+    <div class="auth-hero">
+      <div class="auth-hero__bg">
+        <img src="assets/images/signup-hero.webp" alt="Luxury villa" width="800" height="1000" loading="eager" decoding="async">
       </div>
-      <div class="auth-left-overlay"></div>
-      <div class="auth-left-content">
-        <div class="brand-block">
-          <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="brand-logo">
-          <h2 class="brand-tagline">Luxury Living Starts Here</h2>
-          <p class="brand-desc">Discover a world of extraordinary properties curated for those who demand the finest in luxury real estate.</p>
+      <div class="auth-hero__overlay"></div>
+      <div class="auth-hero__content">
+        <a href="index.html" class="auth-hero__logo" aria-label="Stackly Estates Home">
+          <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" width="180" height="60">
+        </a>
+        <h1 class="auth-hero__title">Luxury Living Begins Here</h1>
+        <p class="auth-hero__desc">Discover exclusive properties, trusted advisors, and premium investment opportunities with Stackly Estates.</p>
+        <div class="auth-hero__stats">
+          <div class="auth-hero__stat">
+            <span class="auth-hero__stat-value">1200</span>
+            <span class="auth-hero__stat-plus">+</span>
+            <span class="auth-hero__stat-label">Luxury Properties</span>
+          </div>
+          <div class="auth-hero__stat">
+            <span class="auth-hero__stat-value">98</span>
+            <span class="auth-hero__stat-plus">%</span>
+            <span class="auth-hero__stat-label">Client Satisfaction</span>
+          </div>
+          <div class="auth-hero__stat">
+            <span class="auth-hero__stat-value">15</span>
+            <span class="auth-hero__stat-plus">+</span>
+            <span class="auth-hero__stat-label">Years Experience</span>
+          </div>
         </div>
-        <div class="stat-cards">
-          <div class="stat-card stat-card--1">
-            <span class="stat-num">1200+</span>
-            <span class="stat-label">Luxury Properties</span>
-          </div>
-          <div class="stat-card stat-card--2">
-            <span class="stat-num">98%</span>
-            <span class="stat-label">Client Satisfaction</span>
-          </div>
-          <div class="stat-card stat-card--3">
-            <span class="stat-num">15+</span>
-            <span class="stat-label">Years Experience</span>
-          </div>
+        <div class="auth-hero__card" aria-hidden="true">
+          <div class="auth-hero__card-dot"></div>
+          <div class="auth-hero__card-dot"></div>
+          <div class="auth-hero__card-dot"></div>
         </div>
       </div>
     </div>
 
-    <div class="auth-right">
-      <div class="auth-card auth-card--signup">
-        <a href="index.html" class="go-home" aria-label="Go to home page">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Go to Home
-        </a>
-        <div class="auth-card-header">
-          <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="card-logo">
-          <h1 class="auth-title">Create Account</h1>
-          <p class="auth-subtitle">Join the world of luxury real estate</p>
+    <div class="auth-form-panel">
+      <div class="auth-form-panel__inner">
+        <div class="auth-form-header">
+          <a href="index.html" class="auth-form-header__logo" aria-label="Stackly Estates Home">
+            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" width="180" height="60">
+          </a>
+          <a href="index.html" class="auth-form__back" aria-label="Go back to home">&larr; Go Back</a>
+          <h2 class="auth-form-header__title">Create Account</h2>
+          <p class="auth-form-header__subtitle">Join Stackly Estates and discover premium properties.</p>
         </div>
 
-        <form class="auth-form" id="signup-form" novalidate autocomplete="off">
-          <div class="floating-group">
-            <div class="floating-wrap">
-              <input type="text" id="signup-name" class="floating-input" placeholder=" " required autofocus autocomplete="name">
-              <label for="signup-name" class="floating-label">Full Name</label>
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              </span>
+        <form class="auth-form" id="signup-form" novalidate>
+          <div class="auth-form__group">
+            <div class="auth-form__input-wrap">
+              <input type="text" id="signup-name" class="auth-form__input" placeholder=" " required autocomplete="name" minlength="3" maxlength="50" aria-invalid="false" aria-describedby="name-error">
+              <label for="signup-name" class="auth-form__label">Full Name</label>
             </div>
-            <span class="field-error" id="name-error"></span>
+            <span class="field-error" id="name-error" role="alert"></span>
           </div>
 
-          <div class="floating-group">
-            <div class="floating-wrap">
-              <input type="email" id="signup-email" class="floating-input" placeholder=" " required autocomplete="email">
-              <label for="signup-email" class="floating-label">Email Address</label>
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              </span>
+          <div class="auth-form__group">
+            <div class="auth-form__input-wrap">
+              <input type="email" id="signup-email" class="auth-form__input" placeholder=" " required autocomplete="email" aria-invalid="false" aria-describedby="email-error">
+              <label for="signup-email" class="auth-form__label">Email Address</label>
             </div>
-            <span class="field-error" id="signup-email-error"></span>
+            <span class="field-error" id="email-error" role="alert"></span>
           </div>
 
-          <div class="floating-group">
-            <div class="floating-wrap">
-              <input type="tel" id="signup-phone" class="floating-input" placeholder=" " required autocomplete="tel">
-              <label for="signup-phone" class="floating-label">Phone Number</label>
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              </span>
+          <div class="auth-form__group">
+            <div class="auth-form__input-wrap">
+              <input type="tel" id="signup-phone" class="auth-form__input" placeholder=" " maxlength="10" inputmode="numeric" autocomplete="tel" aria-invalid="false" aria-describedby="phone-error">
+              <label for="signup-phone" class="auth-form__label">Phone Number</label>
             </div>
-            <span class="field-error" id="phone-error"></span>
+            <span class="field-error" id="phone-error" role="alert"></span>
           </div>
 
-          <div class="floating-group">
-            <div class="floating-wrap floating-wrap--select">
-              <select id="signup-role" class="floating-input floating-select" required>
-                <option value="" disabled selected></option>
-                <option value="buyer">Buyer</option>
-                <option value="seller">Seller</option>
-              </select>
-              <label for="signup-role" class="floating-label">Choose Your Role</label>
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-              </span>
-              <span class="select-arrow">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-              </span>
+          <div class="auth-form__role">
+            <span class="auth-form__role-label">I am a</span>
+            <div class="auth-form__role-options">
+              <label class="auth-form__role-option">
+                <input type="radio" name="role" value="buyer" checked>
+                <span class="auth-form__role-btn">Buyer</span>
+              </label>
+              <label class="auth-form__role-option">
+                <input type="radio" name="role" value="seller">
+                <span class="auth-form__role-btn">Seller</span>
+              </label>
             </div>
-            <span class="field-error" id="role-error"></span>
           </div>
 
-          <div class="floating-group">
-            <div class="floating-wrap">
-              <input type="password" id="signup-password" class="floating-input" placeholder=" " required autocomplete="new-password">
-              <label for="signup-password" class="floating-label">Password</label>
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </span>
-              <button type="button" class="password-toggle" id="signup-pw-toggle" aria-label="Show password" tabindex="-1">
-                <svg class="eye-icon eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                <svg class="eye-icon eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          <div class="auth-form__group">
+            <div class="auth-form__input-wrap">
+              <input type="password" id="signup-password" class="auth-form__input" placeholder=" " required minlength="8" maxlength="32" autocomplete="new-password" aria-invalid="false" aria-describedby="password-error">
+              <label for="signup-password" class="auth-form__label">Password</label>
+              <button type="button" class="password-toggle" aria-label="Toggle password visibility" tabindex="-1">
+                <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="eye-closed" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
               </button>
             </div>
-            <div class="password-strength" id="pw-strength">
-              <div class="strength-bar" id="strength-bar">
-                <div class="strength-fill" id="strength-fill"></div>
-              </div>
-              <span class="strength-label" id="strength-label"></span>
+            <span class="field-error" id="password-error" role="alert"></span>
+          </div>
+
+          <div class="password-strength" id="password-strength">
+            <div class="password-strength__bar">
+              <div class="password-strength__fill" id="strength-fill"></div>
             </div>
-            <ul class="pw-checklist" id="pw-checklist">
-              <li class="check-item" data-check="length">8–32 characters</li>
-              <li class="check-item" data-check="upper">Uppercase letter</li>
-              <li class="check-item" data-check="lower">Lowercase letter</li>
-              <li class="check-item" data-check="number">Number</li>
-              <li class="check-item" data-check="special">Special character</li>
-            </ul>
-            <span class="field-error" id="signup-password-error"></span>
-          </div>
-
-          <div class="floating-group">
-            <div class="floating-wrap">
-              <input type="password" id="signup-confirm" class="floating-input" placeholder=" " required autocomplete="new-password">
-              <label for="signup-confirm" class="floating-label">Confirm Password</label>
-              <span class="input-icon">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C8A96B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-              </span>
-              <button type="button" class="password-toggle" id="signup-confirm-toggle" aria-label="Show password" tabindex="-1">
-                <svg class="eye-icon eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                <svg class="eye-icon eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8B9EB7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-              </button>
+            <div class="password-strength__rules" id="strength-rules">
+              <span data-rule="length">8–32 Characters</span>
+              <span data-rule="upper">Uppercase</span>
+              <span data-rule="lower">Lowercase</span>
+              <span data-rule="number">Number</span>
+              <span data-rule="special">Special Character</span>
             </div>
-            <span class="field-error" id="confirm-error"></span>
           </div>
 
-          <div class="form-row form-row--terms">
-            <label class="checkbox-label">
-              <input type="checkbox" id="signup-terms" class="checkbox-input">
-              <span class="checkbox-mark">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-              </span>
-              <span class="checkbox-text">I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a></span>
-            </label>
-            <span class="field-error" id="terms-error"></span>
+          <div class="auth-form__group">
+            <div class="auth-form__input-wrap">
+              <input type="password" id="signup-confirm" class="auth-form__input" placeholder=" " required autocomplete="new-password" aria-invalid="false" aria-describedby="confirm-error">
+              <label for="signup-confirm" class="auth-form__label">Confirm Password</label>
+            </div>
+            <span class="field-error" id="confirm-error" role="alert"></span>
           </div>
 
-          <button type="submit" class="btn-submit" id="signup-submit">
-            <span class="btn-text">Create Account</span>
-            <span class="btn-spinner">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
-                <circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
-              </svg>
+          <label class="auth-form__checkbox">
+            <input type="checkbox" id="signup-terms" aria-invalid="false" aria-describedby="terms-error">
+            <span class="auth-form__checkmark"></span>
+            <span>I agree to the <a href="404.html" class="auth-form__link">Terms &amp; Conditions</a></span>
+          </label>
+          <span class="field-error" id="terms-error" role="alert"></span>
+
+          <button type="submit" class="auth-form__btn" id="signup-submit" disabled>
+            <span class="btn__text">Create Account</span>
+            <span class="btn__spinner" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/></svg>
             </span>
           </button>
+
+          <p class="auth-form__footer">
+            Already have an account? <a href="login.html" class="auth-form__link">Sign In</a>
+          </p>
         </form>
 
-        <div class="auth-footer">
-          <p class="footer-text">Already have an account? <a href="login.html" class="footer-link">Sign In</a></p>
-        </div>
+        <p class="auth-form__message" id="signup-message" role="status" aria-live="polite"></p>
       </div>
-    </div>
-  </div>
-
-  <canvas id="particle-canvas" class="particle-canvas"></canvas>
-
-  <div class="success-overlay" id="success-overlay">
-    <div class="success-modal">
-      <div class="success-circle">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-      </div>
-      <h3 class="success-title">Account Created!</h3>
-      <p class="success-text">Redirecting to your dashboard...</p>
     </div>
   </div>
 

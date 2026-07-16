@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -41,7 +41,7 @@
 
         <div class="mobile-menu">
           <div class="mobile-menu__header">
-            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="mobile-menu__logo">
+            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img mobile-menu__logo">
             <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
               <i data-lucide="x" aria-hidden="true"></i>
             </button>
@@ -94,10 +94,10 @@
           <div class="mobile-social">
             <span class="mobile-social__label">Follow Us</span>
             <div class="mobile-social__icons">
-              <a href="404.html" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
-              <a href="404.html" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
+              <a href="404.html" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="404.html" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
               <a href="404.html" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-              <a href="404.html" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+              <a href="404.html" aria-label="X"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></a>
             </div>
           </div>
 
@@ -124,68 +124,52 @@
   </header>
 
   <main id="main-content">
-    <!-- About Hero (Split-Screen) -->
-    <section class="about-hero" aria-label="About Stackly Estates">
-      <div class="about-hero__bg" aria-hidden="true">
-        <div class="about-hero__gradient"></div>
-        <div class="about-hero__glow"></div>
-        <div class="about-hero__shape about-hero__shape--1"></div>
-        <div class="about-hero__shape about-hero__shape--2"></div>
-        <div class="about-hero__shape about-hero__shape--3"></div>
+    <!-- About Hero -->
+    <section class="page-hero" aria-label="About Stackly Estates">
+      <div class="page-hero__media" aria-hidden="true">
+        <img src="assets/images/about/about-hero-portrait.webp" alt="" width="1920" height="1280" loading="eager" decoding="async">
       </div>
-      <div class="container about-hero__container">
-        <div class="about-hero__left">
-          <span class="about-hero__label">ABOUT STACKLY ESTATES</span>
-          <h1 class="about-hero__title">Redefining <span class="about-hero__highlight">Luxury</span> Living Through <span class="about-hero__highlight">Trust</span> &amp; <span class="about-hero__highlight">Excellence</span></h1>
-          <p class="about-hero__text">With over a decade of market leadership, Stackly Estates has become the trusted partner for discerning buyers, sellers, and investors worldwide. Our global network of experts delivers white-glove service, data-driven insights, and exclusive access to the world's most remarkable properties.</p>
-          <div class="about-hero__actions">
-            <a href="404.html" class="btn btn--primary btn--icon"><span>Explore Properties</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
-            <a href="404.html" class="btn btn--outline btn--light">Contact Our Experts</a>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__glow" aria-hidden="true"></div>
+      <div class="container page-hero__content">
+        <nav class="breadcrumbs reveal" data-reveal="fade-down" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">About</li>
+          </ol>
+        </nav>
+        <span class="page-hero__badge reveal" data-reveal="fade-up">
+          <span class="page-hero__badge-dot" aria-hidden="true"></span>
+          About Stackly Estates
+        </span>
+        <h1 class="page-hero__title reveal" data-reveal="fade-up" data-delay="100">Redefining Luxury Living Through Exceptional Real Estate</h1>
+        <p class="page-hero__subtitle reveal" data-reveal="fade-up" data-delay="200">Delivering extraordinary luxury properties with trusted expertise, innovative solutions, and world-class client experiences.</p>
+        <div class="page-hero__actions reveal" data-reveal="fade-up" data-delay="300">
+          <a href="properties.html" class="btn btn--primary btn--icon"><span>Explore Properties</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          <a href="contact.html" class="btn btn--outline btn--light">Contact Our Team</a>
+        </div>
+        <div class="page-hero__stats reveal" data-reveal="fade-up" data-delay="400">
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number" data-counter="15">0</span>
+            <span class="page-hero__stat-suffix">+</span>
+            <p class="page-hero__stat-label">Years Experience</p>
           </div>
-          <div class="about-hero__badges">
-            <div class="about-hero__badge">
-              <span class="about-hero__stars" aria-label="4.9 out of 5">â˜…â˜…â˜…â˜…â˜…</span>
-              <span class="about-hero__badge-text">4.9 Rating</span>
-            </div>
-            <div class="about-hero__badge">
-              <i data-lucide="building-2" aria-hidden="true"></i>
-              <span class="about-hero__badge-text">1200+ Properties</span>
-            </div>
-            <div class="about-hero__badge">
-              <i data-lucide="clock" aria-hidden="true"></i>
-              <span class="about-hero__badge-text">15+ Years</span>
-            </div>
-            <div class="about-hero__badge">
-              <i data-lucide="globe" aria-hidden="true"></i>
-              <span class="about-hero__badge-text">25+ Cities</span>
-            </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number" data-counter="1200">0</span>
+            <span class="page-hero__stat-suffix">+</span>
+            <p class="page-hero__stat-label">Luxury Properties</p>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number">98</span>
+            <span class="page-hero__stat-suffix">%</span>
+            <p class="page-hero__stat-label">Client Satisfaction</p>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number" data-counter="35">0</span>
+            <span class="page-hero__stat-suffix">+</span>
+            <p class="page-hero__stat-label">Cities Covered</p>
           </div>
         </div>
-        <div class="about-hero__right">
-          <div class="about-hero__image">
-            <img src="assets/images/about/about-hero-portrait.webp" alt="Luxury real estate property" width="900" height="1400" loading="eager" decoding="async">
-          </div>
-          <div class="about-hero__floating-card" aria-hidden="true">
-            <div class="about-hero__floating-header">
-              <i data-lucide="shield-check" aria-hidden="true"></i>
-              <span>Trusted Since 2010</span>
-            </div>
-            <div class="about-hero__floating-stats">
-              <div class="about-hero__floating-stat">
-                <span class="about-hero__floating-value">98<span>%</span></span>
-                <span class="about-hero__floating-label">Satisfaction</span>
-              </div>
-              <div class="about-hero__floating-stat">
-                <span class="about-hero__floating-value" data-counter="1200">0</span>
-                <span class="about-hero__floating-label">Luxury Homes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="about-hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <i data-lucide="chevron-down" aria-hidden="true"></i>
       </div>
     </section>
 
@@ -194,17 +178,17 @@
       <div class="container story__grid">
         <div class="story__media reveal" data-reveal="fade-right">
           <div class="story__image story__image--main">
-            <img src="assets/images/about/about-office.webp" alt="Stackly Estates modern headquarters interior" width="900" height="1100" loading="lazy" decoding="async">
+            <img src="assets/images/about/about-values-customer.webp" alt="Stackly Estates modern headquarters interior" width="900" height="1100" loading="lazy" decoding="async">
           </div>
           <div class="story__image story__image--secondary">
-            <img src="assets/images/about/about-team.webp" alt="Stackly Estates team collaborating" width="500" height="500" loading="lazy" decoding="async">
+            <img src="assets/images/about/about-values-integrity.webp" alt="Stackly Estates team collaborating" width="500" height="500" loading="lazy" decoding="async">
           </div>
         </div>
         <div class="story__content reveal" data-reveal="fade-left">
           <span class="section-tag">Our Story</span>
           <h2 class="section-title" id="story-title">Built on a Passion for Exceptional Homes</h2>
-          <p>Founded in 2008, Stackly Estates began with a simple belief: that buying or selling a luxury property should be as refined as the homes themselves. What started as a boutique consultancy in Los Angeles has grown into a global network spanning the worldâ€™s most desirable markets.</p>
-          <p>Our advisors combine deep local knowledge with white-glove service, guiding clients through every stage of the journeyâ€”from off-market opportunities and private viewings to negotiation, financing, and closing.</p>
+          <p>Founded in 2008, Stackly Estates began with a simple belief: that buying or selling a luxury property should be as refined as the homes themselves. What started as a boutique consultancy in Los Angeles has grown into a global network spanning the world’s most desirable markets.</p>
+          <p>Our advisors combine deep local knowledge with white-glove service, guiding clients through every stage of the journey—from off-market opportunities and private viewings to negotiation, financing, and closing.</p>
           <div class="story__stats">
             <div class="story__stat">
               <span class="story__stat-number" data-counter="18">0</span>
@@ -299,7 +283,7 @@
           <article class="mission-card reveal" data-reveal="fade-up" data-delay="100">
             <div class="mission-card__icon" aria-hidden="true"><i data-lucide="eye"></i></div>
             <h3 class="mission-card__title">Our Vision</h3>
-            <p>To be the worldâ€™s most trusted destination for luxury real estateâ€”where every client feels understood, every property shines, and every outcome exceeds expectation.</p>
+            <p>To be the world’s most trusted destination for luxury real estate—where every client feels understood, every property shines, and every outcome exceeds expectation.</p>
           </article>
           <article class="mission-card reveal" data-reveal="fade-up" data-delay="200">
             <div class="mission-card__icon" aria-hidden="true"><i data-lucide="gem"></i></div>
@@ -351,7 +335,7 @@
             <div class="value-card__image"><img src="assets/images/about/about-values-luxury.webp" alt="Luxury Living" width="600" height="400" loading="lazy" decoding="async"></div>
             <div class="value-card__body">
               <h3 class="value-card__title">Luxury Living</h3>
-              <p class="value-card__text">We curate not just properties, but lifestyles â€” connecting clients with the finest experiences worldwide.</p>
+              <p class="value-card__text">We curate not just properties, but lifestyles — connecting clients with the finest experiences worldwide.</p>
             </div>
           </article>
           <article class="value-card reveal" data-reveal="zoom-reveal" data-delay="500">

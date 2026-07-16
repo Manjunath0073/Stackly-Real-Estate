@@ -11,17 +11,9 @@
   // =============================================
 
   function getCurrentUser() {
-    var stored = localStorage.getItem('currentUser');
+    var stored = localStorage.getItem('stacklyCurrentUser');
     if (stored) {
       try { return JSON.parse(stored); } catch (e) { /* fall through */ }
-    }
-    // Fallback: individual keys (legacy from login page)
-    var role = localStorage.getItem('userRole');
-    var name = localStorage.getItem('userName');
-    var email = localStorage.getItem('userEmail');
-    var initials = localStorage.getItem('userInitials');
-    if (role || name) {
-      return { name: name || 'User', email: email || '', role: role || 'buyer', initials: initials || 'U' };
     }
     return null;
   }
@@ -341,13 +333,7 @@
   // =============================================
 
   function logout() {
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('userRole');
-    localStorage.removeItem('userName');
-    localStorage.removeItem('userEmail');
-    localStorage.removeItem('userInitials');
-    localStorage.removeItem('userData');
-    localStorage.removeItem('guestMode');
+    localStorage.removeItem('stacklyCurrentUser');
     window.location.href = 'login.html';
   }
 

@@ -1170,121 +1170,214 @@
 
       <!-- ============================== MESSAGES ============================== -->
       <div class="page-section" id="page-messages">
-
-        <div class="content__header">
-          <div>
-            <h1 class="content__title">Messages</h1>
-            <p class="content__subtitle">Stay connected with your agents and support team.</p>
-          </div>
-        </div>
-
-        <div class="messages-layout">
-          <!-- Sidebar: Conversation List -->
-          <div class="messages-sidebar">
-            <div class="section-card" style="margin-bottom:0;padding:0;overflow:hidden">
-              <div class="messages-sidebar__search">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                <input type="text" placeholder="Search conversations..." aria-label="Search messages">
+        <div class="messaging" id="messaging-root">
+          <!-- Conversation List -->
+          <div class="msg-convlist" id="msg-convlist">
+            <div class="msg-convlist__header">
+              <h2 class="msg-convlist__title">Messages</h2>
+              <div class="msg-convlist__filter">
+                <button class="msg-filter-btn active" data-filter="all">All</button>
+                <button class="msg-filter-btn" data-filter="buyers">Buyers</button>
+                <button class="msg-filter-btn" data-filter="agents">Agents</button>
               </div>
-              <div class="messages-sidebar__list">
-                <div class="chat-item active">
-                  <div class="chat-item__avatar">SM</div>
-                  <div class="chat-item__content">
-                    <div class="chat-item__top"><span class="chat-item__name">Sarah Mitchell</span><span class="chat-item__time">2m ago</span></div>
-                    <div class="chat-item__preview">Great news! The seller has accepted your counter offer...</div>
-                  </div>
-                  <span class="chat-item__badge">3</span>
+            </div>
+            <div class="msg-convlist__search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" class="msg-convlist__search-input" placeholder="Search conversations..." aria-label="Search messages">
+            </div>
+            <div class="msg-convlist__list" id="msg-convlist-list">
+              <div class="msg-conv active" data-convid="sarah" data-type="agent">
+                <div class="msg-conv__avatar" style="background:#C8A96B;color:#0F172A">SM</div>
+                <div class="msg-conv__info">
+                  <div class="msg-conv__top"><span class="msg-conv__name">Sarah Mitchell</span><span class="msg-conv__time">2m ago</span></div>
+                  <div class="msg-conv__preview">Great news! The seller has accepted your counter offer...</div>
                 </div>
-                <div class="chat-item">
-                  <div class="chat-item__avatar">JC</div>
-                  <div class="chat-item__content">
-                    <div class="chat-item__top"><span class="chat-item__name">James Carter</span><span class="chat-item__time">1h ago</span></div>
-                    <div class="chat-item__preview">Your appointment for Cliffside Villa has been confirmed...</div>
-                  </div>
-                  <span class="chat-item__badge">1</span>
+                <div class="msg-conv__meta">
+                  <span class="msg-conv__badge">3</span>
+                  <span class="msg-conv__status online"></span>
                 </div>
-                <div class="chat-item">
-                  <div class="chat-item__avatar">ER</div>
-                  <div class="chat-item__content">
-                    <div class="chat-item__top"><span class="chat-item__name">Elena Rodriguez</span><span class="chat-item__time">3h ago</span></div>
-                    <div class="chat-item__preview">I've found 3 new properties that match your criteria...</div>
-                  </div>
+              </div>
+              <div class="msg-conv" data-convid="james" data-type="agent">
+                <div class="msg-conv__avatar" style="background:#2563EB;color:#fff">JC</div>
+                <div class="msg-conv__info">
+                  <div class="msg-conv__top"><span class="msg-conv__name">James Carter</span><span class="msg-conv__time">1h ago</span></div>
+                  <div class="msg-conv__preview">Your appointment for Cliffside Villa has been confirmed...</div>
                 </div>
-                <div class="chat-item">
-                  <div class="chat-item__avatar">SC</div>
-                  <div class="chat-item__content">
-                    <div class="chat-item__top"><span class="chat-item__name">Stackly Support</span><span class="chat-item__time">1d ago</span></div>
-                    <div class="chat-item__preview">Your document verification is complete. You can now...</div>
-                  </div>
+                <div class="msg-conv__meta">
+                  <span class="msg-conv__badge">1</span>
+                  <span class="msg-conv__status online"></span>
                 </div>
-                <div class="chat-item">
-                  <div class="chat-item__avatar">MC</div>
-                  <div class="chat-item__content">
-                    <div class="chat-item__top"><span class="chat-item__name">Michael Chen</span><span class="chat-item__time">2d ago</span></div>
-                    <div class="chat-item__preview">The Miami Waterfront open house is scheduled for...</div>
-                  </div>
+              </div>
+              <div class="msg-conv" data-convid="elena" data-type="agent">
+                <div class="msg-conv__avatar" style="background:#10B981;color:#fff">ER</div>
+                <div class="msg-conv__info">
+                  <div class="msg-conv__top"><span class="msg-conv__name">Elena Rodriguez</span><span class="msg-conv__time">3h ago</span></div>
+                  <div class="msg-conv__preview">I've found 3 new properties that match your criteria...</div>
                 </div>
-                <div class="chat-item archived">
-                  <div class="chat-item__avatar">AR</div>
-                  <div class="chat-item__content">
-                    <div class="chat-item__top"><span class="chat-item__name" style="color:var(--text-muted)">Alex Reynolds</span><span class="chat-item__time">Archived</span></div>
-                    <div class="chat-item__preview">Property inquiry regarding Manhattan Penthouse...</div>
-                  </div>
+                <div class="msg-conv__meta">
+                  <span class="msg-conv__status online"></span>
+                </div>
+              </div>
+              <div class="msg-conv" data-convid="support" data-type="agent">
+                <div class="msg-conv__avatar" style="background:#F59E0B;color:#0F172A">SC</div>
+                <div class="msg-conv__info">
+                  <div class="msg-conv__top"><span class="msg-conv__name">Stackly Support</span><span class="msg-conv__time">1d ago</span></div>
+                  <div class="msg-conv__preview">Your document verification is complete. You can now...</div>
+                </div>
+                <div class="msg-conv__meta">
+                  <span class="msg-conv__status"></span>
+                </div>
+              </div>
+              <div class="msg-conv" data-convid="michael" data-type="agent">
+                <div class="msg-conv__avatar" style="background:#8B5CF6;color:#fff">MC</div>
+                <div class="msg-conv__info">
+                  <div class="msg-conv__top"><span class="msg-conv__name">Michael Chen</span><span class="msg-conv__time">2d ago</span></div>
+                  <div class="msg-conv__preview">The Miami Waterfront open house is scheduled for...</div>
+                </div>
+                <div class="msg-conv__meta">
+                  <span class="msg-conv__status"></span>
+                </div>
+              </div>
+              <div class="msg-conv" data-convid="alex" data-type="buyer">
+                <div class="msg-conv__avatar" style="background:#64748B;color:#fff">AR</div>
+                <div class="msg-conv__info">
+                  <div class="msg-conv__top"><span class="msg-conv__name">Alex Reynolds</span><span class="msg-conv__time">Archived</span></div>
+                  <div class="msg-conv__preview">Property inquiry regarding Manhattan Penthouse...</div>
+                </div>
+                <div class="msg-conv__meta">
+                  <span class="msg-conv__status"></span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Main: Chat Area -->
-          <div class="messages-main">
-            <div class="section-card" style="margin-bottom:0;padding:0;overflow:hidden;display:flex;flex-direction:column;height:100%">
-              <div class="messages-main__header">
-                <div class="messages-main__user">
-                  <div class="messages-main__avatar">SM</div>
-                  <div>
-                    <div class="messages-main__name">Sarah Mitchell</div>
-                    <div class="messages-main__status">Online</div>
-                  </div>
-                </div>
-                <div class="messages-main__actions">
-                  <button class="navbar__btn" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></button>
-                  <button class="navbar__btn" aria-label="Video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></button>
+          <!-- Chat Window -->
+          <div class="msg-chat" id="msg-chat">
+            <div class="msg-chat__header">
+              <button class="msg-chat__back" id="msg-chat-back" aria-label="Back to conversations">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+              </button>
+              <div class="msg-chat__user">
+                <div class="msg-chat__user-avatar" id="msg-chat-avatar" style="background:#C8A96B;color:#0F172A">SM</div>
+                <div>
+                  <div class="msg-chat__user-name" id="msg-chat-name">Sarah Mitchell</div>
+                  <div class="msg-chat__user-status" id="msg-chat-status">Online</div>
                 </div>
               </div>
-              <div class="messages-main__body">
-                <div class="chat-msg chat-msg--agent">
-                  <div class="chat-msg__avatar">SM</div>
-                  <div class="chat-msg__bubble">
-                    <div class="chat-msg__name">Sarah Mitchell</div>
-                    <div class="chat-msg__text">Great news! The seller has accepted your counter offer on the Beverly Hills property.</div>
-                    <div class="chat-msg__time">2 minutes ago</div>
-                  </div>
+              <button class="msg-chat__details-btn" id="msg-details-toggle" aria-label="Toggle details">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+              </button>
+            </div>
+            <div class="msg-chat__body" id="msg-chat-body">
+              <div class="msg-date">Today</div>
+              <div class="msg-bubble msg-bubble--agent">
+                <div class="msg-bubble__text">Great news! The seller has accepted your counter offer on the Beverly Hills property. Let's move forward with the next steps.</div>
+                <div class="msg-bubble__time">10:30 AM</div>
+              </div>
+              <div class="msg-bubble msg-bubble--buyer">
+                <div class="msg-bubble__text">That's amazing! What are the next steps?</div>
+                <div class="msg-bubble__time">10:32 AM</div>
+              </div>
+              <div class="msg-bubble msg-bubble--agent">
+                <div class="msg-bubble__text">I'll send over the final purchase agreement for your signature. We'll aim for a 30-day close. Also, I recommend scheduling the home inspection as soon as possible.</div>
+                <div class="msg-bubble__time">10:35 AM</div>
+              </div>
+              <div class="msg-prop-card">
+                <div class="msg-prop-card__img">
+                  <img src="assets/images/properties/villa-malibu.webp" alt="Cliffside Villa Malibu" loading="lazy">
                 </div>
-                <div class="chat-msg chat-msg--buyer">
-                  <div class="chat-msg__bubble">
-                    <div class="chat-msg__text">That's amazing! What are the next steps?</div>
-                    <div class="chat-msg__time">1 minute ago</div>
-                  </div>
-                </div>
-                <div class="chat-msg chat-msg--agent">
-                  <div class="chat-msg__avatar">SM</div>
-                  <div class="chat-msg__bubble">
-                    <div class="chat-msg__name">Sarah Mitchell</div>
-                    <div class="chat-msg__text">I'll send over the final purchase agreement for your signature. We'll aim for a 30-day close.</div>
-                    <div class="chat-msg__time">Just now</div>
-                  </div>
+                <div class="msg-prop-card__info">
+                  <div class="msg-prop-card__price">$6,800,000</div>
+                  <div class="msg-prop-card__title">Cliffside Villa Malibu</div>
+                  <div class="msg-prop-card__loc">Malibu, California</div>
+                  <div class="msg-prop-card__meta"><span>5 Beds</span><span>6 Baths</span><span>6,200 sqft</span></div>
+                  <a href="404.html" class="msg-prop-card__btn">View Details</a>
                 </div>
               </div>
-              <div class="messages-main__footer">
-                <div class="messages-main__input-wrap">
-                  <input type="text" class="messages-main__input" placeholder="Type a message..." aria-label="Type a message">
-                  <button class="messages-main__send" aria-label="Send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></button>
-                </div>
+              <div class="msg-bubble msg-bubble--buyer">
+                <div class="msg-bubble__text">Perfect! Please send the agreement. I'll get the inspection scheduled this week.</div>
+                <div class="msg-bubble__time">10:38 AM</div>
+              </div>
+              <div class="msg-bubble msg-bubble--agent">
+                <div class="msg-bubble__text">Excellent! I'll have the documents ready by end of day. Will keep you posted on the progress.</div>
+                <div class="msg-bubble__time">10:40 AM</div>
+              </div>
+              <div class="msg-typing" id="msg-typing" aria-hidden="true">
+                <span class="msg-typing__dot"></span>
+                <span class="msg-typing__dot"></span>
+                <span class="msg-typing__dot"></span>
+                <span class="msg-typing__text">Sarah is typing...</span>
+              </div>
+            </div>
+            <div class="msg-chat__footer">
+              <div class="msg-chat__input-wrap">
+                <button class="msg-chat__attach" aria-label="Attach file">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+                </button>
+                <input type="text" class="msg-chat__input" id="msg-chat-input" placeholder="Type a message..." aria-label="Type a message">
+                <button class="msg-chat__emoji" aria-label="Add emoji">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+                </button>
+                <button class="msg-chat__send" id="msg-chat-send" aria-label="Send message">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
               </div>
             </div>
           </div>
-        </div>
 
+          <!-- Details Panel -->
+          <div class="msg-details" id="msg-details">
+            <div class="msg-details__header">
+              <h3 class="msg-details__title">Conversation Details</h3>
+              <button class="msg-details__close" id="msg-details-close" aria-label="Close details">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            <div class="msg-details__body">
+              <div class="msg-details__profile">
+                <div class="msg-details__avatar" style="background:#C8A96B;color:#0F172A">SM</div>
+                <div class="msg-details__name">Sarah Mitchell</div>
+                <div class="msg-details__role">Senior Consultant</div>
+                <span class="msg-details__status online">Online</span>
+              </div>
+              <div class="msg-details__section">
+                <h4>Property</h4>
+                <div class="msg-details__property">
+                  <div class="msg-details__prop-img">
+                    <img src="assets/images/properties/villa-malibu.webp" alt="Cliffside Villa" loading="lazy">
+                  </div>
+                  <div class="msg-details__prop-info">
+                    <div class="msg-details__prop-price">$6,800,000</div>
+                    <div class="msg-details__prop-name">Cliffside Villa Malibu</div>
+                    <div class="msg-details__prop-status">In Negotiation</div>
+                  </div>
+                </div>
+              </div>
+              <div class="msg-details__section">
+                <h4>Shared Files</h4>
+                <div class="msg-details__file">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  <div><div class="msg-details__file-name">Purchase_Agreement.pdf</div><div class="msg-details__file-size">2.4 MB</div></div>
+                </div>
+                <div class="msg-details__file">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  <div><div class="msg-details__file-name">Property_Inspection_Report.pdf</div><div class="msg-details__file-size">1.8 MB</div></div>
+                </div>
+              </div>
+              <div class="msg-details__section">
+                <h4>Contact</h4>
+                <div class="msg-details__contact-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>+1 (310) 555-0198</span></div>
+                <div class="msg-details__contact-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>sarah@stacklyestates.com</span></div>
+              </div>
+              <div class="msg-details__section">
+                <h4>Notes</h4>
+                <p class="msg-details__notes">Client is interested in properties with ocean views. Budget range $5M-$8M. Prefers modern architecture.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile: Conversation list shown by default, chat hidden -->
+        </div>
       </div>
 
       <!-- ============================== SETTINGS ============================== -->
@@ -1525,6 +1618,24 @@
 </div>
 
 <script src="assets/js/dashboard-shared.js"></script>
-<script src="assets/js/buyer-dashboard.js"></script>
+  <script src="assets/js/buyer-dashboard.js"></script>
+    <script>
+    (function() {
+      var userData = localStorage.getItem('stacklyCurrentUser');
+      if (!userData) {
+        window.location.href = 'login.html';
+        return;
+      }
+      try {
+        var user = JSON.parse(userData);
+        var nameEls = document.querySelectorAll('[data-user-name]');
+        var emailEls = document.querySelectorAll('[data-user-email]');
+        var roleEls = document.querySelectorAll('[data-user-role]');
+        nameEls.forEach(function(el) { el.textContent = user.name || 'User'; });
+        emailEls.forEach(function(el) { el.textContent = user.email || ''; });
+        roleEls.forEach(function(el) { el.textContent = user.role || ''; });
+      } catch(e) {}
+    })();
+  </script>
 </body>
 </html>

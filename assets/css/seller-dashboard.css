@@ -6,7 +6,7 @@
 /* ---------- Quick Actions Grid (Seller-specific) ---------- */
 .quick-actions-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 12px;
   padding: 4px 0;
 }
@@ -124,7 +124,7 @@
 /* ---------- Goal Progress Grid ---------- */
 .goal-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
 
@@ -276,7 +276,7 @@
 /* ---------- Document Stats ---------- */
 .doc-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 12px;
   margin-bottom: 20px;
 }
@@ -632,7 +632,4 @@
 
   .dashboard-row { gap: 12px; }
   .dashboard-col { min-width: 0; }
-
-  .chart-container[style*="height:280px"] { height: 80px !important; }
-  .chart-container[style*="height:260px"] { height: 75px !important; }
 }

@@ -1,409 +1,158 @@
 /* =====================================================
-   Stackly Estates — Premium Login Styles
-   Split-screen luxury authentication
+   Stackly Estates — Premium Authentication
    ===================================================== */
 
-/* ---------- Reset & Base ---------- */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#081120;color:#E8EDF5;overflow-x:hidden;min-height:100vh;width:100vw}
+body{font-family:'Inter',sans-serif;background:#081120;color:#E8EDF5;overflow-x:hidden;min-height:100vh}
 a{text-decoration:none;color:inherit}
 input,button,select,textarea{font-family:inherit;font-size:inherit;border:none;outline:none;background:none;color:inherit}
 button{cursor:pointer}
 img{display:block;max-width:100%}
 
-/* ---------- Wrapper ---------- */
-.auth-wrapper{display:flex;min-height:100vh;width:100vw;position:relative}
-
-/* ===========================================
-   LEFT PANEL — 55%
-   =========================================== */
-.auth-left{flex:0 0 55%;position:relative;overflow:hidden;background:#0A1628}
-.auth-left-bg{position:absolute;inset:0}
-.auth-left-img{width:100%;height:100%;object-fit:cover;object-position:center;animation:imgZoom 20s ease-in-out infinite alternate}
-@keyframes imgZoom{0%{transform:scale(1)}100%{transform:scale(1.08)}}
-
-.auth-left-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,17,32,.20) 0%,rgba(8,17,32,.80) 60%,rgba(8,17,32,.95) 100%);z-index:1}
-
-.auth-left-content{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:60px 56px 56px}
-
-/* Brand Block */
-.brand-block{animation:fadeUp 0.8s ease-out both}
-.brand-logo{height:104px;width:auto;margin-bottom:20px;display:block;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
-.brand-tagline{font-family:'Playfair Display',Georgia,serif;font-size:clamp(24px,3vw,40px);font-weight:600;color:#E8D5A8;margin-bottom:10px;line-height:1.2}
-.brand-desc{font-size:clamp(14px,.95vw,16px);color:rgba(232,237,245,.65);line-height:1.7;max-width:420px;margin-bottom:40px}
-
-/* ---------- Stat Cards ---------- */
-.stat-cards{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp 0.8s ease-out 0.2s both}
-.stat-card{background:rgba(255,255,255,.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(200,169,107,.15);border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:4px;flex:1;min-width:130px;transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .35s ease}
-.stat-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.3)}
-.stat-card--1{animation:cardFloat 4s ease-in-out infinite}
-.stat-card--2{animation:cardFloat 4s ease-in-out 0.3s infinite}
-.stat-card--3{animation:cardFloat 4s ease-in-out 0.6s infinite}
-@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-.stat-num{font-size:clamp(20px,1.6vw,28px);font-weight:700;color:#E8D5A8;line-height:1;font-family:'Playfair Display',Georgia,serif}
-.stat-label{font-size:clamp(11px,.75vw,13px);color:rgba(232,237,245,.6);line-height:1.3}
-
-/* ===========================================
-   RIGHT PANEL — 45%
-   =========================================== */
-.auth-right{flex:0 0 45%;display:flex;align-items:center;justify-content:center;position:relative;background:
-  radial-gradient(ellipse 80% 60% at 50% 0%,rgba(200,169,107,.05) 0%,transparent 70%),
-  radial-gradient(ellipse 60% 50% at 50% 100%,rgba(22,48,74,.6) 0%,transparent 70%),
-  linear-gradient(180deg,#081120 0%,#0F172A 50%,#16304A 100%);padding:24px}
-
-/* ---------- Auth Card ---------- */
-.auth-card{width:100%;max-width:440px;background:rgba(15,23,42,.55);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(200,169,107,.12);border-radius:28px;padding:44px 40px 36px;box-shadow:
-  0 8px 48px rgba(0,0,0,.25),
-  0 0 0 1px rgba(200,169,107,.06),
-  inset 0 1px 0 rgba(255,255,255,.04);position:relative;z-index:2;animation:cardSlideIn 0.7s cubic-bezier(.22,1,.36,1) both}
-
-@keyframes cardSlideIn{0%{opacity:0;transform:translateX(40px) scale(.97)}100%{opacity:1;transform:translateX(0) scale(1)}}
-
-/* Header */
-.auth-card-header{text-align:center;margin-bottom:28px}
-.card-logo{height:104px;width:auto;display:block;margin:0 auto 14px;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
-.auth-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;font-weight:600;color:#E8D5A8;margin-bottom:6px}
-.auth-subtitle{font-size:15px;color:rgba(232,237,245,.5);font-weight:400}
-
-/* ===========================================
-   FORM ELEMENTS
-   =========================================== */
-.auth-form{display:flex;flex-direction:column;gap:0}
-
-/* ---------- Floating Labels ---------- */
-.floating-group{margin-bottom:6px;position:relative}
-.floating-wrap{position:relative;margin-bottom:4px}
-.floating-input{width:100%;height:56px;padding:22px 48px 8px 46px;background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.1);border-radius:14px;font-size:15px;font-weight:500;color:#E8EDF5;transition:border-color .25s cubic-bezier(.4,0,.2,1),box-shadow .25s cubic-bezier(.4,0,.2,1),background .25s ease;line-height:1.4}
-.floating-input:hover{background:rgba(255,255,255,.07);border-color:rgba(200,169,107,.2)}
-.floating-input:focus{background:rgba(255,255,255,.07);border-color:#C8A96B;box-shadow:0 0 0 3px rgba(200,169,107,.15),0 4px 20px rgba(200,169,107,.08);outline:none}
-.floating-input.is-error{border-color:#EF4444;box-shadow:0 0 0 3px rgba(239,68,68,.1)}
-.floating-input.is-success{border-color:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.08)}
-
-.floating-input::placeholder{color:transparent}
-.floating-label{position:absolute;left:46px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:400;color:rgba(232,237,245,.35);pointer-events:none;transition:all .25s cubic-bezier(.4,0,.2,1);background:transparent;padding:0 4px;user-select:none;line-height:1}
-.floating-input:focus~.floating-label,
-.floating-input:not(:placeholder-shown)~.floating-label{top:10px;transform:translateY(0);font-size:11px;font-weight:500;color:#C8A96B}
-
-.floating-input.is-error~.floating-label{color:#EF4444}
-.floating-input.is-success~.floating-label{color:#22C55E}
-
-.input-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:20px;height:20px;opacity:.5;transition:opacity .25s ease;pointer-events:none}
-.floating-input:focus~.input-icon{opacity:1}
-.input-icon svg{width:18px;height:18px;display:block}
-
-/* Select */
-.floating-select{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:pointer;height:56px}
-.floating-select option{background:#0F172A;color:#E8EDF5}
-.floating-select optgroup{background:#0F172A;color:rgba(232,237,245,.5);font-weight:500}
-.select-arrow{position:absolute;right:16px;top:50%;transform:translateY(-50%);pointer-events:none;opacity:.4;transition:transform .25s ease,opacity .25s ease;display:flex;align-items:center;justify-content:center}
-.floating-select:focus~.select-arrow{transform:translateY(-50%) rotate(180deg);opacity:.7}
-
-/* ---------- Password Toggle ---------- */
-.password-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:transparent;transition:background .2s ease,color .2s ease;z-index:2;color:rgba(232,237,245,.35);padding:0;border:none}
-.password-toggle:hover{background:rgba(255,255,255,.06);color:rgba(232,237,245,.6)}
-.password-toggle:focus-visible{outline:2px solid #C8A96B;outline-offset:2px}
-.password-toggle svg{width:18px;height:18px;display:block;pointer-events:none}
-.eye-closed{display:none}
-.password-toggle.is-visible .eye-open{display:none}
-.password-toggle.is-visible .eye-closed{display:block}
-
-/* ---------- Field Error ---------- */
-.field-error{display:block;min-height:20px;font-size:12px;color:#EF4444;padding:2px 4px 0;opacity:0;transform:translateY(-4px);transition:all .25s ease}
+:root{--secondary:#C8A96B;--font-heading:'Poppins',sans-serif;--radius-xl:24px;--radius-lg:16px;--radius-md:12px}
+.field-error{display:block;font-size:0.8125rem;color:#ef4444;margin-top:6px;opacity:0;transform:translateY(-4px);transition:opacity 0.25s ease,transform 0.25s ease;min-height:1.25em}
 .field-error.is-visible{opacity:1;transform:translateY(0)}
 
-/* ---------- Remember Me + Forgot ---------- */
-.form-row{display:flex;align-items:center;justify-content:space-between;margin:8px 0 20px;flex-wrap:wrap;gap:12px}
+/* ===========================================
+   Wrapper
+   =========================================== */
+.auth-wrapper{display:flex;min-height:100vh;width:100%}
 
-.checkbox-label{display:inline-flex;align-items:center;gap:10px;cursor:pointer;user-select:none;position:relative}
-.checkbox-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-.checkbox-mark{flex-shrink:0;width:20px;height:20px;border-radius:6px;border:1.5px solid rgba(200,169,107,.2);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.4,0,.2,1)}
-.checkbox-mark svg{opacity:0;transform:scale(0);transition:all .2s cubic-bezier(.34,1.56,.64,1)}
-.checkbox-input:hover+.checkbox-mark{border-color:rgba(200,169,107,.35);background:rgba(255,255,255,.06)}
-.checkbox-input:checked+.checkbox-mark{border-color:#C8A96B;background:#C8A96B}
-.checkbox-input:checked+.checkbox-mark svg{opacity:1;transform:scale(1)}
-.checkbox-text{font-size:14px;color:rgba(232,237,245,.6);transition:color .25s ease}
-.checkbox-input:checked~.checkbox-text{color:rgba(232,237,245,.8)}
-.checkbox-input:focus-visible+.checkbox-mark{box-shadow:0 0 0 3px rgba(200,169,107,.2)}
+/* ===========================================
+   Left Hero Panel — 50%
+   =========================================== */
+.auth-hero{flex:0 0 50%;position:relative;overflow:hidden;display:flex;align-items:center}
+.auth-hero__bg{position:absolute;inset:0}
+.auth-hero__bg img{width:100%;height:100%;object-fit:cover;animation:heroZoom 20s ease-in-out infinite alternate}
+@keyframes heroZoom{0%{transform:scale(1)}100%{transform:scale(1.08)}}
+.auth-hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,0.15) 0%,rgba(15,23,42,0.75) 50%,rgba(15,23,42,0.95) 100%);z-index:1}
+.auth-hero__content{position:relative;z-index:2;padding:60px 56px;display:flex;flex-direction:column;justify-content:flex-end;height:100%;width:100%}
+.auth-hero__logo{margin-bottom:auto}
+.auth-hero__logo img{height:96px;width:auto;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
+.auth-hero__title{font-family:var(--font-heading);font-size:clamp(1.5rem,3.5vw,2.75rem);color:#fff;line-height:1.15;margin-bottom:16px;max-width:480px}
+.auth-hero__desc{font-size:clamp(0.875rem,1.2vw,1rem);color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:32px;max-width:420px}
+.auth-hero__stats{display:flex;gap:40px}
+.auth-hero__stat{text-align:center}
+.auth-hero__stat-value{font-family:var(--font-heading);font-size:clamp(1.25rem,2.5vw,2rem);font-weight:700;color:var(--secondary);line-height:1;display:inline}
+.auth-hero__stat-plus{font-family:var(--font-heading);font-size:clamp(0.75rem,1.5vw,1.125rem);font-weight:700;color:var(--secondary);line-height:1}
+.auth-hero__stat-label{display:block;font-size:clamp(0.625rem,0.9vw,0.75rem);color:rgba(255,255,255,0.6);margin-top:4px;text-transform:uppercase;letter-spacing:0.06em}
+.auth-hero__card{display:none}
 
-.forgot-link{font-size:14px;color:rgba(200,169,107,.7);transition:color .25s ease}
-.forgot-link:hover{color:#C8A96B}
-
-/* ---------- Terms Row ---------- */
-.form-row--terms{flex-direction:column;align-items:flex-start;margin:6px 0 18px}
-.form-row--terms .checkbox-text{font-size:13px;color:rgba(232,237,245,.5)}
-.terms-link{color:rgba(200,169,107,.7);transition:color .25s ease}
-.terms-link:hover{color:#C8A96B;text-decoration:underline}
-.form-row--terms .field-error{margin-top:2px}
-
-/* ---------- Submit Button ---------- */
-.btn-submit{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:50px;border-radius:14px;background:linear-gradient(135deg,#C8A96B,#D4B87A,#C8A96B);color:#0F172A;font-size:16px;font-weight:600;border:none;cursor:pointer;overflow:hidden;transition:all .35s cubic-bezier(.34,1.56,.64,1);margin-top:4px}
-.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,169,107,.25)}
-.btn-submit:active{transform:translateY(0);box-shadow:0 2px 12px rgba(200,169,107,.15)}
-.btn-submit:focus-visible{outline:2px solid #C8A96B;outline-offset:3px}
-
-/* Ripple effect */
-.btn-submit .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.35);transform:scale(0);animation:rippleAnim .6s ease-out;pointer-events:none}
-@keyframes rippleAnim{to{transform:scale(4);opacity:0}}
-
-/* Loading state */
-.btn-submit.is-loading .btn-text{opacity:0}
-.btn-submit.is-loading .btn-spinner{opacity:1}
-.btn-submit.is-loading{pointer-events:none}
-.btn-spinner{position:absolute;opacity:0;transition:opacity .3s ease}
-.btn-spinner svg{animation:spin 1s linear infinite}
+/* ===========================================
+   Right Form Panel — 50%
+   =========================================== */
+.auth-form-panel{flex:0 0 50%;display:flex;align-items:center;justify-content:center;background:#fff;padding:40px}
+.auth-form-panel__inner{width:100%;max-width:420px}
+.auth-form-header__logo{display:none}
+.auth-form__back{display:inline-flex;align-items:center;gap:6px;font-size:0.875rem;font-weight:600;color:var(--secondary);margin-bottom:20px;transition:color 0.2s,transform 0.2s}
+.auth-form__back:hover{color:#B89450;transform:translateX(-3px)}
+.auth-form-header__title{font-family:var(--font-heading);font-size:clamp(1.375rem,2.5vw,2rem);color:var(--secondary);margin-bottom:8px}
+.auth-form-header__subtitle{font-size:0.9375rem;color:#64748B;margin-bottom:32px}
+.auth-form{display:flex;flex-direction:column;gap:20px}
+.auth-form__group{position:relative}
+.auth-form__input-wrap{position:relative}
+.auth-form__input{width:100%;height:54px;padding:20px 16px 6px;border-radius:var(--radius-md);border:1.5px solid #E2E8F0;background:#F8FAFC;font-size:0.9375rem;color:#1E293B;transition:border-color 0.3s ease,box-shadow 0.3s ease}
+.auth-form__input:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(200,169,107,0.15);background:#fff}
+.auth-form__input.is-error{border-color:#ef4444;box-shadow:0 0 0 3px rgba(239,68,68,0.1)}
+.auth-form__label{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:0.9375rem;color:#94A3B8;pointer-events:none;transition:all 0.25s ease}
+.auth-form__input:focus~.auth-form__label,
+.auth-form__input:not(:placeholder-shown)~.auth-form__label{top:12px;transform:translateY(0);font-size:0.75rem;color:var(--secondary)}
+.password-toggle{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:36px;height:36px;display:flex;align-items:center;justify-content:center;color:#94A3B8;border-radius:8px;transition:color 0.2s,background 0.2s}
+.password-toggle:hover{color:#0F172A;background:#F1F5F9}
+.password-toggle .eye-closed{display:none}
+.password-toggle.is-visible .eye-open{display:none}
+.password-toggle.is-visible .eye-closed{display:block}
+.auth-form__options{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.auth-form__checkbox{display:flex;align-items:center;gap:10px;font-size:0.875rem;color:#475569;cursor:pointer;position:relative}
+.auth-form__checkbox input{position:absolute;opacity:0;width:0;height:0}
+.auth-form__checkmark{width:18px;height:18px;border-radius:4px;border:1.5px solid #CBD5E1;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:border-color 0.2s,background 0.2s}
+.auth-form__checkmark::after{content:'';width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(0);transition:transform 0.2s}
+.auth-form__checkbox input:checked+.auth-form__checkmark{background:var(--secondary);border-color:var(--secondary)}
+.auth-form__checkbox input:checked+.auth-form__checkmark::after{transform:rotate(45deg) scale(1)}
+.auth-form__link{font-size:0.875rem;font-weight:600;color:var(--secondary);transition:color 0.2s}
+.auth-form__link:hover{color:#B89450}
+.auth-form__role{display:flex;flex-direction:column;gap:8px}
+.auth-form__role-label{font-size:0.8125rem;font-weight:600;color:#475569;text-transform:uppercase;letter-spacing:0.05em}
+.auth-form__role-options{display:flex;gap:10px}
+.auth-form__role-option input{position:absolute;opacity:0;width:0;height:0}
+.auth-form__role-btn{display:flex;align-items:center;justify-content:center;padding:10px 24px;border-radius:var(--radius-full);border:1.5px solid #E2E8F0;font-size:0.875rem;font-weight:600;color:#64748B;background:#fff;cursor:pointer;transition:all 0.25s ease;min-width:100px}
+.auth-form__role-option input:checked+.auth-form__role-btn{background:var(--secondary);color:#0F172A;border-color:var(--secondary);box-shadow:0 4px 12px rgba(200,169,107,0.25)}
+.auth-form__role-btn:hover{border-color:var(--secondary);color:var(--secondary)}
+.auth-form__btn{position:relative;width:100%;height:50px;padding:0 24px;border-radius:var(--radius-full);background:var(--secondary);color:#0F172A;font-family:var(--font-heading);font-size:0.9375rem;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;overflow:hidden;transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),box-shadow 0.3s ease;box-shadow:0 4px 16px rgba(200,169,107,0.3)}
+.auth-form__btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,169,107,0.4)}
+.auth-form__btn.is-loading{pointer-events:none}
+.auth-form__btn.is-loading .btn__text{opacity:0}
+.auth-form__btn .btn__spinner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:0;transition:opacity 0.3s}
+.auth-form__btn.is-loading .btn__spinner{opacity:1}
+.btn__spinner svg{animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-
-/* ---------- Divider ---------- */
-.form-divider{display:flex;align-items:center;gap:16px;margin:20px 0}
-.divider-line{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,169,107,.15),transparent)}
-.divider-text{font-size:13px;color:rgba(232,237,245,.3);text-transform:uppercase;letter-spacing:1.5px}
-
-/* ---------- Guest Button ---------- */
-.btn-guest{display:flex;align-items:center;justify-content:center;width:100%;height:46px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid rgba(200,169,107,.1);color:rgba(232,237,245,.55);font-size:14px;font-weight:500;transition:all .3s ease}
-.btn-guest:hover{background:rgba(255,255,255,.06);border-color:rgba(200,169,107,.2);color:rgba(232,237,245,.8)}
-
-/* ---------- Go to Home ---------- */
-.go-home{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:rgba(200,169,107,.55);transition:all .25s ease;margin-bottom:16px;padding:4px 0;width:fit-content;position:relative;z-index:2}
-.go-home svg{width:16px;height:16px;transition:transform .25s ease}
-.go-home:hover{color:#C8A96B;gap:10px}
-.go-home:hover svg{transform:translateX(-2px)}
-.go-home:focus-visible{outline:2px solid #C8A96B;outline-offset:3px;border-radius:4px}
-
-/* ---------- Autofill ---------- */
-.floating-input:-webkit-autofill,
-.floating-input:-webkit-autofill:hover,
-.floating-input:-webkit-autofill:focus{-webkit-text-fill-color:#E8EDF5;-webkit-box-shadow:0 0 0 1000px rgba(15,23,42,.95) inset;transition:background-color 5000s ease-in-out 0s;caret-color:#E8EDF5}
-
-/* ---------- Disabled State ---------- */
-.floating-input:disabled{opacity:.4;pointer-events:none;background:rgba(255,255,255,.02)}
-.floating-input:disabled~.floating-label{opacity:.4}
-.floating-input:disabled~.input-icon{opacity:.2}
-
-.footer-text{font-size:14px;color:rgba(232,237,245,.4)}
-.footer-link{color:#C8A96B;font-weight:500;transition:color .25s ease}
-.footer-link:hover{color:#E8D5A8;text-decoration:underline}
+.auth-form__btn--google{background:#fff;color:#1E293B;border:1.5px solid #E2E8F0;box-shadow:none;gap:10px}
+.auth-form__btn--google:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06);border-color:#CBD5E1}
+.auth-form__divider{display:flex;align-items:center;gap:16px;font-size:0.8125rem;color:#94A3B8;text-transform:uppercase;letter-spacing:0.08em}
+.auth-form__divider::before,.auth-form__divider::after{content:'';flex:1;height:1px;background:#E2E8F0}
+.auth-form__footer{text-align:center;font-size:0.875rem;color:#64748B;margin-top:4px}
+.auth-form__footer .auth-form__link{font-weight:600}
+.auth-form__message{text-align:center;font-size:0.875rem;margin-top:16px;min-height:1.25em}
+.auth-form__message.is-success{color:#10B981}
+.auth-form__message.is-error{color:#ef4444}
 
 /* ===========================================
-   SHAKE ANIMATION
+   Success Alert
    =========================================== */
-@keyframes shake{0%,100%{transform:translateX(0)}10%,30%,50%,70%,90%{transform:translateX(-4px)}20%,40%,60%,80%{transform:translateX(4px)}}
-.auth-card.is-shaking{animation:shake .5s ease-in-out}
+.auth-success{display:flex;align-items:center;gap:14px;padding:16px 20px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-lg);margin-top:20px;opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease}
+.auth-success.is-visible{opacity:1;transform:translateY(0)}
+.auth-success__icon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#22c55e;color:#fff;flex-shrink:0}
+.auth-success__icon svg{width:20px;height:20px}
+.auth-success__text{font-size:0.875rem;color:#166534;font-weight:500;margin:0;line-height:1.5}
 
 /* ===========================================
-   SUCCESS OVERLAY
+   Responsive
    =========================================== */
-.success-overlay{position:fixed;inset:0;background:rgba(8,17,32,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .5s ease}
-.success-overlay.is-visible{opacity:1;pointer-events:all}
-.success-modal{text-align:center;animation:fadeUp 0.6s ease-out both}
-.success-circle{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,#22C55E,#16A34A);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 40px rgba(34,197,94,.3);animation:successPop .5s cubic-bezier(.34,1.56,.64,1)}
-@keyframes successPop{0%{transform:scale(0)}100%{transform:scale(1)}}
-.success-title{font-family:'Playfair Display',Georgia,serif;font-size:28px;color:#E8D5A8;margin-bottom:8px}
-.success-text{font-size:16px;color:rgba(232,237,245,.5)}
-
-/* ===========================================
-   PARTICLES
-   =========================================== */
-.particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4}
-
-/* ===========================================
-   KEYFRAMES — Shared
-   =========================================== */
-@keyframes fadeUp{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
-
-/* ===========================================
-   RESPONSIVE
-   =========================================== */
-
-/* 1440 & below */
-@media(max-width:1440px){
-  .auth-left-content{padding:44px 40px 40px}
-  .brand-desc{margin-bottom:28px}
-  .auth-card{padding:36px 32px 28px}
-  .brand-logo{height:100px}
-  .card-logo{height:100px}
-}
-
-/* 1280 & below */
-@media(max-width:1280px){
-  .auth-left{flex:0 0 50%}
-  .auth-right{flex:0 0 50%}
-  .brand-desc{font-size:14px;margin-bottom:24px}
-  .stat-card{padding:14px 16px;min-width:110px}
-  .brand-logo{height:90px}
-  .card-logo{height:90px}
-}
-
-/* 1024 — Tablet landscape */
 @media(max-width:1024px){
-  .auth-left{flex:0 0 42%}
-  .auth-right{flex:0 0 58%}
-  .brand-tagline{font-size:clamp(20px,2.5vw,28px)}
-  .brand-desc{margin-bottom:20px}
-  .stat-card{padding:12px 14px;min-width:100px}
-  .stat-num{font-size:clamp(18px,1.4vw,22px)}
-  .brand-logo{height:80px}
-  .card-logo{height:80px}
+  .auth-hero{flex:0 0 45%}
+  .auth-form-panel{flex:0 0 55%;padding:32px}
+  .auth-hero__content{padding:48px 40px}
 }
-
-/* 992 & below — Tablet */
 @media(max-width:992px){
-  .auth-left{flex:0 0 40%}
-  .auth-right{flex:0 0 60%}
-  .brand-logo{height:84px}
-  .card-logo{height:84px}
+  .auth-wrapper{flex-direction:column}
+  .auth-hero{flex:none;min-height:320px;order:2}
+  .auth-hero__content{padding:36px 32px}
+  .auth-hero__logo{margin-bottom:16px}
+  .auth-hero__title{font-size:clamp(1.25rem,4vw,1.75rem);max-width:100%}
+  .auth-hero__desc{font-size:0.875rem;margin-bottom:20px;max-width:100%}
+  .auth-hero__stats{gap:24px}
+  .auth-form-panel{flex:none;padding:40px 24px;order:1}
+  .auth-form-header__logo{display:block;margin-bottom:24px}
+  .auth-form-header__logo img{height:90px;width:auto;object-fit:contain;filter:brightness(0) saturate(100%) invert(72%) sepia(32%) saturate(477%) hue-rotate(353deg) brightness(98%)}
+  .auth-hero__logo{display:none}
+  .auth-hero__card{display:flex;gap:8px;margin-top:24px}
+  .auth-hero__card-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.25);transition:background 0.3s}
+  .auth-hero__card-dot:nth-child(1){background:var(--secondary)}
+  @keyframes dotSlide{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+  .auth-hero__card-dot:first-child{animation:dotSlide 2s ease-in-out infinite}
 }
-
-/* 768 — Tablet portrait */
 @media(max-width:768px){
-  .auth-wrapper{flex-direction:column;overflow-y:auto}
-  .auth-left{flex:none;height:280px;position:relative}
-  .auth-left-content{padding:32px 28px 24px;justify-content:center;align-items:center;text-align:center}
-  .brand-block{display:flex;flex-direction:column;align-items:center}
-  .brand-desc{max-width:480px}
-  .stat-cards{justify-content:center}
-  .stat-card{flex:none;min-width:120px}
-
-  .auth-right{flex:none;min-height:100vh;padding:0;align-items:flex-start}
-  .auth-right::before{content:'';position:fixed;inset:0;background:url('../images/properties/featured-estate-01.webp') center/cover no-repeat;filter:blur(24px) brightness(.3);z-index:0}
-  .auth-card{max-width:100%;border-radius:28px 28px 0 0;margin-top:-40px;padding:36px 28px 28px;background:rgba(8,17,32,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:none;box-shadow:0 -8px 48px rgba(0,0,0,.4);z-index:1;position:relative}
-  .auth-title{font-size:24px}
-  .auth-subtitle{font-size:14px}
-  .brand-logo{height:74px}
-  .card-logo{height:74px}
-  .floating-input{height:50px;padding:18px 44px 6px 42px;font-size:14px}
-  .floating-label{left:42px;font-size:14px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:10px;top:8px}
-  .btn-submit{height:46px;font-size:15px}
-  .btn-guest{height:42px}
-  .particle-canvas{display:none}
+  .auth-form-panel{padding:32px 20px}
+  .auth-hero{min-height:280px}
+  .auth-hero__content{padding:28px 24px}
+  .auth-hero__stats{gap:16px}
 }
-
-/* 576 & below — Mobile */
 @media(max-width:576px){
-  .auth-left{height:220px}
-  .auth-left-content{padding:24px 20px 20px}
-  .brand-logo{height:68px;margin-bottom:12px}
-  .brand-tagline{font-size:20px;margin-bottom:6px}
-  .brand-desc{font-size:13px;margin-bottom:16px;max-width:100%}
-  .stat-card{padding:10px 14px;min-width:90px}
-  .stat-num{font-size:18px}
-  .stat-label{font-size:10px}
-  .auth-card{padding:28px 20px 24px;border-radius:24px 24px 0 0;margin-top:-28px}
-  .auth-card-header{margin-bottom:20px}
-  .card-logo{height:68px}
-  .auth-title{font-size:22px}
-  .auth-subtitle{font-size:13px}
-  .floating-group{margin-bottom:4px}
-  .floating-input{height:46px;padding:16px 40px 6px 38px;font-size:14px}
-  .floating-label{left:38px;font-size:13px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:9px;top:7px}
-  .input-icon{left:12px}
-  .input-icon svg{width:15px;height:15px}
-  .password-toggle{right:10px}
-  .password-toggle svg{width:16px;height:16px}
-  .form-row{margin:6px 0 16px}
-  .btn-submit{height:44px;font-size:14px;border-radius:12px}
-  .btn-guest{height:40px;font-size:13px;border-radius:12px}
-  .form-divider{margin:14px 0}
-  .auth-footer{margin-top:16px;padding-top:14px}
+  .auth-form-panel{padding:28px 16px}
+  .auth-hero{min-height:240px}
+  .auth-hero__content{padding:24px 20px}
+  .auth-hero__stats{gap:12px}
+  .auth-hero__stat-value{font-size:1.125rem}
+  .auth-hero__stat-label{font-size:0.5625rem}
+  .auth-form__options{flex-direction:column;align-items:flex-start;gap:8px}
+  .auth-form__role-options{gap:8px}
+  .auth-form__role-btn{padding:8px 18px;min-width:80px;font-size:0.8125rem}
 }
-
-/* 480 & below */
-@media(max-width:480px){
-  .brand-logo{height:64px}
-  .card-logo{height:64px}
-}
-
-/* 430 & below */
-@media(max-width:430px){
-  .brand-logo{height:60px}
-  .card-logo{height:60px}
-}
-
-/* 414 & below */
-@media(max-width:414px){
-  .brand-logo{height:58px}
-  .card-logo{height:58px}
-}
-
-/* 390 & below */
-@media(max-width:390px){
-  .brand-logo{height:56px}
-  .card-logo{height:56px}
-}
-
-/* 375 & below */
 @media(max-width:375px){
-  .auth-left{height:160px}
-  .auth-left-content{padding:20px 16px 16px}
-  .stat-card{min-width:75px;padding:6px 10px}
-  .stat-num{font-size:15px}
-  .stat-label{font-size:9px}
-  .auth-card{border-radius:20px 20px 0 0;padding:20px 14px 16px;margin-top:-18px}
-  .auth-card-header{margin-bottom:16px}
-  .auth-title{font-size:18px}
-  .card-logo{height:52px}
-  .brand-logo{height:52px}
-  .floating-input{height:44px;padding:14px 36px 6px 34px;font-size:13px}
-  .floating-label{left:34px;font-size:12px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:8px;top:6px}
-  .checkbox-text{font-size:12px}
-  .forgot-link{font-size:12px}
-  .footer-text{font-size:12px}
-  .go-home{font-size:11px;margin-bottom:10px}
-  .go-home svg{width:13px;height:13px}
-  .form-row{margin:4px 0 14px}
-  .btn-submit{height:42px;font-size:13px;border-radius:10px}
-  .btn-guest{height:38px;font-size:12px;border-radius:10px}
-  .form-divider{margin:12px 0;gap:12px}
-  .auth-footer{margin-top:14px;padding-top:12px}
+  .auth-form-panel{padding:24px 12px}
+  .auth-hero{min-height:200px}
+  .auth-hero__content{padding:20px 16px}
+  .auth-form__input{height:48px;font-size:0.875rem}
+  .auth-form__btn{height:48px;font-size:0.875rem}
 }
-
-/* 360 */
-@media(max-width:360px){
-  .brand-logo{height:50px}
-  .card-logo{height:50px}
-}
-
-/* 320 */
-@media(max-width:320px){
-  .auth-left{height:120px}
-  .auth-left-content{padding:14px 12px 12px}
-  .brand-logo{height:44px;margin-bottom:8px}
-  .brand-tagline{font-size:14px;margin-bottom:4px}
-  .brand-desc{font-size:11px;margin-bottom:10px}
-  .stat-card{min-width:60px;padding:4px 8px;border-radius:10px}
-  .stat-num{font-size:13px}
-  .stat-label{font-size:8px}
-  .stat-cards{gap:6px}
-  .auth-card{padding:14px 10px 12px;border-radius:16px 16px 0 0;margin-top:-14px}
-  .auth-card-header{margin-bottom:12px}
-  .card-logo{height:44px;margin-bottom:8px}
-  .auth-title{font-size:16px;margin-bottom:4px}
-  .auth-subtitle{font-size:11px}
-  .go-home{font-size:10px;gap:4px;margin-bottom:8px}
-  .go-home svg{width:11px;height:11px}
-  .floating-group{margin-bottom:2px}
-  .floating-input{height:40px;padding:12px 34px 6px 32px;font-size:12px;border-radius:10px}
-  .floating-label{left:32px;font-size:11px}
-  .floating-input:focus~.floating-label,.floating-input:not(:placeholder-shown)~.floating-label{font-size:7px;top:5px}
-  .input-icon{left:10px;width:16px;height:16px}
-  .input-icon svg{width:13px;height:13px}
-  .password-toggle{right:8px;width:26px;height:26px}
-  .password-toggle svg{width:15px;height:15px}
-  .select-arrow{right:10px}
-  .floating-select{height:40px}
-  .checkbox-mark{width:16px;height:16px;border-radius:4px}
-  .checkbox-text{font-size:11px}
-  .forgot-link{font-size:11px}
-  .form-row{gap:8px;margin:2px 0 12px}
-  .btn-submit{height:38px;font-size:12px;border-radius:10px;margin-top:2px}
-  .btn-guest{height:34px;font-size:11px;border-radius:10px}
-  .form-divider{margin:10px 0;gap:8px}
-  .divider-text{font-size:11px}
-  .auth-footer{margin-top:10px;padding-top:10px}
-  .footer-text{font-size:11px}
-}
-
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -41,7 +41,7 @@
 
         <div class="mobile-menu">
           <div class="mobile-menu__header">
-            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="mobile-menu__logo">
+            <img src="assets/images/logo/logo-stackly.webp" alt="Stackly Estates" class="logo__img mobile-menu__logo">
             <button class="mobile-menu__close" id="mobile-close" aria-label="Close menu">
               <i data-lucide="x" aria-hidden="true"></i>
             </button>
@@ -94,10 +94,10 @@
           <div class="mobile-social">
             <span class="mobile-social__label">Follow Us</span>
             <div class="mobile-social__icons">
-              <a href="404.html" aria-label="Instagram"><i data-lucide="instagram" aria-hidden="true"></i></a>
-              <a href="404.html" aria-label="Facebook"><i data-lucide="facebook" aria-hidden="true"></i></a>
-              <a href="404.html" aria-label="LinkedIn"><i data-lucide="linkedin" aria-hidden="true"></i></a>
-              <a href="404.html" aria-label="X"><i data-lucide="twitter" aria-hidden="true"></i></a>
+              <a href="404.html" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+              <a href="404.html" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+              <a href="404.html" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+              <a href="404.html" aria-label="X"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg></a>
             </div>
           </div>
 
@@ -124,73 +124,52 @@
   </header>
 
   <main id="main-content">
-    <!-- Contact Hero (Split-Screen) -->
-    <section class="contact-hero" aria-label="Contact Stackly Estates">
-      <div class="contact-hero__bg" aria-hidden="true">
-        <div class="contact-hero__gradient"></div>
-        <div class="contact-hero__glow"></div>
-        <div class="contact-hero__glow contact-hero__glow--2"></div>
-        <div class="contact-hero__pattern"></div>
-        <div class="contact-hero__circle contact-hero__circle--1"></div>
-        <div class="contact-hero__circle contact-hero__circle--2"></div>
+    <!-- Contact Hero -->
+    <section class="page-hero" aria-label="Contact Stackly Estates">
+      <div class="page-hero__media" aria-hidden="true">
+        <img src="assets/images/contact/contact-hero.webp" alt="" width="1920" height="1280" loading="eager" decoding="async">
       </div>
-      <div class="container contact-hero__container">
-        <div class="contact-hero__left">
-          <span class="contact-hero__label">CONTACT STACKLY ESTATES</span>
-          <h1 class="contact-hero__title">Let's Find Your <span class="contact-hero__highlight">Perfect Property</span> Together</h1>
-          <p class="contact-hero__text">Whether you're looking to buy a coastal villa, sell a city penthouse, or invest in emerging luxury markets â€” our global team of advisors is ready to guide you with discretion, insight, and white-glove service.</p>
-          <div class="contact-hero__actions">
-            <a href="404.html" class="btn btn--primary btn--icon" id="contact-hero-primary"><span>Schedule a Consultation</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
-            <a href="404.html" class="btn btn--outline btn--light">Browse Properties</a>
+      <div class="page-hero__overlay" aria-hidden="true"></div>
+      <div class="page-hero__glow" aria-hidden="true"></div>
+      <div class="container page-hero__content">
+        <nav class="breadcrumbs reveal" data-reveal="fade-down" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page">Contact</li>
+          </ol>
+        </nav>
+        <span class="page-hero__badge reveal" data-reveal="fade-up">
+          <span class="page-hero__badge-dot" aria-hidden="true"></span>
+          Get in Touch
+        </span>
+        <h1 class="page-hero__title reveal" data-reveal="fade-up" data-delay="100">Let's Find Your Perfect Property Together</h1>
+        <p class="page-hero__subtitle reveal" data-reveal="fade-up" data-delay="200">Whether you're buying, selling, or investing, our luxury real estate specialists are ready to help you make the right move.</p>
+        <div class="page-hero__actions reveal" data-reveal="fade-up" data-delay="300">
+          <a href="404.html" class="btn btn--primary btn--icon"><span>Schedule Consultation</span><i data-lucide="arrow-right" aria-hidden="true"></i></a>
+          <a href="properties.html" class="btn btn--outline btn--light">View Properties</a>
+        </div>
+        <div class="page-hero__stats reveal" data-reveal="fade-up" data-delay="400">
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number">24</span>
+            <span class="page-hero__stat-suffix">/7</span>
+            <p class="page-hero__stat-label">Client Support</p>
           </div>
-          <div class="contact-hero__cards">
-            <div class="contact-hero__card">
-              <i data-lucide="phone" aria-hidden="true"></i>
-              <div>
-                <span class="contact-hero__card-label">Call Us</span>
-                <span class="contact-hero__card-value">+91 XXXXX XXXXX</span>
-              </div>
-            </div>
-            <div class="contact-hero__card">
-              <i data-lucide="mail" aria-hidden="true"></i>
-              <div>
-                <span class="contact-hero__card-label">Email Us</span>
-                <span class="contact-hero__card-value">info@stackly.ai</span>
-              </div>
-            </div>
-            <div class="contact-hero__card">
-              <i data-lucide="map-pin" aria-hidden="true"></i>
-              <div>
-                <span class="contact-hero__card-label">Visit Us</span>
-                <span class="contact-hero__card-value">Salem, Tamil Nadu</span>
-              </div>
-            </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number" data-counter="500">0</span>
+            <span class="page-hero__stat-suffix">+</span>
+            <p class="page-hero__stat-label">Happy Clients</p>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number">15</span>
+            <span class="page-hero__stat-suffix">min</span>
+            <p class="page-hero__stat-label">Avg. Response Time</p>
+          </div>
+          <div class="page-hero__stat">
+            <span class="page-hero__stat-number" data-counter="40">0</span>
+            <span class="page-hero__stat-suffix">+</span>
+            <p class="page-hero__stat-label">Global Markets</p>
           </div>
         </div>
-        <div class="contact-hero__right">
-          <div class="contact-hero__image">
-            <img src="assets/images/contact/contact-hero.webp" alt="Luxury real estate consultation" width="900" height="1200" loading="eager" decoding="async">
-          </div>
-          <div class="contact-hero__floating-card" aria-hidden="true">
-            <div class="contact-hero__floating-stars" aria-label="5 stars">â˜…â˜…â˜…â˜…â˜…</div>
-            <div class="contact-hero__floating-row">
-              <span class="contact-hero__floating-value">4.9</span>
-              <span class="contact-hero__floating-label">Client Rating</span>
-            </div>
-            <div class="contact-hero__floating-row">
-              <i data-lucide="headset" aria-hidden="true"></i>
-              <span class="contact-hero__floating-label">24/7 Expert Support</span>
-            </div>
-            <div class="contact-hero__floating-row">
-              <i data-lucide="users" aria-hidden="true"></i>
-              <span class="contact-hero__floating-label">1200+ Happy Clients</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <i data-lucide="chevron-down" aria-hidden="true"></i>
       </div>
     </section>
 
@@ -199,7 +178,7 @@
       <div class="container">
         <div class="section-header section-header--center reveal" data-reveal="fade-up">
           <span class="section-tag">Contact</span>
-          <h2 class="section-title" id="contact-info-title">Weâ€™re Here to Help</h2>
+          <h2 class="section-title" id="contact-info-title">We’re Here to Help</h2>
           <p class="section-subtitle">Reach out by phone, email, or visit one of our offices.</p>
         </div>
 
@@ -231,7 +210,7 @@
           <article class="contact-card reveal" data-reveal="fade-up" data-delay="300">
             <div class="contact-card__icon" aria-hidden="true"><i data-lucide="clock"></i></div>
             <h3 class="contact-card__title">Working Hours</h3>
-            <p class="contact-card__text">Monday â€“ Friday: 9am â€“ 7pm<br>Saturday: 10am â€“ 5pm<br>Sunday: By appointment</p>
+            <p class="contact-card__text">Monday – Friday: 9am – 7pm<br>Saturday: 10am – 5pm<br>Sunday: By appointment</p>
           </article>
         </div>
       </div>
@@ -242,28 +221,31 @@
       <div class="container contact-main__grid">
         <div class="contact-form-wrapper reveal" data-reveal="fade-right">
           <span class="section-tag">Send a Message</span>
-          <h2 class="section-title">Letâ€™s Start a Conversation</h2>
+          <h2 class="section-title">Let’s Start a Conversation</h2>
           <p class="contact-intro">Whether you are ready to buy, sell, or simply explore the market, our team will respond within 24 hours.</p>
 
-          <form class="contact-form" id="contact-form" novalidate onsubmit="location.href='404.html';return false">
+          <form class="contact-form" id="contact-form" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-name" class="form-label">Full Name</label>
-                <input type="text" id="contact-name" name="name" class="form-input" placeholder="John Doe" required>
+                <input type="text" id="contact-name" name="name" class="form-input" placeholder="John Doe" required minlength="3" maxlength="50" aria-invalid="false" aria-describedby="name-error">
+                <span class="field-error" id="name-error" role="alert"></span>
               </div>
               <div class="form-group">
                 <label for="contact-email" class="form-label">Email Address</label>
-                <input type="email" id="contact-email" name="email" class="form-input" placeholder="john@example.com" required>
+                <input type="email" id="contact-email" name="email" class="form-input" placeholder="john@example.com" required aria-invalid="false" aria-describedby="email-error">
+                <span class="field-error" id="email-error" role="alert"></span>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="contact-phone" class="form-label">Phone Number</label>
-                <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
+                <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" maxlength="10" inputmode="numeric" aria-invalid="false" aria-describedby="phone-error">
+                <span class="field-error" id="phone-error" role="alert"></span>
               </div>
               <div class="form-group">
                 <label for="contact-subject" class="form-label">Subject</label>
-                <select id="contact-subject" name="subject" class="form-select" required>
+                <select id="contact-subject" name="subject" class="form-select" required aria-invalid="false" aria-describedby="subject-error">
                   <option value="">Select a subject</option>
                   <option value="buying">Buying a Property</option>
                   <option value="selling">Selling a Property</option>
@@ -271,19 +253,80 @@
                   <option value="investment">Investment Inquiry</option>
                   <option value="other">Other</option>
                 </select>
+                <span class="field-error" id="subject-error" role="alert"></span>
               </div>
             </div>
             <div class="form-group">
               <label for="contact-message" class="form-label">Message</label>
-              <textarea id="contact-message" name="message" class="form-textarea" rows="6" placeholder="How can we help you?" required></textarea>
+              <textarea id="contact-message" name="message" class="form-textarea" rows="6" placeholder="How can we help you?" required minlength="10" maxlength="500" aria-invalid="false" aria-describedby="message-error"></textarea>
+              <div class="message-footer">
+                <span class="field-error" id="message-error" role="alert"></span>
+                <span class="char-counter" id="char-counter">0 / 500</span>
+              </div>
             </div>
-            <button type="submit" class="btn btn--primary">Send Message</button>
+            <button type="submit" class="btn btn--primary" id="form-submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-spinner" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10" stroke-dasharray="31.4 31.4" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
             <p class="form-message" id="contact-form-message" role="status" aria-live="polite"></p>
           </form>
         </div>
 
-        <div class="contact-map reveal" data-reveal="fade-left" data-delay="100">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.407270809484!2d78.1332707!3d11.6633286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1f8e1c1c1c1%3A0x123456789abcdef!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1" width="900" height="1100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Stackly AI & Robotics Office Location"></iframe>
+        <div class="contact-why-choose reveal" data-reveal="fade-left" data-delay="100">
+          <div class="contact-why-choose__image">
+            <img src="assets/images/contact/contact-why-choose.webp" alt="Luxury real estate consultant meeting" width="700" height="525" loading="lazy" decoding="async">
+          </div>
+          <div class="contact-why-choose__features">
+            <div class="contact-why-choose__feature">
+              <div class="contact-why-choose__feature-icon"><i data-lucide="users" aria-hidden="true"></i></div>
+              <div>
+                <h4>Trusted Real Estate Advisors</h4>
+                <p>Professional guidance throughout your buying and selling journey.</p>
+              </div>
+            </div>
+            <div class="contact-why-choose__feature">
+              <div class="contact-why-choose__feature-icon"><i data-lucide="headset" aria-hidden="true"></i></div>
+              <div>
+                <h4>24/7 Dedicated Support</h4>
+                <p>Our specialists are always available to assist you.</p>
+              </div>
+            </div>
+            <div class="contact-why-choose__feature">
+              <div class="contact-why-choose__feature-icon"><i data-lucide="shield-check" aria-hidden="true"></i></div>
+              <div>
+                <h4>Verified Luxury Properties</h4>
+                <p>Every property is carefully verified before listing.</p>
+              </div>
+            </div>
+            <div class="contact-why-choose__feature">
+              <div class="contact-why-choose__feature-icon"><i data-lucide="zap" aria-hidden="true"></i></div>
+              <div>
+                <h4>Fast Response Guarantee</h4>
+                <p>We respond to every enquiry within 24 hours.</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-why-choose__stats">
+            <div class="contact-why-choose__stat">
+              <span class="contact-why-choose__stat-value" data-counter="15">0</span>
+              <span class="contact-why-choose__stat-suffix">+</span>
+              <span class="contact-why-choose__stat-label">Years Experience</span>
+            </div>
+            <div class="contact-why-choose__stat">
+              <span class="contact-why-choose__stat-value" data-counter="1200">0</span>
+              <span class="contact-why-choose__stat-suffix">+</span>
+              <span class="contact-why-choose__stat-label">Luxury Properties</span>
+            </div>
+            <div class="contact-why-choose__stat">
+              <span class="contact-why-choose__stat-value">98</span>
+              <span class="contact-why-choose__stat-suffix">%</span>
+              <span class="contact-why-choose__stat-label">Client Satisfaction</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -328,7 +371,7 @@
                 <i data-lucide="clock" aria-hidden="true"></i>
                 <div>
                   <p class="find-us__detail-label">Working Hours</p>
-                  <p class="find-us__detail-text">Monday â€“ Friday<br>9:00 AM â€“ 6:00 PM</p>
+                  <p class="find-us__detail-text">Monday – Friday<br>9:00 AM – 6:00 PM</p>
                 </div>
               </div>
             </div>
@@ -353,7 +396,7 @@
           <details class="faq-item reveal" data-reveal="fade-up" data-delay="0">
             <summary class="faq-item__question">How do I schedule a private viewing?</summary>
             <div class="faq-item__answer">
-              <p>You can schedule a viewing by filling out the contact form, calling our office directly, or clicking the â€œBook Visitâ€ button on any property listing.</p>
+              <p>You can schedule a viewing by filling out the contact form, calling our office directly, or clicking the “Book Visit” button on any property listing.</p>
             </div>
           </details>
 

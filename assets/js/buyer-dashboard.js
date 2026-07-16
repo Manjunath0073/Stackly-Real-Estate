@@ -325,6 +325,154 @@
   // INIT
   // =============================================
 
+  /* ==================== Messages Module ==================== */
+  function initMessaging() {
+    var root = document.getElementById('messaging-root');
+    var convlist = document.getElementById('msg-convlist');
+    var chat = document.getElementById('msg-chat');
+    var convs = document.querySelectorAll('.msg-conv');
+    var backBtn = document.getElementById('msg-chat-back');
+    var detailsToggle = document.getElementById('msg-details-toggle');
+    var detailsClose = document.getElementById('msg-details-close');
+    var searchInput = document.querySelector('.msg-convlist__search-input');
+    var filterBtns = document.querySelectorAll('.msg-filter-btn');
+    var sendBtn = document.getElementById('msg-chat-send');
+    var chatInput = document.getElementById('msg-chat-input');
+    var typingIndicator = document.getElementById('msg-typing');
+
+    if (!root) return;
+
+    /* Switch conversation */
+    function openConversation(conv) {
+      convs.forEach(function(c) { c.classList.remove('active'); });
+      conv.classList.add('active');
+
+      var name = conv.querySelector('.msg-conv__name');
+      var avatar = conv.querySelector('.msg-conv__chat-avatar') || conv.querySelector('.msg-conv__avatar');
+      var initials = avatar ? avatar.textContent : '';
+      var bg = avatar ? avatar.style.background : '#C8A96B';
+      var color = avatar ? avatar.style.color : '#0F172A';
+
+      var chatAvatar = document.getElementById('msg-chat-avatar');
+      var chatName = document.getElementById('msg-chat-name');
+      var chatStatus = document.getElementById('msg-chat-status');
+
+      if (chatAvatar) { chatAvatar.textContent = initials; chatAvatar.style.background = bg; chatAvatar.style.color = color; }
+      if (chatName) chatName.textContent = name ? name.textContent : '';
+      if (chatStatus) chatStatus.textContent = 'Online';
+
+      /* On mobile: switch to chat view */
+      if (window.innerWidth <= 768) {
+        root.classList.add('is-chatting');
+      }
+    }
+
+    convs.forEach(function(conv) {
+      conv.addEventListener('click', function() { openConversation(this); });
+    });
+
+    /* Back button (mobile) */
+    if (backBtn) {
+      backBtn.addEventListener('click', function() {
+        root.classList.remove('is-chatting');
+      });
+    }
+
+    /* Details panel toggle */
+    if (detailsToggle) {
+      detailsToggle.addEventListener('click', function() {
+        root.classList.toggle('is-details-open');
+      });
+    }
+
+    if (detailsClose) {
+      detailsClose.addEventListener('click', function() {
+        root.classList.remove('is-details-open');
+      });
+    }
+
+    /* Search filter */
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        var q = this.value.toLowerCase().trim();
+        convs.forEach(function(conv) {
+          var name = conv.querySelector('.msg-conv__name');
+          var preview = conv.querySelector('.msg-conv__preview');
+          var text = ((name ? name.textContent : '') + ' ' + (preview ? preview.textContent : '')).toLowerCase();
+          conv.style.display = (text.indexOf(q) !== -1) ? '' : 'none';
+        });
+      });
+    }
+
+    /* Filter buttons (All, Buyers, Agents) */
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var filter = this.getAttribute('data-filter');
+        convs.forEach(function(conv) {
+          if (filter === 'all') { conv.style.display = ''; return; }
+          var type = conv.getAttribute('data-type');
+          conv.style.display = type === filter ? '' : 'none';
+        });
+      });
+    });
+
+    /* Send message */
+    function sendMessage() {
+      if (!chatInput || !chatInput.value.trim()) return;
+
+      var body = document.getElementById('msg-chat-body');
+      if (!body) return;
+
+      var div = document.createElement('div');
+      div.className = 'msg-bubble msg-bubble--buyer';
+      div.innerHTML = '<div class="msg-bubble__text">' + chatInput.value.trim() + '</div><div class="msg-bubble__time">Just now</div>';
+      body.appendChild(div);
+      chatInput.value = '';
+      body.scrollTop = body.scrollHeight;
+
+      /* Simulate typing indicator for agent response */
+      if (typingIndicator) typingIndicator.classList.add('is-visible');
+      setTimeout(function() {
+        if (typingIndicator) typingIndicator.classList.remove('is-visible');
+
+        var reply = document.createElement('div');
+        reply.className = 'msg-bubble msg-bubble--agent';
+        var responses = [
+          'Thank you for your message. I\'ll look into this right away and get back to you shortly.',
+          'Great! I\'ve noted your request. Let me check the details and confirm.',
+          'Thanks for reaching out. I\'ll update you as soon as I have more information.',
+          'I appreciate your patience. I\'m reviewing the options and will send you the best matches.'
+        ];
+        reply.innerHTML = '<div class="msg-bubble__text">' + responses[Math.floor(Math.random() * responses.length)] + '</div><div class="msg-bubble__time">Just now</div>';
+        body.appendChild(reply);
+        body.scrollTop = body.scrollHeight;
+      }, 1500 + Math.random() * 1000);
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', sendMessage);
+    }
+
+    if (chatInput) {
+      chatInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
+
+    /* Responsive resize handling */
+    function handleResize() {
+      if (window.innerWidth > 768) {
+        root.classList.remove('is-chatting');
+      }
+    }
+    window.addEventListener('resize', handleResize);
+  }
+
   function init() {
     setGreeting();
     initSlider();
@@ -332,6 +480,7 @@
     initCharts();
     initSettingsDarkMode();
     initSettingsData();
+    initMessaging();
 
     // Mark initial page as rendered
     var activePage = document.querySelector('.page-section.active');
