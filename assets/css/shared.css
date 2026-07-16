@@ -1272,14 +1272,18 @@ p:last-child {
 .footer-newsletter .footer-nav__title {
   text-align: center;
   width: 100%;
+  color: var(--secondary);
+  font-size: 1.0625rem;
+  letter-spacing: 0.06em;
 }
 
 .footer-newsletter__text {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.65);
   margin: 0 auto 20px;
   width: 100%;
+  max-width: 300px;
   text-align: center;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -1294,7 +1298,7 @@ p:last-child {
 
 .newsletter-form__wrap {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   width: 100%;
   margin: 0 auto;
   justify-content: center;
@@ -1304,26 +1308,27 @@ p:last-child {
 .newsletter-form__input {
   flex: 1;
   min-width: 0;
-  padding: 14px 18px;
+  padding: 13px 20px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
   color: #fff;
   outline: none;
-  transition: border-color var(--transition-base), background var(--transition-base);
+  transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-  font-size: 0.9375rem;
-  height: 54px;
+  font-size: 0.875rem;
+  height: 50px;
 }
 
 .newsletter-form__input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.4);
   text-align: center;
 }
 
 .newsletter-form__input:focus {
   border-color: var(--secondary);
   background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 3px rgba(200, 169, 107, 0.12);
 }
 
 .newsletter-form__input.is-error {
@@ -1331,15 +1336,21 @@ p:last-child {
 }
 
 .newsletter-form__btn {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
   padding: 0;
   flex-shrink: 0;
   position: relative;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  border-radius: 50%;
+  background: var(--secondary);
+  color: var(--primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
+  cursor: pointer;
 }
 
 .newsletter-form__btn svg {
@@ -1347,9 +1358,11 @@ p:last-child {
   height: 22px;
 }
 
+.newsletter-form__btn-label { display: none; }
+
 .newsletter-form__btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(200, 169, 107, 0.45);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 28px rgba(200, 169, 107, 0.5);
 }
 
 .newsletter-form__btn.is-loading {
@@ -1383,13 +1396,14 @@ p:last-child {
 
 .newsletter-form__message {
   margin: 12px auto 0;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   min-height: 1.25em;
   opacity: 0;
   transform: translateY(-4px);
   transition: opacity 0.35s ease, transform 0.35s ease;
   text-align: center;
   width: 100%;
+  letter-spacing: 0.02em;
 }
 
 .newsletter-form__message.is-visible {
@@ -2510,6 +2524,19 @@ p:last-child {
   }
 }
 
+/* Tablet: 54px newsletter button */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .newsletter-form__btn {
+    width: 54px;
+    min-width: 54px;
+    height: 54px;
+  }
+  .newsletter-form__btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
 @media (max-width: 576px) {
   .btn {
     padding: 12px 22px;
@@ -2534,10 +2561,26 @@ p:last-child {
 
   .newsletter-form__wrap {
     flex-direction: column;
+    gap: 12px;
   }
 
   .newsletter-form__btn {
     width: 100%;
+    height: 52px;
+    border-radius: 14px;
+    padding: 0 24px;
+    gap: 10px;
+  }
+
+  .newsletter-form__btn-label {
+    display: inline;
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .newsletter-form__btn svg {
+    order: 1;
   }
 }
 
@@ -2712,7 +2755,6 @@ p:last-child {
 @media (max-width: 430px) {
   .footer-grid { gap: 32px; }
   .newsletter-form__input { padding: 12px 14px; font-size: 0.875rem; }
-  .newsletter-form__btn { width: 44px; height: 44px; }
   .footer-bottom { gap: 12px; }
   .footer-bottom__links { gap: 16px; }
   .footer-brand__text { margin-top: 8px; }
@@ -2739,7 +2781,6 @@ p:last-child {
   .footer-grid { gap: 24px; padding-bottom: 32px; }
   .footer-nav__title { font-size: 0.875rem; }
   .newsletter-form__input { padding: 10px 12px; font-size: 0.8125rem; }
-  .newsletter-form__btn { width: 40px; height: 40px; }
   .footer-copyright { font-size: 0.8125rem; }
   .footer-bottom__links a { font-size: 0.8125rem; }
   .footer-brand__text { margin-top: 6px; }
@@ -2759,8 +2800,6 @@ p:last-child {
   .footer-brand { margin-top: -16px; }
   .footer-grid { gap: 20px; padding-bottom: 28px; }
   .newsletter-form__input { padding: 9px 10px; font-size: 0.75rem; }
-  .newsletter-form__btn { width: 36px; height: 36px; }
-  .newsletter-form__btn svg { width: 18px; height: 18px; }
   .footer-bottom__links { gap: 12px; }
 }
 

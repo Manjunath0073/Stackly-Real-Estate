@@ -317,6 +317,41 @@
   }
 
   /* -------------------- Initialize -------------------- */
+  /* Mobile Navigation Search */
+  function initMobileSearch() {
+    var input = document.querySelector('.mobile-search__input');
+    if (!input) return;
+
+    var errorEl = document.createElement('span');
+    errorEl.className = 'mobile-search__error';
+    errorEl.style.cssText = 'display:block;font-size:0.75rem;color:#ef4444;margin-top:6px;opacity:0;transition:opacity 0.25s ease';
+    input.parentNode.appendChild(errorEl);
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.style.opacity = '1';
+    }
+
+    function hideError() {
+      errorEl.style.opacity = '0';
+      setTimeout(function () { if (errorEl) errorEl.textContent = ''; }, 250);
+    }
+
+    input.addEventListener('input', hideError);
+
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        var val = this.value.trim();
+        if (val) {
+          window.location.href = '404.html';
+        } else {
+          showError('Please enter a search keyword.');
+        }
+      }
+    });
+  }
+
   function init() {
     initLucideIcons();
     initStickyHeader();
@@ -328,6 +363,7 @@
     initScrollReveal();
     initFavoriteButtons();
     initNewsletterForm();
+    initMobileSearch();
   }
 
   if (document.readyState === 'loading') {
