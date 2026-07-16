@@ -1364,9 +1364,16 @@ p:last-child {
   cursor: pointer;
 }
 
-.newsletter-form__btn svg {
-  width: 22px;
-  height: 22px;
+.newsletter-form__btn-text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.newsletter-form__btn-text svg {
+  width: 24px;
+  height: 24px;
 }
 
 .newsletter-form__btn-label { display: none; }
@@ -2535,16 +2542,21 @@ p:last-child {
   }
 }
 
+/* Small devices: 52px newsletter button */
+@media (min-width: 577px) and (max-width: 767px) {
+  .newsletter-form__btn {
+    width: 52px;
+    min-width: 52px;
+    height: 52px;
+  }
+}
+
 /* Tablet: 54px newsletter button */
 @media (min-width: 768px) and (max-width: 1023px) {
   .newsletter-form__btn {
     width: 54px;
     min-width: 54px;
     height: 54px;
-  }
-  .newsletter-form__btn svg {
-    width: 20px;
-    height: 20px;
   }
 }
 
@@ -2579,7 +2591,7 @@ p:last-child {
     width: 100%;
     height: 52px;
     border-radius: 14px;
-    padding: 0 24px;
+    padding: 0 12px;
     gap: 10px;
   }
 
@@ -2590,8 +2602,9 @@ p:last-child {
     font-weight: 600;
   }
 
-  .newsletter-form__btn svg {
-    order: 1;
+  .newsletter-form__btn-text svg {
+    width: 30px !important;
+    height: 30px !important;
   }
 }
 
