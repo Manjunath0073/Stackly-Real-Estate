@@ -414,19 +414,25 @@
   /* -------------------- Initialize -------------------- */
   function init() {
     initPageLoader();
-    initScrollProgress();
-    initScrollReveal();
-    initHeroParallax();
-    initCounters();
-    initRippleEffect();
-    initMagneticHover();
-    initMouseGlow();
     initNavbarBehavior();
-    initTestimonialSlider();
-    initSearchValidation();
-    initBackToTop();
-    initLazyLoading();
-    initImageFallbacks();
+
+    requestAnimationFrame(function () {
+      initScrollProgress();
+      initScrollReveal();
+      initCounters();
+      initTestimonialSlider();
+      initSearchValidation();
+      initBackToTop();
+      initLazyLoading();
+      initImageFallbacks();
+    });
+
+    requestAnimationFrame(function () {
+      initHeroParallax();
+      initRippleEffect();
+      initMagneticHover();
+      initMouseGlow();
+    });
   }
 
   if (document.readyState === 'loading') {
